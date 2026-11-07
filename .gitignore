@@ -1,0 +1,15 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Fetched/generated data (large; regenerate with the scripts)
+data/raw/**
+data/batches/**
+!data/raw/.gitkeep
+!data/batches/.gitkeep

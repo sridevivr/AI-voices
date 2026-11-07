@@ -1,0 +1,6 @@
+anthropic>=0.70
+python-dotenv>=1.0
+requests>=2.32
+feedparser>=6.0
+beautifulsoup4>=4.12
+python-dateutil>=2.9
