@@ -12,6 +12,7 @@ from .http_client import PoliteSession
 _AI = re.compile("|".join(HN_AI_TERMS), re.I)
 _NEED = re.compile("|".join(HN_NEED_TERMS), re.I)
 _STRONG = re.compile("|".join(HN_STRONG_TITLE_TERMS), re.I)
+_ASK = re.compile(r"\s*(ask|tell) hn", re.I)
 
 
 def list_ask_hn(session: PoliteSession, since: datetime, until: datetime | None = None,
@@ -51,10 +52,11 @@ def list_ask_hn(session: PoliteSession, since: datetime, until: datetime | None 
 
 def is_relevant(story: dict) -> bool:
     title, body = story["title"], story.get("text", "")
+    if not _ASK.match(title):
+        return False
     if _STRONG.search(title):
         return True
-    blob = f"{title}\n{body}"
-    return bool(_AI.search(blob) and _NEED.search(blob))
+    return bool(_AI.search(title) and (_NEED.search(f"{title}\n{body}") or title.rstrip().endswith("?")))
 
 
 def fetch_thread(session: PoliteSession, story_id: str) -> dict:

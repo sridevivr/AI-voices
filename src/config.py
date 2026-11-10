@@ -46,14 +46,12 @@ SOURCES: list[dict] = [
     {"id": "latentspace", "name": "Latent Space", "author": "swyx & Alessio Fanelli",
      "site": "https://latent.space", "feed": "https://latent.space/feed",
      "platform": "substack", "voice": "builders"},
+    # Chip Huyen dropped: no posts since Jan 2025.
     {"id": "hamel", "name": "Hamel Husain", "author": "Hamel Husain",
      "site": "https://hamel.dev", "feed": "https://hamel.dev/index.xml",
      "platform": "feed", "voice": "builders"},
     {"id": "eugeneyan", "name": "Eugene Yan", "author": "Eugene Yan",
      "site": "https://eugeneyan.com", "feed": "https://eugeneyan.com/rss/",
-     "platform": "feed", "voice": "builders"},
-    {"id": "huyenchip", "name": "Chip Huyen", "author": "Chip Huyen",
-     "site": "https://huyenchip.com", "feed": "https://huyenchip.com/feed.xml",
      "platform": "feed", "voice": "builders"},
     {"id": "interconnects", "name": "Interconnects", "author": "Nathan Lambert",
      "site": "https://www.interconnects.ai", "feed": "https://www.interconnects.ai/feed",
@@ -102,8 +100,9 @@ SOURCES_BY_ID = {s["id"]: s for s in SOURCES}
 HN_API = "https://hn.algolia.com/api/v1"
 HN_MIN_COMMENTS = 10  # skip Ask HN threads nobody engaged with
 
-# A thread is kept if its title/text matches an AI term AND a need/tool phrase,
-# OR its title alone matches a strong "tool I wish existed" phrase.
+# A thread is kept if it is an Ask/Tell HN post AND either its title matches a strong
+# "tool I wish existed" phrase, OR its title mentions AI and (title or text) asks for
+# tools/workflows or the title is a question.
 HN_AI_TERMS = [
     r"\bai\b", r"\bllms?\b", r"\bgpt", r"chatgpt", r"\bclaude\b", r"\bgemini\b",
     r"copilot", r"\bcursor\b", r"\bagents?\b", r"agentic", r"\brag\b", r"embedding",
