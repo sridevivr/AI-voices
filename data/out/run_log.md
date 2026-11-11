@@ -1,0 +1,23 @@
+# Synthesis run log
+
+- 2026-11-11 02:26 UTC: stage 1 `full` batch msgbatch_01DFXjf9ASMX2WUgvR1s1YJM: 65 requests on claude-sonnet-5-5
+- 2026-11-11 02:33 UTC: collected msgbatch_01DFXjf9ASMX2WUgvR1s1YJM: 1413 themes, 0 failed, $3.2464
+- 2026-11-11 02:36 UTC: stage2:agents-orchestration: done on claude-sonnet-5-5, $0.1850
+- 2026-11-11 02:36 UTC: stage2:business-markets: done on claude-sonnet-5-5, $0.1002
+- 2026-11-11 02:37 UTC: stage2:coding-agents: done on claude-sonnet-5-5, $0.1244
+- 2026-11-11 02:38 UTC: stage2:consumer-apps: done on claude-sonnet-5-5, $0.1273
+- 2026-11-11 02:38 UTC: stage2:creative-media: done on claude-sonnet-5-5, $0.0072
+- 2026-11-11 02:39 UTC: stage2:data-pipelines: done on claude-sonnet-5-5, $0.0822
+- 2026-11-11 02:40 UTC: stage2:devtools-ides: done on claude-sonnet-5-5, $0.1256
+- 2026-11-11 02:40 UTC: stage2:enterprise-adoption: done on claude-sonnet-5-5, $0.0788
+- 2026-11-11 02:41 UTC: stage2:evals-testing: done on claude-sonnet-5-5, $0.0847
+- 2026-11-11 02:41 UTC: stage2:hardware-compute: done on claude-sonnet-5-5, $0.0765
+- 2026-11-11 02:42 UTC: stage2:inference-infra: done on claude-sonnet-5-5, $0.1236
+- 2026-11-11 02:43 UTC: stage2:local-open-models: done on claude-sonnet-5-5, $0.1030
+- 2026-11-11 02:44 UTC: stage2:model-training-fine-tuning: done on claude-sonnet-5-5, $0.1123
+- 2026-11-11 02:44 UTC: stage2:observability-cost: done on claude-sonnet-5-5, $0.0696
+- 2026-11-11 02:45 UTC: stage2:productivity-knowledge-work: done on claude-sonnet-5-5, $0.1219
+- 2026-11-11 02:46 UTC: stage2:research-capabilities: done on claude-sonnet-5-5, $0.0760
+- 2026-11-11 02:46 UTC: stage2:safety-governance: done on claude-sonnet-5-5, $0.1223
+- 2026-11-11 02:48 UTC: stage3:opportunities: done on claude-sonnet-5-5, $0.2345
+- 2026-11-11 02:48 UTC: wrote opportunities.md (20 opportunities), themes.json (785 themes), findings.csv (themed 17,030/26,923); total spend $6.78

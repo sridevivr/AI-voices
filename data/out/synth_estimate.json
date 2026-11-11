@@ -1,0 +1,15 @@
+{
+ "findings": 26923,
+ "stage1_requests": 65,
+ "stage1_input_tokens": 1927310,
+ "stage2_merges": 17,
+ "stage1_batch_low": 3.87731,
+ "stage1_batch_high": 5.82731,
+ "stage2_low": 2.003,
+ "stage2_high": 3.528,
+ "stage3_low": 0.18,
+ "stage3_high": 0.36,
+ "total_low": 6.060309999999999,
+ "total_high": 9.715309999999999,
+ "spent_so_far": 1.5756000000000001
+}
