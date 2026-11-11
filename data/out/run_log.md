@@ -21,3 +21,37 @@
 - 2026-11-11 02:46 UTC: stage2:safety-governance: done on claude-sonnet-5-5, $0.1223
 - 2026-11-11 02:48 UTC: stage3:opportunities: done on claude-sonnet-5-5, $0.2345
 - 2026-11-11 02:48 UTC: wrote opportunities.md (20 opportunities), themes.json (785 themes), findings.csv (themed 17,030/26,923); total spend $6.78
+- 2026-11-11 03:00 UTC: stage1-redo:s1-coding-agents-1: done on claude-sonnet-5-5, $0.2346
+- 2026-11-11 03:00 UTC: redo s1-coding-agents-1: 53 themes covering 394/476 findings
+- 2026-11-11 03:01 UTC: stage1-redo:s1-coding-agents-3: done on claude-sonnet-5-5, $0.1404
+- 2026-11-11 03:01 UTC: redo s1-coding-agents-3: 29 themes covering 417/476 findings
+- 2026-11-11 03:03 UTC: stage1-redo:s1-coding-agents-6: done on claude-sonnet-5-5, $0.2403
+- 2026-11-11 03:03 UTC: redo s1-coding-agents-6: 52 themes covering 399/475 findings
+- 2026-11-11 03:03 UTC: stage1-redo:s1-creative-media-0: done on claude-sonnet-5-5, $0.1258
+- 2026-11-11 03:03 UTC: redo s1-creative-media-0: 37 themes covering 323/383 findings
+- 2026-11-11 03:04 UTC: stage1-redo:s1-creative-media-1: done on claude-sonnet-5-5, $0.1294
+- 2026-11-11 03:04 UTC: redo s1-creative-media-1: 37 themes covering 341/383 findings
+- 2026-11-11 03:05 UTC: stage1-redo:s1-devtools-ides-3: done on claude-sonnet-5-5, $0.1605
+- 2026-11-11 03:05 UTC: redo s1-devtools-ides-3: 45 themes covering 412/478 findings
+- 2026-11-11 03:07 UTC: stage1-redo:s1-evals-testing-2: done on claude-sonnet-5-5, $0.2194
+- 2026-11-11 03:07 UTC: redo s1-evals-testing-2: 46 themes covering 404/460 findings
+- 2026-11-11 03:09 UTC: stage1-redo:s1-evals-testing-4: done on claude-sonnet-5-5, $0.2312
+- 2026-11-11 03:09 UTC: redo s1-evals-testing-4: 50 themes covering 410/456 findings
+- 2026-11-11 03:11 UTC: stage1-redo:s1-inference-infra-2: done on claude-sonnet-5-5, $0.2117
+- 2026-11-11 03:11 UTC: redo s1-inference-infra-2: 47 themes covering 357/380 findings
+- 2026-11-11 03:11 UTC: stage1-redo:s1-observability-cost-1: done on claude-sonnet-5-5, $0.1066
+- 2026-11-11 03:11 UTC: redo s1-observability-cost-1: 22 themes covering 315/368 findings
+- 2026-11-11 03:13 UTC: stage1-redo:s1-productivity-knowledge-work-0: done on claude-sonnet-5-5, $0.1979
+- 2026-11-11 03:13 UTC: redo s1-productivity-knowledge-work-0: 56 themes covering 304/379 findings
+- 2026-11-11 03:14 UTC: stage1-redo:s1-research-capabilities-1: done on claude-sonnet-5-5, $0.1324
+- 2026-11-11 03:14 UTC: redo s1-research-capabilities-1: 33 themes covering 382/460 findings
+- 2026-11-11 03:18 UTC: stage2:coding-agents: done on claude-sonnet-5-5, $0.1872
+- 2026-11-11 03:19 UTC: stage2:creative-media: done on claude-sonnet-5-5, $0.1218
+- 2026-11-11 03:21 UTC: stage2:devtools-ides: done on claude-sonnet-5-5, $0.1683
+- 2026-11-11 03:21 UTC: stage2:evals-testing: done on claude-sonnet-5-5, $0.1262
+- 2026-11-11 03:22 UTC: stage2:inference-infra: done on claude-sonnet-5-5, $0.1707
+- 2026-11-11 03:23 UTC: stage2:observability-cost: done on claude-sonnet-5-5, $0.0880
+- 2026-11-11 03:24 UTC: stage2:productivity-knowledge-work: done on claude-sonnet-5-5, $0.1788
+- 2026-11-11 03:25 UTC: stage2:research-capabilities: done on claude-sonnet-5-5, $0.1200
+- 2026-11-11 03:27 UTC: stage3:opportunities: done on claude-sonnet-5-5, $0.2487
+- 2026-11-11 03:27 UTC: wrote opportunities.md (19 opportunities), themes.json (907 themes), findings.csv (themed 21,273/26,923); total spend $10.32
