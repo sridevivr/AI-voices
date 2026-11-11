@@ -350,14 +350,22 @@ def collect(retry: bool = True):
           + ("" if missing or thin else "; run `python -m src.synthesize finish`"))
 
 
-def redo(ids: list[str]):
-    """Re-run stage 1 for thin or missing chunks, synchronously at high effort."""
+def redo(ids: list[str], yes: bool = False):
+    """Re-run stage 1 for thin or missing chunks, synchronously at high effort.
+    Without --yes, only lists what would run and the estimated cost."""
     chunks = {ch["custom_id"]: ch for ch in make_chunks(load_findings())}
     stage1 = load_json(STAGE1, {})
     ids = ids or thin_chunks(stage1, list(chunks.values())) + [c for c in chunks if c not in stage1]
     if not ids:
         print("Nothing to redo.")
         return
+    est = 0.25 * len(ids)  # observed $0.11-0.24 per chunk at high effort
+    if not yes:
+        print(f"Would re-run {len(ids)} chunks (~${est:.2f}; spent so far ${spent():.2f}):\n  "
+              + "\n  ".join(ids) + "\nRe-run with --yes to go ahead.")
+        return
+    if spent() + est > BUDGET_TOTAL:
+        sys.exit(f"Would exceed ${BUDGET_TOTAL} budget (spent ${spent():.2f} + est ${est:.2f}).")
     cache = load_cache()
     for cid in ids:
         ch = chunks[cid]
@@ -664,7 +672,7 @@ def main():
     elif a.cmd == "collect":
         collect()
     elif a.cmd == "redo":
-        redo(a.ids)
+        redo(a.ids, a.yes)
     elif a.cmd == "finish":
         finish()
     elif a.cmd == "render":
