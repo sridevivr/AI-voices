@@ -22,7 +22,8 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
 - Skip paid-only Substack posts (only previews are public).
 - Simon Willison: long-form entries + commented links only (no quotes/notes).
 - Chip Huyen dropped (no posts in 12 months). Eugene Yan kept (5 posts).
-- Ask HN: tightened filter (`src/hn.py:is_relevant`) → ~126 threads, top 25 comments + 2 replies each.
+- Ask HN: tightened filter (`src/hn.py:is_relevant`): Ask/Tell HN with an AI term in the title → 342 threads
+  (mostly on-topic; some general AI-industry chatter). Top 25 comments + 2 replies each.
 - AINews moved from news.smol.ai to latent.space in Sep 2026; both are fetched (see `src/fetch.py`).
 
 ## Pipeline status / plan
