@@ -676,7 +676,7 @@ VIBE_SCHEMA = {
                 "demo_hook": {"type": "string"},
                 "post_angle": {"type": "string"},
                 "risks": {"type": "string"},
-                "effort": {"type": "string", "enum": ["1 weekend", "2 weekends", "3-4 weekends"]},
+                "effort": {"type": "string", "enum": ["1-2 weekends", "3-6 weeks", "2-3 months", "3+ months"]},
                 "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
                 "theme_ids": {"type": "array", "items": {"type": "string"}},
                 "evidence_ids": {"type": "array", "items": {"type": "integer"}},
@@ -697,9 +697,9 @@ The builder: an MBA who previously worked in tech in a non-engineering role (pro
 
 You get themes found in the commentary that concern everyday users, knowledge workers, students, creators and business teams, ranked by a demand score computed from the evidence (explicit requests, pain points, workarounds and complaints count most; more distinct sources and recent activity raise it). Each theme has an id, statistics, a description and numbered sample findings.
 
-Produce 15-20 app ideas, ranked best first. Every idea must pass ALL of these:
+Produce 15-20 app ideas, ranked best first, mixing quick wins with bigger, more ambitious products. Every idea must pass ALL of these:
 1. Users are non-developers: knowledge workers, managers, job seekers, students, creators, small-business owners, or consumers.
-2. A non-engineer can build a useful first version in 1-4 weekends with AI coding tools: a web app or browser extension, possibly calling an LLM API; no custom ML, no heavy infrastructure, no native mobile app, no enterprise integrations or security reviews, no regulated data (health, legal, financial advice) as the core.
+2. One person can build it with AI coding tools, even if it is ambitious: complex, multi-feature apps are welcome (web or mobile apps, browser extensions, AI agents, integrations with Gmail, Slack, Calendar, Notion and similar, real-time features, payments). Exclude only what truly needs a team or capital: training custom models, hardware, regulated certifications, or long enterprise sales cycles.
 3. Demo-able: the value is visible in a 30-60 second screen recording or a before/after screenshot.
 4. Share-worthy: the problem is relatable to a broad professional audience, so a post about it invites "I need this" replies.
 Favour ideas where the builder's program-management and business background is an advantage (workplace communication, meetings, planning, decision-making, careers, AI adoption at work). Avoid ideas the big chat apps (ChatGPT, Claude, Gemini) already do well out of the box, unless the idea packages them into a much better workflow.
@@ -707,8 +707,8 @@ Favour ideas where the builder's program-management and business background is a
 Fields:
 - evidence: why we believe people want this, citing the statistics given (do not invent numbers).
 - existing_alternatives: name the tools mentioned, and what they miss.
-- mvp: the smallest useful first version, scoped to a weekend or two.
-- build_notes: suggested simple stack (e.g. Next.js on Vercel + an LLM API + Supabase), what is hard, rough cost to run.
+- mvp: the first version worth demoing, then (briefly) what the fuller product adds.
+- build_notes: suggested stack (e.g. Next.js on Vercel + an LLM API + Supabase), the hardest parts for a vibe coder, rough cost to run.
 - demo_hook: exactly what the launch video or screenshot shows.
 - post_angle: the hook line and angle for a LinkedIn/X post about building it.
 - risks: e.g. chat apps adding it natively, hard to get users to return, API costs.
@@ -751,7 +751,7 @@ def vibe(render_only: bool = False, yes: bool = False):
         save_cache(cache)
 
     md = ["# Vibe-codeable app ideas from a year of AI commentary", "",
-          f"For a non-engineer building small apps with AI coding tools and sharing them on LinkedIn/X. "
+          f"For a non-engineer building apps (quick wins to ambitious products) with AI coding tools and sharing them on LinkedIn/X. "
           f"Drawn from {len(rows):,} findings in {len(themes):,} themes; only themes about everyday users, "
           f"knowledge workers, students, creators and business teams. Generated {now_utc():%Y-%m-%d}. "
           "Counts, quotes and links come straight from the findings; the write-ups are Sonnet's.", "",
@@ -768,7 +768,7 @@ def vibe(render_only: bool = False, yes: bool = False):
                + ", ".join(f"{k.replace('_', ' ')} {v}" for k, v in types.most_common()) + "*", "",
                f"- **Problem:** {o['problem']}", f"- **For:** {o['target_users']}",
                f"- **Evidence:** {o['evidence']}", f"- **Existing alternatives:** {o['existing_alternatives']}",
-               f"- **Weekend MVP:** {o['mvp']}", f"- **Build notes:** {o['build_notes']}",
+               f"- **MVP:** {o['mvp']}", f"- **Build notes:** {o['build_notes']}",
                f"- **Demo hook:** {o['demo_hook']}", f"- **Post angle:** {o['post_angle']}",
                f"- **Risks:** {o['risks']}",
                "- **Themes:** " + "; ".join(f"{t['id']} {t['title']}" for t in ts), "",
