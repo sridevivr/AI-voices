@@ -691,7 +691,7 @@ VIBE_SCHEMA = {
     "additionalProperties": False,
 }
 
-VIBE_INSTRUCTIONS = """You help a specific person pick small apps to build, based on a year of AI commentary (newsletters, blogs, news digests, Hacker News; Nov 2025 - Nov 2026).
+VIBE_INSTRUCTIONS = """You help a specific person pick apps to build, based on a year of AI commentary (newsletters, blogs, news digests, Hacker News; Nov 2025 - Nov 2026).
 
 The builder: an MBA who previously worked in tech in a non-engineering role (program manager at a large enterprise software company). Not a software engineer. They will "vibe code" each app with AI coding tools (e.g. Claude Code, Lovable, Bolt) and share the build and the result on LinkedIn and X to build an audience.
 

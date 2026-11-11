@@ -58,7 +58,7 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
 9. Owner's real goal (2026-11-11): NON-developer, vibe-codeable apps (built with AI coding tools
    by a non-engineer MBA/ex-PM) to post about on LinkedIn/X. The dev-tool report doesn't fit.
    `python -m src.synthesize vibe` (dry run) / `--yes` (~$0.37, one Sonnet call over the top 100
-   non-dev themes) / `--render` (free) → `data/out/vibe_ideas.md`.
+   non-dev themes; complex apps welcome, owner said so) / `--render` (free) → `data/out/vibe_ideas.md`.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
