@@ -1,6 +1,7 @@
 """Polite HTTP client: descriptive User-Agent, per-host rate limit, robots.txt, retries."""
 from __future__ import annotations
 
+import sys
 import time
 import urllib.robotparser
 from urllib.parse import urlparse
@@ -8,6 +9,8 @@ from urllib.parse import urlparse
 import requests
 
 from .config import PER_HOST_DELAY, REQUEST_TIMEOUT, USER_AGENT
+
+RATE_LIMIT_RETRIES = 6  # waits 30, 60, 120, 240, 300, 300 s (≈17 min) unless Retry-After says otherwise
 
 
 class RobotsDisallowed(Exception):
@@ -57,19 +60,30 @@ class PoliteSession:
         if check_robots and not self.allowed(url):
             raise RobotsDisallowed(url)
         delay = 5.0
-        for attempt in range(retries + 1):
+        rate_limited = 0
+        attempt = 0
+        while True:
             try:
                 r = self._raw_get(url, **kw)
             except requests.RequestException:
                 if attempt == retries:
                     raise
+                attempt += 1
                 time.sleep(delay)
                 delay *= 2
                 continue
-            if r.status_code in (429, 500, 502, 503, 504) and attempt < retries:
+            # 429: back off patiently (Substack rate-limits residential IPs for minutes).
+            if r.status_code == 429 and rate_limited < RATE_LIMIT_RETRIES:
+                rate_limited += 1
                 ra = r.headers.get("Retry-After")
-                time.sleep(float(ra) if ra and ra.isdigit() else delay)
+                wait = float(ra) if ra and ra.isdigit() else min(30.0 * 2 ** (rate_limited - 1), 300.0)
+                print(f"  … 429 from {urlparse(url).netloc}; waiting {wait:.0f}s "
+                      f"({rate_limited}/{RATE_LIMIT_RETRIES})", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            if r.status_code in (500, 502, 503, 504) and attempt < retries:
+                attempt += 1
+                time.sleep(delay)
                 delay *= 2
                 continue
             return r
-        return r  # pragma: no cover
