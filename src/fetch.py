@@ -68,7 +68,8 @@ class Writer:
         self._hashes: set[str] = set()
 
     def path(self, date: datetime, url: str):
-        tail = url.rstrip("/").split("/")[-1].split("?")[0] or url
+        m = re.search(r"[?&]id=(\d+)", url)  # HN: item?id=123 -> "hn-123"
+        tail = f"hn-{m.group(1)}" if m else (url.rstrip("/").split("/")[-1].split("?")[0] or url)
         return self.dir / f"{date:%Y-%m-%d}_{slugify(tail)}.json"
 
     def exists(self, date, url) -> bool:
