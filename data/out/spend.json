@@ -1,0 +1,42 @@
+[
+ {
+  "at": "2026-11-11T01:21:50.160196+00:00",
+  "step": "extract:pilot",
+  "dollars": 0.0123,
+  "batch": "msgbatch_01KdK6XXjzUGQEMBXFP34N6v",
+  "input_tokens": 113495,
+  "output_tokens": 25037,
+  "cache_creation_input_tokens": 1622,
+  "cache_read_input_tokens": 30818
+ },
+ {
+  "at": "2026-11-11T01:52:43.040844+00:00",
+  "step": "extract:pilot",
+  "dollars": 0.0117,
+  "batch": "msgbatch_014MUyNwwtUtoPow6vKNscB1",
+  "input_tokens": 113495,
+  "output_tokens": 21827,
+  "cache_creation_input_tokens": 3710,
+  "cache_read_input_tokens": 33390
+ },
+ {
+  "at": "2026-11-11T02:03:32.891872+00:00",
+  "step": "extract:full",
+  "dollars": 1.5436,
+  "batch": "msgbatch_01CqpTzJxoDWtE8qkHvSgwc4",
+  "input_tokens": 15935679,
+  "output_tokens": 2898178,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 4463130
+ },
+ {
+  "at": "2026-11-11T02:10:38.730430+00:00",
+  "step": "extract:full-retry",
+  "dollars": 0.008,
+  "batch": "msgbatch_013TikydRCCMYYuLMDfGNUk4",
+  "input_tokens": 91871,
+  "output_tokens": 13438,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 9275
+ }
+]

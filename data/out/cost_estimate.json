@@ -1,0 +1,167 @@
+{
+ "by_source": [
+  {
+   "source": "ainews",
+   "units": 309,
+   "words": 2310128,
+   "tokens_per_word": 2.56,
+   "body_tokens": 5924031,
+   "max_unit_tokens": 32402
+  },
+  {
+   "source": "algobridge",
+   "units": 61,
+   "words": 145882,
+   "tokens_per_word": 2.02,
+   "body_tokens": 295302,
+   "max_unit_tokens": 25340
+  },
+  {
+   "source": "bensbites",
+   "units": 114,
+   "words": 114489,
+   "tokens_per_word": 2.28,
+   "body_tokens": 260730,
+   "max_unit_tokens": 11176
+  },
+  {
+   "source": "eugeneyan",
+   "units": 4,
+   "words": 9412,
+   "tokens_per_word": 2.31,
+   "body_tokens": 21743,
+   "max_unit_tokens": 10559
+  },
+  {
+   "source": "exponentialview",
+   "units": 19,
+   "words": 10795,
+   "tokens_per_word": 2.26,
+   "body_tokens": 24379,
+   "max_unit_tokens": 8321
+  },
+  {
+   "source": "garymarcus",
+   "units": 184,
+   "words": 105307,
+   "tokens_per_word": 2.06,
+   "body_tokens": 217368,
+   "max_unit_tokens": 10322
+  },
+  {
+   "source": "hamel",
+   "units": 9,
+   "words": 30050,
+   "tokens_per_word": 2.07,
+   "body_tokens": 62153,
+   "max_unit_tokens": 26390
+  },
+  {
+   "source": "hn",
+   "units": 342,
+   "words": 493995,
+   "tokens_per_word": 1.91,
+   "body_tokens": 941196,
+   "max_unit_tokens": 15214
+  },
+  {
+   "source": "importai",
+   "units": 45,
+   "words": 135261,
+   "tokens_per_word": 2.08,
+   "body_tokens": 281338,
+   "max_unit_tokens": 15522
+  },
+  {
+   "source": "interconnects",
+   "units": 58,
+   "words": 162729,
+   "tokens_per_word": 1.96,
+   "body_tokens": 318616,
+   "max_unit_tokens": 25125
+  },
+  {
+   "source": "latentspace",
+   "units": 220,
+   "words": 1065908,
+   "tokens_per_word": 1.97,
+   "body_tokens": 2101560,
+   "max_unit_tokens": 25289
+  },
+  {
+   "source": "lenny",
+   "units": 6,
+   "words": 7910,
+   "tokens_per_word": 2.18,
+   "body_tokens": 17268,
+   "max_unit_tokens": 5705
+  },
+  {
+   "source": "normaltech",
+   "units": 16,
+   "words": 76946,
+   "tokens_per_word": 2.14,
+   "body_tokens": 164957,
+   "max_unit_tokens": 24680
+  },
+  {
+   "source": "oneusefulthing",
+   "units": 17,
+   "words": 33593,
+   "tokens_per_word": 1.81,
+   "body_tokens": 60865,
+   "max_unit_tokens": 7552
+  },
+  {
+   "source": "raschka",
+   "units": 11,
+   "words": 62379,
+   "tokens_per_word": 2.16,
+   "body_tokens": 134694,
+   "max_unit_tokens": 19424
+  },
+  {
+   "source": "simonwillison",
+   "units": 458,
+   "words": 255696,
+   "tokens_per_word": 2.29,
+   "body_tokens": 585036,
+   "max_unit_tokens": 21231
+  },
+  {
+   "source": "tomtunguz",
+   "units": 193,
+   "words": 91272,
+   "tokens_per_word": 2.47,
+   "body_tokens": 225569,
+   "max_unit_tokens": 6488
+  },
+  {
+   "source": "understandingai",
+   "units": 30,
+   "words": 71096,
+   "tokens_per_word": 2.05,
+   "body_tokens": 145675,
+   "max_unit_tokens": 10897
+  },
+  {
+   "source": "zvi",
+   "units": 330,
+   "words": 2125572,
+   "tokens_per_word": 2.03,
+   "body_tokens": 4324789,
+   "max_unit_tokens": 26045
+  }
+ ],
+ "units": 2426,
+ "items": 2230,
+ "prefix_tokens": 1630,
+ "body_input_tokens": 16107278,
+ "assumed_output_tokens_per_unit": 900,
+ "cost_body_input": 0.8053639398060767,
+ "cost_prefix_if_cached": 0.019771900000000002,
+ "cost_prefix_if_uncached": 0.197719,
+ "cost_output": 0.54585,
+ "total_low": 1.3709858398060766,
+ "total_high": 2.094782939806077
+}
