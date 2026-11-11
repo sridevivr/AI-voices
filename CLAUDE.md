@@ -45,7 +45,13 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    `run_log.md`. `src/synthesize.py`: `estimate` (free) → `submit --est <$> --yes` (stage 1: 65-request
    batch clustering findings per domain) → `collect` → `finish` (stage 2 per-domain merges + stage 3
    opportunities, synchronous). Counts/quotes/links are computed by code, never by the model.
-   Refusals retry on claude-sonnet-5 (same price). Rough estimate $5.5–9 — WAIT for owner's OK.
+   Refusals retry on claude-sonnet-5 (same price).
+   2026-11-11 first run DONE ($5.20; total $6.78): 785 themes, 20 opportunities. Bug: both
+   creative & media stage-1 replies returned 1 theme each (end_turn, ~270 tokens). Fix: `thin_chunks`
+   flags <5 themes / <15% coverage; `redo` re-runs them at high effort; stage-2 merges + stage-3 reply
+   cached in `data/out/synth_cache.json` (seeded from themes.json) so `finish` re-pays only changed
+   domains; `render` re-writes outputs free. Quotes: Sonnet picks `evidence_ids` from numbered samples,
+   code renders them, no quote repeats.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
