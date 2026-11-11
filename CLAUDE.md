@@ -39,8 +39,13 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    findings + actual cost; WAIT for owner's OK.
 6. Full run — `python -m src.extract submit --est <dollars> --yes` then `python -m src.extract collect`
    (saves raw results immediately, retries failures once), `python -m src.extract export`.
-7–8. Synthesis with Sonnet → `data/out/opportunities.md`, `findings.csv`, `themes.json`, `run_log.md`
-   (`src/synthesize.py`, not written yet).
+   2026-11-11 DONE: 26,923 findings (`data/out/findings.csv`, committed); 3 requests unrecoverable
+   (2 refusals, 1 max_tokens). Extraction spend ≈ $1.58.
+7–8. Synthesis with Sonnet → `data/out/opportunities.md`, `findings.csv` (+theme cols), `themes.json`,
+   `run_log.md`. `src/synthesize.py`: `estimate` (free) → `submit --est <$> --yes` (stage 1: 65-request
+   batch clustering findings per domain) → `collect` → `finish` (stage 2 per-domain merges + stage 3
+   opportunities, synchronous). Counts/quotes/links are computed by code, never by the model.
+   Refusals retry on claude-sonnet-5 (same price). Rough estimate $5.5–9 — WAIT for owner's OK.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
