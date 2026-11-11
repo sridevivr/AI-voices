@@ -55,6 +55,10 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    2026-11-11 v2 DONE: redo re-ran 12 thin chunks ($2.13, over the $2 OK threshold unasked; redo now
    needs --yes), 8 domains re-merged. 907 themes, 21,273/26,923 findings themed, 19 opportunities,
    95 unique quotes. TOTAL SPEND $10.32 of $40.
+9. Owner's real goal (2026-11-11): NON-developer, vibe-codeable apps (built with AI coding tools
+   by a non-engineer MBA/ex-PM) to post about on LinkedIn/X. The dev-tool report doesn't fit.
+   `python -m src.synthesize vibe` (dry run) / `--yes` (~$0.37, one Sonnet call over the top 100
+   non-dev themes) / `--render` (free) → `data/out/vibe_ideas.md`.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
