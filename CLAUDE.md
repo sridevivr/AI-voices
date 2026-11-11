@@ -52,6 +52,9 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    cached in `data/out/synth_cache.json` (seeded from themes.json) so `finish` re-pays only changed
    domains; `render` re-writes outputs free. Quotes: Sonnet picks `evidence_ids` from numbered samples,
    code renders them, no quote repeats.
+   2026-11-11 v2 DONE: redo re-ran 12 thin chunks ($2.13, over the $2 OK threshold unasked; redo now
+   needs --yes), 8 domains re-merged. 907 themes, 21,273/26,923 findings themed, 19 opportunities,
+   95 unique quotes. TOTAL SPEND $10.32 of $40.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
