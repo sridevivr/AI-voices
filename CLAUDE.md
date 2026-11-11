@@ -6,7 +6,9 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
 ## Hard rules (from the owner)
 - NEVER read, print, cat, or echo `.env` or the API key. Never commit it.
 - The API key is ONLY for the pipeline scripts (`src/extract.py`, `src/synthesize.py`).
-  It comes from `ANTHROPIC_API_KEY` (set on the "ai-voices" cloud environment) or `.env`.
+  It comes from `.env` on the owner's Mac. Cloud sessions CANNOT use it: the platform withholds
+  `ANTHROPIC_API_KEY` from the shell and refuses network secrets for api.anthropic.com. So steps 3+
+  (estimate, pilot, batches, synthesis) run on the owner's Mac; the owner pastes output back.
 - Deadline: Anthropic credits expire Nov 16 2026 (UTC); **all batch jobs submitted by Sat Nov 14**.
 - Budget ~$40 total. Show a cost estimate and WAIT for OK before any batch over $2.
   If total spend would pass $40, stop and ask. Spend is logged in `data/out/spend.json`.
@@ -30,6 +32,8 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
 1. Verify sources — DONE (`data/out/source_verification.md`).
 2. Fetch — `python -m src.fetch` (≈20 min; resumable; skips existing files).
    Raw data is NOT in git, so a new session must re-run this first.
+   2026-11-11: fetched on the owner's Mac → 2,277 files. Substack 429s home IPs; `http_client.py`
+   now backs off up to ~17 min, and `python -m src.fetch <ids>` re-fetches only some sources.
 3. Cost estimate — `python -m src.extract estimate` (free token counting). Show owner, wait for OK.
 4–5. Pilot — `python -m src.extract pilot` (20 items: AINews + HN + blogs). Show 10 example
    findings + actual cost; WAIT for owner's OK.
