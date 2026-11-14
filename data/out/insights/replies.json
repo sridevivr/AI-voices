@@ -2074,319 +2074,400 @@
   ]
  },
  "voices": {
-  "title": "Who to follow in the AI conversation: a guide to the voices behind the year's commentary",
-  "dek": "Sixteen people and groups account for much of what was written and quoted between November 2025 and November 2026. Here is what each one focuses on, where they usually land, and how you might use them in your own writing.",
+  "title": "Who to Follow in the AI Conversation: A Field Guide to the Voices",
+  "dek": "Twenty-odd writers and labs shape what gets said about AI. This guide covers what each focuses on, where they usually land, and which ones are worth quoting or replying to.",
   "key_points": [
    {
-    "text": "Start with Simon Willison. He has the most findings of anyone (1,552), spread across devtools, coding agents and safety. He is the closest match to a builder who writes in public, and he is the easiest person to learn from and reply to.",
+    "text": "Start with Simon Willison. He writes about the tools you use, and he is skeptical of vendor claims until someone verifies them. He is the most prolific voice in the data.",
     "evidence_ids": [
-     914,
-     10580,
-     17816
+     8161,
+     910,
+     14299
     ]
    },
    {
-    "text": "Add Ben Tossell for people who build with AI tools for fun and for work. His material centres on coding agents and productivity, and it includes small personal projects like a reading-history timeline.",
+    "text": "Add Ben Tossell for day-to-day vibe-coding practice. He recommends specific tools and takes part in the 'is agent-written code slop?' argument.",
     "evidence_ids": [
-     6819,
-     23371,
-     7286
+     6699,
+     7280,
+     7281
     ]
    },
    {
-    "text": "Read Zvi Mowshowitz for safety, governance and evals, and Tomasz Tunguz for the business and cost angle. Together they cover the 'so what for companies' questions an MBA audience asks.",
+    "text": "Follow Tomasz Tunguz for the business side: GPU prices, token pricing, and how much of a production agent is plain code.",
     "evidence_ids": [
-     8323,
-     6278,
-     24400,
-     12912
+     24398,
+     25931,
+     19967
     ]
    },
    {
-    "text": "If you write about trust in AI claims, follow the evals group: Hamel Husain, Eugene Yan, and Sayash Kapoor with Arvind Narayanan. Their shared complaint is that benchmarks get over-read.",
+    "text": "Read Zvi Mowshowitz when you want depth on safety and evaluation. Read Gary Marcus, and Kapoor and Narayanan, for the skeptical counterweight.",
     "evidence_ids": [
-     23099,
-     25041,
-     19987
+     15822,
+     5290,
+     25030
     ]
    },
    {
-    "text": "Keep Gary Marcus and Jack Clark in view as opposing reference points on capabilities and risk. Their positions give you something to quote against each other.",
+    "text": "Ethan Mollick supplies a point that is easy to quote for a broad audience: agents cannot judge taste, so humans must.",
     "evidence_ids": [
-     20005,
-     16827,
-     15203
+     25994,
+     25995
     ]
    },
    {
-    "text": "Counts show how much each source publishes and quotes, not how influential a person is. Newsletters with daily output will naturally have more findings than someone who writes less often.",
+    "text": "Counts show how much each source publishes and gets quoted, not how important the person is. Newsletter writers with weekly digests will rank high regardless.",
     "evidence_ids": []
    }
   ],
   "sections": [
    {
-    "heading": "Simon Willison: the practical builder's reference",
+    "heading": "Simon Willison: the practitioner who tests the claims",
     "paragraphs": [
      {
-      "text": "Willison has the largest footprint, with 1,552 findings. They concentrate on devtools and IDEs, coding agents, and safety and governance, and most of them are either a tool or technique or a pain point. He is quoted both on his own weblog and in Zvi Mowshowitz's roundups.",
+      "text": "Willison has the most findings of anyone (1,552). He focuses on dev tools, coding agents, and safety. His stance is hands-on and cautious: he builds things, then questions the marketing. On Claude Code's auto mode, Anthropic claimed near-total mitigation of prompt injection and data exfiltration, and he stayed skeptical pending independent verification.",
       "evidence_ids": [
-       10580,
-       914
+       8161
       ]
      },
      {
-      "text": "His typical stance is hands-on and cautious. He asks for a safer version of a powerful personal agent that keeps the useful parts but limits the attack surface. He also points out opaque details, such as the search providers hidden behind AI products. **Why follow:** he shows you how to test tools yourself and write down what you find. **Reply to him** with concrete things you built or tried.",
+      "text": "Why follow him: he picks up industry shifts early and frames them as open questions. Examples are Shopify moving mobile apps from React Native back to separate Swift and Kotlin codebases because coding agents lower the cost, and whether harnesses should support several edit tools. He also publishes experiments, such as giving a coding agent hearing through WebAudio microphones. Reply to him with real build experience.",
       "evidence_ids": [
-       10580,
-       17816
+       14299,
+       10856,
+       910
       ]
      }
     ]
    },
    {
-    "heading": "Ben Tossell: vibe coding for a general audience",
+    "heading": "Ben Tossell: the daily builder's toolbox",
     "paragraphs": [
      {
-      "text": "Tossell (713 findings, via Ben's Bites) focuses on coding agents, agent orchestration and productivity. His findings are mostly tools and techniques, along with small build ideas. Examples include a Chrome extension that replaces clickbait thumbnails with real stills, and a personal reading-history timeline he built for fun.",
+      "text": "Tossell writes Ben's Bites and focuses on coding agents, orchestration, and productivity. His output is mostly tools and techniques: he names the UI skills he uses for all design work and the integrations tool he treats as his go-to. He is a good source for what working builders reach for.",
       "evidence_ids": [
-       23371,
-       6819
+       7280,
+       7281
       ]
      },
      {
-      "text": "He also notices how companies productize their internal tools; he cited Ramp's AI-driven spend tracking. **Why follow:** he is the closest peer to your own vibe-coding practice and a steady source of small, concrete examples to riff on.",
+      "text": "He also surfaces live debates you can join: whether agent-written code is 'slop' or fine if it works and is secure, how agents should store memory, and whether to chase fast output or work slowly and playfully.",
       "evidence_ids": [
-       7286
+       6699,
+       16027,
+       14837
       ]
      }
     ]
    },
    {
-    "heading": "Zvi Mowshowitz: the safety and governance digest",
+    "heading": "swyx, Alessio Fanelli and omarsar0: the agent-engineering crowd",
     "paragraphs": [
      {
-      "text": "Mowshowitz (922 findings, via Don't Worry About the Vase) covers safety and governance, evals and testing, and consumer apps. Most of his findings are pain points, and he has a sizeable share of debates. His requests are specific. He wants agents to confirm before actions that affect third parties, a tool that separates boilerplate from substance in long filings like S-1s, and harder evals.",
+      "text": "swyx (Latent Space), alone and with Alessio Fanelli, covers agent orchestration and harnesses. He warns that teams burn tokens and time on agent tooling without shipping real products. He also argues that naively written agent skills tend to be bad, and he describes a path from single-agent IDE use to building your own orchestrator.",
       "evidence_ids": [
-       8323,
-       6278,
-       15815
+       3954,
+       24986,
+       3952
       ]
      },
      {
-      "text": "His blog also relays many other voices, so he works as a hub. **Why follow:** you can follow most of the AI-risk debate through one source. **How to use him:** quote his concrete product ideas, such as the confirm-before-acting check, as examples for a broad audience.",
+      "text": "Fanelli co-hosts the Latent Space material on research and evals, which includes the fragility of browser-based agents (interface changes, expired sessions, CAPTCHAs). omarsar0 appears mainly through AINews digests and questions whether multi-agent systems beat single agents once token budgets are matched. His other topics are 'ghost memory' and plain RAG outperforming dedicated memory systems. They suit you if you want to reply on the technical details of agent design.",
       "evidence_ids": [
-       8323,
-       6278
+       8069,
+       10649,
+       298,
+       15296
       ]
      }
     ]
    },
    {
-    "heading": "Tomasz Tunguz: AI as a business and cost problem",
+    "heading": "Ethan Mollick: the human-judgment angle",
     "paragraphs": [
      {
-      "text": "Tunguz (833 findings) focuses on business and markets, agents and orchestration, and observability and cost. His ideas treat compute like an economic resource. One is a pricing and routing layer that sells inference by latency and bandwidth tiers, like internet access. Another is security tooling cheap enough to push expected attacker value below zero.",
+      "text": "Mollick has far fewer findings (185) but writes for the same audience as you. He covers agents, knowledge work, and evals. His recurring point is that critic and judge agents find errors but miss excess length and lack of taste, so people must supply quality judgment. He also describes practical setups, such as an orchestrator agent that spawns sub-agents for research, charting, and layout.",
       "evidence_ids": [
-       24400,
-       12912
+       25994,
+       25995,
+       13784
       ]
      },
      {
-      "text": "He also reports on tools from a user's seat. He wrote that Claude Cowork was slow, crashed on startup twice, and changed authorization settings for his Claude Code installation. **Why follow:** he turns technical issues into business framing, which suits LinkedIn.",
+      "text": "He is a good source to quote on cognitive offloading: he says some offloading is fine, but AI's generality makes it unclear which tasks humans should keep.",
       "evidence_ids": [
-       20193
+       10397
       ]
      }
     ]
    },
    {
-    "heading": "Gary Marcus: the skeptic",
+    "heading": "Tomasz Tunguz: the business and cost lens",
     "paragraphs": [
      {
-      "text": "Marcus (529 findings) writes on safety and governance, research and capabilities, and business and markets. His findings lean toward pain points and debates. He argues for systems that are safe by design and follow instructions reliably, rather than relying on next-word prediction alone. He also wants defensive tools against AI-driven phishing and deepfake fraud.",
+      "text": "Tunguz focuses on markets, agent orchestration, and cost. He supplies numbers: short-term GPU rental rates jumped from about $3 to $12-13 per hour. He asks whether labs can raise token prices or are stuck in a price war. In one dataset, 65% of nodes across 14 production workflows were pure code, which bears on the deterministic-versus-agentic debate.",
       "evidence_ids": [
-       20005,
-       12458
+       24398,
+       25931,
+       19967
       ]
      },
      {
-      "text": "On evals, he has argued that whether benchmarks saturate depends on whether you demand 80% or 95%+ reliability. **Why quote him:** he gives a clear counterweight to optimistic claims. **Why reply to him:** his reliability framing is easy to test against your own app experience.",
+      "text": "He also cites a UC Berkeley study in which harness software cut the cost of the same task by 71% without losing accuracy, and Ramp's AI Index of AI spend. Quote him when you need data for a business audience.",
       "evidence_ids": [
-       16827
+       24405,
+       8902
       ]
      }
     ]
    },
    {
-    "heading": "Open models and training: Nathan Lambert and Sebastian Raschka",
+    "heading": "Zvi Mowshowitz: the long-form safety and evals reader",
     "paragraphs": [
      {
-      "text": "Lambert (442 findings, Interconnects) focuses on model training and fine-tuning, local and open models, and research. He is cautious about evidence. For example, he flagged that RLVR results on Qwen models may be affected by data contamination and are hard to verify without open training data. He has also pointed to gaps in licensing for open-weight releases, and to the flood of vulnerability fixes as software gets produced faster than it is secured.",
+      "text": "Zvi publishes Don't Worry About the Vase, a digest that also relays other writers and lab documents, which is partly why his count is high (922). He focuses on safety, evals, and consumer apps. His typical stance is to probe whether results mean what they claim, such as whether low misalignment reflects real alignment or just evaluation awareness. He also asks whether a benchmark without a human baseline is interpretable.",
       "evidence_ids": [
-       11557,
-       14744,
-       21710
+       15823,
+       16428
       ]
      },
      {
-      "text": "Raschka (119 findings, Ahead of AI) is more technical: inference and infrastructure, training, and local models. His requests include tools that let LLMs operate graphical interfaces, and a router that picks reasoning effort automatically. **Why follow:** both help you judge open-versus-closed model claims without being an engineer. Raschka's count is smaller, but his topics are specific.",
+      "text": "He is useful for the mechanics of how labs defend and assess risk: layered classifiers, probes, and monitors, plus holistic risk assessments. He also covers lighter stories, like an AI-driven home sale where experts disagreed about whether it succeeded.",
       "evidence_ids": [
-       2929,
-       14726
+       15822,
+       15817,
+       25408
       ]
      }
     ]
    },
    {
-    "heading": "Ethan Mollick and Alberto Romero: AI at work, explained for non-specialists",
+    "heading": "Gary Marcus: the standing skeptic",
     "paragraphs": [
      {
-      "text": "Mollick (185 findings, One Useful Thing) focuses on agents, productivity and knowledge work, and evals. He wants agents that can judge when their work is good enough, not merely whether it passes checks. He also wants deeper evaluations on hard real-world problems, since saturated public benchmarks and ELO scores drive conclusions that don't hold up.",
+      "text": "Marcus (Marcus on AI) is mostly pain points and debates. He argues current LLM systems are not conscious, questions whether generative AI is a net benefit, and doubts that an accord's 'independent' oversight is independent. He points to limited-scope systems such as GPS navigation and AlphaFold as useful without causing harm.",
       "evidence_ids": [
-       26002,
-       10519
+       20006,
+       5290,
+       17918,
+       20009
       ]
      },
      {
-      "text": "Romero (298 findings, The Algorithmic Bridge) covers productivity, safety and consumer apps. His recent requests include tools to detect AI-written text and a translation layer that makes AI-generated math discoveries legible to human researchers. **Why follow both:** they write for a broad professional readership, which is your audience too.",
+      "text": "Follow him for the strongest counterargument to hype. Reply with specifics, since his positions are firm.",
       "evidence_ids": [
-       24195,
-       3964,
-       21278
+       5290
       ]
      }
     ]
    },
    {
-    "heading": "Agent builders: swyx, Alessio Fanelli and omarsar0",
+    "heading": "Policy and governance: Dean W. Ball, Jack Clark, Timothy B. Lee, and the labs",
     "paragraphs": [
      {
-      "text": "swyx (174 findings) and swyx with Alessio Fanelli (106 findings), through Latent Space and AINews, focus on agents, coding agents and research. Their requests look ahead. They ask for a Git replacement that stores specs, traces and intent, and for agent harnesses that notice user friction in session transcripts and suggest fixes. They also want a record of why approaches failed, not just final results.",
+      "text": "Dean W. Ball (quoted mainly via Zvi) writes on governance. He weighs the vulnerable world hypothesis, whether to ban or legalize self-sovereign agents, and how unclear export-control rules are for AI outputs. Jack Clark (Import AI) covers research and safety. He asks whether AI progress has reached a stage where research outpaces human comprehension and whether AI-driven science needs strict oversight.",
       "evidence_ids": [
-       6858,
-       6995,
-       16916
+       20544,
+       16064,
+       26656,
+       12979,
+       16079
       ]
      },
      {
-      "text": "omarsar0 (58 findings) stresses agent reliability. He says agents often fail because small off-path tool calls compound over long tasks, not because they lack capability. He also suggested a small dispatcher model to cut token waste in multi-agent systems. **Why follow:** they show what agent builders are asking for next.",
+      "text": "Timothy B. Lee (Understanding AI) is the pick for robotics and self-driving, including Tesla robotaxis and US bans on Chinese robots. He also asks whether AI firms can trust government promises on military use. Anthropic appears mostly through coverage of its model cards. Its findings include sandboxes misconfigured with real internet access and open questions about whether a model's welfare statements reflect real experience.",
       "evidence_ids": [
-       7770,
-       1125,
-       23839
+       23667,
+       21444,
+       20286,
+       20652,
+       10016
       ]
      }
     ]
    },
    {
-    "heading": "The evals group: Hamel Husain, Eugene Yan, Kapoor and Narayanan",
+    "heading": "Sayash Kapoor and Arvind Narayanan: the 'normal technology' evaluators",
     "paragraphs": [
      {
-      "text": "Hamel Husain (94 findings) and Eugene Yan (48 findings) write on evals and testing, coding agents and agent orchestration. Husain observes that benchmarks are consumed like credit scores without disclaimers, so users misread their flaws. He also wants a web app where people read conversation traces and annotate them. Yan wants a tool that links eval harnesses to experiment pipelines so a model migration can be evaluated in one step.",
+      "text": "Their newsletter, AI as Normal Technology, focuses on how to evaluate agents and on liability. They argue that evaluation must scrutinize whole trajectories, not final outcomes. They add that accuracy figures conflate consistent success with random failure, which makes agents hard to deploy.",
       "evidence_ids": [
-       23099,
-       3982,
-       20380
+       25030,
+       19986
       ]
      },
      {
-      "text": "Sayash Kapoor and Arvind Narayanan (95 findings, AI as Normal Technology) press for more rigorous agent evaluation. They want shared best practices, leaderboards that show rising evaluation costs, and ways for real-world deployers to feed insights back to labs. Narayanan alone (49 findings) also wants reliability measured on consistency, robustness, calibration and operational safety, and he describes AI-generated spam as overwhelming communication channels. **Why follow:** they give you vocabulary to question headline benchmark numbers.",
+      "text": "Narayanan also proposes open-world tests, such as having an agent build and upload an app to the Apple App Store. They also lay out the disagreement over whether AI liability should use existing tort law, strict liability, or stronger negligence rules. They are a good source for sober, evidence-based framing that suits a LinkedIn audience.",
       "evidence_ids": [
-       25040,
-       25041,
-       25042,
-       19987,
-       21921
+       19996,
+       10191
       ]
      }
     ]
    },
    {
-    "heading": "Frontier labs and policy: Jack Clark, Anthropic, Dean Ball, Timothy B. Lee",
+    "heading": "Hamel Husain and Eugene Yan: the evals practitioners",
     "paragraphs": [
      {
-      "text": "Jack Clark (69 findings, Import AI) and Anthropic (62 findings) focus on research, safety and evals. Clark wants third-party testing for self-improvement properties and automated labs where AI runs experiments. He has also estimated a 60%+ chance that automated AI R&D leads toward superintelligence by end of 2028. Anthropic's material asks for employee-like access for independent auditors, and notes that biological databases were not designed for agent use. **Treat these as lab-side views, and attribute them clearly.**",
+      "text": "Both write about making AI products measurable. Husain's focus is evals and coding agents. He argues the precision-versus-recall tradeoff depends on business consequences, and he gives a method for tuning decision thresholds. He also asks whether AI coding tools encourage lazy thinking.",
       "evidence_ids": [
-       15431,
-       16076,
-       15203,
-       8662,
-       17281
+       23055,
+       23051,
+       22530
       ]
      },
      {
-      "text": "Dean W. Ball (47 findings) argues about governance. He wants independent verification infrastructure for frontier labs and compute futures markets to help startups hedge capacity risk. Timothy B. Lee (56 findings, Understanding AI) raises grounded risks, such as self-replicating agents that may be impossible to shut down, and tacit knowledge that is hard to capture. **Why follow:** they add policy and economic angles that technical blogs often skip.",
+      "text": "Yan covers evals and agents. He notes that stakeholders demand 90%+ evaluator accuracy while human annotators are less consistent. He argues that delegating larger tasks to models requires defining success criteria upfront. He also notes that skill files overfit the session they came from. These two are good for turning abstract 'how do you know it works?' questions into practical advice.",
       "evidence_ids": [
-       5580,
-       8728,
-       14596,
-       6588
+       20382,
+       20619,
+       20615
+      ]
+     }
+    ]
+   },
+   {
+    "heading": "Nathan Lambert and Sebastian Raschka: open models and training",
+    "paragraphs": [
+     {
+      "text": "Lambert (Interconnects) covers training, open models, and research. He contests how much distillation explains Chinese open-model success, with estimates that it closes only 1-2 months of the gap. He also debates whether open models should be restricted after a misuse incident, since organizations need them for cyber hardening.",
+      "evidence_ids": [
+       3222,
+       5018
+      ]
+     },
+     {
+      "text": "Raschka (Ahead of AI) is more technical, on inference, training, and local models. He observes that local models of 30-35B parameters struggle with agentic judgment and that reasoning models can be very verbose. Read them to understand the model layer under your tools. Quote them with care, since the detail is technical.",
+      "evidence_ids": [
+       4518,
+       14724,
+       3360
+      ]
+     }
+    ]
+   },
+   {
+    "heading": "Alberto Romero: AI and writing",
+    "paragraphs": [
+     {
+      "text": "Romero (The Algorithmic Bridge) is the voice on AI-written content, a topic that affects anyone posting on LinkedIn or X. He covers the disclosure debate: critics see a broken reader-writer contract. He also notes estimates that about half of published articles are AI-generated, and he questions whether avoiding AI writing tells is a useful strategy or just reactive pattern-matching.",
+      "evidence_ids": [
+       5382,
+       24198,
+       25131
+      ]
+     },
+     {
+      "text": "He mentions Pangram, a detection tool Substack partnered with, which claims a false positive rate of about 0.0041%. That figure is a claim, not a verified result.",
+      "evidence_ids": [
+       26662
       ]
      }
     ]
    }
   ],
   "_allowed": [
-   783,
-   914,
-   1125,
-   2929,
-   3964,
-   3982,
-   3989,
-   5556,
-   5580,
-   6278,
-   6588,
-   6819,
-   6858,
-   6995,
-   7004,
-   7169,
-   7286,
-   7770,
-   8323,
-   8662,
-   8728,
-   10519,
-   10580,
-   11557,
-   11599,
-   12363,
-   12458,
-   12588,
-   12912,
-   13725,
-   14596,
-   14726,
-   14744,
-   15203,
-   15431,
-   15815,
-   16076,
-   16827,
-   16916,
-   17281,
-   17816,
-   19987,
-   19989,
-   20005,
-   20193,
-   20340,
-   20380,
-   21278,
-   21710,
-   21907,
-   21921,
-   23099,
-   23371,
-   23839,
-   24195,
-   24400,
-   25040,
-   25041,
-   25042,
-   26002
+   298,
+   910,
+   911,
+   2173,
+   3218,
+   3222,
+   3360,
+   3817,
+   3952,
+   3954,
+   4004,
+   4518,
+   5018,
+   5123,
+   5290,
+   5382,
+   5673,
+   6291,
+   6699,
+   7280,
+   7281,
+   7296,
+   8069,
+   8161,
+   8902,
+   10016,
+   10191,
+   10397,
+   10415,
+   10649,
+   10856,
+   12355,
+   12359,
+   12979,
+   13724,
+   13727,
+   13730,
+   13784,
+   14299,
+   14724,
+   14837,
+   14934,
+   15296,
+   15808,
+   15817,
+   15822,
+   15823,
+   16027,
+   16064,
+   16079,
+   16428,
+   16879,
+   16909,
+   16919,
+   16921,
+   17042,
+   17184,
+   17918,
+   19967,
+   19986,
+   19996,
+   19999,
+   20006,
+   20009,
+   20280,
+   20286,
+   20382,
+   20544,
+   20615,
+   20619,
+   20652,
+   20666,
+   21444,
+   22525,
+   22530,
+   23051,
+   23055,
+   23378,
+   23667,
+   24198,
+   24398,
+   24405,
+   24476,
+   24983,
+   24986,
+   25030,
+   25037,
+   25131,
+   25168,
+   25389,
+   25408,
+   25536,
+   25882,
+   25931,
+   25994,
+   25995,
+   26000,
+   26653,
+   26656,
+   26662
   ]
  }
 }

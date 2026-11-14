@@ -948,5 +948,25 @@
   },
   "service_tier": "standard",
   "speed": "standard"
+ },
+ {
+  "at": "2026-11-14T21:14:39.856718+00:00",
+  "step": "synth:insights:voices",
+  "dollars": 0.0712,
+  "model": "claude-sonnet-5-5",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 12013,
+  "output_tokens": 4721,
+  "output_tokens_details": {
+   "thinking_tokens": 729
+  },
+  "service_tier": "standard",
+  "speed": "standard"
  }
 ]
