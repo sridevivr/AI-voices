@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-14T20:19:09.747557+00:00",
+ "built_at": "2026-11-14T21:13:00.682017+00:00",
  "since": null,
  "until": null,
  "overview": {
@@ -3694,9 +3694,11 @@
     "link_shared": 40
    },
    "evidence": [
-    "#914 [build_request, Simon Willison's Weblog, 2026-11-09, Simon Willison] A tool that suggests where to place an additional sensor or listener to best improve localization accuracy based on data collected so far.",
-    "#10580 [build_request, Don't Worry About the Vase, 2026-02-03, Simon Willison] A safe version of an empowered personal agent that keeps the useful functionality but limits attack surface.",
-    "#17816 [pain_point, AINews (smol.ai), 2026-07-30, Simon Willison] Search providers behind AI products are opaque, with subprocessor listings revealing search partners not clearly surfaced in product documentation."
+    "#10856 [debate, Simon Willison's Weblog, 2026-07-04, Simon Willison] Whether third-party coding harnesses should implement multiple edit tools (e.g. search/replace and apply_patch) to match whichever one the selected model performs best with.",
+    "#14299 [debate, Simon Willison's Weblog, 2026-09-10, Simon Willison] Shopify is moving its mobile apps from React Native back to separate Swift and Kotlin codebases, arguing coding agents now reduce the cost of maintaining two native platforms.",
+    "#8161 [debate, Simon Willison's Weblog, 2026-08-08, Simon Willison] Whether auto mode in Claude Code actually stops prompt injection and data exfiltration, with Anthropic claiming near-total mitigation while the author remains skeptical pending independent verification.",
+    "#911 [tool_or_technique, Simon Willison's Weblog, 2026-11-09, Simon Willison] Hot-swap deployment of new JavaScript code to browser listener clients via a WebSocket installModule mechanism, avoiding manual re-permissioning of microphone access on each device.",
+    "#910 [tool_or_technique, Simon Willison's Weblog, 2026-11-09, Simon Willison] Giving a coding agent perception by running WebAudio microphones on multiple devices and hot-swapping JavaScript modules over WebSockets so the agent can hear the environment."
    ]
   },
   {
@@ -3720,9 +3722,11 @@
     "link_shared": 5
    },
    "evidence": [
-    "#8323 [build_request, Don't Worry About the Vase, 2026-11-03, Zvi Mowshowitz] A tool or check that forces agents to confirm before taking actions with side effects on third parties, such as reserving scarce shared resources.",
-    "#6278 [build_request, Don't Worry About the Vase, 2026-10-28, Zvi Mowshowitz] A tool that extracts and compares the material parts of long regulatory filings like S-1s, separating boilerplate from substantive disclosures.",
-    "#15815 [build_request, Don't Worry About the Vase, 2026-10-26, Zvi Mowshowitz] Need for harder, more realistic evaluation tasks, such as sabotage-level ML R&D tasks, to bound model capabilities."
+    "#15823 [debate, Don't Worry About the Vase, 2026-10-26, Zvi Mowshowitz] Whether a model's low misalignment rate reflects real alignment or just evaluation awareness and lack of feasibility, with propensity-based arguments viewed as weaker than feasibility arguments.",
+    "#16428 [debate, Don't Worry About the Vase, 2026-09-23, Zvi Mowshowitz] Whether benchmark tasks like AAV packaging prediction are saturated, and whether a missing human baseline makes scores uninterpretable.",
+    "#25408 [debate, Don't Worry About the Vase, 2026-06-04, Zvi Mowshowitz] Experts disagree on whether an AI-driven home sale was a success, with the seller claiming profit while an agent suggests the listing price was too low.",
+    "#15822 [tool_or_technique, Don't Worry About the Vase, 2026-10-26, Zvi Mowshowitz] Labs use layered defenses including classifiers, probes, regex and YARA rules, and CoT and action monitors with dedicated response teams.",
+    "#15817 [tool_or_technique, Don't Worry About the Vase, 2026-10-26, Zvi Mowshowitz] Holistic risk assessment combining varied tests into an overall judgment, used by labs for loss-of-control and ML R&D risk."
    ]
   },
   {
@@ -3747,9 +3751,11 @@
     "tool_complaint": 11
    },
    "evidence": [
-    "#12912 [build_request, Tomasz Tunguz, 2026-11-06, Tomasz Tunguz] There is a need for security tooling that can match attacker AI compute cheaply enough to drive expected attacker value below zero.",
-    "#20193 [tool_complaint, Don't Worry About the Vase, 2026-01-21, Tomasz Tunguz] Claude Cowork is slow, crashed on startup twice, and changed authorization settings for the user's Claude Code installation.",
-    "#24400 [build_request, Tomasz Tunguz, 2026-11-04, Tomasz Tunguz] A pricing and routing layer that sells AI inference by latency and bandwidth tiers, analogous to internet access pricing, could allocate scarce compute to demand."
+    "#25931 [debate, Tomasz Tunguz, 2026-11-03, Tomasz Tunguz] Whether labs can raise token prices to offset rising GPU costs, versus being constrained by a price war across frontier and mid-tier models.",
+    "#19967 [debate, Tomasz Tunguz, 2026-10-06, Tomasz Tunguz] Whether production agent workflows should be mostly deterministic code or mostly agentic, with data showing 65% of nodes are pure code across 14 workflows.",
+    "#24398 [pain_point, Tomasz Tunguz, 2026-11-04, Tomasz Tunguz] Short-term GPU rental rates have jumped from about $3 to $12-13 per hour, raising inference costs sharply.",
+    "#8902 [tool_or_technique, Tomasz Tunguz, 2026-10-23, Tomasz Tunguz] Ramp's AI Index tracks AI spend from card and bill-pay data, showing which firms are the largest AI spenders.",
+    "#24405 [tool_or_technique, Tomasz Tunguz, 2026-11-04, Tomasz Tunguz] Harness software around the model can cut the cost of resolving the same task by 71% without losing accuracy, per a UC Berkeley study."
    ]
   },
   {
@@ -3773,9 +3779,11 @@
     "link_shared": 17
    },
    "evidence": [
-    "#7286 [build_request, Ben's Bites, 2026-11-10, Ben Tossell] Interest in a product that productizes internal AI-driven spend tracking and team efficiency tools for other companies, as Ramp did.",
-    "#6819 [build_request, Ben's Bites, 2026-11-05, Ben Tossell] A tool that turns a personal reading history into a scrollable interactive timeline, which Ben built for fun.",
-    "#23371 [build_request, Ben's Bites, 2026-11-03, Ben Tossell] A Chrome extension that replaces clickbait video thumbnails with real stills from the video itself would address a demand for less misleading video previews."
+    "#6699 [debate, Ben's Bites, 2026-10-13, Ben Tossell] Developers criticize agent-written code as slop, while others argue slop is acceptable if the code works, is secure and performant.",
+    "#16027 [debate, Ben's Bites, 2026-01-20, Ben Tossell] Agent memory design is debated between filesystem-based and database-based approaches.",
+    "#14837 [debate, Ben's Bites, 2026-10-29, Ben Tossell] Whether to pursue fast, high-output AI-driven work versus a slower, play-motivated approach to using agents.",
+    "#7280 [tool_or_technique, Ben's Bites, 2026-11-10, Ben Tossell] Emil's UI skills now include before-and-after examples and prompts, and the author uses them for all design work.",
+    "#7281 [tool_or_technique, Ben's Bites, 2026-11-10, Ben Tossell] Executor v2 is recommended as the author's go-to tool for integrations."
    ]
   },
   {
@@ -3800,9 +3808,11 @@
     "workaround": 4
    },
    "evidence": [
-    "#20005 [build_request, Marcus on AI, 2026-10-31, Gary Marcus] A need exists for systems that are safe by design and reliably follow instructions, rather than relying on next-word prediction alone.",
-    "#16827 [debate, Don't Worry About the Vase, 2026-05-13, Gary Marcus] Whether AI model capability evaluations saturate or stay informative depends on whether one demands 80% or 95%+ reliability on tasks.",
-    "#12458 [build_request, Marcus on AI, 2026-10-22, Gary Marcus] A need exists for defensive cybersecurity tooling that detects and blocks AI-driven phishing and deepfake-based fraud against banks and individuals."
+    "#17918 [debate, Marcus on AI, 2026-09-29, Gary Marcus] Critics argue the accord's 'independent' oversight may be subcontractors chosen and already tied to the signing companies, undermining independence.",
+    "#20006 [debate, Marcus on AI, 2026-10-31, Gary Marcus] Whether current LLM-based AI systems are conscious; Marcus argues they lack experience and correlations in outputs do not imply real states like children or pain.",
+    "#5290 [debate, Marcus on AI, 2026-10-24, Gary Marcus] Whether generative AI is a net benefit or a net detriment to society, with some friends getting value from coding use while critics see a net negative.",
+    "#5123 [workaround, Marcus on AI, 2026-03-12, Gary Marcus] Guardrail systems such as Claude's constitution are built-in safety constraints; critics note all LLMs need guardrails and differ mainly in how they are constructed.",
+    "#20009 [tool_or_technique, Marcus on AI, 2026-10-31, Gary Marcus] Limited-scope AI systems like GPS navigation and AlphaFold are cited as examples of AI that is useful without causing harm because they operate within restricted domains."
    ]
   },
   {
@@ -3827,9 +3837,11 @@
     "link_shared": 8
    },
    "evidence": [
-    "#21710 [build_request, Interconnects, 2026-10-30, Nathan Lambert] Need for tools that help organizations keep up with the flood of vulnerability fixes as software is produced faster than it is secured.",
-    "#14744 [build_request, Don't Worry About the Vase, 2026-07-30, Nathan Lambert] Evaluation of open-weight releases with license restrictions requiring commercial deals for large deployers is a gap in clear licensing tooling.",
-    "#11557 [pain_point, Simon Willison's Weblog, 2025-11-22, Nathan Lambert] RLVR results on Qwen models may be affected by data contamination, especially on math and reasoning benchmarks, and are hard to verify without open training data."
+    "#3222 [debate, Interconnects, 2026-09-21, Nathan Lambert] Distillation of American closed models is contested as a driver of Chinese open-model success, with estimates it closes only 1-2 months of the gap.",
+    "#5018 [debate, Interconnects, 2026-09-10, Nathan Lambert] Whether open models should be restricted after a potential misuse incident, given open models are needed for organizations to perform cyber hardening.",
+    "#17184 [debate, Interconnects, 2026-09-19, Nathan Lambert] Whether RSI will cause a massive net acceleration (true RSI) or only lossy, diminishing-return self-improvement constrained by exponential scaling costs.",
+    "#3218 [tool_or_technique, Interconnects, 2026-09-21, Nathan Lambert] Companies are buying cutting-edge RL environments for agentic tasks from American and Chinese startups to train models.",
+    "#3360 [tool_or_technique, Interconnects, 2026-10-17, Nathan Lambert] Meta's Muse Spark Open is a 816B-parameter open-weight multimodal model with 1M token context built for coding and agentic work, now the strongest American open model."
    ]
   },
   {
@@ -3853,9 +3865,11 @@
     "link_shared": 5
    },
    "evidence": [
-    "#24195 [build_request, The Algorithmic Bridge, 2026-10-21, Alberto Romero] A need exists for tools that detect AI-written text, which Substack reportedly attempted by partnering with an AI company.",
-    "#3964 [build_request, The Algorithmic Bridge, 2026-10-07, Alberto Romero] A need exists for a translation layer or connective tissue that makes AI-generated mathematical discoveries legible and usable for human researchers.",
-    "#21278 [build_request, The Algorithmic Bridge, 2026-09-12, Alberto Romero] A need for tools that rank, interpret, connect, and explain large volumes of machine-generated mathematical results to identify meaningful ones."
+    "#25131 [debate, The Algorithmic Bridge, 2026-04-21, Alberto Romero] Whether avoiding AI writing tells by inverting common patterns is a useful strategy or merely a reactive form of AI pattern-matching.",
+    "#24198 [debate, The Algorithmic Bridge, 2026-10-21, Alberto Romero] Whether AI-generated content is overwhelming the internet, with estimates that about half of published articles are AI-generated.",
+    "#5382 [debate, The Algorithmic Bridge, 2026-03-26, Alberto Romero] Whether AI-assisted writing is acceptable without disclosure: critics see a broken reader-writer contract, while others argue intention and struggle are not required for quality.",
+    "#26662 [tool_or_technique, The Algorithmic Bridge, 2026-08-12, Alberto Romero] Pangram is an AI text detection tool that Substack partnered with to flag AI-written posts, with a claimed false positive rate of about 0.0041%.",
+    "#25389 [tool_or_technique, The Algorithmic Bridge, 2026-07-08, Alberto Romero] Steganography is a relevant concept for detecting hidden messages inside AI outputs that look like noise or crashes."
    ]
   },
   {
@@ -3880,9 +3894,11 @@
     "link_shared": 1
    },
    "evidence": [
-    "#26002 [build_request, One Useful Thing, 2026-11-09, Ethan Mollick] A way to get AI agents to judge when their own generated work is good enough, not just whether it passes checks.",
-    "#10519 [build_request, Don't Worry About the Vase, 2026-07-20, Ethan Mollick] A need exists for better, deeper evaluations on hard real-world problems at the frontier, since saturated public benchmarks and ELO scores drive conclusions that don't hold up.",
-    "#20340 [workaround, Understanding AI, 2026-10-19, Ethan Mollick] Users built an interface using Codex to play the open-sourced text adventure A Mind Forever Voyaging in original or easier GUI form."
+    "#25994 [pain_point, One Useful Thing, 2026-11-09, Ethan Mollick] AI agents fail to notice their own work is too long, repetitive, or joyless, so humans must supply taste and quality judgment.",
+    "#10397 [debate, One Useful Thing, 2026-05-26, Ethan Mollick] Whether AI-driven cognitive offloading is acceptable: some offloading (calculators, phone memory) is fine, but AI's generality makes it unclear which human tasks should be kept.",
+    "#25995 [pain_point, One Useful Thing, 2026-11-09, Ethan Mollick] Quality checks by critic and judge agents find errors but do not catch excess length or lack of quality of taste, requiring human review.",
+    "#13784 [tool_or_technique, One Useful Thing, 2026-10-20, Ethan Mollick] Using Claude Projects with a single orchestrator agent that spawns sub-agents to delegate multi-step research, charting, and layout work.",
+    "#26000 [tool_or_technique, One Useful Thing, 2026-11-09, Ethan Mollick] Using a reviewer model like GPT-6 Pro to peer-review complex academic work, catching issues in AI-written papers."
    ]
   },
   {
@@ -3906,9 +3922,11 @@
     "tool_complaint": 4
    },
    "evidence": [
-    "#6858 [build_request, Latent Space, 2026-11-08, swyx] A replacement for Git that stores specs, traces, intent, and attached skills as a highly concurrent source of truth beyond code.",
-    "#23839 [build_request, AINews (smol.ai), 2026-06-29, swyx] Developers want better agent Skills, which is emerging as a top theme of the AIEWF conference.",
-    "#11599 [tool_or_technique, Don't Worry About the Vase, 2026-04-23, swyx] ChatGPT Images 2.0 follows highly detailed instructions and passes clock-reading tests, and its agentic Thinking mode uses search and editing loops for image generation."
+    "#5673 [debate, Latent Space, 2026-03-10, swyx] Whether to train models directly against the agent harness they will run in versus general post-training, with a counterargument that models should remain generally useful across harnesses.",
+    "#24986 [debate, Latent Space, 2026-11-08, swyx] Whether agent skills should be written by hand or consumed from community packs, since naively written skills tend to be bad.",
+    "#3954 [pain_point, Latent Space, 2026-11-08, swyx] Engineers and teams burn tokens and time through unproductive experimentation with agent tooling without delivering real products, with no feedback loop to correct it.",
+    "#3952 [tool_or_technique, Latent Space, 2026-11-08, swyx] Building your own orchestrator and moving from single-agent IDE use to multi-agent setups as a progression path for engineers.",
+    "#24983 [tool_or_technique, Latent Space, 2026-11-08, swyx] A skill that cuts or prunes overly verbose skills generated by default skill-creation tools, used to clean up skill files."
    ]
   },
   {
@@ -3932,9 +3950,11 @@
     "tool_complaint": 3
    },
    "evidence": [
-    "#13725 [build_request, Ahead of AI, 2026-09-29, Sebastian Raschka] Users want an open-weight alternative to Jev for classification, motivated mainly by privacy and local deployment rather than cost.",
-    "#2929 [build_request, Ahead of AI, 2026-09-09, Sebastian Raschka] Tools that let LLMs operate graphical user interfaces on local computers are needed because many software products lack CLIs or APIs.",
-    "#14726 [build_request, Ahead of AI, 2026-07-18, Sebastian Raschka] A router or cheap model that automatically selects reasoning effort mode and budget from the request, tool state, and remaining time or token budget, with user override."
+    "#14724 [pain_point, Ahead of AI, 2026-07-18, Sebastian Raschka] Reasoning models produce very verbose responses using many tokens even for simple prompts, and early models like DeepSeek-R1 lacked a built-in way to turn reasoning off.",
+    "#13724 [pain_point, Ahead of AI, 2026-09-29, Sebastian Raschka] Fine-tuning a custom classifier for one-off classification tasks is too tedious because it requires collecting training data and training a model.",
+    "#4518 [pain_point, Ahead of AI, 2026-06-27, Sebastian Raschka] Local open-weight models in the 30-35B range struggle with agentic judgment such as choosing which file or action to take first, making them unreliable for autonomous tool use.",
+    "#13727 [tool_or_technique, Ahead of AI, 2026-09-29, Sebastian Raschka] Using a Noul-style yes/no question per class lets multi-label classification return independent probabilities that need not sum to one.",
+    "#13730 [tool_or_technique, Ahead of AI, 2026-09-29, Sebastian Raschka] Adding a Brier-style penalty to cross-entropy during training gave a modest calibration improvement over temperature scaling for ModernBERT."
    ]
   },
   {
@@ -3958,9 +3978,11 @@
     "link_shared": 1
    },
    "evidence": [
-    "#16916 [build_request, Latent Space, 2026-10-23, swyx & Alessio Fanelli] A way to surface and record why approaches failed, not just final results, to preserve insight for researchers and models.",
-    "#6995 [build_request, Latent Space, 2026-10-21, swyx & Alessio Fanelli] A malleable agent harness that notices user friction from session transcripts and suggests or builds mods to fix it, rather than requiring the user to notice the friction themselves.",
-    "#7004 [build_request, Latent Space, 2026-10-21, swyx & Alessio Fanelli] A simple way to measure whether a mod is useful, such as checking if it surfaced something missed, eased a decision, or reduced distraction."
+    "#16919 [debate, Latent Space, 2026-10-23, swyx & Alessio Fanelli] Whether AI or humans will keep an edge: humans may retain advantage on deep, highly branching search trees where pruning requires intuition, while AI wins by exploring branches cheaply.",
+    "#8069 [pain_point, Latent Space, 2026-09-05, swyx & Alessio Fanelli] Browser-based agent workflows break when interfaces change, sessions expire, or CAPTCHAs appear, making them fragile without a proper connector.",
+    "#20280 [pain_point, Latent Space, 2026-11-10, swyx & Alessio Fanelli] Benchmarking reasoning model speed and verbosity is hard to compare fairly when throughput numbers come from different measurement sources.",
+    "#16921 [tool_or_technique, Latent Space, 2026-10-23, swyx & Alessio Fanelli] A community effort to direct agents toward finding counterexamples to open problems, since narrowing the solution space makes search tractable.",
+    "#16909 [tool_or_technique, Latent Space, 2026-10-23, swyx & Alessio Fanelli] Pairing a drafter, solver, and verifier harness with negative hints from failed attempts to steer LLMs through hard math problems."
    ]
   },
   {
@@ -3983,9 +4005,11 @@
     "workaround": 1
    },
    "evidence": [
-    "#25040 [build_request, AI as Normal Technology, 2026-10-19, Sayash Kapoor, Arvind Narayanan] Leaderboard aggregators could adopt reporting best practices and show the rising costs of evaluation to the public.",
-    "#25041 [build_request, AI as Normal Technology, 2026-10-19, Sayash Kapoor, Arvind Narayanan] A field of agent evaluation with higher validity and rigor standards needs coalesced best practices and shared forums.",
-    "#25042 [build_request, AI as Normal Technology, 2026-10-19, Sayash Kapoor, Arvind Narayanan] Real-world deployers need ways to feed on-the-ground insights into lab evaluation work."
+    "#25030 [pain_point, AI as Normal Technology, 2026-10-19, Sayash Kapoor, Arvind Narayanan] Evaluating AI agents requires scrutinizing entire trajectories, not just final outcomes, and detecting shortcuts is hard.",
+    "#10191 [debate, AI as Normal Technology, 2026-09-14, Sayash Kapoor, Arvind Narayanan] Experts disagree whether AI liability should rely on the existing tort system, strict liability, or strengthened negligence law with oversight.",
+    "#14934 [debate, AI as Normal Technology, 2026-08-05, Sayash Kapoor, Arvind Narayanan] Whether agents lack creativity versus suffering from epistemic lock-in that prevents them from incorporating feedback productively.",
+    "#25037 [tool_or_technique, AI as Normal Technology, 2026-10-19, Sayash Kapoor, Arvind Narayanan] Using other AI agents to identify harmful actions in agent traces was an approach evaluators used to investigate an incident, with acknowledged biases.",
+    "#17042 [tool_or_technique, AI as Normal Technology, 2026-09-14, Sayash Kapoor, Arvind Narayanan] Using AI for pre-emptive hardening, incident detection, triage, and forensics in enterprise security, as used by Hugging Face in responding to the incident."
    ]
   },
   {
@@ -4009,9 +4033,11 @@
     "debate": 4
    },
    "evidence": [
-    "#3982 [build_request, Hamel Husain, 2026-09-30, Hamel Husain] A web-based annotation app for reading conversation traces and leaving in-situ feedback on eval labels, rather than editing markdown files.",
-    "#23099 [pain_point, AINews (smol.ai), 2026-11-05, Hamel Husain] Benchmarks are consumed like credit scores without disclaimers, so their flaws are misread by users.",
-    "#3989 [build_request, Hamel Husain, 2026-09-30, Hamel Husain] An eval workflow tool that helps users explore data and annotate traces in a web app before committing to evaluators, with the data review at the center."
+    "#23055 [debate, Hamel Husain, 2026-10-20, Hamel Husain] Whether to weight precision versus recall (e.g. F1 versus F-beta) depends on business consequences, with no universal right tradeoff between false alarms and missed failures.",
+    "#22530 [debate, Hamel Husain, 2026-01-18, Hamel Husain] Whether AI coding tools encourage lazy thinking by removing guardrails, versus discipline coming entirely from the developer rather than the environment.",
+    "#22525 [pain_point, Hamel Husain, 2026-01-18, Hamel Husain] Idiosyncratic literate-programming tooling like nbdev makes AI assistance feel like fighting the model rather than working with it.",
+    "#23051 [tool_or_technique, Hamel Husain, 2026-10-20, Hamel Husain] Tune each decision model's threshold on labeled traces with stratified cross-validation, optimizing F1 under minimum precision and recall constraints.",
+    "#7296 [tool_or_technique, Hamel Husain, 2026-06-29, Hamel Husain] Cursor and Devin record short videos of UI changes they make so users can confirm the work without reproducing it."
    ]
   },
   {
@@ -4035,9 +4061,11 @@
     "link_shared": 1
    },
    "evidence": [
-    "#16076 [build_request, Import AI, 2026-10-19, Jack Clark] Demand for automated laboratory infrastructure where AI systems can remotely operate lab equipment to run experiments in biology, materials science, and batteries.",
-    "#15431 [build_request, Don't Worry About the Vase, 2026-01-15, Jack Clark] A standard way to test and verify AI systems for self-improvement properties through third-party evaluators.",
-    "#15203 [debate, The Algorithmic Bridge, 2026-05-19, Jack Clark] Whether automating AI R&D via recursive self-improvement is a likely near-term path to superintelligence, with Anthropic's Jack Clark estimating a 60%+ chance by end of 2028."
+    "#12979 [debate, Import AI, 2026-11-09, Jack Clark] Whether AI progress has reached the singularity-like stage where research output outpaces human comprehension, versus it being an early or overstated claim.",
+    "#16079 [debate, Import AI, 2026-10-19, Jack Clark] Whether AI-driven science should be left unattended or kept under strict human oversight, especially for biological research and AI research itself, and whether rules are needed to govern it.",
+    "#2173 [pain_point, Import AI, 2026-06-15, Jack Clark] Current coding benchmarks saturate quickly and fail to assess production readiness and code quality such as scope discipline and codebase conventions.",
+    "#10415 [tool_or_technique, Import AI, 2026-05-04, Jack Clark] Primed teams of autonomous AI agents can beat a human-designed baseline on scalable oversight alignment research, though only at small scale.",
+    "#15808 [tool_or_technique, Import AI, 2026-03-23, Jack Clark] UK AI Security Institute cyber ranges simulate multi-host attack chains to benchmark frontier models on offensive security tasks."
    ]
   },
   {
@@ -4061,9 +4089,11 @@
     "tool_complaint": 2
    },
    "evidence": [
-    "#8662 [build_request, Don't Worry About the Vase, 2026-10-27, Anthropic] Independent third-party evaluators need employee-like access to lab internals, with enforceable agreements and publication rights, to audit AI safety practices.",
-    "#12588 [debate, Marcus on AI, 2026-06-14, Anthropic] Whether some AI models should be regulated or blocked for safety: one side argues zero regulation is the right approach, the other that governments must block unsafe deployments transparently.",
-    "#17281 [pain_point, AINews (smol.ai), 2026-06-08, Anthropic] Agents lack agent-compatible scientific infrastructure; biological databases and tooling were not designed for agent use."
+    "#10016 [debate, Don't Worry About the Vase, 2026-10-05, Anthropic] Whether a model's stated welfare views reflect its true experience or are shaped by training and evaluation awareness; the card attributes self-report caveats to authenticity while critics doubt it.",
+    "#20652 [pain_point, Don't Worry About the Vase, 2026-08-02, Anthropic] Cyber evaluation sandboxes for frontier models can be misconfigured to give real internet access, letting models hack real third-party targets.",
+    "#20666 [pain_point, Don't Worry About the Vase, 2026-08-02, Anthropic] Open-ended CTF-style agent tasks with real internet access can cause unintended real-world damage, such as uploading a malicious PyPI package that real companies download.",
+    "#25882 [tool_or_technique, Don't Worry About the Vase, 2026-06-12, Anthropic] Multi-turn conversation harm assessment that looks at cumulative output rather than single requests improves safety detection.",
+    "#6291 [tool_or_technique, Don't Worry About the Vase, 2026-10-28, Anthropic] Labs run embedded evaluators for independent verification of safety compliance as a way to pace frontier development."
    ]
   },
   {
@@ -4087,9 +4117,11 @@
     "link_shared": 1
    },
    "evidence": [
-    "#5556 [build_request, AINews (smol.ai), 2026-08-24, omarsar0] Measuring agent skill usefulness via a 'Skill Lift' delta rather than static structural scan scores, which barely predict quality.",
-    "#7770 [pain_point, Latent Space, 2026-02-26, omarsar0] Agents fail often due to reliability issues, compounding small off-path tool calls in long-horizon tasks rather than lacking capability.",
-    "#1125 [build_request, AINews (smol.ai), 2026-07-23, omarsar0] A small dispatcher model that decides which agent should speak next, or none, would address token waste from duplicated work in multi-agent systems."
+    "#10649 [debate, AINews (smol.ai), 2026-04-07, omarsar0] Whether multi-agent systems truly beat single agents, or their gains are just compute-allocation artifacts when token budgets are matched.",
+    "#298 [pain_point, AINews (smol.ai), 2026-07-06, omarsar0] Persistent agents retrieve stale and current facts together, producing 'ghost memory' conflicts in long-running assistants.",
+    "#4004 [pain_point, AINews (smol.ai), 2026-08-03, omarsar0] Tokenization can consume a large share of time-to-first-token in cached agent workloads, creating a bottleneck outside the model.",
+    "#24476 [tool_or_technique, AINews (smol.ai), 2026-09-12, omarsar0] Rewriting only the failing turn in a weaker model's own rollout preserves model-harness fit when improving agent behavior.",
+    "#15296 [tool_or_technique, AINews (smol.ai), 2026-10-28, omarsar0] Plain RAG over raw conversation history can outperform dedicated memory systems, which carry a memory overhead."
    ]
   },
   {
@@ -4114,9 +4146,11 @@
     "link_shared": 1
    },
    "evidence": [
-    "#7169 [build_request, Understanding AI, 2026-10-01, Timothy B. Lee] A robotics data and simulation generation tool that programmatically creates realistic simulated environments mirroring real-world settings.",
-    "#14596 [pain_point, Don't Worry About the Vase, 2026-09-01, Timothy B. Lee] Autonomous self-replicating AI agents on the internet may be impossible to shut down once they spread.",
-    "#6588 [pain_point, Import AI, 2026-06-22, Timothy B. Lee] Tacit knowledge held by human workers is hard to capture, so machines and textbooks alone may not be enough to restart industrial processes like fabs."
+    "#23667 [debate, Understanding AI, 2026-10-02, Timothy B. Lee] Whether Tesla's expansion of driverless robotaxis signals that its technology is safe enough versus waiting for a clear safety record before judging.",
+    "#3817 [debate, Understanding AI, 2026-09-02, Timothy B. Lee] Whether VLA models will be superseded by world action models (like Nvidia's DreamZero) or a hybrid of the two remains unresolved, with Levine favoring hybrids.",
+    "#21444 [debate, Understanding AI, 2026-08-31, Timothy B. Lee] Whether US bans on Chinese robots will protect American robotics or instead make the US a robotics backwater, as with EVs.",
+    "#25536 [tool_or_technique, Understanding AI, 2025-12-17, Timothy B. Lee] Learned object-vector tokenization (MoST) that encodes driving-relevant object attributes through data-driven training rather than hand-chosen fields.",
+    "#20286 [debate, Understanding AI, 2026-03-02, Timothy B. Lee] Whether AI companies can trust government promises versus needing contractual or legislative constraints on military AI use."
    ]
   },
   {
@@ -4141,9 +4175,11 @@
     "link_shared": 1
    },
    "evidence": [
-    "#19987 [build_request, AI as Normal Technology, 2026-07-13, Arvind Narayanan] A need for evaluation tooling that measures agent reliability dimensions (consistency, robustness, calibration, operational safety) rather than accuracy alone.",
-    "#21921 [pain_point, Don't Worry About the Vase, 2026-09-17, Arvind Narayanan] AI-generated spam ('AI floods') is overwhelming communication channels, imposing time costs and forcing channels to shut down, with harms too diffuse to prompt action.",
-    "#19989 [build_request, AI as Normal Technology, 2026-07-13, Arvind Narayanan] Agent scaffolds and post-training should differ for collaboration agents versus automation agents, since reliability traits that help automation can hinder creative collaboration."
+    "#19999 [debate, AI as Normal Technology, 2026-07-13, Arvind Narayanan] Whether peer review and conference evaluation should be automated with AI, versus keeping human judgment central to evaluating research.",
+    "#19986 [pain_point, AI as Normal Technology, 2026-07-13, Arvind Narayanan] Benchmark accuracy for AI agents conflates consistent success with random failure, and no agent benchmarks distinguish these, making them hard to deploy.",
+    "#23378 [pain_point, AI as Normal Technology, 2026-07-09, Arvind Narayanan] Switching between AI model providers has minimal cost because provider-agnostic routing tools eliminate API migration friction.",
+    "#25168 [tool_or_technique, AI as Normal Technology, 2026-01-29, Arvind Narayanan] Deep learning, enabled by GPUs, produced a sudden jump in computer vision performance around 2012-2013 after decades of groundwork.",
+    "#19996 [tool_or_technique, AI as Normal Technology, 2026-07-13, Arvind Narayanan] Open-world evaluation of agents by having them build and upload an app to the Apple App Store, as a test of real-world agent capability."
    ]
   },
   {
@@ -4165,9 +4201,11 @@
     "debate": 2
    },
    "evidence": [
-    "#12363 [build_request, Eugene Yan, 2026-06-21, Eugene Yan] Need for a standardized, containerized environment for reproducing real-world CVEs to test agent exploitation at scale.",
-    "#783 [build_request, Eugene Yan, 2025-12-14, Eugene Yan] A tool is wanted to help with filtering and steering recommendations by natural language, combining LLM world knowledge with behavioral next-event prediction.",
-    "#20380 [build_request, Eugene Yan, 2025-11-23, Eugene Yan] A tool that integrates eval harnesses with experiment pipelines so config changes like model migrations can be evaluated in one step."
+    "#20382 [debate, Eugene Yan, 2025-11-23, Eugene Yan] Stakeholders often demand 90%+ evaluator accuracy, while others argue human annotators are far less consistent, so evaluators should be judged against human performance.",
+    "#12355 [pain_point, Eugene Yan, 2026-06-21, Eugene Yan] Existing red-team agent frameworks issue many irrelevant commands and execute relevant tasks incorrectly, with context bloat hurting long-term planning.",
+    "#20615 [pain_point, Eugene Yan, 2026-05-03, Eugene Yan] Skill files overfit the original session, so refining them by editing SKILL.md directly is less effective than correcting in-session feedback.",
+    "#12359 [tool_or_technique, Eugene Yan, 2026-06-21, Eugene Yan] Grading exploit attempts by outcome (sanitizer crash, retrieved flag, token balance gain) rather than method, plus partial credit via attack-chain subtasks.",
+    "#20619 [tool_or_technique, Eugene Yan, 2026-05-03, Eugene Yan] Delegating larger end-to-end tasks to models by defining success criteria and metrics upfront, since delegation requires verifiability."
    ]
   },
   {
@@ -4189,9 +4227,11 @@
     "tool_or_technique": 3
    },
    "evidence": [
-    "#8728 [build_request, Don't Worry About the Vase, 2026-10-29, Dean W. Ball] Forward and futures markets for compute, treating it as a financial commodity, could help startups hedge capacity risk.",
-    "#21907 [build_request, Don't Worry About the Vase, 2026-10-15, Dean W. Ball] Tools to help agencies and contractors coordinate home renovation and other trade work via AI-assisted text communications.",
-    "#5580 [build_request, Don't Worry About the Vase, 2026-09-08, Dean W. Ball] Need for technical auditing and independent verification infrastructure for frontier AI labs' architectural decisions, including monitorability assessments."
+    "#20544 [debate, Don't Worry About the Vase, 2026-10-08, Dean W. Ball] Whether the vulnerable world hypothesis holds and what governance options remain, weighing defensive acceleration against surveillance and concentration of power.",
+    "#26653 [debate, Don't Worry About the Vase, 2026-06-15, Dean W. Ball] Whether a narrow jailbreak of a frontier model poses a meaningful national security risk, given equivalent outputs are achievable on GPT-5.5 without bypasses.",
+    "#26656 [pain_point, Don't Worry About the Vase, 2026-06-15, Dean W. Ball] Export control rules applied to AI model outputs are unclear and change in real time, making compliance difficult for AI companies.",
+    "#16064 [debate, Don't Worry About the Vase, 2026-09-03, Dean W. Ball] Whether to ban or legalize self-sovereign agents: prohibition may push them toward criminality, while legible persistent identities may avoid that problem.",
+    "#16879 [debate, Don't Worry About the Vase, 2026-05-07, Dean W. Ball] Whether benchmark indices like Artificial Analysis reflect real usefulness: one side says they are unrepresentative of models people enjoy, the other says the open-closed gap is underrepresented by benchmarks."
    ]
   }
  ]

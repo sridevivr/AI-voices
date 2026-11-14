@@ -139,6 +139,34 @@ def diverse(fs: list[dict], k: int, topic: str = "") -> list[dict]:
     return out
 
 
+STANCE_ORDER = {"debate": 0, "tool_or_technique": 1, "pain_point": 2, "workaround": 3, "tool_complaint": 4,
+                "build_request": 5, "link_shared": 6}
+
+
+def voice_evidence(fs: list[dict], top_domains: list[str], k: int = 5) -> list[dict]:
+    """Findings that show what a person argues (debates, pain points, complaints: 3) and what they use
+    (tools, techniques, workarounds: 2), each spread round-robin over their top domains, preferring a
+    real quote of 8+ words and recent findings. Gaps are filled from the rest."""
+    key = lambda r: (STANCE_ORDER.get(r["type"], 9), r["quote_verified"] != "True",
+                     len(r["short_quote"].split()) < 8, -int(r["date"].replace("-", "") or 0))
+
+    def spread(cands, n, taken):
+        pools = [sorted([r for r in cands if r["domain"] == d and r not in taken], key=key) for d in top_domains]
+        got = []
+        while len(got) < n and any(pools):
+            for pool in pools:
+                if pool and len(got) < n:
+                    got.append(pool.pop(0))
+        return got
+
+    argues = [r for r in fs if r["type"] in ("debate", "pain_point", "tool_complaint")]
+    uses = [r for r in fs if r["type"] in ("tool_or_technique", "workaround")]
+    out = spread(argues, 3, [])
+    out += spread(uses, 2, out)
+    out += spread(fs, k - len(out), out)
+    return out[:k]
+
+
 def line(r: dict) -> str:
     who = f", {r['who']}" if r["who"] else ""
     return f"#{r['fid']} [{r['type']}, {r['source']}, {r['date']}{who}] {r['summary']}"
@@ -279,11 +307,11 @@ def build(since: str | None = None, until: str | None = None) -> dict:
     voices = []
     for who, n in Counter(r["who"] for r in rows if r["who"]).most_common(20):
         fs = [r for r in rows if r["who"] == who]
-        voices.append({"who": who, "findings": n,
-                       "top_domains": [d for d, _ in Counter(r["domain"] for r in fs).most_common(3)],
+        top = [d for d, _ in Counter(r["domain"] for r in fs).most_common(3)]
+        voices.append({"who": who, "findings": n, "top_domains": top,
                        "via": [s for s, _ in Counter(r["source"] for r in fs).most_common(2)],
                        "types": dict(Counter(r["type"] for r in fs).most_common()),
-                       "evidence": [line(r) for r in diverse(fs, 3)]})
+                       "evidence": [line(r) for r in voice_evidence(fs, top, 5)]})
     pack = {"built_at": now_utc().isoformat(), "since": since, "until": until, "overview": overview,
             "trends": tr, "spikes": spikes(rows, tr), "debates": debates, "pains": pains,
             "tools": tools, "voices": voices}
@@ -500,8 +528,14 @@ def tables_md(p: dict, name: str) -> list[str]:
     return md
 
 
+def allowed_ids(p: dict, name: str) -> list[int]:
+    return sorted({int(m) for m in re.findall(r"#(\d+) \[", prompt_for(p, name))})
+
+
 def render_report(p: dict, name: str, reply: dict, rows_by_fid: dict) -> str:
-    allowed = {int(m) for m in re.findall(r"#(\d+) \[", prompt_for(p, name))}
+    # The evidence this reply was written against (saved at write time), so rebuilding the pack later
+    # can't silently drop its citations.
+    allowed = set(reply.get("_allowed") or allowed_ids(p, name))
     cite = lambda ids: links_for([i for i in ids if i in allowed], rows_by_fid)
     dropped = sum(1 for blk in reply["key_points"] + [pp for s in reply["sections"] for pp in s["paragraphs"]]
                   for i in blk["evidence_ids"] if i not in allowed)
@@ -539,7 +573,8 @@ def write(only: list[str] | None, yes: bool):
         sys.exit(f"Would exceed ${BUDGET_TOTAL} budget (spent ${spent():.2f} + est ${est:.2f}).")
     replies = json.loads(REPLIES.read_text()) if REPLIES.exists() else {}
     for n in names:
-        replies[n] = call(WRITER, prompts[n], REPORT_SCHEMA, "high", f"insights:{n}")
+        replies[n] = {**call(WRITER, prompts[n], REPORT_SCHEMA, "high", f"insights:{n}"),
+                      "_allowed": allowed_ids(p, n)}
         REPLIES.write_text(json.dumps(replies, indent=1, ensure_ascii=False))
     render(names)
     log(f"insights: wrote {', '.join(names)}")
