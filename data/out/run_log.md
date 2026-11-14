@@ -57,3 +57,9 @@
 - 2026-11-11 03:27 UTC: wrote opportunities.md (19 opportunities), themes.json (907 themes), findings.csv (themed 21,273/26,923); total spend $10.32
 - 2026-11-11 03:57 UTC: vibe:ideas: done on claude-sonnet-5-5, $0.3027
 - 2026-11-11 03:57 UTC: wrote vibe_ideas.md (18 ideas)
+- 2026-11-14 20:21 UTC: insights:state_of_ai: done on claude-sonnet-5-5, $0.1613
+- 2026-11-14 20:22 UTC: insights:debates: done on claude-sonnet-5-5, $0.0970
+- 2026-11-14 20:23 UTC: insights:trends: done on claude-sonnet-5-5, $0.1181
+- 2026-11-14 20:23 UTC: insights:tools_guide: done on claude-sonnet-5-5, $0.0970
+- 2026-11-14 20:24 UTC: insights:voices: done on claude-sonnet-5-5, $0.0617
+- 2026-11-14 20:24 UTC: insights: wrote state_of_ai, debates, trends, tools_guide, voices
