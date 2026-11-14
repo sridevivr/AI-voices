@@ -60,5 +60,12 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    `python -m src.synthesize vibe` (dry run) / `--yes` (~$0.37, one Sonnet call over the top 100
    non-dev themes; complex apps welcome, owner said so) / `--render` (free) → `data/out/vibe_ideas.md`.
 
+10. Insight reports (2026-11-14, written in-session by Claude, NO API spend): `data/out/state_of_ai_2026.md`
+   (debates, pain points, tools, voices), `trends.md` (+`trends.json` from `python -m src.insights trends`),
+   `tools_guide.md`. Sources with [[cite:text]] markers live in `reports/*.src.md`; rebuild with
+   `python -m src.insights cite reports/X.src.md data/out/X.md` (fails unless each marker matches one URL).
+   Trend rule: rising/falling only if pooled change >=15% AND >=4 of the 6 biggest sources agree (source mix
+   shifted: AINews 45% -> 24%). Theme-level trends are unreliable (stage-1 chunks were date-sorted).
+
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
