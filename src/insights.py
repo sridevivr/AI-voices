@@ -326,8 +326,13 @@ def build(since: str | None = None, until: str | None = None) -> dict:
 
 # ------------------------------------------------------------------ deterministic markdown
 def links_for(ids, rows_by_fid) -> str:
-    return " ".join(f"([{rows_by_fid[i]['source']}, {rows_by_fid[i]['date']}]({rows_by_fid[i]['url']}))"
-                    for i in ids if i in rows_by_fid)
+    seen, out = set(), []
+    for i in ids:  # one link per article, even if several cited findings come from it
+        r = rows_by_fid.get(i)
+        if r and r["url"] not in seen:
+            seen.add(r["url"])
+            out.append(f"([{r['source']}, {r['date']}]({r['url']}))")
+    return " ".join(out)
 
 
 def trend_table(items: list[dict]) -> list[str]:

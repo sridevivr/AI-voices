@@ -125,15 +125,15 @@ the real argument is whether that gap holds.' ([Interconnects, 2026-09-11](https
 
 ## 9. Is training on copyrighted work and open code fair?
 
-**The question:** Is AI training fair use, can licenses stop it, and who owns what AI produces? ([Hacker News — Ask HN, 2026-02-13](https://news.ycombinator.com/item?id=47000737)) ([Hacker News — Ask HN, 2026-02-13](https://news.ycombinator.com/item?id=47000737))
+**The question:** Is AI training fair use, can licenses stop it, and who owns what AI produces? ([Hacker News — Ask HN, 2026-02-13](https://news.ycombinator.com/item?id=47000737))
 
-**Fair-use side:** One discussion held that training may be fair use, so copyright-based licensing may not apply, and materials must be legally obtained. Another argued that a training-prohibition clause is hard to enforce because training data is inaccessible. ([Hacker News — Ask HN, 2026-02-13](https://news.ycombinator.com/item?id=47000737)) ([Hacker News — Ask HN, 2026-02-13](https://news.ycombinator.com/item?id=47000737))
+**Fair-use side:** One discussion held that training may be fair use, so copyright-based licensing may not apply, and materials must be legally obtained. Another argued that a training-prohibition clause is hard to enforce because training data is inaccessible. ([Hacker News — Ask HN, 2026-02-13](https://news.ycombinator.com/item?id=47000737))
 
 **Skeptical side:** Gary Marcus criticizes OpenAI for complaining about IP being taken after it trained on artists' and writers' work without permission. Chris Lattner calls whether AI reproducing familiar code structures is learning or copying an open IP question. Simon Willison asks whether code largely produced by an LLM can carry copyright, which depends on human creative control. ([Marcus on AI, 2026-02-13](https://garymarcus.substack.com/p/irony-irony-laced-with-karma-and)) ([Simon Willison's Weblog, 2026-02-22](https://simonwillison.net/2026/Feb/22/ccc/)) ([Simon Willison's Weblog, 2026-01-11](https://simonwillison.net/2026/Jan/11/answers/))
 
 **Definitions again:** The OSI definition and Linux Foundation openness framework disagree on whether open-weights releases count as open source. ([Interconnects, 2025-11-12](https://www.interconnects.ai/p/inside-a-chinese-frontier-lab-inclusion))
 
-**Why it matters:** Anyone publishing AI-built code or content faces unsettled rules about licensing and ownership. ([Simon Willison's Weblog, 2026-01-11](https://simonwillison.net/2026/Jan/11/answers/)) ([Simon Willison's Weblog, 2026-01-11](https://simonwillison.net/2026/Jan/11/answers/))
+**Why it matters:** Anyone publishing AI-built code or content faces unsettled rules about licensing and ownership. ([Simon Willison's Weblog, 2026-01-11](https://simonwillison.net/2026/Jan/11/answers/))
 
 **Post angle:** 'Who owns code your AI wrote? The answer may depend on how much creative direction you gave it.' ([Simon Willison's Weblog, 2026-01-11](https://simonwillison.net/2026/Jan/11/answers/))
 

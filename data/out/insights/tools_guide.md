@@ -28,7 +28,7 @@ Another version is an Obsidian vault of debugged, reusable patterns that agents 
 
 ## Part 1, Job: learn something quickly
 
-The learning findings share one idea: stay active. One user has an LLM generate code, reviews it closely, and questions it until they understand it. Another outlines the problem first, asks for best practices, then asks for pros and cons of each option for their situation. ([Hacker News — Ask HN, 2026-08-10](https://news.ycombinator.com/item?id=49246873)) ([Hacker News — Ask HN, 2026-08-10](https://news.ycombinator.com/item?id=49246873))
+The learning findings share one idea: stay active. One user has an LLM generate code, reviews it closely, and questions it until they understand it. Another outlines the problem first, asks for best practices, then asks for pros and cons of each option for their situation. ([Hacker News — Ask HN, 2026-08-10](https://news.ycombinator.com/item?id=49246873))
 
 Two other tactics: Alberto Romero describes compressing learning into a structured one-day curriculum with exercises. Some users have an LLM write flawed arguments so they can practice spotting and rebutting them. ([The Algorithmic Bridge, 2026-01-15](https://www.thealgorithmicbridge.com/p/learn-to-use-ai-competently-in-1)) ([Don't Worry About the Vase, 2026-03-12](https://thezvi.substack.com/p/ai-159-see-you-in-court))
 
