@@ -11,6 +11,8 @@ Usage (run on the owner's Mac; `write` needs ANTHROPIC_API_KEY in .env):
         real source links, and builds every table. Replies are cached in data/out/insights/replies.json.
     python -m src.insights render
         Re-render the reports from cached replies (free).
+    python -m src.insights site
+        Write data/out/insights/site/index.html: all reports as one web page (free; see src/site.py).
     python -m src.insights cite <draft.md> <out.md>
         Replace [[cite:text]] markers with the matching finding's link (for hand-written notes).
 
@@ -597,6 +599,20 @@ def render(names: list[str] | None = None):
         print(f"wrote {INS_DIR / REPORTS[n]['file']}")
 
 
+def site():
+    import sys as _sys
+    from . import site as site_mod
+    if not (PACK.exists() and REPLIES.exists()):
+        _sys.exit("Nothing to publish: run `build` and `write --yes` first.")
+    p = json.loads(PACK.read_text())
+    replies = json.loads(REPLIES.read_text())
+    rows, _ = load()
+    out = INS_DIR / "site" / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(site_mod.build_site(p, replies, {r["fid"]: r for r in rows}, _sys.modules[__name__]))
+    print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
+
+
 # ------------------------------------------------------------------ hand-written notes
 def cite(draft: str, out: str):
     """[[cite:some exact text]] -> (Source, date, link) for the one finding whose summary or quote
@@ -623,7 +639,7 @@ def cite(draft: str, out: str):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["build", "write", "render", "cite"])
+    ap.add_argument("cmd", choices=["build", "write", "render", "site", "cite"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--since")
     ap.add_argument("--until")
@@ -636,6 +652,8 @@ def main():
         write(a.only.split(",") if a.only else None, a.yes)
     elif a.cmd == "render":
         render()
+    elif a.cmd == "site":
+        site()
     elif a.cmd == "cite":
         cite(*a.args)
 

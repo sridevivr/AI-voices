@@ -70,6 +70,8 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    shifted: AINews 45% -> 24%). Full year compares Dec-Mar vs Jul-Oct; windows split at the midpoint date
    (for the future daily/weekly digest). Theme-level trends unreliable (stage-1 chunks were date-sorted).
    Hand-written first drafts moved to `reports/handwritten/` (superseded).
+   `site` (free) -> `data/out/insights/site/index.html` (src/site.py): all reports as one page, Artifact-ready.
+   Published (private) at https://claude.ai/artifact/LcSyqw1ZZwQFEwWcT7uuuq ; republish the same file to update.
 11. Credits: owner has ~$80 promotional credits (expire Nov 16). The $40 BUDGET_TOTAL in extract.py is the
    owner's cap, not the balance; ask before raising it.
 
