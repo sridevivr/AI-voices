@@ -8,6 +8,7 @@ Usage (run on the owner's Mac; needs ANTHROPIC_API_KEY in .env):
     python -m src.synthesize finish                     # stages 2-3 (small, synchronous) + write outputs
     python -m src.synthesize render                     # rewrite outputs from saved replies (free)
     python -m src.synthesize vibe [--yes|--render]      # non-developer, vibe-codeable lens -> vibe_ideas.md
+    python -m src.synthesize reset [--yes]              # start afresh after new findings (archives old state)
 
 Stage-2 merges and the stage-3 reply are saved in data/out/synth_cache.json, so `finish` only pays
 for domains whose stage-1 themes changed (plus the ~$0.25 opportunities call).
@@ -24,7 +25,9 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import shutil
 import math
 import re
 import sys
@@ -172,7 +175,8 @@ def make_chunks(rows: list[dict]) -> list[dict]:
         by[r["domain"]].append(r)
     out = []
     for d in sorted(by):
-        lst = sorted(by[d], key=lambda r: (r["date"], r["fid"]))
+        # Stable pseudo-random order (not by date), so every chunk spans the whole year and themes do too.
+        lst = sorted(by[d], key=lambda r: hashlib.sha1(str(r["fid"]).encode()).hexdigest())
         n = math.ceil(len(lst) / CHUNK)
         size = math.ceil(len(lst) / n)
         for k in range(n):
@@ -188,7 +192,7 @@ def s1_user(ch: dict) -> str:
             f"{len(ch['rows'])} findings)\n<findings>\n{body}\n</findings>")
 
 
-def s1_params(ch: dict, model: str = MODEL, effort: str = "medium") -> dict:
+def s1_params(ch: dict, model: str = MODEL, effort: str = "high") -> dict:
     return {
         "model": model,
         "max_tokens": 32000,
@@ -253,7 +257,8 @@ def estimate():
                                          messages=p["messages"],
                                          output_config=p["output_config"]).input_tokens
     # Output per chunk: themes + ids (~4K) plus thinking at medium effort (assumed 2-8K).
-    s1_out_low, s1_out_high = 6_000 * len(chunks), 12_000 * len(chunks)
+    # Output per chunk: themes + ids (~5K) plus thinking at high effort (observed redo replies: 8-16K).
+    s1_out_low, s1_out_high = 8_000 * len(chunks), 16_000 * len(chunks)
     multi = [ch for ch in chunks if ch["n"] > 1]
     merges = len({ch["domain"] for ch in multi})
     s2_in = 3_500 * len(multi) + 1_500 * merges          # ~30 themes x ~110 tokens per chunk
@@ -784,9 +789,27 @@ def vibe(render_only: bool = False, yes: bool = False):
     log(f"wrote vibe_ideas.md ({len(out['ideas'])} ideas)")
 
 
+def reset(yes: bool = False):
+    """Start synthesis afresh (e.g. after new findings were extracted): move the stage-1 state, raw stage
+    replies and the merge/opportunity cache into data/batches/synth_archive_<time>/, and write an empty
+    cache so nothing is re-seeded from the old themes.json. Free; outputs in data/out are kept until
+    `finish` overwrites them."""
+    files = [STATE, STAGE1, CACHE] + sorted(BATCH_DIR.glob("synth_results_*.jsonl"))
+    files = [f for f in files if f.exists()]
+    if not yes:
+        print("Would archive:\n  " + "\n  ".join(str(f) for f in files) + "\nRe-run with --yes to reset.")
+        return
+    dest = BATCH_DIR / f"synth_archive_{now_utc():%Y%m%dT%H%M%S}"
+    dest.mkdir(parents=True)
+    for f in files:
+        shutil.move(str(f), dest / f.name)
+    save_cache({"stage2": {}, "stage3": None})
+    log(f"reset: archived {len(files)} files to {dest.name}; next: estimate, submit, collect, finish")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["estimate", "submit", "collect", "redo", "finish", "render", "vibe"])
+    ap.add_argument("cmd", choices=["estimate", "submit", "collect", "redo", "finish", "render", "vibe", "reset"])
     ap.add_argument("--render", action="store_true", help="vibe: rewrite vibe_ideas.md from the saved reply")
     ap.add_argument("ids", nargs="*", help="redo: stage-1 chunk ids (default: thin or missing ones)")
     ap.add_argument("--yes", action="store_true", help=f"confirm a batch over ${CONFIRM_ABOVE}")
@@ -810,6 +833,8 @@ def main():
         finish()
     elif a.cmd == "render":
         finish(reuse_opportunities=True)
+    elif a.cmd == "reset":
+        reset(a.yes)
     elif a.cmd == "vibe":
         vibe(a.render, a.yes)
 

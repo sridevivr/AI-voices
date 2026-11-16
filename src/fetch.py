@@ -6,6 +6,7 @@ One JSON file per item: data/raw/<source_id>/<YYYY-MM-DD>_<slug>.json with
 Usage:
     python -m src.fetch                    # all sources, last 365 days
     python -m src.fetch zvi hn             # only some sources
+    python -m src.fetch bluesky            # curated Bluesky accounts (see src/bluesky.py)
     python -m src.fetch --days 2           # (daily digest) only recent items
 Re-running skips files that already exist.
 No API key is used here.
@@ -28,6 +29,7 @@ from .feeds import (html_to_text, list_feed, list_latentspace_archive,
                     list_substack_archive, list_tunguz_archive)
 from .hn import fetch_thread, is_relevant, list_ask_hn
 from .http_client import PoliteSession
+from . import bluesky
 
 HN_TOP_COMMENTS = 25        # top-level comments kept per thread
 HN_REPLIES_PER_COMMENT = 2  # direct replies kept under each
@@ -60,8 +62,8 @@ def main_text(html: str, selectors=("article", "main")) -> tuple[str, str]:
 
 class Writer:
     def __init__(self, src_id: str):
-        self.src = SOURCES_BY_ID.get(src_id, {"id": src_id, "name": "Hacker News — Ask HN",
-                                              "voice": "community", "author": ""})
+        self.src = SOURCES_BY_ID.get(src_id) or {"bluesky": bluesky.SOURCE}.get(src_id) or {
+            "id": src_id, "name": "Hacker News — Ask HN", "voice": "community", "author": ""}
         self.dir = RAW_DIR / src_id
         self.dir.mkdir(parents=True, exist_ok=True)
         self.written = self.skipped = self.failed = 0
@@ -87,7 +89,7 @@ class Writer:
         rec = {
             "id": f"{self.src['id']}:{self.path(date, url).stem}",
             "source": self.src["id"], "source_name": self.src["name"],
-            "voice": self.src["voice"],
+            "voice": extra.pop("voice_override", None) or self.src["voice"],
             "author": author or self.src.get("author", ""),
             "date": date.isoformat(), "url": url, "title": title, "kind": kind,
             "word_count": len(text.split()), "fetched_at": now_utc().isoformat(),
@@ -270,6 +272,7 @@ def jobs(since, only=None):
         "simonwillison": lambda: fetch_simonwillison(since),
         "tomtunguz": lambda: fetch_tunguz(since),
         "hn": lambda: fetch_hn(since),
+        "bluesky": lambda: bluesky.fetch(Writer("bluesky"), since),
     }
     for src in SOURCES:
         if src["id"] in table:

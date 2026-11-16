@@ -27,6 +27,10 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
 - Ask HN: tightened filter (`src/hn.py:is_relevant`): Ask/Tell HN with an AI term in the title → 342 threads
   (mostly on-topic; some general AI-industry chatter). Top 25 comments + 2 replies each.
 - AINews moved from news.smol.ai to latent.space in Sep 2026; both are fetched (see `src/fetch.py`).
+- Bluesky added 2026-11-16: ~37 verified accounts in `src/bluesky.py` (public AppView API, no login; keyword
+  search needs a login so it isn't used). One raw item = one account's AI posts for one complete ISO week;
+  findings are linked back to the exact post via quote matching (`post_for_quote`, used in `extract.collect`).
+  General accounts keep only posts matching AI terms. The cloud env allows public.api.bsky.app.
 
 ## Pipeline status / plan
 1. Verify sources — DONE (`data/out/source_verification.md`).
@@ -72,8 +76,17 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    Hand-written first drafts moved to `reports/handwritten/` (superseded).
    `site` (free) -> `data/out/insights/site/index.html` (src/site.py): all reports as one page, Artifact-ready.
    Published (private) at https://claude.ai/artifact/LcSyqw1ZZwQFEwWcT7uuuq ; republish the same file to update.
-11. Credits: owner has ~$80 promotional credits (expire Nov 16). The $40 BUDGET_TOTAL in extract.py is the
-   owner's cap, not the balance; ask before raising it.
+11. Credits: the first promo credits expired Nov 16; owner has a new $100 promo grant (2026-11-16). The $40
+   BUDGET_TOTAL in extract.py is the owner's cap, not the balance; ask before raising it. Spend so far ≈ $11.23.
+12. Bluesky + fresh synthesis (2026-11-16 plan): `fetch bluesky` -> `extract estimate` (now prices only pending
+   items) -> `submit`/`collect`/`export` -> `synthesize reset --yes` (archives old state; empty cache) ->
+   `estimate`/`submit`/`collect`/`finish` -> `vibe --yes` -> `insights build`/`write --yes`/`ideas --yes`/`site`.
+   Stage-1 chunks are now a stable pseudo-random order (every chunk spans the year, so theme trends become usable)
+   at high effort (12/65 medium-effort replies were cut short last time).
+13. App-idea repository `src/ideas.py` (`python -m src.insights ideas [--yes|--render]`, ~$1.10): 5 mining passes
+   (needs, hacks, new powers, culture, makers) + 1 curate pass -> `data/out/insights/app_ideas.json` + `.md`;
+   ideas need not be requested; general public, easy to prototype, useful and/or fun, demo-able. Site shows them
+   as the first tab (filters: start here, fun, useful, weekend builds).
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).

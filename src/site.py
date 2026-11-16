@@ -14,7 +14,8 @@ import re
 
 from .config import now_utc
 
-VIEWS = [  # (hash, nav label, report name or None for the numbers view)
+VIEWS = [  # (hash, nav label, report name; None = the numbers view, "ideas" = the app-idea repository)
+    ("ideas", "App ideas", "ideas"),
     ("state", "State of AI", "state_of_ai"),
     ("debates", "Debates", "debates"),
     ("trends", "Trends", "trends"),
@@ -108,6 +109,29 @@ svg.spark line { stroke: var(--line); stroke-width: 1; }
 .tile span { font-size: 13px; color: var(--muted); }
 .note { font-size: 14px; color: var(--muted); }
 footer.f { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); max-width: 72ch; display: grid; gap: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 13px/1 var(--body); padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--fg); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.ideas { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; align-items: start; }
+.idea { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid;
+  gap: 10px; align-content: start; min-width: 0; }
+.idea.top { border-color: var(--accent); }
+.idea h4 { margin: 0; font: 650 18px/1.25 var(--display); text-wrap: balance; }
+.idea .one { margin: 0; font-size: 15px; }
+.idea .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font: 11px/1.6 var(--mono); padding: 1px 8px; border-radius: 999px; background: var(--bg); color: var(--muted); }
+.tag.start { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.scores { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; font: 11px/1.3 var(--mono); color: var(--muted); }
+.dots { letter-spacing: 1px; color: var(--accent); font-size: 12px; }
+.dots .off { color: var(--line); }
+.idea details { font-size: 14px; }
+.idea summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+.idea dl { display: grid; gap: 2px; margin: 10px 0 0; }
+.idea dd + dt { margin-top: 10px; }
+.idea dt { font: 600 11px/1.3 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.idea dd { margin: 0; }
+.startlist { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
 @media (max-width: 860px) {
   .shell { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 16px 48px; }
   .side { position: static; gap: 14px; }
@@ -135,6 +159,17 @@ JS = """
     });
   }
   window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
+  document.querySelectorAll(".chip").forEach(function (c) {
+    c.addEventListener("click", function () {
+      document.querySelectorAll(".chip").forEach(function (o) { o.setAttribute("aria-pressed", o === c ? "true" : "false"); });
+      var f = c.getAttribute("data-f"), n = 0;
+      document.querySelectorAll(".idea").forEach(function (el) {
+        var ok = f === "all" || (" " + el.getAttribute("data-tags") + " ").indexOf(" " + f + " ") >= 0;
+        el.hidden = !ok; if (ok) n++;
+      });
+      document.getElementById("idea-count").textContent = n + " ideas";
+    });
+  });
   show();
 })();
 """
@@ -258,6 +293,52 @@ def report_view(p, name, reply, rows_by_fid, from_insights) -> str:
             f"<div class='keypoints'><h3>Key points</h3><ul>{kp}</ul></div>{secs}{extra}")
 
 
+SPARK = {"request": "people asked for it", "pain": "a common frustration", "hack": "a hack people use",
+         "new_capability": "a new AI capability", "culture": "a cultural moment", "maker": "something someone built"}
+
+
+def dots(n: int) -> str:
+    return "<span class='dots' aria-hidden='true'>" + "●" * n + f"<span class='off'>{'●' * (5 - n)}</span></span>"
+
+
+def ideas_view(data: dict) -> str:
+    ideas = data["ideas"]
+    start = [i for i in ideas if i.get("start_here")]
+    cards = []
+    for i in ideas:
+        tags = ["all"] + (["start"] if i.get("start_here") else []) + (["fun"] if i["fun"] >= 4 else []) + \
+               (["useful"] if i["useful"] >= 4 else []) + (["weekend"] if i["effort"] == "a weekend" else [])
+        ev = "".join(f'<a class="cite" href="{esc(e["url"])}" target="_blank" rel="noopener" title="{esc(e["summary"])}">'
+                     f'{esc(e["source"])} · {esc(short_date(e["date"]))}</a>' for e in i["evidence"])
+        score_cells = "".join(f"<div>{k}<br>{dots(i[k])}</div>" for k in ("fun", "useful", "ease", "shareable"))
+        top = f"<span class='tag start'>Start here #{i['start_here']}</span>" if i.get("start_here") else ""
+        cards.append(
+            f"<article class='idea{' top' if i.get('start_here') else ''}' data-tags='{' '.join(tags)}'>"
+            f"<div class='tags'>{top}<span class='tag'>{esc(i['effort'])}</span><span class='tag'>from {esc(SPARK[i['spark']])}</span></div>"
+            f"<h4>{esc(i['name'])}</h4><p class='one'>{inline(i['one_liner'])}</p>"
+            f"<div class='scores' aria-label='fun {i['fun']}, useful {i['useful']}, ease {i['ease']}, shareable {i['shareable']} out of 5'>{score_cells}</div>"
+            f"<details><summary>How it works, demo and post hook</summary><dl>"
+            f"<dt>For</dt><dd>{inline(i['for_whom'])}</dd><dt>Why now</dt><dd>{inline(i['why_it_works'])}</dd>"
+            f"<dt>How it works</dt><dd>{inline(i['how_it_works'])}</dd><dt>Build</dt><dd>{inline(i['build'])}</dd>"
+            f"<dt>Demo moment</dt><dd>{inline(i['demo_moment'])}</dd><dt>Post hook</dt><dd>{inline(i['post_hook'])}</dd>"
+            f"<dt>Risks</dt><dd>{inline(i['risks'])}</dd>" + (f"<dt>Sparked by</dt><dd><span class='cites'>{ev}</span></dd>" if ev else "")
+            + "</dl></details></article>")
+    chips = "".join(f"<button type='button' class='chip' data-f='{f}' aria-pressed='{'true' if f == 'all' else 'false'}'>{label}</button>"
+                    for f, label in (("all", "All"), ("start", "Start here"), ("fun", "Fun"), ("useful", "Useful"), ("weekend", "Weekend builds")))
+    startlist = "".join(f"<li><strong>{esc(i['name'])}</strong>: {inline(i['start_why'])}</li>" for i in start)
+    obs = "".join(f"<li>{inline(o)}</li>" for o in data["observations"])
+    return (f"<header><div class='eyebrow'>App ideas</div><h2>{len(ideas)} apps you could prototype and share</h2>"
+            "<p class='dek'>Easy to build with AI coding tools, useful or fun for everyday people, and made for a short demo. "
+            "Mined from the findings in five passes: everyday needs, hacks people use, new AI capabilities, culture, and "
+            "things people built.</p><div class='meta'>Scores are model estimates (1–5). Ranking: ease + shareable + the "
+            "better of fun and useful + half the other.</div></header>"
+            + (f"<div class='keypoints'><h3>Start here</h3><ol class='startlist'>{startlist}</ol></div>" if start else "")
+            + (f"<section class='s'><h3>Patterns</h3><ul>{obs}</ul></section>" if obs else "")
+            + f"<div class='chips' role='group' aria-label='Filter ideas'>{chips}</div>"
+            f"<div class='meta' id='idea-count' aria-live='polite'>{len(ideas)} ideas</div>"
+            f"<div class='ideas'>{''.join(cards)}</div>")
+
+
 def numbers_view(p, rows_by_fid) -> str:
     o, tr = p["overview"], p["trends"]
     t = o["types"]
@@ -294,27 +375,29 @@ def numbers_view(p, rows_by_fid) -> str:
             f"</tr></thead><tbody>{srcs}</tbody></table></div></section>")
 
 
-def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights) -> str:
+def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: dict | None = None) -> str:
     o = p["overview"]
-    views = [v for v in VIEWS if v[2] is None or v[2] in replies]
+    views = [v for v in VIEWS if v[2] is None or v[2] in replies or (v[2] == "ideas" and ideas)]
     nav = "".join(f"<a href='#{h}'><span>{esc(label)}</span><span class='n'>{n:02d}</span></a>"
                   for n, (h, label, _) in enumerate(views, 1))
     body = ""
     for h, label, name in views:
-        inner = numbers_view(p, rows_by_fid) if name is None else report_view(p, name, replies[name], rows_by_fid, from_insights)
-        wide = " wide" if name in (None, "trends") else ""
+        inner = (numbers_view(p, rows_by_fid) if name is None else ideas_view(ideas) if name == "ideas"
+                 else report_view(p, name, replies[name], rows_by_fid, from_insights))
+        wide = " wide" if name in (None, "trends", "ideas") else ""
         body += f"<article class='view{wide}' id='v-{h}' aria-label='{esc(label)}'>{inner}</article>"
+    kinds = "newsletters, blogs, Hacker News" + (" and Bluesky" if "Bluesky" in o["sources"] else "")
     facts = (f"<div class='facts'><div><b>{o['findings']:,}</b> findings</div><div><b>{len(o['sources'])}</b> sources</div>"
              f"<div><b>{o['items']:,}</b> articles &amp; threads</div><div>{esc(o['window'])}</div></div>")
     return f"""<title>AI Voices 2026</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="What a year of AI commentary says: debates, trends, tools and voices.">
+<meta name="description" content="What a year of AI commentary says: app ideas, debates, trends, tools and voices.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>{CSS}</style>
 <div class="shell">
   <aside class="side">
-    <div class="brand"><h1>AI Voices 2026</h1><p>What a year of AI commentary says, from {len(o['sources'])} newsletters, blogs and Hacker News.</p></div>
+    <div class="brand"><h1>AI Voices 2026</h1><p>What a year of AI commentary says, from {len(o['sources'])} sources: {kinds}.</p></div>
     <nav class="nav" aria-label="Reports">{nav}</nav>
     {facts}
   </aside>
@@ -324,8 +407,9 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights) -> str:
       <div>Generated {now_utc():%Y-%m-%d} by the AI Voices pipeline: articles fetched from {len(o['sources'])} public sources,
       findings extracted by Claude Haiku 5.5, grouped into themes and written up by Claude Sonnet 5.5. Every number and table is
       computed from the findings; every source link is a finding the text cites.</div>
-      <div>Limits: the sources lean toward builders and AI insiders; mainstream business press, non-English sources and video are
-      not included; paid Substack posts were skipped. Counts measure attention, not how many people experience something.</div>
+      <div>Limits: the sources lean toward builders and AI insiders; mainstream business press, non-English sources, video and
+      social platforms{" (apart from a curated list of Bluesky accounts)" if "Bluesky" in o["sources"] else ""} are not included;
+      paid Substack posts were skipped. Counts measure attention, not how many people experience something.</div>
     </footer>
   </main>
 </div>

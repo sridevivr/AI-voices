@@ -24,6 +24,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from .bluesky import post_for_quote
 from .config import BATCH_DIR, OUT_DIR, RAW_DIR, now_utc
 
 MODEL = "claude-haiku-5-5"
@@ -204,7 +205,11 @@ def client():
 def estimate(sample_per_source: int = 4, assumed_out_per_unit: int | None = None):
     c = client()
     items = load_raw()
-    us = units(items)
+    done = done_ids()
+    us = [u for u in units(items) if u["custom_id"] not in done]  # only what `submit` would send
+    if not us:
+        sys.exit("Nothing pending: every item has already been submitted.")
+    items = [it for it in items if it["id"] in {u["item_id"] for u in us}]
     by_src = defaultdict(list)
     for u in us:
         by_src[u["item"]["source"]].append(u)
@@ -325,12 +330,14 @@ def collect(wait: bool = True, retry: bool = True):
                 doc = _normalize(it.get("text", ""))
                 for f in data.get("findings", []):
                     q = f.get("short_quote", "")
+                    # Bluesky weekly bundles: link the finding to the exact post its quote came from.
+                    post = post_for_quote(it, q) if it.get("posts") else None
                     ff.write(json.dumps({
                         **f,
-                        "who": f.get("who") or "",
+                        "who": f.get("who") or (it.get("author", "") if it.get("posts") else ""),
                         "source": it.get("source_name"), "source_id": it.get("source"),
-                        "voice": it.get("voice"), "date": (it.get("date") or "")[:10],
-                        "url": it.get("url"), "title": it.get("title"),
+                        "voice": it.get("voice"), "date": ((post or it).get("date") or "")[:10],
+                        "url": (post or it).get("url"), "title": it.get("title"),
                         "item_id": meta["item_id"], "chunk": meta["chunk"], "batch": b["id"],
                         "quote_verified": bool(q) and _normalize(q) in doc,
                         "quote_words": len(q.split()),

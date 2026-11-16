@@ -11,6 +11,9 @@ Usage (run on the owner's Mac; `write` needs ANTHROPIC_API_KEY in .env):
         real source links, and builds every table. Replies are cached in data/out/insights/replies.json.
     python -m src.insights render
         Re-render the reports from cached replies (free).
+    python -m src.insights ideas [--yes | --render]
+        App-idea repository (see src/ideas.py): 5 mining passes + 1 curate pass (~$1) ->
+        data/out/insights/app_ideas.json + app_ideas.md. Without --yes: dry run with the estimate.
     python -m src.insights site
         Write data/out/insights/site/index.html: all reports as one web page (free; see src/site.py).
     python -m src.insights cite <draft.md> <out.md>
@@ -609,7 +612,9 @@ def site():
     rows, _ = load()
     out = INS_DIR / "site" / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(site_mod.build_site(p, replies, {r["fid"]: r for r in rows}, _sys.modules[__name__]))
+    ideas_path = INS_DIR / "app_ideas.json"
+    ideas = json.loads(ideas_path.read_text()) if ideas_path.exists() else None
+    out.write_text(site_mod.build_site(p, replies, {r["fid"]: r for r in rows}, _sys.modules[__name__], ideas))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
 
 
@@ -639,12 +644,13 @@ def cite(draft: str, out: str):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["build", "write", "render", "site", "cite"])
+    ap.add_argument("cmd", choices=["build", "write", "render", "ideas", "site", "cite"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--since")
     ap.add_argument("--until")
     ap.add_argument("--only", help="comma-separated report names: " + ",".join(REPORTS))
     ap.add_argument("--yes", action="store_true")
+    ap.add_argument("--render", action="store_true", help="ideas: rewrite from saved replies (free)")
     a = ap.parse_args()
     if a.cmd == "build":
         build(a.since, a.until)
@@ -652,6 +658,11 @@ def main():
         write(a.only.split(",") if a.only else None, a.yes)
     elif a.cmd == "render":
         render()
+    elif a.cmd == "ideas":
+        from . import ideas
+        INS_DIR.mkdir(parents=True, exist_ok=True)
+        ideas.run({"slices": INS_DIR / "ideas_evidence.json", "replies": INS_DIR / "ideas_replies.json",
+                   "json": INS_DIR / "app_ideas.json", "md": INS_DIR / "app_ideas.md"}, READER, a.yes, a.render)
     elif a.cmd == "site":
         site()
     elif a.cmd == "cite":
