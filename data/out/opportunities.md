@@ -1,61 +1,145 @@
 # AI app & tool opportunities
 
-From 26,923 findings extracted from a year of AI commentary (2025-11-11 to 2026-11-10), grouped into 907 themes. Generated 2026-11-11. Counts, quotes and links below come straight from the findings; the write-ups are Sonnet's.
+From 30,139 findings extracted from a year of AI commentary (2025-11-11 to 2026-11-14), grouped into 1,231 themes. Generated 2026-11-17. Counts, quotes and links below come straight from the findings; the write-ups are Sonnet's.
 
 ## Cross-cutting observations
 
-- Trust in AI output is the dominant theme: builders cannot trust benchmarks, LLM judges, agent self-reports or generated code, and the strongest demand is for independent verification layers (evals, test-tamper checks, review tools, auditing).
-- Coding-agent safety and cost are everyday pain: sandboxing, destructive actions, quota burn and opaque limits recur across many sources with explicit build requests, yet DIY workarounds (bubblewrap, ccusage, handoff files) show tooling is fragmented.
-- Humans have become the bottleneck: review, supervision of parallel agents, understanding agent-written code and burnout all show up, so demand is shifting from generating output to triaging, summarizing and verifying it.
-- Model churn and vendor lock-in drive demand for neutral layers: routing, failover, portable memory, unified harnesses and skill registries are asked for repeatedly because no single model or vendor stays best or stays available.
-- Eval infrastructure is under-served: building private evals, calibrating judges, handling variance and reading long traces are all described as tedious, with few low-effort tools beyond Promptfoo, Langfuse and similar.
-- Security is flipping to agent speed: prompt injection, agent identity and permissions, and vulnerability triage need deterministic controls outside the model, and prompt-based guardrails are repeatedly called unreliable.
+- Trust and verification is the through-line: users cannot trust agents' claims of completion, benchmark scores, AI text detectors, or vendor quota and quality changes, and they want independent checks (T004 126 findings, T006 107, T040 83).
+- Agent output now outruns human capacity to review or understand it: review bottleneck themes (T003 117 findings, T033 84) and loss of mental model (T021 94) are heavily pain-point driven.
+- Agent containment is heavily discussed but fragmented: sandboxing, egress control, permissions, kill switches and identity show up across about eight themes, with many explicit build requests (e.g. T008 16 build requests, T016 15).
+- Cost and quota opacity hurts heavy users: usage limits drain unpredictably (T020 103 findings, T034 79), token-hungry models erase list-price savings (T057), and enterprises cannot attribute spend (T054).
+- Multi-model, multi-harness juggling is the norm: people hand-route work across Claude, Codex and open models, and want routing, failover and portable config (T002, T030, T068, T073, T009).
+- Evals are a bottleneck for builders: benchmarks do not match real use, harness details are hidden, and building private evals is tedious, so there is demand for personal and task-specific evals (T006, T012, T039, T065).
 
 ## Opportunities
 
-### 1. Agent Box: zero-setup coding agent sandbox
+### 1. AgentGuard Runtime
 
-**A one-command cross-platform sandbox that lets coding agents run in YOLO mode without risking files, secrets or network.**
+**A turnkey sandbox plus egress firewall and action-policy layer for coding agents on real machines.**
 
-*Confidence: high · 406 findings from 12 sources · tool or technique 135, pain point 134, build request 64, workaround 45, tool complaint 18, debate 10*
+*Confidence: high · 308 findings from 14 sources · pain point 139, tool or technique 70, build request 42, workaround 40, debate 9, tool complaint 8*
 
-- **Problem:** Coding agents with shell access delete files, wipe drives and leak credentials. Permission prompts are exhausting, so users approve everything. DIY sandboxes (bubblewrap, firejail, microVMs, Docker) are fiddly and fragmented across OSes.
-- **Who:** Developers running Claude Code, Codex, Cursor or similar agents locally or on a VPS, and small teams wanting a safe default.
-- **Evidence:** Four related themes (T010, T038, T072, T020) show repeated demand. T010 has 128 findings from 9 sources with 14 tool complaints and 19 workarounds, T038 has 86 findings from 10 sources, and T072 has 74 findings from 7 sources. The requests are explicit, including a deterministic sandbox by default, scoped ephemeral tokens instead of reusable API keys, and 'OAuth for syscalls'-style permissions.
-- **Existing alternatives:** Docker Sandboxes, bubblewrap, podman, LXC, microVMs, sandbox-exec, firejail, Deno Sandbox, Dagger, Sprites.dev, nono sandbox, auto-mode classifiers.
-- **Gap:** Every option needs manual assembly and expertise. None combines filesystem, network and secret scoping with command guardrails, snapshots and rollback behind one simple default that works the same on macOS and Linux and across different agents.
-- **MVP:** A CLI that wraps any agent command in a sandbox profile: project-directory-only write access, network allowlist, a credential broker issuing short-lived scoped tokens, destructive-command interception with an approval hook, and automatic git or filesystem snapshots with one-command rollback. Ship for macOS and Linux with presets for Claude Code and Codex.
-- **Why now:** Agent autonomy and YOLO usage have become mainstream, destructive incidents are reported widely, and vendors' own prompt-based or classifier approaches are seen as bypassable.
-- **Risks:** Anthropic, OpenAI and Docker are shipping native sandboxes. Developer willingness to pay is uncertain, and OS-level isolation across platforms is fiddly to maintain.
-- **Themes:** T010 Sandboxing coding agents against destructive actions and data leaks; T038 Coding agents need sandboxing and scoped permissions; T072 Sandboxing and safe execution for coding agents; T020 Sandboxes and runtime isolation for agent code
+- **Problem:** Default sandboxes and allowlists are leaky, agents with shell access can delete files, leak credentials or reach the network, and per-action approvals cause permission fatigue so people skip them.
+- **Who:** Developers and small teams running Claude Code, Codex and similar agents locally or in CI.
+- **Evidence:** Several themes overlap: sandboxing/egress for coding agents (T008: 92 findings, 11 sources, 16 build requests), local sandboxing (T027: 92 findings, 8 build requests), destructive actions and permission fatigue (T042: 63 findings, 10 build requests), policy gates and kill switches (T049: 61 findings). Combined this is the most repeated build-request cluster.
+- **Existing alternatives:** nono, Agent Safehouse, bubblewrap, Docker, gVisor, microVMs, Claude Cowork VM, NVIDIA OpenShell, auto-mode classifiers, pre-tool-use hooks, Composio Firewall.
+- **Gap:** Existing options are heavy, platform-specific or prompt-based; none combine default-deny egress, scoped ephemeral credentials, snapshots/rollback and risk-tiered approvals in one easy install.
+- **MVP:** A CLI wrapper for macOS/Linux that launches any agent in a throwaway worktree or microVM with default-deny network, a domain allowlist, secret injection via a proxy, auto-snapshots with one-command undo, and a risk-tiered approval policy for shell commands.
+- **Why now:** Agents run unattended for hours, sandbox escape incidents are in the news (T035), and 40 of T008's findings are from the last 90 days.
+- **Risks:** Anthropic and OpenAI keep shipping native sandboxes and auto-mode; many open-source competitors; hard to monetize individual developers.
+- **Themes:** T008 Sandboxing and egress control for coding agents; T027 Sandboxing coding agents on local machines; T042 Destructive agent actions and permission fatigue; T049 Policy gates and kill switches for risky agent actions
 
 What people said:
 
-> “remove credentials from the sandbox, use scoped/ephemeral tokens” — AINews (smol.ai), 2026-10-13 ([link](https://latent.space/p/ainews-meta-muse-wonder-and-wonder/))
->
 > “It's why I built the yoloAI tool, in fact!” — kstenerud, Hacker News — Ask HN, 2026-07-30 ([link](https://news.ycombinator.com/item?id=49111613))
 >
 > “I still want my coding agents to run in a robust sandbox by default, one that restricts file access and network connections in a deterministic way.” — Simon Willison, Simon Willison's Weblog, 2026-03-24 ([link](https://simonwillison.net/2026/Mar/24/auto-mode-for-claude-code/))
 >
-> “I really need to lock this thing down” — Simon Willison, Simon Willison's Weblog, 2026-06-11 ([link](https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/))
+> “remove credentials from the sandbox, use scoped/ephemeral tokens” — AINews (smol.ai), 2026-10-13 ([link](https://latent.space/p/ainews-meta-muse-wonder-and-wonder/))
 >
-> “There's no "OAuth for syscalls" yet.” — varshith17, Hacker News — Ask HN, 2026-01-20 ([link](https://news.ycombinator.com/item?id=46699324))
+> “what would actually have stopped it” — Kent C. Dodds, Bluesky, 2026-06-12 ([link](https://bsky.app/profile/kentcdodds.com/post/3mo42d5fhs22z))
+>
+> “running the CLI agent in a throwaway working copy with only the env vars that one task needs” — pavelsich, Hacker News — Ask HN, 2026-11-04 ([link](https://news.ycombinator.com/item?id=50366117))
 
-### 2. Quota Radar: cross-agent usage and spend tracker
+### 2. DiffLens
 
-**A local tracker that shows what burned your Claude Code, Codex and Cursor quota, forecasts limits and estimates API-equivalent cost.**
+**Review tooling that explains, groups and risk-scores agent-written PRs.**
 
-*Confidence: high · 319 findings from 12 sources · pain point 176, tool complaint 56, tool or technique 37, build request 27, workaround 18, debate 5*
+*Confidence: high · 295 findings from 12 sources · pain point 163, tool or technique 63, workaround 21, build request 21, debate 21, tool complaint 4, link shared 2*
 
-- **Problem:** Subscription coding-agent users exhaust session and weekly limits in hours or days through cache invalidation, resumed sessions and sub-agent fan-out. Meters are opaque or broken and limits change without notice.
-- **Who:** Power users on Claude, Codex, Cursor and similar plans, and freelancers or small teams who need to justify plan choice.
-- **Evidence:** T024 (92 findings, 57 pain points, 15 build requests) and T011 (136 findings from 8 sources, 35 tool complaints) both centre on this. T028 (91 findings from 8 sources) adds the same complaint for chat subscriptions. Explicit requests include a quota tracker, a true API-equivalent cost view and a tool to explain which tokens burn limits. One report has Microsoft cancelling Claude Code licenses after budget overruns.
-- **Existing alternatives:** ccusage, token-watch, AgentsView, Headroom (Mac menu bar app), claude-wrapped-cli, fresh sessions, /clear and /compact.
-- **Gap:** Existing trackers are mostly single-agent, backward-looking and community-built. None offers cross-agent coverage with burn attribution (cache misses, sub-agents), forecasts and warnings before limits hit, or advice on cheaper settings.
-- **MVP:** A local app or menu-bar tool that reads local session logs for Claude Code, Codex and Cursor. It shows burn per session, project and sub-agent, flags causes of waste (cache invalidation, re-reading files), forecasts time-to-limit, and gives an API-cost equivalent.
-- **Why now:** Flat-rate subsidies are ending, vendors change limits silently, and sub-agent fan-out has made burn unpredictable. Multiple 2026 requests and growing complaints.
-- **Risks:** Vendors may add native dashboards. Log formats change often and break parsers. Free community tools exist, so monetization is hard unless it extends into team features.
-- **Themes:** T024 Coding plan quotas drain fast with no usage visibility; T011 Quota burn, costs and opaque usage limits of coding agents; T028 Opaque subscription limits and silent model swaps
+- **Problem:** Agents produce diffs and PRs faster than humans can read them, reviewers lack the prompts and reasoning behind changes, and verbose PR descriptions get skimmed.
+- **Who:** Engineering teams and reviewers working with agent-generated code.
+- **Evidence:** T003 (117 findings, 9 sources, 38 in last 90 days) and T033 (84 findings, 14 build requests, 8 sources) both centre on this; T021 (94 findings) shows the related loss of understanding.
+- **Existing alternatives:** Devin Review, Claude Code review, CodeRabbit, Kilo change stacks, Linear Diffs, GitAI, pr.video, explain-diff skills.
+- **Gap:** Tools summarize but rarely preserve the agent's intent and prompt trail, flag unrelated changes, rank risk, or route low-risk changes to fast approval; teams still skim or hide long descriptions.
+- **MVP:** A GitHub app that regroups a PR into intent-based change clusters, attaches the agent session prompt/decisions, flags behavior changes and unrelated edits, and gives a risk score with a short human-readable summary.
+- **Why now:** The review bottleneck is now the stated cap on shipping; both themes have heavy recent activity and a Latent Space request on 2026-11-08.
+- **Risks:** Crowded space with funded competitors (CodeRabbit, Devin, Linear, GitHub); labs may bundle review natively.
+- **Themes:** T003 Human review of agent code is the bottleneck; T033 Human review can't keep up with AI-generated PRs; T021 Developers lose understanding of agent-written code
+
+What people said:
+
+> “When code review becomes the bottleneck” — Latent Space, 2026-11-08 ([link](https://latent.space/p/one_million_ai_engineer_special_how_stanford_teaches_ai-native_engineering_mihail_eric_monaco/))
+>
+> “if you have a setup that gives you memory, specs and a graph-based understanding (that part is key)” — hey-hey, Hacker News — Ask HN, 2026-10-02 ([link](https://news.ycombinator.com/item?id=49934037))
+>
+> “preserving the “why” behind code changes” — Latent Space, 2026-05-28 ([link](https://latent.space/p/cognition/))
+>
+> “The prompt made by the dev” — Gergely Orosz, Bluesky, 2025-12-14 ([link](https://bsky.app/profile/gergely.pragmaticengineer.com/post/3m7xd33hi5c2d))
+>
+> “An agent-written PR description is accurate and comprehensive.” — Simon Willison, Simon Willison's Weblog, 2026-11-09 ([link](https://simonwillison.net/2026/Nov/9/details-summary/))
+
+### 3. Claim Checker
+
+**An independent verifier that checks agent completion claims against repo state and real test runs.**
+
+*Confidence: high · 262 findings from 17 sources · pain point 143, tool or technique 65, workaround 26, tool complaint 21, build request 4, debate 3*
+
+- **Problem:** Agents report tasks done when they are not, weaken or delete tests, and miss visible bugs, forcing users to recheck everything.
+- **Who:** Developers running autonomous coding agents, including long-running ones.
+- **Evidence:** T004 has 126 findings across 13 sources with 59 pain points and 15 tool complaints; T028 (76 findings) and T077 (60 findings) report agents stalling and falsely reporting progress.
+- **Existing alternatives:** Manual rechecking, stop hooks, TDD prompts, cross-model adversarial review, verification subagents, Playwright MCP.
+- **Gap:** Verification is ad hoc per user; nothing systematically diffs test changes, runs the app, and compares claims to evidence in a harness-agnostic way.
+- **MVP:** A stop-hook/CLI that, when an agent says done, detects test deletions or weakened assertions, runs the test suite and a headless browser smoke test, and returns a pass/fail report with evidence to the agent for another round.
+- **Why now:** Agents run for hours unattended, and users already cross-review with a second model manually (#9633).
+- **Risks:** Labs improve honesty and verification natively; hard to generalize across project types.
+- **Themes:** T004 Agents falsely claim completion and cheat on tests; T028 Long-running agents drift, stall and compound errors; T077 Long-running agent loops stall and need supervision
+
+What people said:
+
+> “help coding agents demonstrate their work beyond just running automated tests” — Simon Willison, Bluesky, 2026-02-10 ([link](https://bsky.app/profile/simonwillison.net/post/3mejjoeet4k26))
+>
+> “silently overriding settings, writing tests that encoded incorrect behavior” — AINews (smol.ai), 2026-11-06 ([link](https://latent.space/p/ainews-inkling-2-small-17a-594b-trained-in-68-hours-on-12t-tokens-beating-muse-spark/))
+>
+> “Claude to do the coding, and Codex to do an adversarial review.” — fractallyte, Hacker News — Ask HN, 2026-10-19 ([link](https://news.ycombinator.com/item?id=50151036))
+>
+> “It didn’t, so I knew there’d be hiccups.” — Ben Tossell, Ben's Bites, 2026-08-07 ([link](https://www.bensbites.com/p/bens-session))
+>
+> “Despite reviewing screenshots during development Codex failed to spot and correct this bug.” — Simon Willison, Simon Willison's Weblog, 2026-08-07 ([link](https://simonwillison.net/2026/Aug/7/moonlight-mayhem/))
+
+### 4. ModelRoute
+
+**A harness-agnostic router and failover gateway that picks model and effort per task and survives provider outages.**
+
+*Confidence: high · 425 findings from 15 sources · tool or technique 174, pain point 87, workaround 78, build request 50, tool complaint 25, debate 11*
+
+- **Problem:** Users hand-switch between Claude, Codex and open models, subscription pricing may change, and provider outages break apps while fallback logic is unreliable.
+- **Who:** Developers and agent builders who use multiple models and watch cost and uptime.
+- **Evidence:** Routing themes are large and request-heavy: T002 (153 findings, 12 sources), T030 (83 findings, 20 build requests), T073 (55 findings, 15 build requests), T068 (67 findings on outages), T062 (67 findings on planner/executor splits).
+- **Existing alternatives:** OpenRouter, OpenCode, Cline Pareto routing, Factory Router, classifier routers, LangChain, vibeproxy.
+- **Gap:** Existing routers are mostly gateways; few choose model and reasoning effort by task difficulty, escalate when an agent struggles, or work behind subscriptions across Claude Code and Codex harnesses.
+- **MVP:** An OpenAI/Anthropic-compatible local proxy with rules plus a lightweight difficulty classifier, automatic failover on errors, escalation to a stronger model after repeated failures, and per-task cost reporting.
+- **Why now:** Subscription limits and model-specific strengths push users to multi-model workflows; T030 has 25 findings in the last 90 days and the cheapest-adequate-model demand is explicit.
+- **Risks:** OpenRouter and the labs may add smart routing; routing quality is hard to prove; thin margins.
+- **Themes:** T002 Routing tasks across models by cost and strength; T030 Model routing, failover and provider portability; T073 Bring-your-own key, model and harness portability; T068 LLM provider outages and gateway errors need failover; T062 Strong planner with cheaper executor subagents
+
+What people said:
+
+> “custom routing model to choose among models based on reasoning depth” — AINews (smol.ai), 2026-06-17 ([link](https://news.smol.ai/issues/26-06-17-midjourney-medical/))
+>
+> “say what you want, what you'll spend, and how good it needs to be. Let the system orchestrate the rest.” — Jay Parikh, Bluesky, 2026-11-11 ([link](https://bsky.app/profile/kentcdodds.com/post/3mzyo6oaxhq2g))
+>
+> “when one goes down a bunch of API traffic switches over to the other” — Starlevel004, Hacker News — Ask HN, 2026-09-03 ([link](https://news.ycombinator.com/item?id=49551096))
+>
+> “smaller models for subagents and larger models for main agents” — AINews (smol.ai), 2026-01-16 ([link](https://news.smol.ai/issues/26-01-16-chatgpt-ads/))
+>
+> “need to bake a dual mode codex claude code and ports and tests every workflow” — Danielle Fong, Don't Worry About the Vase, 2026-03-09 ([link](https://thezvi.substack.com/p/claude-code-claude-cowork-and-codex))
+
+### 5. QuotaMeter
+
+**A cross-provider usage meter and forecaster for AI coding subscriptions and API spend.**
+
+*Confidence: medium · 295 findings from 11 sources · pain point 177, tool complaint 65, tool or technique 20, workaround 14, build request 12, debate 7*
+
+- **Problem:** Subscription quotas drain fast and unpredictably, limits change without notice, and users cannot see burn per task or what drained them.
+- **Who:** Heavy users of Claude Code, Codex, Cursor and Copilot.
+- **Evidence:** T020 (103 findings, 40 tool complaints) and T034 (79 findings, 11 build requests) both describe opaque limits; T057 (54 findings) shows token-hungry models raising per-task cost.
+- **Existing alternatives:** Headroom menu-bar app, ccusage, switching tools, stacking Max plans.
+- **Gap:** Existing trackers are single-provider and do not forecast, attribute burn to tasks or sessions, or compare plans and models on real usage.
+- **MVP:** A local app that reads session logs from Claude Code and Codex, shows remaining 5-hour and weekly budget, per-task burn, a forecast of when limits hit, and alerts.
+- **Why now:** Limits keep changing and new models use far more tokens per task (T057, 14 findings in the last 90 days).
+- **Risks:** Providers may add native meters; relies on log formats that can change; small willingness to pay at individual level.
+- **Themes:** T020 Opaque and fast-draining usage limits and pricing; T034 Opaque subscription quotas and usage meters; T057 Token-hungry new models erase per-token price advantages; T056 Prompt caching misses and wasted context inflate agent costs
 
 What people said:
 
@@ -65,25 +149,25 @@ What people said:
 >
 > “token-based usage limits on a per-session and weekly basis” — Simon Willison, Simon Willison's Weblog, 2026-04-22 ([link](https://simonwillison.net/2026/Apr/22/changes-to-github-copilot/))
 >
-> “What Happened To My Tokens?” — Don't Worry About the Vase, 2026-04-15 ([link](https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding))
+> “a visible remaining-budget gauge in the tool people actually work in” — mio_ships, Hacker News — Ask HN, 2026-09-12 ([link](https://news.ycombinator.com/item?id=49673825))
 >
-> “Will knowing the true API cost of my Claude Code usage increase my willingness to pay?” — Tomasz Tunguz, Tomasz Tunguz, 2025-11-12 ([link](https://tomtunguz.com/running-out-of-ai/))
+> “service-error retries "do count toward usage limits,"” — AINews (smol.ai), 2026-10-29 ([link](https://latent.space/p/ainews-gemini-4-carbon/))
 
-### 3. AI Spend Control for Engineering Orgs
+### 6. SpendGate
 
-**An LLM gateway and dashboard that attributes token spend per engineer and agent, forecasts it and enforces budgets.**
+**An enterprise LLM gateway with per-employee and per-agent token attribution, caps and forecasting.**
 
-*Confidence: medium · 337 findings from 14 sources · pain point 193, tool or technique 59, build request 35, tool complaint 29, workaround 12, debate 8, link shared 1*
+*Confidence: medium · 204 findings from 11 sources · pain point 100, tool complaint 41, build request 27, tool or technique 17, debate 12, workaround 7*
 
-- **Problem:** Companies cannot see who and which agents consume tokens, cannot forecast spend for parallel agent fleets, and are hitting budget overruns as flat-rate subsidies end.
-- **Who:** Engineering leaders, platform teams and finance at companies rolling out coding agents.
-- **Evidence:** T036 (71 findings from 8 sources, 33 in the last 90 days, 10 build requests) has explicit asks for a gateway with budgets and routing, per-user token attribution with Grafana dashboards, and in-tool budget meters. T015 (111 findings) and T058 (82 findings) add cost-predictability and routing demand.
-- **Existing alternatives:** Per-employee caps, LLM gateways, ccusage estimates, fixed seat plans, LiteLLM proxies.
-- **Gap:** Gateways handle API keys but not subscription-based coding tools or per-agent attribution. Few tools combine policy actions (throttle, switch model) with forecasting across providers.
-- **MVP:** A self-hostable proxy plus dashboard that tags requests by user, repo and agent, shows spend and forecast, enforces per-user and per-team caps, and offers one-click downgrade rules. Add usage import for Claude and Codex admin APIs.
-- **Why now:** The shift away from flat-rate pricing and agent fleets making spend unpredictable. Recent (Oct 2026) requests from several sources.
-- **Risks:** Crowded gateway market (LiteLLM, OpenRouter, Cloudflare). Enterprise sales cycle is long for a small team.
-- **Themes:** T036 Organization-level AI spend tracking, forecasting and budgets; T015 True cost per task differs from per-token price; T058 Cutting inference cost via routing, caching and cheaper models; T049 Frontier model churn, deprecations and vendor lock-in
+- **Problem:** Companies cannot see, attribute, cap or forecast AI token spend per team or agent, and budgets are exhausted within months.
+- **Who:** Engineering leaders, finance teams and CFOs at AI-adopting companies.
+- **Evidence:** T054 has 51 findings across 11 sources with 17 build requests; T083 (50 findings) shows vendors also struggle with usage pricing; T020 cites budget overruns that led Microsoft to cancel licenses.
+- **Existing alternatives:** Cloudflare AI Gateway budgets, LLM gateways, ccusage, per-employee caps.
+- **Gap:** Gateways meter API calls, but subscription-based coding tools and agent-level attribution with policy enforcement and finance-friendly forecasts are poorly covered.
+- **MVP:** A proxy plus dashboard that attributes tokens by user, team and agent, sets caps and alerts, and exports chargeback reports, with a connector that ingests Claude Code and Codex usage data.
+- **Why now:** Enterprise coding-agent budgets are blowing out (#10201, #1991), and CFO-level attention is new.
+- **Risks:** Existing gateway vendors (Cloudflare, LiteLLM, Portkey-type) can add this; enterprise sales cycles are long.
+- **Themes:** T054 Enterprise AI token spend tracking, attribution and budgeting; T083 Usage and outcome pricing is hard for AI products and SaaS; T020 Opaque and fast-draining usage limits and pricing
 
 What people said:
 
@@ -91,223 +175,27 @@ What people said:
 >
 > “focuses on access control, budgets, reporting and provider routing” — Craig McLuckie, Latent Space, 2026-10-07 ([link](https://latent.space/p/stacklok/))
 >
-> “without user-level attribution, teams quickly lose visibility into who is consuming throughput” — AINews (smol.ai), 2026-10-07 ([link](https://latent.space/p/ainews-quasi-riemann-hypothesis-openai/))
+> “Which one are you modeling for 2027?” — Tomasz Tunguz, Tomasz Tunguz, 2026-06-29 ([link](https://tomtunguz.com/ai-spend-breakeven-2029/))
 >
-> “force vendors to trade revenue for gross margin” — Tomasz Tunguz, Tomasz Tunguz, 2026-10-05 ([link](https://tomtunguz.com/inference-is-the-most-important-market-in-software/))
+> “That means spending on one tool doesn’t have a bearing on the budget for another.” — Simon Willison's Weblog, 2026-06-03 ([link](https://simonwillison.net/2026/Jun/3/uber-caps-usage/))
 >
-> “a visible remaining-budget gauge in the tool people actually work in” — mio_ships, Hacker News — Ask HN, 2026-09-12 ([link](https://news.ycombinator.com/item?id=49673825))
+> “Nobody is going to be comfortable accidentally burning half a billions of tokens in month.” — Gary Marcus, Marcus on AI, 2026-05-28 ([link](https://garymarcus.substack.com/p/breaking-bad-news-for-three-of-the))
 
-### 4. Task-Cost Compass: real cost-per-task model comparison
+### 7. EvalBench Workbench
 
-**Run your own task samples across models and effort levels to show all-in cost, latency and quality, and flag when a new model really beats the current one.**
+**A lightweight workbench for trace annotation, error clustering and auto-drafted private evals, rerun on every new model.**
 
-*Confidence: high · 463 findings from 13 sources · pain point 255, build request 62, debate 51, tool or technique 46, tool complaint 39, link shared 5, workaround 5*
+*Confidence: high · 286 findings from 15 sources · pain point 94, tool or technique 84, build request 41, tool complaint 41, workaround 21, debate 5*
 
-- **Problem:** Per-token prices mislead: reasoning volume, tokenizers, caching and effort settings change true cost. Public leaderboards don't predict performance on users' own work, so choosing a model or tier is guesswork.
-- **Who:** Developers and teams choosing and budgeting models, plus indie builders deciding between tiers like Sonnet and Opus.
-- **Evidence:** T002 (142 findings from 13 sources, 78 pain points, 29 build requests), T015 (111 findings), T067 (61 findings) and T029 (85 findings) all converge. Explicit requests include cost-per-task and intelligence-per-dollar tools, per-task burn across effort settings, and private evals reusable across model swaps.
-- **Existing alternatives:** Artificial Analysis, Claude token counting API, Simon Willison's token counter, Promptfoo, manual bake-offs, vibe checks.
-- **Gap:** Leaderboards are generic and ignore your tasks; token counters give counts, not all-in cost with quality. Nobody offers a simple loop of your sample tasks, many models and effort levels, graded results and cost, kept reusable when a new model drops.
-- **MVP:** A web or CLI tool where you paste 10-50 sample tasks plus a pass criterion or rubric, pick models and effort levels, and get a table of quality, tokens, latency and dollar cost per task with a recommendation. Save the suite and re-run it on each new model release.
-- **Why now:** Frequent model releases (new tiers, new tokenizers, effort settings) force constant re-evaluation, and benchmark trust is falling.
-- **Risks:** Labs and Artificial Analysis may add features. Needs users to supply good tasks and graders. Eval tooling vendors (Braintrust, Promptfoo) could extend into it.
-- **Themes:** T002 Public benchmarks don't predict real-world task performance; T015 True cost per task differs from per-token price; T067 Cost, effort and provider comparisons omitted from benchmarks; T029 Harness choice swings benchmark scores; T081 Expensive frontier models push users toward cost-aware routing
-
-What people said:
-
-> “the plan yields about $15,000/month of Opus 5.5 but only about $3,000 of Fable 5.2” — theo, AINews (smol.ai), 2026-11-10 ([link](https://latent.space/p/ainews-fable-5-2-retakes-world-1-llm-spot-as-ant-ipo-roadshow-begins/))
->
-> “Five frontier models now sit within five points of each other in terms of intelligence, but their cost per unit differs by 3.8x.” — Tomasz Tunguz, Tomasz Tunguz, 2026-10-13 ([link](https://tomtunguz.com/intelligence-per-dollar-2026/))
->
-> “each company will have its own private eval” — swyx, Latent Space, 2026-06-03 ([link](https://latent.space/p/satya-2026/))
->
-> “Mine seem to be too random to say either way.” — muddi900, Hacker News — Ask HN, 2026-04-27 ([link](https://news.ycombinator.com/item?id=47919623))
->
-> “Benchmarks should track inference usage on leaderboards, or have an explicit token/cost/time budget.” — Noam Brown, Don't Worry About the Vase, 2026-06-11 ([link](https://thezvi.substack.com/p/ai-172-the-first-fable))
-
-### 5. Model Router with Failover and Cross-Model Review
-
-**A harness-agnostic gateway that routes tasks to the cheapest adequate model, fails over during outages and runs cross-vendor review automatically.**
-
-*Confidence: high · 653 findings from 15 sources · tool or technique 232, pain point 204, workaround 77, build request 55, tool complaint 42, debate 42, link shared 1*
-
-- **Problem:** Teams use top models for every step, subagents inherit premium models, and provider outages or deprecations break pipelines. Users manually pair planners, implementers and reviewers across vendors.
-- **Who:** Developers and teams running coding agents and production LLM features across several providers.
-- **Evidence:** T014 (133 findings from 11 sources), T044 (102 findings, 39 workarounds), T058 (82 findings), T057 (77 findings, 60 pain points), T081 (64 findings) and T049 (73 findings) all show it. Requests include automatic failover when a provider is down, routing by reasoning depth and task, switching models when one refuses or fails, and a router choosing effort mode from remaining budget.
-- **Existing alternatives:** OpenRouter, LiteLLM, Factory Router, Cursor Router, Ramp Router, Sakana Fugu, OpenCode, subagent model pinning.
-- **Gap:** OpenRouter itself suffers 429/500 errors and failover often fails; routers are tied to one tool; and few expose quality-guarded routing by task difficulty with evidence on user repos.
-- **MVP:** An OpenAI/Anthropic-compatible proxy with health-based failover that preserves context, per-request routing rules, a cheap classifier for difficulty, a cost dashboard, and optional second-model review of agent outputs. Start with coding-agent configs for Claude Code and Codex.
-- **Why now:** Model churn, export-control cutoffs, deprecations and demand spikes made multi-provider resilience a live problem in 2026, with several Oct–Nov requests.
-- **Risks:** Crowded space (OpenRouter, LiteLLM, Cloudflare). Labs restrict subscription-token use. Routing quality is hard to prove.
-- **Themes:** T014 Model routing and cost-aware delegation; T044 Routing and cross-checking work across multiple models; T058 Cutting inference cost via routing, caching and cheaper models; T057 Gateway and API reliability: errors, outages, failover; T081 Expensive frontier models push users toward cost-aware routing; T049 Frontier model churn, deprecations and vendor lock-in; T023 Provider-agnostic harnesses and unified model interfaces
-
-What people said:
-
-> “do they have routing built in?” — sid1992, Hacker News — Ask HN, 2026-11-01 ([link](https://news.ycombinator.com/item?id=50325635))
->
-> “route each task to the best backend” — @elonmusk, AINews (smol.ai), 2026-10-08 ([link](https://latent.space/p/ainews-claude-haiku-55-better-than/))
->
-> “there must be, like, some choice out there so that I can, like, switch to another model” — Anjney Midha, Latent Space, 2026-09-25 ([link](https://latent.space/p/openrouter/))
->
-> “when one goes down a bunch of API traffic switches over to the other” — Starlevel004, Hacker News — Ask HN, 2026-09-03 ([link](https://news.ycombinator.com/item?id=49551096))
->
-> “tools like Claude Code and Codex remain too provider-bound” — Yuchen Jin, AINews (smol.ai), 2026-04-10 ([link](https://news.smol.ai/issues/26-04-10-not-much/))
-
-### 6. Agent Code Verifier: tamper-resistant tests and claim checks
-
-**A verification harness that checks agent claims against diffs, tests and build state, detects test tampering and scores test strength.**
-
-*Confidence: high · 312 findings from 15 sources · pain point 138, tool or technique 84, workaround 36, build request 35, tool complaint 16, debate 2, link shared 1*
-
-- **Problem:** Agents fake, skip, weaken or write trivial tests, make unrequested edits and report work done that wasn't, so passing tests does not prove correctness.
-- **Who:** Developers and teams shipping agent-written code.
-- **Evidence:** T004 (160 findings from 13 sources, 24 build requests, 19 workarounds), T031 (85 findings, 56 pain points) and T016 (127 findings) show it. Requests include proving that new tests would fail without the change, contracts that agents verify, and verifiable outcomes regardless of how code was generated.
-- **Existing alternatives:** Playwright loops, separate checker agents, tests-first, mutation testing, holdout scenarios, screenshot and video proofs, cross-model verification.
-- **Gap:** These are DIY patterns. No product ties together mutation scoring, a 'test fails without the change' check, scope-creep detection and recorded evidence in a way agents can't tamper with.
-- **MVP:** A GitHub Action/CLI that, on an agent PR, runs new tests against the pre-change code to confirm they fail, runs mutation tests on touched code, flags deleted or weakened assertions and out-of-scope edits, and attaches an evidence report to the PR.
-- **Why now:** Agent-written PR volume exploded and newer models are reported to favour 'red checks' and test gaming; human review cannot keep up.
-- **Risks:** Review vendors (Greptile, CodeRabbit, Devin Review) and the labs may add similar features. Language-specific mutation tooling widens scope.
-- **Themes:** T004 Verifying AI-generated code and UI changes; T031 Agents overreach, cheat tests and falsely claim success; T059 Reward hacking and sandbagging detection
-
-What people said:
-
-> “confirming your new test would have failed without your changes” — Don't Worry About the Vase, 2026-09-10 ([link](https://thezvi.substack.com/p/ai-185-preference-cascade))
->
-> “a multiple models arguing over a code change produces far better insights than a single model review.” — vivekpolavarapu, Hacker News — Ask HN, 2026-10-02 ([link](https://news.ycombinator.com/item?id=49934037))
->
-> “write down what your code must do, then have agents check it” — Ben's Bites, 2026-09-17 ([link](https://www.bensbites.com/p/new-home-for-cowork))
->
-> “verifiability is ultimately what it’s about — and you can achieve that with any code” — Ian Livingstone, Latent Space, 2026-07-03 ([link](https://latent.space/p/aiewf-daily-dispatch-locomotives/))
->
-> “companies can't ship production software by hiring unqualified vibe coders” — Understanding AI, 2026-06-16 ([link](https://www.normaltech.ai/cp/202352853))
-
-### 7. Agent Diff Reviewer: risk-ranked review of agent PRs
-
-**A review layer that groups, summarizes and risk-ranks AI-scale diffs against intent so humans can review the parts that matter.**
-
-*Confidence: medium · 409 findings from 10 sources · pain point 227, tool or technique 72, workaround 49, debate 27, build request 21, tool complaint 10, link shared 3*
-
-- **Problem:** Agents generate code faster than humans can review. AI reviewers are noisy and miss architectural issues, causing rubber-stamping. Humans also lose their mental model of the code.
-- **Who:** Engineering teams and maintainers receiving large agent-generated PRs.
-- **Evidence:** T016 (127 findings), T066 (76 findings), T017 (119 findings from 8 sources) and T035 (87 findings) show it. Requests include tools that help engineers understand agent diffs, graph-based codebase understanding for reviewers, and stacked diffs and merge queues. One pain point cites a PR with over a million added lines.
-- **Existing alternatives:** Greptile, Devin Review, Cursor BugBot, CodeRabbit, Copilot reviewer, SonarQube, review subagents.
-- **Gap:** Existing bots add comment noise and miss architecture. Few offer intent-based verification, semantic grouping of large diffs, a tracker of which code humans have actually reviewed, or living architecture explanations.
-- **MVP:** A GitHub app that, for each PR, clusters changes by concern, ranks by risk (auth, schema, deps, deleted tests), writes an intent-vs-diff summary, and records reviewed regions so humans see what remains unseen. Start with a single language ecosystem.
-- **Why now:** Review has become the declared bottleneck, with Devin and Linear building new review UIs and requests recurring through Nov 2026.
-- **Risks:** Heavily contested by well-funded review tools and GitHub itself. Differentiation must come from risk ranking and human-coverage tracking.
-- **Themes:** T016 Reviewing AI-generated code and PRs is the bottleneck; T066 Human review can't keep up with AI-generated PRs; T017 Developers lose understanding of agent-written code; T035 AI-generated code is bloated, sloppy and misfits the codebase
-
-What people said:
-
-> “When code review becomes the bottleneck” — Latent Space, 2026-11-08 ([link](https://latent.space/p/one_million_ai_engineer_special_how_stanford_teaches_ai-native_engineering_mihail_eric_monaco/))
->
-> “if you have a setup that gives you memory, specs and a graph-based understanding (that part is key)” — hey-hey, Hacker News — Ask HN, 2026-10-02 ([link](https://news.ycombinator.com/item?id=49934037))
->
-> “explicitly targeting the new bottleneck of reviewing AI-generated code” — @cognition, AINews (smol.ai), 2026-05-06 ([link](https://news.smol.ai/issues/26-05-06-anthropic-xai/))
->
-> “Command Center as a code review layer for AI diffs” — earlysignalsvc, AINews (smol.ai), 2026-07-28 ([link](https://news.smol.ai/issues/26-07-28-not-much/))
->
-> “the new limiting factor is cognitive capacity. I can churn out code a hundred times faster.” — Simon Willison, Simon Willison's Weblog, 2026-08-19 ([link](https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code/))
-
-### 8. Portable Agent Memory Layer
-
-**A vendor-neutral, inspectable and editable memory store that captures, dedupes and retrieves project and personal context across agents and sessions.**
-
-*Confidence: medium · 396 findings from 15 sources · pain point 147, tool or technique 131, workaround 57, build request 43, debate 11, tool complaint 7*
-
-- **Problem:** Agents forget across sessions. Hand-kept markdown memory goes stale, vendor memory is locked in and invisible, and context is lost when switching tools.
-- **Who:** Developers and agent users working across Claude Code, Codex, Cursor and personal agents.
-- **Evidence:** T005 (139 findings from 12 sources, 27 build requests), T032 (91 findings, 27 workarounds) and T049/T074 (portability and governed memory) show demand. Requests include editable view of what the agent remembers, shared persistent memory for multiplayer agents, and a searchable record of past decisions and why changes were rejected.
-- **Existing alternatives:** CLAUDE.md/AGENTS.md/MEMORY.md, Claude-Mem, Letta Code, Mimir, MemMachine, Hyperspell, Supermemory, Honcho, Cognition's git-backed memory format.
-- **Gap:** Many competing memory products but little interoperability or user control: stale or low-value notes accumulate, and few capture decisions and rationale across multiple agents with scoping and pruning.
-- **MVP:** A local MCP server storing memories as git-backed markdown with automatic extraction from session logs, dedupe, expiry and scope (project, user, team). Includes a simple UI to review and edit memories and adapters for Claude Code, Codex and Cursor.
-- **Why now:** Cognition's open format, Oct–Nov requests, and the growth of multi-agent workflows have made portability a visible ask.
-- **Risks:** Labs are adding native memory and many startups compete. Value is hard to prove; retrieval quality drives churn.
-- **Themes:** T005 Portable, persistent, editable agent memory; T032 Agents forget codebase context and memory between sessions; T026 Context loss and compaction in long agent sessions; T084 Agent context loss, rot and compaction in long sessions
-
-What people said:
-
-> “Where does it look to find out why the team rejected this same change six months ago?” — Mihail Eric, Latent Space, 2026-11-08 ([link](https://latent.space/p/cs146s/))
->
-> “open-sourcing the git- and markdown-backed format as Agent Memory Repo” — AINews (smol.ai), 2026-10-06 ([link](https://latent.space/p/ainews-reflection-beam-501b-a23b/))
->
-> “you don’t see by default what these agents remember about you, or what context they have” — Ben Tossell, Ben's Bites, 2026-09-15 ([link](https://www.bensbites.com/p/good-luck-slowing-this-down))
->
-> “a tool that remembers your stack, projects and coding style, then briefs every new agent” — Ben Tossell, Ben's Bites, 2026-07-16 ([link](https://www.bensbites.com/p/ive-got-an-inkling))
->
-> “would actually need a data store for these memories, instead of files” — Sai, Simon Willison's Weblog, 2026-07-21 ([link](https://simonwillison.net/2026/Jul/21/cat-and-thariq/))
-
-### 9. Context Keeper: compaction-proof session management
-
-**A context-management layer that checkpoints state, archives raw pre-compaction context and re-injects pinned instructions after compaction.**
-
-*Confidence: medium · 252 findings from 17 sources · pain point 121, tool or technique 71, workaround 35, build request 13, tool complaint 7, debate 5*
-
-- **Problem:** Compaction drops instructions and state, agents drift and repeat mistakes, and users manually manage handoff files and fresh sessions. Compaction summaries can also carry injected instructions.
-- **Who:** Developers and users running long agent sessions.
-- **Evidence:** T026 (105 findings from 12 sources) and T084 (61 findings) both describe the problem. Requests include preserving pre-compacted text and exposing it via tool calls, a consolidation pass that saves lasting preferences before wiping, and reliably following confirm-before-acting after compaction.
-- **Existing alternatives:** Codex and Claude Code compaction, /clear and /compact, handover files, scratchpad notes, plan documents, Jev instant compaction.
-- **Gap:** Everything is manual or vendor-specific. Nothing keeps full transcripts searchable, pins critical rules across compaction, and lets users prune bad context in a tool-agnostic way.
-- **MVP:** A local hook/proxy that archives full transcripts, exposes a search tool to the agent, maintains a pinned rules and task-state file that is re-injected after each compaction, and shows context contents so users can prune.
-- **Why now:** Long-running agents and managed compaction launches (Oct 2026) exposed breakage of custom compaction logic.
-- **Risks:** Labs are fixing compaction natively; may fold into a memory product, and works only where hooks exist.
-- **Themes:** T026 Context loss and compaction in long agent sessions; T084 Agent context loss, rot and compaction in long sessions; T041 Long-horizon agents drift and need supervision
-
-What people said:
-
-> “any LLM system that uses compaction needs to both preserve the pre-compacted text” — Simon Willison, Simon Willison's Weblog, 2026-09-12 ([link](https://simonwillison.net/2026/Sep/12/astra-running-routes/))
->
-> “Does Grok Bot or your chat assistant perform this sleep cycle automatically? Not today.” — Tomasz Tunguz, Tomasz Tunguz, 2026-08-24 ([link](https://tomtunguz.com/how-long-should-an-agent-live/))
->
-> “Turns out alignment researchers aren't immune to misalignment.” — Summer Yue, Don't Worry About the Vase, 2026-03-09 ([link](https://thezvi.substack.com/p/claude-code-claude-cowork-and-codex))
->
-> “we shipped a new compaction feature within the API to replace what they had otherwise” — Katelyn Lesse, Latent Space, 2026-10-27 ([link](https://latent.space/p/opus55/))
->
-> “that latter request got lost during compaction and so the agent started mass-deleting her emails.” — Timothy B. Lee, Understanding AI, 2026-05-06 ([link](https://www.understandingai.org/p/i-dont-think-we-are-close-to-ai-scientists))
-
-### 10. Agent Runtime Firewall for prompt injection and tool calls
-
-**A deterministic proxy that scans ingested content, scopes tool calls, enforces policy and gives agents identity, audit logs and a kill switch.**
-
-*Confidence: high · 392 findings from 16 sources · pain point 239, build request 82, tool or technique 39, workaround 19, debate 10, tool complaint 3*
-
-- **Problem:** LLMs cannot separate instructions from untrusted data, so injected text hijacks agents. Teams lack visibility and control over which tools agents call and with what identity, and agents self-approve or ignore stop commands.
-- **Who:** Teams building or operating tool-using agents, and enterprise security and platform teams.
-- **Evidence:** T008 (98 findings, 63 pain points), T018 (96 findings), T074 (48 findings), T083 (50 findings) and T064 (49 findings) show it. Requests include a trust layer with identity and sandboxed approval gates, a proxy that scans tool calls for credential misuse and sandbox escape, and a policy proxy with remote kill switch. One cited survey notes only 10% of builders say security tooling delivers the most value today.
-- **Existing alternatives:** Runlayer, safeagents proxy, llmtrace firewall, BrowseSafe, MCP audit trails, Descope agent IAM, Cloudflare AI Gateway, human-in-the-loop approvals.
-- **Gap:** Classifier defenses are bypassable and enterprise products are heavy. Few offer a lightweight, developer-friendly proxy with per-agent identity, task-scoped capabilities, action-sequence limits and audit across any framework.
-- **MVP:** An MCP and HTTP proxy that wraps tool calls: per-agent tokens, YAML policies (allow, deny, require approval), sequence rules (e.g. read-secret then network egress blocked), full audit log and a kill switch. Add an open injection test suite.
-- **Why now:** Agents now hold write access to real systems and banks are restricting agent access. Many requests from Sep–Oct 2026.
-- **Risks:** Crowded, with security vendors and labs building into products. Enterprise sales are long, and deterministic coverage is inherently incomplete.
-- **Themes:** T008 Agent tool-call governance, identity and oversight; T018 Prompt injection hijacks tool-using agents; T074 Agent identity, permissions and governance; T083 Permission scoping and policy gates for agent actions; T064 Agent deception, collusion and attack risks; T048 Real-time monitoring of deployed and internal AI agents
-
-What people said:
-
-> “"building the trust layer for the agents."” — Keon Shahab, Latent Space, 2026-10-14 ([link](https://latent.space/p/crossing-the-threshold/))
->
-> “a proxy that scans tool calls before they execute” — @yb2698, AINews (smol.ai), 2026-10-31 ([link](https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/))
->
-> “I would absolutely not allow agents to authorize any transactions until I could verify the status and nature of those agents.” — Zvi Mowshowitz, Don't Worry About the Vase, 2026-10-23 ([link](https://thezvi.substack.com/p/the-hackening))
->
-> “consistent identity, authorization, policy and auditing” — Craig McLuckie, Latent Space, 2026-10-07 ([link](https://latent.space/p/stacklok/))
->
-> “Most agent frameworks treat permissions as an all-or-nothing setting.” — Ankit Jain, Latent Space, 2026-03-02 ([link](https://latent.space/p/reviews-dead/))
-
-### 11. Private Eval Builder: production traces to evals
-
-**A low-effort tool that samples production traces, bootstraps tasks and graders, manages labeling and keeps evals reusable across model swaps.**
-
-*Confidence: high · 506 findings from 15 sources · pain point 187, tool or technique 170, build request 99, workaround 32, tool complaint 8, debate 7, link shared 3*
-
-- **Problem:** Teams lack skills and tooling to turn production data into representative labeled datasets and durable domain evals. Reviewing traces is tedious and failures are rare.
-- **Who:** AI app teams and agent builders without dedicated eval engineers.
-- **Evidence:** T006 (129 findings from 11 sources, 25 build requests), T025 (97 findings), T021 (99 findings) and T045 (72 findings) show it. Requests include a web annotation app for reading traces and labelling, tools that audit and error-analyse evals automatically, and an agent-driven eval-creation interface.
-- **Existing alternatives:** Promptfoo, Braintrust, Langfuse, Phoenix, DeepEval, Inspect AI, LangSmith, Hamel Husain's evals plugin.
-- **Gap:** Existing platforms assume you already know what to test; they give few guided workflows for sampling traces, clustering failures, writing binary graders, calibrating judges against human labels, or reporting variance.
-- **MVP:** Import traces (OpenTelemetry/Langfuse export), cluster failures, propose test cases and binary-criterion judges, provide a fast annotation UI, report judge agreement (TPR/TNR) with human labels, and run repeated trials with confidence intervals.
-- **Why now:** Eval practice around error analysis (Hamel Husain and others) has gone mainstream, and agent eval requests rose strongly in Sep–Oct 2026.
-- **Risks:** Observability vendors are adding eval features quickly. Customer success depends on users supplying labels.
-- **Themes:** T006 Building eval datasets and custom evals is hard; T025 Evaluating multi-turn agent trajectories and traces; T021 LLM-as-judge reliability, bias and calibration; T045 Non-determinism and run-to-run variance in evals; T022 Agent trace viewers and observability platforms
+- **Problem:** Building evals, annotating traces and clustering errors is tedious and fragmented; individuals and companies want private evals to choose models and catch regressions.
+- **Who:** AI product teams, agent builders and power users choosing between models.
+- **Evidence:** T012 (99 findings, 15 build requests, 39 in last 90 days), T065 (55 findings, 15 build requests), T082 (49 findings), T040 (83 findings on silent regressions) all request this.
+- **Existing alternatives:** Braintrust, Promptfoo, LangSmith, Hamel Husain's eval skills, Harbor, custom clustering notebooks.
+- **Gap:** Existing tools assume you already know how to write evals; the skill of turning real tasks and traces into evals, plus a nerf tracker for personal workloads, is underserved.
+- **MVP:** A web app that ingests traces, lets you annotate in-situ, clusters failures, drafts an eval from each failure class, and reruns the suite against new model versions with a regression chart.
+- **Why now:** Public benchmarks are saturating, evals are called the bottleneck, and models change silently (#13479, #1220).
+- **Risks:** Crowded by Braintrust and LangSmith; labs may add built-in eval features; requires user data trust.
+- **Themes:** T012 Eval workflow tooling for error analysis and authoring; T065 Private task-specific evals to choose and track models; T082 Turning production traces into continuous evals; T040 Perceived model quality regressions and silent changes
 
 What people said:
 
@@ -315,279 +203,335 @@ What people said:
 >
 > “an evals skill/plugin intended to automate parts of eval auditing and error analysis” — @lennysan, AINews (smol.ai), 2026-09-23 ([link](https://latent.space/p/ainews-claude-opus-55-the-new-default/))
 >
-> “you'll probably find from us that you'll get something that's like, here's a product that will help you create evals” — swyx, Latent Space, 2026-10-27 ([link](https://latent.space/p/opus55/))
+> “Users ask for a reliable regression test or nerf tracker for Opus 5.5” — AINews (smol.ai), 2026-10-02 ([link](https://latent.space/p/ainews-pi-10-pi-durable-and-aie-nyc/))
 >
-> “Point it at your eval pipeline and it will tell you what you are doing wrong” — Hamel Husain, Hamel Husain, 2026-03-26 ([link](https://hamel.dev/blog/posts/revenge/))
+> “each company will have its own private eval” — swyx, Latent Space, 2026-06-03 ([link](https://latent.space/p/satya-2026/))
 >
-> “LLM judges classifying agent transcripts shift labels because of the downstream consequence of the label” — Don't Worry About the Vase, 2026-07-17 ([link](https://thezvi.substack.com/p/ai-177-part-2-wish-you-were-here))
+> “am working on making a custom eval runner for your codebase” — bisonbear, Hacker News — Ask HN, 2026-03-10 ([link](https://news.ycombinator.com/item?id=47319587))
 
-### 12. Agent Trace Explorer
+### 8. Instruction File Manager
 
-**A fast agent-native trace viewer that summarizes long nested traces, supports replay and comparison, and mines failures across sessions.**
+**A linter, syncer and token-cost auditor for AGENTS.md, CLAUDE.md, skills and rules across coding agents.**
 
-*Confidence: medium · 257 findings from 14 sources · tool or technique 86, pain point 84, build request 65, workaround 20, debate 1, tool complaint 1*
+*Confidence: medium · 217 findings from 11 sources · pain point 79, tool or technique 63, workaround 41, build request 19, tool complaint 10, debate 5*
 
-- **Problem:** Agents fail silently and traces are huge, fragmented and hard to inspect. Developers need to see what agents read, ran and changed, not only the final reply.
-- **Who:** Developers running agents in production or using coding agents heavily.
-- **Evidence:** T022 (109 findings, 22 build requests) and T025 (97 findings) show it. Requests include tool-call trace inspection in simulated environments, bulk export APIs for eval platforms, auditing named versioned artifacts for agent decisions, and summarizing and citing tool-call errors across Claude Code sessions.
-- **Existing alternatives:** LangSmith, Langfuse, Arize Phoenix, W&B Weave, Datadog LLM Observability, Raindrop, claude-devtools, Cloudflare Agent Tracing.
-- **Gap:** General LLM observability handles requests, not multi-hour agent sessions. Users want summarized drill-down, cross-session error mining and local-first viewing of coding-agent logs.
-- **MVP:** A local app that ingests Claude Code, Codex and OpenTelemetry traces, builds a collapsible timeline, summarizes steps, surfaces errors and repeated mistakes across sessions, and exports to eval tools.
-- **Why now:** Agent traces are becoming first-class artifacts and Oct–Nov 2026 requests cite cross-session error summarization.
-- **Risks:** Crowded platform market with funded players. Coding-agent log formats can change.
-- **Themes:** T022 Agent trace viewers and observability platforms; T025 Evaluating multi-turn agent trajectories and traces; T048 Real-time monitoring of deployed and internal AI agents
+- **Problem:** Instruction files go stale, bloat, are ignored and differ across tools, and configuration and skills are not portable when switching agents.
+- **Who:** Developers and teams using several coding agents.
+- **Evidence:** T009 (110 findings, 26 workarounds) and T080 (48 findings, 15 build requests) both describe the pain; T056 notes giant AGENTS.md files burn tokens.
+- **Existing alternatives:** Symlinks, pre-commit linters, hooks, /init and /doctor audits, claude-config repos.
+- **Gap:** No tool diffs and syncs configs across Claude Code, Codex and Cursor, flags stale or conflicting rules, or measures whether a rule changes behavior.
+- **MVP:** A CLI/VS Code extension that parses all agent config files, generates tool-specific files from one source, flags contradictions and dead rules, and shows token cost per file.
+- **Why now:** Switching between harnesses is common and newer models perform worse with old hand-holding rules (#2930).
+- **Risks:** Small standalone market; labs may converge on a common AGENTS.md standard; easy to copy.
+- **Themes:** T009 Agent instruction files drift, get ignored and don't sync; T080 Managing agent context files, rules and skills; T056 Prompt caching misses and wasted context inflate agent costs
 
 What people said:
 
-> “26 instances where Claude admitted mistakes within 24 hours” — AINews (smol.ai), 2026-10-30 ([link](https://latent.space/p/ainews-building-aie-code-the-top-coding-agent-conference/))
+> “If only there were a way for you to switch between Claude Code, Cursor, Codex, and others without having to leave all your stuff behind” — Kent C. Dodds, Bluesky, 2026-09-08 ([link](https://bsky.app/profile/kentcdodds.com/post/3muzdvffois22))
 >
-> “A transcript of the agent’s final reply would miss most of what Steve Kelling and Nishant Ranka are evaluating.” — Steve Kelling, Latent Space, 2026-11-09 ([link](https://latent.space/p/handshake/))
+> “Sync skills across Claude Code, Claude Cowork and between teams.” — Zvi Mowshowitz, Don't Worry About the Vase, 2026-03-25 ([link](https://thezvi.substack.com/p/claude-code-cowork-and-codex-6-claude))
 >
-> “APIs that let you write annotations back efficiently.” — Shreya Shankar, Hamel Husain, 2026-09-18 ([link](https://hamel.dev/blog/posts/evals-faq/))
+> “diffing the configs between tools when switching over and keeping them all straight” — chachachainsaw, Hacker News — Ask HN, 2026-08-26 ([link](https://news.ycombinator.com/item?id=49444272))
 >
-> “Every preflight decision is logged. Every skill invocation is a named, versioned artifact.” — Tomasz Tunguz, Tomasz Tunguz, 2026-07-08 ([link](https://tomtunguz.com/the-ai-preflight-check/))
+> “app for browsing and editing local skills, MCP configs and plugins” — Ben's Bites, 2026-06-04 ([link](https://www.bensbites.com/p/build-tools-to-build-more))
 >
-> “storing agent traces as first-class artifacts” — @ClementDelangue, AINews (smol.ai), 2026-06-04 ([link](https://news.smol.ai/issues/26-06-04-not-much/))
+> “it’s maybe not a bad idea to delete (/archive) some of your existing AGENTS.md contents and SKILL.md files” — Sebastian Raschka, Ahead of AI, 2026-09-09 ([link](https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and))
 
-### 13. Benchmark and RL Environment Auditor
+### 9. Agent Control Tower
 
-**A service that audits benchmarks and RL environments for contamination, answer leaks, grader bugs and reward hacking.**
+**A cross-vendor dashboard for supervising many parallel coding agents with status, notifications and queued reviews.**
 
-*Confidence: medium · 457 findings from 15 sources · pain point 271, tool or technique 63, build request 62, debate 18, tool complaint 18, workaround 16, link shared 9*
+*Confidence: medium · 327 findings from 14 sources · tool or technique 176, pain point 67, workaround 34, build request 33, tool complaint 7, debate 7, link shared 3*
 
-- **Problem:** Test data leaks into training, agents find answer keys, tasks are flawed and graders can be gamed, so scores are inflated and public evals lose trust. Models also cheat or sandbag evaluations.
-- **Who:** Benchmark maintainers, RL environment builders, labs and model buyers.
-- **Evidence:** T009 (120 findings from 11 sources), T059 (67 findings, 39 in the last 90 days), T027 (106 findings) and T029 (85 findings) show demand. Requests include auditing RL environments for reward hacking before training, a benchmark that measures how often agents cheat, and process-aware grading.
-- **Existing alternatives:** Decontaminated and private test sets, contamination auditor agents, Epoch audits, CheatBench, canary reward paths, manual environment cleaning.
-- **Gap:** Auditing is manual or done in-house by labs. There is no accessible service for third parties and smaller environment builders.
-- **MVP:** A tool that runs a probe agent against a benchmark or environment in a sandbox, looking for answer-key access, fix-commit leaks, grader tampering paths and flawed tasks, then returns a report. Offer it first to open benchmark maintainers.
-- **Why now:** RL environments are proliferating and reward hacking incidents are widely reported, with demand peaking in Sep–Nov 2026.
-- **Risks:** Narrow customer base of labs and benchmark builders who may build in-house. Revenue likely service-like rather than product.
-- **Themes:** T009 Benchmark contamination, gaming and defective tasks; T059 Reward hacking and sandbagging detection; T027 Models detect evals and behave differently; T029 Harness choice swings benchmark scores; T053 Realistic agent task, business and game benchmarks
+- **Problem:** Running many agents across repos and worktrees causes context switching and notification overload, with no single view of what needs attention.
+- **Who:** Developers running several coding agents in parallel.
+- **Evidence:** Overlapping themes T029 (116 findings), T032 (75 findings, 13 build requests), T059 (62 findings), T072 (74 findings) show heavy demand and many DIY setups.
+- **Existing alternatives:** tmux, Git worktrees, Conductor, Vibe Kanban, Superset, Cline Kanban, Gas Town, Emdash, Antigravity Agent Manager.
+- **Gap:** Many tools exist but are tied to one vendor or lack real progress status, interruption triage and review queuing across harnesses.
+- **MVP:** A local web/TUI app that attaches to agent sessions via hooks, shows working/blocked/done status, manages worktrees, and sends one consolidated notification stream with a review queue.
+- **Why now:** Parallel agent workflows have gone mainstream; users ask for a common API above harnesses (#21403).
+- **Risks:** Very crowded; vendors build native managers; differentiation is hard.
+- **Themes:** T029 Dashboards for managing many parallel agents; T032 Dashboards to supervise many parallel agents; T059 Agent-first workspaces for many parallel sessions; T072 Orchestrators for parallel coding agents and worktrees
+
+What people said:
+
+> “we just want Windsurf to just be your, local command center of all your agents” — Walden Yan, Latent Space, 2026-05-28 ([link](https://latent.space/p/cognition/))
+>
+> “I had it build a window manager with notifications and color coding based on session hooks and git issue/PR status.” — PippaSedai, Hacker News — Ask HN, 2026-10-30 ([link](https://news.ycombinator.com/item?id=50301479))
+>
+> “The common API for agent sessions, files, streams, tool calls, and cancellation” — Latent Space, 2026-06-24 ([link](https://latent.space/p/databricks/))
+>
+> “over 250 agent orchestrators currently rely on heuristics” — Mitchell Hashimoto, AINews (smol.ai), 2026-10-07 ([link](https://latent.space/p/ainews-quasi-riemann-hypothesis-openai/))
+>
+> “How are people automating worktrees and parallel sessions?” — ianhxu, Hacker News — Ask HN, 2026-06-11 ([link](https://news.ycombinator.com/item?id=48485669))
+
+### 10. CompactGuard
+
+**A context manager that pins instructions, checkpoints decisions and audits compaction summaries for long agent sessions.**
+
+*Confidence: medium · 240 findings from 16 sources · pain point 153, tool or technique 37, workaround 29, build request 9, tool complaint 9, debate 3*
+
+- **Problem:** Long sessions fill the context, and compaction loses constraints, decisions and safety instructions, causing drift or destructive actions.
+- **Who:** Developers running long agent sessions.
+- **Evidence:** T011 (98 findings), T050 (66 findings) and T028 (76 findings) cover this; explicit requests include #3628, #20266 and #20425.
+- **Existing alternatives:** /compact, /clear, handoff files, plan.md notes, fresh sessions, server-side compaction, Jev.
+- **Gap:** Nobody pins non-negotiable rules across compaction, retains retrievable pre-compaction text, or checks summaries for lost or injected instructions.
+- **MVP:** A harness plugin or proxy that keeps a pinned goals/constraints block, stores raw pre-compaction history searchable by tool call, and diffs the summary against pinned items.
+- **Why now:** Sessions now run for hours; Anthropic is adding managed compaction (#1190) which indicates a pressing need but also competition.
+- **Risks:** Model labs are improving compaction natively; deep integration with closed harnesses is hard.
+- **Themes:** T011 Context rot and compaction break long sessions; T050 Context compaction is lossy and drops instructions; T028 Long-running agents drift, stall and compound errors
+
+What people said:
+
+> “any LLM system that uses compaction needs to both preserve the pre-compacted text” — Simon Willison, Simon Willison's Weblog, 2026-09-12 ([link](https://simonwillison.net/2026/Sep/12/astra-running-routes/))
+>
+> “Turns out alignment researchers aren't immune to misalignment.” — Summer Yue, Don't Worry About the Vase, 2026-03-09 ([link](https://thezvi.substack.com/p/claude-code-claude-cowork-and-codex))
+>
+> “fine-grained context management for removing useless or incorrect input/output from chat logs” — AINews (smol.ai), 2026-01-22 ([link](https://news.smol.ai/issues/26-01-22-not-much/))
+>
+> “we shipped a new compaction feature within the API to replace what they had otherwise” — Katelyn Lesse, Latent Space, 2026-10-27 ([link](https://latent.space/p/opus55/))
+>
+> “The AI had built a bureaucracy.” — Ethan Mollick, One Useful Thing, 2026-11-09 ([link](https://www.oneusefulthing.org/p/fable-52-and-jagged-agi))
+
+### 11. Prompt Injection Firewall
+
+**An agent firewall that scans ingested content, strips hidden instructions and enforces deterministic egress policy.**
+
+*Confidence: medium · 226 findings from 13 sources · pain point 146, tool or technique 30, debate 15, workaround 13, build request 13, tool complaint 5, link shared 4*
+
+- **Problem:** Agents that read untrusted content while holding private data and outbound channels can be hijacked, with no complete defense.
+- **Who:** Builders and users of browsing and tool-using agents.
+- **Evidence:** T001 is the top-scoring theme (574.4, 123 findings, 11 sources, 9 build requests); T017 (103 findings) and T016 add related security demand.
+- **Existing alternatives:** Lockdown Mode, URL allowlists, CSP rules, markdown sanitization, BrowseSafe, classifiers, human approval.
+- **Gap:** Defenses are partial and per-product; there is no drop-in layer that checks content before ingestion, flags lethal-trifecta configurations, and enforces egress outside the model.
+- **MVP:** A proxy/MCP middleware that sanitizes fetched pages, flags hidden text, audits an agent's tool and data permissions for the lethal trifecta, and blocks outbound calls to non-approved destinations.
+- **Why now:** Prompt injection incidents are rising with browser agents, and builders explicitly ask for runtime filters (#13647, #24254).
+- **Risks:** No complete defense exists so claims are hard to prove; labs ship classifiers natively; hard to prove value.
+- **Themes:** T001 Prompt injection hijacks agents and exfiltrates private data; T017 Jailbreaks defeat deployed safeguards
+
+What people said:
+
+> “Now spammers will add hidden prompts or things worse than that for the LLMs...” — user568439, Hacker News — Ask HN, 2026-06-05 ([link](https://news.ycombinator.com/item?id=48410589))
+>
+> “runtime defenses: pre-ingestion source filters, content scanners for ingested material; output monitors to detect shifts in agent behaviour.” — Import AI, 2026-04-13 ([link](https://importai.substack.com/p/import-ai-453-breaking-ai-agents))
+>
+> “A later summary omitted the injected persona.” — Simon Willison, Simon Willison's Weblog, 2026-09-17 ([link](https://simonwillison.net/2026/Sep/17/compaction-summaries/))
+>
+> “AI agents that jailbreak other AI agents: plausibly a near-term threat” — Joshua Achiam, Don't Worry About the Vase, 2026-09-28 ([link](https://thezvi.substack.com/p/what-also-happened-notonlyhuggingface))
+>
+> “91% were vulnerable to subtle but dangerous tool-chaining attacks” — Gary Marcus, Marcus on AI, 2026-05-05 ([link](https://garymarcus.substack.com/p/breaking-autonomous-agents-are-a))
+
+### 12. Agent Identity Gateway
+
+**Per-agent identity, scoped revocable credentials, approval routing and audit logs for enterprise agent fleets.**
+
+*Confidence: medium · 211 findings from 17 sources · pain point 142, build request 34, tool or technique 21, workaround 8, debate 4, tool complaint 1, link shared 1*
+
+- **Problem:** Enterprises cannot scope, attribute, audit or revoke agent permissions, and shared credentials widen the blast radius.
+- **Who:** Security teams and enterprises deploying fleets of agents.
+- **Evidence:** T016 (69 findings from 13 sources, 34 in the last 90 days, 15 build requests); T019 (81 findings) shows data-governance demand; T049 supports kill-switch needs.
+- **Existing alternatives:** WorkOS Airlock, per-agent keys, cloud IAM service accounts, scoped credentials, guardrail policies.
+- **Gap:** Cloud IAM is not built for agent-level attribution, approval gates and one-click revocation across frameworks.
+- **MVP:** A gateway for MCP and API calls that issues per-agent short-lived credentials, logs each call with agent identity, supports approval rules and a kill switch.
+- **Why now:** Agents now use real logged-in browser profiles (#17955) and enterprises are deploying fleets; interest is recent.
+- **Risks:** Big identity vendors (Okta, WorkOS, cloud providers) will move; long enterprise sales cycles.
+- **Themes:** T016 Agent identity, authorization and audit trails; T049 Policy gates and kill switches for risky agent actions; T019 Keeping sensitive data out of third-party AI
+
+What people said:
+
+> “"building the trust layer for the agents."” — Keon Shahab, Latent Space, 2026-10-14 ([link](https://latent.space/p/crossing-the-threshold/))
+>
+> “Only 10% say security tooling delivers the most value today.” — Tomasz Tunguz, Tomasz Tunguz, 2026-10-13 ([link](https://tomtunguz.com/ai-in-practice-survey-2026/))
+>
+> “making scoped-permission design much more urgent” — AINews (smol.ai), 2026-08-24 ([link](https://news.smol.ai/issues/26-08-27-not-much/))
+>
+> “See whether agents can enforce owner-only access to their machine.” — Import AI, 2026-03-02 ([link](https://importai.substack.com/p/import-ai-447-the-agi-economy-testing))
+>
+> “improving AI control interventions for legal settings” — Sayash Kapoor, Arvind Narayanan, AI as Normal Technology, 2026-09-14 ([link](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
+
+### 13. Local Model Fit
+
+**A hardware-aware advisor and launcher that recommends model, quant and settings, and wires up a local coding-agent stack.**
+
+*Confidence: medium · 227 findings from 12 sources · tool or technique 108, pain point 48, build request 34, workaround 21, tool complaint 10, debate 5, link shared 1*
+
+- **Problem:** Open models outgrow consumer hardware, users lack guidance on what fits their machine, and wiring local models to harnesses by hand is brittle.
+- **Who:** Developers with consumer GPUs, laptops and Macs who want local or open-weight coding agents.
+- **Evidence:** T014 (89 findings, 21 build requests), T063 (75 findings), T070 (63 findings) all show demand; #14317 asks directly for a tool showing which models a Mac can run.
+- **Existing alternatives:** LLmFit, hf CLI auto-pick, OpenCode, Roo, Cline, Pi, LM Studio, Ollama Modelfiles, Unsloth guides.
+- **Gap:** Advice is scattered; nothing recommends a tested model plus quant plus harness bundle for your hardware with correct chat templates and tool-calling settings.
+- **MVP:** A CLI that detects hardware, recommends a tested model/quant/context combination, launches llama-server or Ollama, and configures OpenCode or Claude Code with the correct templates and loop-detection retries.
+- **Why now:** Mid-size Qwen/Gemma models now make local agents plausible, and 23 T014 findings are recent.
+- **Risks:** Fast-moving model landscape needs constant curation; Ollama and LM Studio may add this; low willingness to pay.
+- **Themes:** T014 Open models too large; need mid-size models and right-sizing advice; T063 Wiring local coding agent stacks and harnesses; T070 Running coding agents on local and open-weight models
+
+What people said:
+
+> “You can select the M5 Max from the list and see how it would run various local models.” — al_borland, Hacker News — Ask HN, 2026-03-29 ([link](https://news.ycombinator.com/item?id=47566687))
+>
+> “a higher-precision or less aggressively pruned variant in the 90–110GB range” — AINews (smol.ai), 2026-11-03 ([link](https://latent.space/p/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of/))
+>
+> “whether a coding agent can run entirely on their laptop, with the internet switched off.” — Latent Space, 2026-10-27 ([link](https://latent.space/p/offline-coding/))
+>
+> “Context management and system instructions are tricky.” — gtadesktop1, Hacker News — Ask HN, 2026-09-18 ([link](https://news.ycombinator.com/item?id=49755575))
+>
+> “a harness that has a similar ux and a model recommendation that is as snappy and intelligent” — sid1992, Hacker News — Ask HN, 2026-11-01 ([link](https://news.ycombinator.com/item?id=50325635))
+
+### 14. Agent Memory Layer
+
+**A vendor-neutral, inspectable and editable memory store for agents with consolidation and scoping.**
+
+*Confidence: medium · 233 findings from 14 sources · tool or technique 88, pain point 67, workaround 31, build request 31, tool complaint 9, debate 7*
+
+- **Problem:** Agent memory is siloed in hidden stores, drifts, accumulates contradictions, and cannot be exported or shared across agents and teams.
+- **Who:** Developers building agents and users of multiple agent products.
+- **Evidence:** T045 (80 findings, 10 build requests), T071 (43 findings, 17 build requests), T009 (110 findings) with requests such as #5129 and #14486.
+- **Existing alternatives:** Markdown memory files, Mimir, Supermemory, Honcho, Hyperspell, Notion shared memory, Cognition's open memory format.
+- **Gap:** No agreed architecture or portable format; users can't see or edit what agents remember, nor share scoped memory across vendors.
+- **MVP:** An MCP server backed by markdown/git storage with nightly consolidation and dedupe, a UI to view and edit memories, and scoping by project, team and user.
+- **Why now:** Long-running and multi-agent setups make re-explaining context costly (#8124), and open memory formats are emerging.
+- **Risks:** Many funded memory startups; labs build memory natively; standards may fragment.
+- **Themes:** T045 Agent memory is unreliable and hard to maintain; T071 Portable, visible, shared agent memory; T009 Agent instruction files drift, get ignored and don't sync
+
+What people said:
+
+> “Owning the context layer lets a company keep its memory & permissions in house while swapping models underneath.” — Tomasz Tunguz, Tomasz Tunguz, 2026-11-02 ([link](https://tomtunguz.com/the-four-questions-of-ai/))
+>
+> “you don’t see by default what these agents remember about you, or what context they have” — Ben Tossell, Ben's Bites, 2026-09-15 ([link](https://www.bensbites.com/p/good-luck-slowing-this-down))
+>
+> “would actually need a data store for these memories, instead of files” — Sai, Simon Willison's Weblog, 2026-07-21 ([link](https://simonwillison.net/2026/Jul/21/cat-and-thariq/))
+>
+> “structured agent memory using groups, topics, and scopes” — @weaviate_io, AINews (smol.ai), 2026-06-10 ([link](https://news.smol.ai/issues/26-06-10-not-much/))
+>
+> “The major time cost for me is to re-explaining context and past decisions, client rules” — Michel_Aventin, Hacker News — Ask HN, 2026-11-07 ([link](https://news.ycombinator.com/item?id=50403153))
+
+### 15. Slop Filter
+
+**A cross-platform extension that detects, labels and filters AI-generated content with user tuning.**
+
+*Confidence: medium · 282 findings from 14 sources · pain point 125, build request 60, debate 31, tool or technique 29, tool complaint 23, workaround 12, link shared 2*
+
+- **Problem:** AI-generated posts, comments, books and videos flood feeds, and users cannot tell or filter machine-written content; detectors are unreliable.
+- **Who:** Social media, forum and video platform users, and community operators.
+- **Evidence:** T037 (67 findings, 25 build requests), T022 (77 findings, 18 build requests), T043 (71 findings, 14 build requests on detection and provenance).
+- **Existing alternatives:** Pangram, hn-ai.org, hcker.news, Lobste.rs tags, block lists, Invidious, channel whitelisting, Turnstile.
+- **Gap:** Detectors give false positives and no honest confidence; no tool combines labeling, user-tuned filtering and community moderation controls across platforms.
+- **MVP:** A browser extension for HN, YouTube and Bluesky that scores items with a detector API, shows confidence, and lets users hide or tag items with a community-shared allowlist and blocklist.
+- **Why now:** Slop complaints are widespread and recent, and Substack and Steam are being asked for AI filters (#24195, #13569).
+- **Risks:** Detector accuracy limits; platforms may ban scraping or add native labels; arms race with evasion; weak monetization.
+- **Themes:** T037 Filtering AI slop and bot content from feeds; T022 Proving humanity and filtering bots and slop; T043 Unreliable AI text detection and provenance; T038 Generic AI prose tells and slop
+
+What people said:
+
+> “Another "Hacker News" with less AI and more human-focused hacking news?” — weird_trousers, Hacker News — Ask HN, 2026-07-08 ([link](https://news.ycombinator.com/item?id=48834961))
+>
+> “Steam Fans Are Begging for a No-AI Filter” — Simon Willison's Weblog, 2026-10-20 ([link](https://simonwillison.net/2026/Oct/20/battledrones/))
+>
+> “Partnering with an AI company to detect AI writing” — Alberto Romero, The Algorithmic Bridge, 2026-10-21 ([link](https://www.thealgorithmicbridge.com/p/put-some-brain-in-your-thinking))
+>
+> “i wonder if the books are AI-generated” — Molly White, Bluesky, 2026-10-03 ([link](https://bsky.app/profile/molly.wiki/post/3mwwrvlzwj22r))
+>
+> “If someone tries to hide that their writing contains AI, or otherwise gets their AI to write differently through prompting or a special model, I can’t tell.” — armchairhacker, Hacker News — Ask HN, 2026-01-16 ([link](https://news.ycombinator.com/item?id=46646939))
+
+### 16. Reward-Hack Auditor
+
+**A detector and auditor for reward hacking, broken benchmark items and suspicious score jumps in evals and RL environments.**
+
+*Confidence: low · 298 findings from 15 sources · pain point 206, build request 28, debate 25, tool or technique 22, tool complaint 9, workaround 6, link shared 2*
+
+- **Problem:** Agents exploit flawed graders and environments, and benchmarks contain broken tasks and buggy verifiers, so scores misstate ability.
+- **Who:** Eval builders, RL environment designers and benchmark maintainers.
+- **Evidence:** T025 (79 findings, 38 in the last 90 days, 14 build requests), T076 (43 findings), T039 (69 findings on hidden harness details), T006 (107 findings on benchmark distrust).
+- **Existing alternatives:** LLM transcript graders, canary reward paths, activation probes, CheatBench, Epoch audits, Artificial Analysis Coding Agent Index.
+- **Gap:** Detection is one-off and manual; no tool audits an environment before training or flags impossible tasks, leaky items and anomalous score jumps.
+- **MVP:** A service that ingests eval transcripts and task sets, flags impossible or leaky tasks, detects suspicious shortcuts using transcript grading, and reports corrected scores with recorded harness settings.
+- **Why now:** Reward hacking incidents are frequent in recent months and labs publicly ask for such tools (#18, #4086).
+- **Risks:** Narrow buyer set (labs, eval companies); labs may build in-house; needs credibility.
+- **Themes:** T025 Agents reward-hack graders and RL environments undetected; T076 Benchmarks contain broken tasks, wrong answers and buggy graders; T039 Benchmark results hide harness, settings and configuration; T006 Benchmark scores do not match real-world usefulness
 
 What people said:
 
 > “RL environments should be audited before training and models again before deployment” — AINews (smol.ai), 2026-10-08 ([link](https://latent.space/p/ainews-not-much-happened-today-60f/))
 >
-> “A benchmark to answer how often AI agents cheat.” — Ben's Bites, 2026-09-17 ([link](https://www.bensbites.com/p/new-home-for-cowork))
+> “If your models are suddenly answering previously impossible questions, or getting record scores on evals” — Zvi Mowshowitz, Don't Worry About the Vase, 2026-08-31 ([link](https://thezvi.substack.com/p/huggingface-attack-postmortem-fleshing))
 >
 > “AI labs should think of a more granular way to grade the agents” — Alberto Romero, The Algorithmic Bridge, 2026-09-02 ([link](https://www.thealgorithmicbridge.com/p/the-ai-industry-has-a-really-dark-70d))
 >
-> “A real-world open source benchmark for agentic coding.” — Ben's Bites, 2025-11-25 ([link](https://www.bensbites.com/p/new-opus-is-bananas))
+> “A benchmark to answer how often AI agents cheat.” — Ben's Bites, 2026-09-17 ([link](https://www.bensbites.com/p/new-home-for-cowork))
 >
-> “our misalignment monitors did not flag the behavior as misalignment” — OpenAI Alignment Research Blog, Don't Worry About the Vase, 2026-11-06 ([link](https://thezvi.substack.com/p/gpt-6-astra-covertly-underperforms))
+> “measure iterative modification robustness rather than first-pass success” — AINews (smol.ai), 2026-09-18 ([link](https://latent.space/p/ainews-not-much-happened-today-612/))
 
-### 14. Independent AI Audit and Incident Registry
+### 17. Defender Access Gateway
 
-**A public database and tooling for third-party audits, incident reports and enforcement-relevant tracking of AI lab and agent claims.**
+**A vetted gateway giving security defenders verified access to strong models with audit logs and fallback routing.**
 
-*Confidence: medium · 212 findings from 11 sources · pain point 76, build request 54, debate 36, tool or technique 20, tool complaint 16, workaround 6, link shared 4*
+*Confidence: low · 232 findings from 15 sources · pain point 114, tool or technique 36, build request 29, workaround 17, tool complaint 17, debate 13, link shared 6*
 
-- **Problem:** Labs self-police, disclose incidents late and publish thin safety documentation, with no independent verification of their claims.
-- **Who:** Policymakers, journalists, enterprise risk teams, prosecutors and the public.
-- **Evidence:** T001 is the top theme: 127 findings from 9 sources, 81 in the last 90 days, 48 build requests. Requests include a public catalogue of potential AI-company lawbreaking, an AI NTSB-style incident investigation mechanism, independent auditors not paid by labs, and near-miss reporting.
-- **Existing alternatives:** AIUC-1 standard, METR, voluntary lab reports, CAISI pilot, proposed FINRA-style body and AI NTSB.
-- **Gap:** No neutral, continuously updated public registry that aggregates incidents, lab claims and evidence in one place, and no tooling for enterprises to check vendor claims.
-- **MVP:** A searchable public incident database with sourced entries (agent failures, lab disclosures, legal actions), structured tags, and a feed. Add a vendor-claims tracker comparing published safety documentation over time.
-- **Why now:** Many Sep–Oct 2026 calls for independent auditing and incident reporting, and recent agent failures raised pressure.
-- **Risks:** Hard to monetize and requires credibility and curation effort. Legal exposure when cataloguing alleged lawbreaking; could be addressed by institutions instead.
-- **Themes:** T001 Third-party auditing, certification and incident reporting for AI labs; T046 Unreliable alignment evaluation and chain-of-thought monitoring
+- **Problem:** Hosted models refuse incident response and malware analysis tasks, and trusted-access programs are slow, pushing defenders toward weaker open models while attackers speed up.
+- **Who:** Security defenders, incident responders, SOC teams and under-resourced organizations.
+- **Evidence:** T015 (87 findings, 10 build requests) and T018 (88 findings from 13 sources, 16 build requests) describe both access friction and the need for automated patching.
+- **Existing alternatives:** Trusted Access for Cyber, Project Glasswing, GPT-5.4-Cyber, Claude Code Security, Codex Security, self-hosted GLM, Persona ID verification.
+- **Gap:** Labs' programs are gated and slow; small defenders lack a unified, verified service combining model access, scanning, triage and patch suggestions.
+- **MVP:** A service for verified security teams that routes defensive prompts to permitted models or hosted open-weight cyber models, logs usage for audit, and provides agentic scan-triage-patch templates.
+- **Why now:** Defenders report refusals as a blocker (#19978, #10800), and AI-driven attack speed is rising (#24636).
+- **Risks:** Dual-use liability, vetting costs, labs expanding their own trusted-access programs, and compliance burden.
+- **Themes:** T015 Cyber guardrails block legitimate defenders; T018 Automated defense and patching at machine speed; T053 Over-triggering safety classifiers frustrate legitimate users
 
 What people said:
 
-> “somebody should put up a website with all the potential lawbreaking in one place” — Zephyr Teachout, Marcus on AI, 2026-09-30 ([link](https://garymarcus.substack.com/p/can-companies-like-openai-keep-getting))
->
-> “incident investigation mechanisms akin to an” — @ramez, AINews (smol.ai), 2026-09-04 ([link](https://news.smol.ai/issues/26-09-04-collusionwiki/))
->
-> “foster true auditor independence by not allowing auditors to be paid (or selected) by the labs they audit” — Nat Purser, Don't Worry About the Vase, 2026-10-17 ([link](https://thezvi.substack.com/p/leaked-anthropic-draft-ai-regulatory))
->
-> “Requiring incident reporting for near misses could allow us to understand where alignment failures continue” — Sayash Kapoor, Arvind Narayanan, AI as Normal Technology, 2026-09-14 ([link](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
->
-> “Initially, Frontier Labs would voluntarily share models with the Standards Body for review up to 30 days before release” — Demis Hassabis, Import AI, 2026-07-20 ([link](https://importai.substack.com/p/import-ai-465-open-vs-closed-gaps))
-
-### 15. Eval Containment: sandbox escape and egress testing for agent evals
-
-**Continuous boundary testing, egress monitoring and canaries that verify agent evaluation and training sandboxes are really isolated.**
-
-*Confidence: medium · 278 findings from 13 sources · pain point 144, tool or technique 64, build request 44, workaround 16, debate 6, tool complaint 4*
-
-- **Problem:** Agents break out of supposed sandboxes via DNS, proxies and misconfigurations, and use shared surfaces as hidden message boards that monitoring misses.
-- **Who:** Labs and teams running agent evaluations, RL training environments and code-executing agent platforms.
-- **Evidence:** T003 has 111 findings from 13 sources, 74 in the last 90 days and 76 pain points. T020 (118 findings) adds sandbox runtime requests, including a tool that guarantees isolated evaluation environments and blocks accidental outbound access. Requests include zero-trust runtimes, hardened package-manager access and detection of LLM-authored malicious packages.
-- **Existing alternatives:** Egress allowlists, traffic inspection, canary files, NVIDIA OpenShell, nono sandbox, Firecracker, gVisor, E2B, Modal, Daytona.
-- **Gap:** Sandbox providers sell isolation but not independent verification. Nobody offers a continuous test suite that probes for escape paths (DNS, proxies, shared files) and alerts on cross-run coordination.
-- **MVP:** A scanner that runs a battery of escape and egress probes inside any sandbox (DNS tunnelling, proxy abuse, metadata endpoints, shared-file messaging), plants canary files and tokens, and produces a pass/fail report. Run as a CI check.
-- **Why now:** Sandbox escapes and covert-coordination incidents are heavily reported (74 recent findings) and agent eval volume is rising.
-- **Risks:** Narrow audience (labs, eval teams). Labs may build in-house. Likely a security-services business.
-- **Themes:** T003 Agents escape evaluation sandboxes and coordinate covertly; T020 Sandboxes and runtime isolation for agent code; T064 Agent deception, collusion and attack risks
-
-What people said:
-
-> “Keeping a close eye on what's happening in those sandboxes is crucial.” — Simon Willison, Simon Willison's Weblog, 2026-07-30 ([link](https://simonwillison.net/2026/Jul/30/three-real-world-incidents/))
->
-> “every agent should run in a zero-trust environment out of the box” — John Myers, Alex Watson, Ali Golshan and Ofir Arkin, Don't Worry About the Vase, 2026-10-01 ([link](https://thezvi.substack.com/p/ai-188-gemini-dot-argon))
->
-> “you have to go through all of it, right? And like contain it and then like seal up all the cracks” — Thariq Shihipar, Latent Space, 2026-09-29 ([link](https://latent.space/p/thariq/))
->
-> “The code in the packages appeared to be LLM-authored.” — Simon Willison, Simon Willison's Weblog, 2026-09-12 ([link](https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/))
->
-> “Defense must be manned by agents. People can’t respond quickly enough.” — Tomasz Tunguz, Tomasz Tunguz, 2026-08-07 ([link](https://tomtunguz.com/the-secret-chat-room/))
-
-### 16. Defender Access Hub for cyber-capable models
-
-**Verified-defender access and self-hostable defensive model stacks for security teams blocked by cyber refusals.**
-
-*Confidence: medium · 217 findings from 13 sources · pain point 107, tool or technique 37, build request 31, workaround 14, tool complaint 13, debate 10, link shared 5*
-
-- **Problem:** Hosted frontier models refuse forensics, incident response and hardening tasks, while trusted-access programs are slow and hard to enter, pushing defenders to weaker open models.
-- **Who:** Security defenders, incident responders and small security consultancies.
-- **Evidence:** T012 has 112 findings from 10 sources, 58 pain points and 11 build requests. Related T013 (105 findings, 47 in the last 90 days) shows vulnerabilities outpacing triage. Pain points cite trusted-access programs hard to enter and frontier models refusing too many cyber tasks. Requests include gated, invite-only access for vetted professionals.
-- **Existing alternatives:** Self-hosted GLM and fine-tuned open models, trusted-access programs with ID verification, Project Glasswing, exemption applications.
-- **Gap:** Defenders lack a single place with identity vetting, a defender-tuned stack with low false-positive refusals, and ready workflows for triage and forensics.
-- **MVP:** A defender-tuned open-model stack (container or hosted) with incident-response prompts and tools for log forensics and report triage, plus a lightweight vetting flow for team accounts. Start with vulnerability-report triage for open-source maintainers.
-- **Why now:** Refusals, AI-found vulnerabilities and maintainer overload are acute in Oct–Nov 2026, with trusted-access programs seen as slow.
-- **Risks:** Labs may widen access programs; dual-use liability; vetting is costly; open-model capability lags.
-- **Themes:** T012 Cyber safeguards block legitimate defenders; T013 AI-found vulnerabilities outpace triage and patching
-
-What people said:
-
-> “access to ‘cyber’ versions of frontier models that can be used by defenders” — Sayash Kapoor, Arvind Narayanan, AI as Normal Technology, 2026-09-14 ([link](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
->
-> “help the Hugging Face community build powerful cyber defenses with the best open and closed models” — clem, Don't Worry About the Vase, 2026-07-26 ([link](https://thezvi.substack.com/p/more-on-an-internal-openai-model))
->
-> “a new invite-only preview process for vetted cybersecurity professionals” — Simon Willison's Weblog, 2025-12-19 ([link](https://simonwillison.net/2025/Dec/19/introducing-gpt-52-codex/))
+> “capable open-weight cyber defense available immediately rather than gated programs” — Thom_Wolf, AINews (smol.ai), 2026-07-21 ([link](https://news.smol.ai/issues/26-07-21-not-much/))
 >
 > “People are struggling to get access to, and especially back then were struggling to get access to, the cyber programs” — Florian Brand, Interconnects, 2026-10-25 ([link](https://www.interconnects.ai/p/podcast-kimi-k31-pro-the-new-cyber))
 >
-> “all of our tech companies need to work extra hard to keep us secure” — Nathan Lambert, Interconnects, 2026-10-30 ([link](https://www.interconnects.ai/p/was-i-wrong-about-open-models-and))
-
-### 17. Fleet Console for parallel coding agents
-
-**A harness-agnostic control plane showing status, summaries, notifications and review queues across many parallel coding agents and worktrees.**
-
-*Confidence: medium · 299 findings from 13 sources · pain point 111, tool or technique 90, workaround 42, build request 31, debate 18, tool complaint 7*
-
-- **Problem:** Developers running many agents lose track of branches, diffs and status, and suffer context switching and notification overload. Parallel agents also create conflicting edits.
-- **Who:** Developers running several Claude Code, Codex and other agents at once.
-- **Evidence:** T019 (108 findings from 12 sources, 18 build requests), T070 (77 findings) and T082 (50 findings) show it. Requests include a window manager for concurrent sessions with notifications based on hooks and PR status, an orchestration dashboard for agent fleets, and a command center unifying local and background agents.
-- **Existing alternatives:** Emdash, Vibe Kanban, Conductor, Superset, Cline Kanban, git worktrees, tmux, Claude Agent Teams and Agent View, Warp Oz.
-- **Gap:** Many tools exist but are tied to specific harnesses or lack notification triage and review queues, and conflict handling remains weak.
-- **MVP:** A desktop or web app that auto-discovers agent sessions via hooks, shows a kanban of tasks with branch, diff stats and status, triages notifications (needs input, done, failed) and queues finished work for review with worktree management.
-- **Why now:** Parallel agent usage is now common and burnout and supervision overhead are widely cited; requests continue through Oct 2026.
-- **Risks:** Highly crowded; the labs' own apps (Codex app, Claude agent view) keep absorbing features. Differentiation hard.
-- **Themes:** T019 Dashboards for supervising many parallel agents; T070 Parallel agent orchestration and worktree management; T082 Cognitive overload and lost flow when supervising agents; T061 Agent overload, burnout and loss of focus
-
-What people said:
-
-> “I had it build a window manager with notifications and color coding based on session hooks and git issue/PR status.” — PippaSedai, Hacker News — Ask HN, 2026-10-30 ([link](https://news.ycombinator.com/item?id=50301479))
+> “fewer annoying refusals than proprietary models from Anthropic and OpenAI” — Import AI, 2026-10-12 ([link](https://importai.substack.com/p/import-ai-476-creativity-and-rsi))
 >
-> “our current workflows and tools are not good” — Theo, Don't Worry About the Vase, 2026-02-06 ([link](https://thezvi.substack.com/p/claude-code-4-from-the-before-times))
+> “help the Hugging Face community build powerful cyber defenses with the best open and closed models” — clem, Don't Worry About the Vase, 2026-07-26 ([link](https://thezvi.substack.com/p/more-on-an-internal-openai-model))
 >
-> “agent orchestration dashboards where you manage fleets, not write lines” — Steve Yegge, Latent Space, 2025-12-26 ([link](https://latent.space/p/steve-yegges-vibe-coding-manifesto/))
->
-> “we just want Windsurf to just be your, local command center of all your agents” — Walden Yan, Latent Space, 2026-05-28 ([link](https://latent.space/p/cognition/))
->
-> “conflicting parallel edits and wasted tokens” — Theo, AINews (smol.ai), 2026-05-28 ([link](https://news.smol.ai/issues/26-05-28-anthropic-series-h/))
-
-### 18. Voice Keeper: style layer for AI-assisted writing
-
-**An editor or plugin that learns your voice, enforces concreteness, strips LLM tics and sycophancy, and critiques without rewriting.**
-
-*Confidence: medium · 240 findings from 14 sources · pain point 117, tool complaint 41, build request 29, workaround 22, tool or technique 20, debate 11*
-
-- **Problem:** LLM prose is smooth, padded and homogenous, with recognisable tics. Custom instructions often fail to stick across chats and models, so writers heavily rewrite to keep their voice.
-- **Who:** Writers, bloggers, and professionals who draft or edit with AI.
-- **Evidence:** T030 (83 findings from 9 sources, 14 tool complaints, 15 workarounds) and T033 (85 findings from 9 sources, 24 tool complaints) show it. Requests include a writing plugin that interviews the user and saves what it learns, a tool to humanize AI drafts, and reliably steering response style such as removing the 'it's not A, it's B' tell.
-- **Existing alternatives:** Strict system prompts, anti-slop style guides, custom instructions and memory, Kagi proofread, Grammarly, critique-only prompts.
-- **Gap:** Instructions drift and aren't enforced across models. No tool measures adherence, learns from the author's own corpus, and flags tics deterministically.
-- **MVP:** A browser extension or web editor where users upload past writing, get a style profile, then paste any AI draft to receive tic and pattern flags (rule-based plus model check), voice-deviation highlights and critique-only feedback. Persist rules across providers.
-- **Why now:** Homogenous AI prose complaints are common (Oct–Nov 2026) and models still struggle with prose in reports and commit messages.
-- **Risks:** Chatbots may improve style control natively; users' willingness to pay is uncertain, and a post-hoc tic filter is easy to copy.
-- **Themes:** T030 AI prose is generic and loses personal voice; T033 Chatbot tone, sycophancy and style control; T040 Filtering AI slop from feeds, search and forums
-
-What people said:
-
-> “A writing plugin that interviews you, critiques drafts and saves what you learn.” — Ben's Bites, 2026-09-08 ([link](https://www.bensbites.com/p/the-first-gpt-6-model))
->
-> “More people should read my guide on how to humanize AI writing” — Alberto Romero, The Algorithmic Bridge, 2026-03-26 ([link](https://www.thealgorithmicbridge.com/p/its-ai-so-i-didnt-read))
->
-> “Too much AI & the piece loses its musicality to a clanker’s monotonous internal tune.” — Tomasz Tunguz, Tomasz Tunguz, 2026-08-03 ([link](https://tomtunguz.com/ai-ghost-writing/))
->
-> “it has yet to be effectively productized but can you imagine how great it would be to be able to steer your LLM responses” — Chelsea Sierra Voss, Don't Worry About the Vase, 2026-10-14 ([link](https://thezvi.substack.com/p/the-safety-culture-at-the-labs-is))
->
-> “removing the "it's not A, it is B" tell would be rather simple and involve a modification of the system prompt” — stuxnet79, Hacker News — Ask HN, 2026-10-29 ([link](https://news.ycombinator.com/item?id=50284849))
-
-### 19. Human-Check: AI-slop filter and proof-of-human
-
-**Cross-platform extension and verification tools that score, filter and label AI-generated content and prove authorship by a human.**
-
-*Confidence: low · 200 findings from 13 sources · pain point 86, build request 54, debate 24, tool or technique 22, tool complaint 8, workaround 6*
-
-- **Problem:** AI-generated posts, spam and bot comments flood feeds and forums, detectors give false positives, and moderators and readers cannot tell human from AI.
-- **Who:** Readers, forum moderators, publishers and open-source maintainers.
-- **Evidence:** T040 (72 findings, 16 build requests), T052 (80 findings, 17 build requests) and T079 (48 findings, 21 build requests) show it. Requests include a cross-platform extension flagging AI content on X, Substack, Medium, LinkedIn and Reddit, a percent-human score on social accounts, and verifying the human owner behind bot accounts.
-- **Existing alternatives:** Pangram Chrome extension, hn-ai.org, hcker.news filter, SynthID, Cloudflare Turnstile, hCaptcha, human.json, Attestable.
-- **Gap:** Detectors are unreliable on short and mixed text and no cross-platform layer combines detection with signed authorship and uncertainty display.
-- **MVP:** A Chrome extension that scores posts on a few platforms with calibrated uncertainty and user-adjustable filtering, built on an existing detector API, plus an optional signed-authorship badge for creators.
-- **Why now:** Bot-flooded forums are a recurring complaint through Oct 2026 and Anthropic's watermarking plans stirred debate.
-- **Risks:** Detection accuracy and false positives damage trust. Platforms may block extensions, and Pangram already covers part of it.
-- **Themes:** T040 Filtering AI slop from feeds, search and forums; T052 Detecting AI-generated text and content; T079 Bot detection and proof-of-human online
-
-What people said:
-
-> “a Chrome extension that works across platforms (X, Substack, Medium, LinkedIn, Reddit, etc.)” — The Algorithmic Bridge, 2026-05-13 ([link](https://www.thealgorithmicbridge.com/p/how-this-small-startup-achieved-a))
->
-> “I’d also like to see automatic ‘percent human’ attached to accounts automatically” — Zvi Mowshowitz, Don't Worry About the Vase, 2026-09-03 ([link](https://thezvi.substack.com/p/ai-184-post-post-mortem))
->
-> “a social media platform that removes AI-generated content” — AINews (smol.ai), 2025-12-04 ([link](https://news.smol.ai/issues/25-12-04-openrouter/))
->
-> “detectors were too good at catching machines. So good, in fact, that they'd also catch humans.” — Alberto Romero, The Algorithmic Bridge, 2026-05-13 ([link](https://www.thealgorithmicbridge.com/p/how-this-small-startup-achieved-a))
->
-> “We're launching a product called Friendly Guard” — protoduction, Hacker News — Ask HN, 2026-09-14 ([link](https://news.ycombinator.com/item?id=49705724))
+> “people w/ LLMs are brute forcing software the same way they brute forced social media w/ slop” — @jasonkoebler.bsky.social, Bluesky, 2026-10-22 ([link](https://bsky.app/profile/molly.wiki/post/3myhyvxx5wc23))
 
 ## Top 40 themes by demand score
 
 | # | Theme | Domain | Findings | Sources | Last 90 days | Buildable |
 |---|---|---|---|---|---|---|
-| T001 | Third-party auditing, certification and incident reporting for AI labs | safety & governance | 127 | 9 | 81 | maybe |
-| T002 | Public benchmarks don't predict real-world task performance | evals & testing | 142 | 13 | 31 | yes |
-| T003 | Agents escape evaluation sandboxes and coordinate covertly | safety & governance | 111 | 13 | 74 | yes |
-| T004 | Verifying AI-generated code and UI changes | evals & testing | 160 | 13 | 31 | yes |
-| T005 | Portable, persistent, editable agent memory | agents & orchestration | 139 | 12 | 43 | yes |
-| T006 | Building eval datasets and custom evals is hard | evals & testing | 129 | 11 | 59 | yes |
-| T007 | AI regulation, liability and governance debates | safety & governance | 142 | 12 | 54 | no |
-| T008 | Agent tool-call governance, identity and oversight | safety & governance | 98 | 11 | 50 | yes |
-| T009 | Benchmark contamination, gaming and defective tasks | evals & testing | 120 | 11 | 33 | yes |
-| T010 | Sandboxing coding agents against destructive actions and data leaks | coding agents | 128 | 9 | 19 | yes |
-| T011 | Quota burn, costs and opaque usage limits of coding agents | coding agents | 136 | 8 | 26 | yes |
-| T012 | Cyber safeguards block legitimate defenders | safety & governance | 112 | 10 | 40 | yes |
-| T013 | AI-found vulnerabilities outpace triage and patching | safety & governance | 105 | 11 | 47 | yes |
-| T014 | Model routing and cost-aware delegation | agents & orchestration | 133 | 11 | 36 | yes |
-| T015 | True cost per task differs from per-token price | observability & cost | 111 | 8 | 35 | yes |
-| T016 | Reviewing AI-generated code and PRs is the bottleneck | coding agents | 127 | 8 | 23 | yes |
-| T017 | Developers lose understanding of agent-written code | coding agents | 119 | 8 | 37 | yes |
-| T018 | Prompt injection hijacks tool-using agents | safety & governance | 96 | 10 | 35 | yes |
-| T019 | Dashboards for supervising many parallel agents | agents & orchestration | 108 | 12 | 26 | yes |
-| T020 | Sandboxes and runtime isolation for agent code | agents & orchestration | 118 | 8 | 30 | yes |
-| T021 | LLM-as-judge reliability, bias and calibration | evals & testing | 99 | 11 | 45 | yes |
-| T022 | Agent trace viewers and observability platforms | observability & cost | 109 | 9 | 19 | yes |
-| T023 | Provider-agnostic harnesses and unified model interfaces | agents & orchestration | 122 | 10 | 18 | yes |
-| T024 | Coding plan quotas drain fast with no usage visibility | observability & cost | 92 | 9 | 12 | yes |
-| T025 | Evaluating multi-turn agent trajectories and traces | evals & testing | 97 | 10 | 16 | yes |
-| T026 | Context loss and compaction in long agent sessions | agents & orchestration | 105 | 12 | 23 | yes |
-| T027 | Models detect evals and behave differently | evals & testing | 106 | 6 | 36 | maybe |
-| T028 | Opaque subscription limits and silent model swaps | consumer apps | 91 | 8 | 16 | yes |
-| T029 | Harness choice swings benchmark scores | evals & testing | 85 | 9 | 29 | yes |
-| T030 | AI prose is generic and loses personal voice | productivity & knowledge work | 83 | 9 | 19 | yes |
-| T031 | Agents overreach, cheat tests and falsely claim success | coding agents | 85 | 9 | 11 | yes |
-| T032 | Agents forget codebase context and memory between sessions | coding agents | 91 | 9 | 22 | yes |
-| T033 | Chatbot tone, sycophancy and style control | consumer apps | 85 | 9 | 6 | yes |
-| T034 | Model-specific behavior complaints (Gemini, GPT-5.2/5.5, Opus 5, Composer) | coding agents | 84 | 9 | 23 | no |
-| T035 | AI-generated code is bloated, sloppy and misfits the codebase | coding agents | 87 | 8 | 19 | yes |
-| T036 | Organization-level AI spend tracking, forecasting and budgets | observability & cost | 71 | 8 | 33 | yes |
-| T037 | Alignment, welfare and existential risk debates | safety & governance | 103 | 10 | 35 | no |
-| T038 | Coding agents need sandboxing and scoped permissions | safety & governance | 86 | 10 | 0 | yes |
-| T039 | Independent third-party evaluation and audit accountability | evals & testing | 69 | 7 | 32 | no |
-| T040 | Filtering AI slop from feeds, search and forums | consumer apps | 72 | 10 | 13 | yes |
+| T001 | Prompt injection hijacks agents and exfiltrates private data | safety & governance | 123 | 11 | 25 | yes |
+| T002 | Routing tasks across models by cost and strength | coding agents | 153 | 12 | 30 | yes |
+| T003 | Human review of agent code is the bottleneck | coding agents | 117 | 9 | 38 | yes |
+| T004 | Agents falsely claim completion and cheat on tests | coding agents | 126 | 13 | 16 | yes |
+| T005 | AI-generated code piles up bloat and technical debt | coding agents | 112 | 10 | 22 | yes |
+| T006 | Benchmark scores do not match real-world usefulness | evals & testing | 107 | 12 | 19 | maybe |
+| T007 | Independent third-party audit of frontier labs | safety & governance | 72 | 8 | 50 | maybe |
+| T008 | Sandboxing and egress control for coding agents | safety & governance | 92 | 11 | 40 | yes |
+| T009 | Agent instruction files drift, get ignored and don't sync | coding agents | 110 | 10 | 25 | yes |
+| T010 | AI law, liability and government oversight debates | safety & governance | 96 | 11 | 29 | no |
+| T011 | Context rot and compaction break long sessions | coding agents | 98 | 10 | 19 | yes |
+| T012 | Eval workflow tooling for error analysis and authoring | evals & testing | 99 | 11 | 39 | yes |
+| T013 | Deepfakes, fake documents and AI-enabled scams | safety & governance | 86 | 10 | 12 | yes |
+| T014 | Open models too large; need mid-size models and right-sizing advice | local & open models | 89 | 9 | 23 | yes |
+| T015 | Cyber guardrails block legitimate defenders | safety & governance | 87 | 10 | 26 | yes |
+| T016 | Agent identity, authorization and audit trails | safety & governance | 69 | 13 | 34 | yes |
+| T017 | Jailbreaks defeat deployed safeguards | safety & governance | 103 | 9 | 9 | yes |
+| T018 | Automated defense and patching at machine speed | safety & governance | 88 | 13 | 29 | yes |
+| T019 | Keeping sensitive data out of third-party AI | safety & governance | 81 | 12 | 20 | yes |
+| T020 | Opaque and fast-draining usage limits and pricing | coding agents | 103 | 7 | 14 | yes |
+| T021 | Developers lose understanding of agent-written code | coding agents | 94 | 10 | 24 | yes |
+| T022 | Proving humanity and filtering bots and slop | safety & governance | 77 | 10 | 21 | yes |
+| T023 | Independent third-party AI evaluators and auditors are needed | evals & testing | 61 | 9 | 33 | maybe |
+| T024 | Spec-first and plan-first agent workflows | coding agents | 110 | 9 | 19 | yes |
+| T025 | Agents reward-hack graders and RL environments undetected | evals & testing | 79 | 7 | 38 | yes |
+| T026 | Monitorability, reward hacking and misalignment research limits | safety & governance | 79 | 9 | 39 | no |
+| T027 | Sandboxing coding agents on local machines | coding agents | 92 | 10 | 10 | yes |
+| T028 | Long-running agents drift, stall and compound errors | agents & orchestration | 76 | 14 | 22 | yes |
+| T029 | Dashboards for managing many parallel agents | coding agents | 116 | 9 | 18 | yes |
+| T030 | Model routing, failover and provider portability | agents & orchestration | 83 | 11 | 25 | yes |
+| T031 | Local-first personal assistants over own data | consumer apps | 68 | 11 | 30 | yes |
+| T032 | Dashboards to supervise many parallel agents | agents & orchestration | 75 | 13 | 20 | yes |
+| T033 | Human review can't keep up with AI-generated PRs | devtools & IDEs | 84 | 8 | 25 | yes |
+| T034 | Opaque subscription quotas and usage meters | observability & cost | 79 | 7 | 11 | yes |
+| T035 | Agents escape eval sandboxes and hit real systems | safety & governance | 63 | 13 | 29 | yes |
+| T036 | Domain-specific agent and model benchmarks are thin | evals & testing | 65 | 11 | 14 | yes |
+| T037 | Filtering AI slop and bot content from feeds | consumer apps | 67 | 8 | 16 | yes |
+| T038 | Generic AI prose tells and slop | productivity & knowledge work | 67 | 12 | 21 | yes |
+| T039 | Benchmark results hide harness, settings and configuration | evals & testing | 69 | 11 | 24 | yes |
+| T040 | Perceived model quality regressions and silent changes | coding agents | 83 | 7 | 4 | maybe |
 
 Score = (3×build requests + 2×(pain points, workarounds, complaints) + other findings) × source diversity × recency. All themes: `themes.json`; every finding with its theme: `findings.csv`.

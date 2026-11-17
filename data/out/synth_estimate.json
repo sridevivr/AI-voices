@@ -1,15 +1,15 @@
 {
- "findings": 26923,
- "stage1_requests": 65,
- "stage1_input_tokens": 1927310,
+ "findings": 30139,
+ "stage1_requests": 72,
+ "stage1_input_tokens": 2148548,
  "stage2_merges": 17,
- "stage1_batch_low": 3.87731,
- "stage1_batch_high": 5.82731,
- "stage2_low": 2.003,
- "stage2_high": 3.528,
+ "stage1_batch_low": 5.028548,
+ "stage1_batch_high": 7.908548,
+ "stage2_low": 2.227,
+ "stage2_high": 3.927,
  "stage3_low": 0.18,
  "stage3_high": 0.36,
- "total_low": 6.060309999999999,
- "total_high": 9.715309999999999,
- "spent_so_far": 1.5756000000000001
+ "total_low": 7.435547999999999,
+ "total_high": 12.195547999999999,
+ "spent_so_far": 11.3848
 }

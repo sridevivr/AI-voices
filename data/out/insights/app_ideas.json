@@ -1,0 +1,3649 @@
+{
+ "observations": [
+  "Many ideas are near-duplicates, especially slop detection and voice preservation, which shows how strongly 'AI sounds generic' dominated the commentary; pick one best version rather than building several.",
+  "The highest-scoring items pair a text-in, result-out flow with a shareable verdict such as a score, a receipt or a profile, which suits a 30-60 second demo and a LinkedIn or X post.",
+  "Culture-argument ideas like bubble, Jevons and AGI debates turn jargon-heavy discourse into play, and they are timely hooks for a professional audience.",
+  "Ideas that mostly repackage what a chatbot already does, such as handoff briefs and prompt interviews, only stand out through distinct packaging or personality, so keep the format sharp.",
+  "The 3-4 week builds, such as game arenas, font generators and dataset makers, are poor first picks for a non-engineer; the weekend text-and-API apps give faster feedback."
+ ],
+ "ideas": [
+  {
+   "name": "Slop-o-Meter",
+   "one_liner": "Paste any text and get a funny, highlighted 'slop score' with named tells like em-dash abuse, rule of three, and 'not X but Y' antithesis.",
+   "for_whom": "LinkedIn posters, marketers, students and editors worried their writing reads as AI.",
+   "spark": "pain",
+   "why_it_works": "Writers feel pressure to avoid AI tells and end up with contorted prose. A transparent, playful detector that shows pattern counts (not a pass/fail judgment) is wanted and shareable.",
+   "how_it_works": "User pastes text; rule-based detection highlights em dashes, triads, antithesis, stock phrases and gives a score with a cheeky verdict ('Certified Delve Enthusiast'). Optional AI call suggests a plainer rewrite of the worst sentence.",
+   "build": "Single-page web app with regex/heuristics in JS, optional LLM call for rewrite. Hardest part: tuning heuristics so scores feel fair and not too noisy.",
+   "effort": "a weekend",
+   "demo_moment": "Pasting a famous LinkedIn post and watching it light up like a Christmas tree with a 94% slop score.",
+   "post_hook": "I built a slop detector and ran my own old posts through it. Humbling. Try yours.",
+   "risks": "Heuristic detectors give false positives; frame it as 'tells' not 'proof of AI'.",
+   "fun": 5,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    25129,
+    8043,
+    16158,
+    22331,
+    28356,
+    4815,
+    26661,
+    28895,
+    4818,
+    25245
+   ],
+   "id": "CU03",
+   "lens": "culture",
+   "also_from": [
+    "needs",
+    "needs"
+   ],
+   "start_here": 1,
+   "start_why": "A paste-and-score slop meter with highlighted tells is a weekend build, takes seconds to demo, and everyone wants to run their own post or a rival's through it.",
+   "score": 17.0,
+   "evidence": [
+    {
+     "fid": 25129,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-04-21",
+     "url": "https://www.thealgorithmicbridge.com/p/how-the-ai-writing-panic-is-making",
+     "summary": "Writers feel pressure to avoid AI writing tells like em dashes, triads, and antithesis, leading to contorted and unnatural prose.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 8043,
+     "source": "One Useful Thing",
+     "date": "2026-06-04",
+     "url": "https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence",
+     "summary": "AI is poor at long-form writing, with obvious textual tells and dull prose that make it unsuitable for drafting full book chapters.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 16158,
+     "source": "Don't Worry About the Vase",
+     "date": "2025-11-17",
+     "url": "https://thezvi.substack.com/p/on-writing-2",
+     "summary": "AI writing assistants tend to make prose sound generic and homogenize a distinctive writing style.",
+     "who": "Zvi Mowshowitz"
+    },
+    {
+     "fid": 22331,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-11-04",
+     "url": "https://news.ycombinator.com/item?id=50366117",
+     "summary": "Models still struggle to write good prose in reports, commit messages, and PR summaries.",
+     "who": "peepee1982"
+    },
+    {
+     "fid": 28356,
+     "source": "Bluesky",
+     "date": "2026-06-17",
+     "url": "https://bsky.app/profile/gergely.pragmaticengineer.com/post/3mohzeauhjk22",
+     "summary": "A tool to flag or report undisclosed AI-generated content on social feeds would address a gap users currently face.",
+     "who": "Gergely Orosz"
+    },
+    {
+     "fid": 4815,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-05-13",
+     "url": "https://www.thealgorithmicbridge.com/p/how-this-small-startup-achieved-a",
+     "summary": "A cross-platform Chrome extension that flags AI-generated content on sites like X, Substack, Medium, LinkedIn, and Reddit.",
+     "who": ""
+    },
+    {
+     "fid": 26661,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-08-12",
+     "url": "https://www.thealgorithmicbridge.com/p/on-substack-pangram-partnership-its",
+     "summary": "Human writers face difficulty proving their work is their own now that AI can generate prose, making authorship verification a problem on writing platforms like Substack.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 28895,
+     "source": "Bluesky",
+     "date": "2026-03-30",
+     "url": "https://bsky.app/profile/bcmerchant.bsky.social/post/3micghrux7k2d",
+     "summary": "Many users feel a visceral rejection of AI-generated slop and AI-driven aesthetics, which signals a trust and adoption barrier for AI-generated content products.",
+     "who": "Brian Merchant"
+    },
+    {
+     "fid": 4818,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-05-13",
+     "url": "https://www.thealgorithmicbridge.com/p/how-this-small-startup-achieved-a",
+     "summary": "AI-generated content such as reviews, abstracts, and news articles is flooding online platforms at large scale, making the digital commons hard to trust.",
+     "who": ""
+    },
+    {
+     "fid": 25245,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-06-09",
+     "url": "https://www.thealgorithmicbridge.com/p/nine-things-about-claude-mythos-5",
+     "summary": "Claude Fable 5 is criticized for poor writing quality, with the author finding its prose output as generic as earlier models.",
+     "who": "Alberto Romero"
+    }
+   ]
+  },
+  {
+   "name": "Argue Me Out of It",
+   "one_liner": "A three-round debate game where AI steelmans the case against your idea and tracks every point you concede.",
+   "for_whom": "Founders, managers and writers about to commit to a decision or hot take.",
+   "spark": "hack",
+   "why_it_works": "People write custom instructions to make AI push back instead of agreeing, and use it as a sparring partner. A structured game makes the hack a one-click experience.",
+   "how_it_works": "The user enters a belief or plan and rates their confidence. The AI delivers its strongest counterargument, the user responds, and it goes three rounds. A scorecard shows conceded points, unanswered objections and a before/after confidence delta.",
+   "build": "Chat-style web app with a system prompt for steelmanning and structured JSON scoring per round. Hardest part is keeping the pushback sharp but not hostile.",
+   "effort": "a weekend",
+   "demo_moment": "The confidence slider drops from 90 to 60 after the AI finds the one objection the user could not answer.",
+   "post_hook": "I asked AI to disagree with my strategy for 3 rounds. It won 2 of them.",
+   "risks": "Generic chatbots can be told to do this; the value is in the scoring and format.",
+   "fun": 5,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    698,
+    25016,
+    23421,
+    29155,
+    9158,
+    29790,
+    8099,
+    22198,
+    3760,
+    2967
+   ],
+   "id": "HA05",
+   "lens": "hacks",
+   "also_from": [
+    "needs",
+    "needs"
+   ],
+   "start_here": 2,
+   "start_why": "A three-round debate where AI argues against your idea and counts your concessions is a weekend build, has a built-in scoreboard to screenshot, and works with any idea or opinion.",
+   "score": 17.0,
+   "evidence": [
+    {
+     "fid": 698,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-04-08",
+     "url": "https://thezvi.substack.com/p/ai-163-mythos-quest",
+     "summary": "Custom instruction that makes Claude argue back against user positions with steelmanned counterarguments instead of agreeing first.",
+     "who": "Kaj Sotala"
+    },
+    {
+     "fid": 25016,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-03-23",
+     "url": "https://www.thealgorithmicbridge.com/p/the-one-thing-i-use-ai-for-that-actually",
+     "summary": "Using an AI model to argue against one's own ideas before committing to them, acting as a sparring partner for critical thinking.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 23421,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-03-19",
+     "url": "https://news.ycombinator.com/item?id=47433702",
+     "summary": "Asking the LLM to provide opposing viewpoints, historical analysis, and source identification to strengthen critical thinking.",
+     "who": "jimcollinswort1"
+    },
+    {
+     "fid": 29155,
+     "source": "Bluesky",
+     "date": "2026-10-10",
+     "url": "https://bsky.app/profile/mikecaulfield.bsky.social/post/3mxijogbzqc26",
+     "summary": "Descriptions in LLM contexts act like hyperlinks, creating connection networks that could be used to broaden thinking.",
+     "who": "Mike Caulfield"
+    },
+    {
+     "fid": 9158,
+     "source": "Import AI",
+     "date": "2026-05-18",
+     "url": "https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon",
+     "summary": "Need for AI systems that optimize for users' deeper interests such as growth and honest feedback rather than preference satisfaction like flattery and engagement.",
+     "who": ""
+    },
+    {
+     "fid": 29790,
+     "source": "Bluesky",
+     "date": "2026-09-02",
+     "url": "https://bsky.app/profile/anildash.com/post/3muk3dpvqcc2c",
+     "summary": "Consumer AI tools are overly sycophantic, and a Siri AI beta that avoids sycophancy is seen as a useful design choice.",
+     "who": "Anil Dash"
+    },
+    {
+     "fid": 8099,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-06-04",
+     "url": "https://thezvi.substack.com/p/ai-171-false-flag",
+     "summary": "AI chatbots tend to use sycophancy and sales tactics, such as minor disagreement to build rapport, which often works even when obvious.",
+     "who": "roon"
+    },
+    {
+     "fid": 22198,
+     "source": "Lenny's Newsletter",
+     "date": "2026-09-29",
+     "url": "https://www.lennysnewsletter.com/p/all-of-the-lenny-and-friends-summit",
+     "summary": "Easier building makes it simple to ship low-value products, so teams struggle to choose what to build and judge quality.",
+     "who": "Lenny Rachitsky"
+    },
+    {
+     "fid": 3760,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-07-21",
+     "url": "https://simonwillison.net/2026/Jul/21/cat-and-thariq/",
+     "summary": "Product prioritization is hard now that building features is cheap, with teams relying on dogfooding and retention bars to decide what to ship.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 2967,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-02-26",
+     "url": "https://news.ycombinator.com/item?id=47160641",
+     "summary": "Engineers face decision fatigue and consistency problems across tools as AI makes building faster but choosing what to build harder.",
+     "who": "fernando_campos"
+    }
+   ]
+  },
+  {
+   "name": "Bubble or Not? Swipe Court",
+   "one_liner": "A Tinder-style swipe game where you rule on real AI-bubble headlines and see which camp (Zitron, Smith, Marcus) you actually agree with.",
+   "for_whom": "Curious professionals, investors-by-accident, anyone whose group chat argues about whether AI is a bubble.",
+   "spark": "culture",
+   "why_it_works": "The bubble argument is everywhere and polarized, with smart people disagreeing on the same revenue facts. A game that makes you commit to positions is more engaging than another take.",
+   "how_it_works": "User swipes 15 cards, each a paraphrased claim (revenue growth, circular deals, dot-com comparison, bailout odds) with agree/disagree/unsure. At the end they get a shareable 'bubble personality' card showing which commentator they align with and how their view compares with others.",
+   "build": "Next.js or plain React, static JSON of cards, simple scoring matrix, share image via html-to-image. Hardest part is writing fair, balanced cards that don't misrepresent the named people; use archetypes instead of real names if needed.",
+   "effort": "a weekend",
+   "demo_moment": "Swiping through cards fast, then the reveal of a result card like 'You are 70% Ed Zitron, 30% Noah Smith'.",
+   "post_hook": "I built a 2-minute quiz that tells you what kind of AI-bubble believer you are. I turned out to be a 'Circular Deal Skeptic.' What are you?",
+   "risks": "Misattributing positions to real people; keep them as archetypes. Facts go stale quickly.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    9544,
+    28420,
+    26369,
+    11612
+   ],
+   "id": "CU01",
+   "lens": "culture",
+   "start_here": 3,
+   "start_why": "A swipe court on real AI-bubble headlines is fast to build, naturally ends in a shareable 'which camp are you' result, and rides a hot cultural argument.",
+   "score": 16.5,
+   "evidence": [
+    {
+     "fid": 9544,
+     "source": "Marcus on AI",
+     "date": "2026-06-26",
+     "url": "https://garymarcus.substack.com/p/the-month-generative-ai-lost-its",
+     "summary": "Whether AI revenue growth signals a sustainable bubble-free business, with Noah Smith arguing no bubble versus Marcus arguing revenue growth does not imply profitability or sustainability.",
+     "who": "Gary Marcus"
+    },
+    {
+     "fid": 28420,
+     "source": "Bluesky",
+     "date": "2026-10-20",
+     "url": "https://bsky.app/profile/edzitron.com/post/3myd2tohovq2v",
+     "summary": "Whether the AI bubble resembles the dot-com bubble; one side sees it as concentrated and far more dangerous, the other as a different situation.",
+     "who": "Ed Zitron"
+    },
+    {
+     "fid": 26369,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-11-04",
+     "url": "https://news.ycombinator.com/item?id=50362700",
+     "summary": "Commenters disagree on whether a sharp AI market correction or bubble pop is likely, and whether government would bail out failing AI companies.",
+     "who": "everylostbit"
+    },
+    {
+     "fid": 11612,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-04-23",
+     "url": "https://thezvi.substack.com/p/ai-165-in-our-image",
+     "summary": "Whether AI-driven demand drops would cause bubble collapse, versus revenue rising if prices were higher and free tiers disappeared.",
+     "who": "Zvi Mowshowitz"
+    }
+   ]
+  },
+  {
+   "name": "Voice Fingerprint",
+   "one_liner": "Turn your past writing into a portable voice guide, then test whether any AI draft sounds like you.",
+   "for_whom": "LinkedIn and newsletter writers who want AI help without sounding like AI.",
+   "spark": "hack",
+   "why_it_works": "People hand-craft voice skill files and style guides, and critics question whether they work. A tool that builds the guide and also tests it would settle the argument.",
+   "how_it_works": "The user pastes 5-10 samples of their writing. The app produces a one-page voice guide (rhythm, pet phrases, taboo words, examples) to paste into any AI tool. A 'sounds like me?' tester scores a new draft and highlights the lines that break the voice.",
+   "build": "Simple web app with an LLM API for analysis and scoring, with copy and download of the guide as markdown. Hardest part is a scoring method that is not just flattery.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A generic AI paragraph gets a 41% voice match with offending phrases highlighted. After applying the guide, it rewrites to 88%.",
+   "post_hook": "I built a lie detector for 'does this sound like me?' Here's my score on my last 5 posts.",
+   "risks": "Scoring is subjective; writing samples are personal data.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 5,
+   "evidence_ids": [
+    27083,
+    19155,
+    269,
+    5697,
+    13767,
+    16647,
+    16158,
+    25129,
+    8043,
+    25245,
+    3774
+   ],
+   "id": "HA02",
+   "lens": "hacks",
+   "also_from": [
+    "makers",
+    "culture",
+    "needs"
+   ],
+   "start_here": 4,
+   "start_why": "Building a voice fingerprint from your own writing and testing AI drafts against it speaks to the reader's own LinkedIn audience, and the before/after demo is strong.",
+   "score": 15.0,
+   "evidence": [
+    {
+     "fid": 27083,
+     "source": "Bluesky",
+     "date": "2026-04-21",
+     "url": "https://bsky.app/profile/edzitron.com/post/3mjy2n37vi22v",
+     "summary": "Creating a Claude 'skill' file to capture a personal writing voice is a technique some users adopt, which critics question as unnecessary.",
+     "who": "Ed Zitron"
+    },
+    {
+     "fid": 19155,
+     "source": "Ben's Bites",
+     "date": "2026-03-24",
+     "url": "https://www.bensbites.com/p/agents-should-interview-you",
+     "summary": "Writing AI style guides so that AI can imitate a person's writing voice.",
+     "who": ""
+    },
+    {
+     "fid": 269,
+     "source": "Exponential View",
+     "date": "2026-03-05",
+     "url": "https://www.exponentialview.co/p/how-i-think",
+     "summary": "Azeem Azhar uses handwritten outlines combined with AI tools trained on his own decade of writing as his personal thinking and writing workflow.",
+     "who": "Azeem Azhar"
+    },
+    {
+     "fid": 5697,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-03-11",
+     "url": "https://thezvi.substack.com/p/gpt-54-is-a-substantial-upgrade",
+     "summary": "GPT-5.4 reportedly handles editing a user's writing while preserving their voice, a task previous models failed.",
+     "who": "Simon Smith"
+    },
+    {
+     "fid": 13767,
+     "source": "Exponential View",
+     "date": "2026-03-13",
+     "url": "https://www.exponentialview.co/p/the-lantern-and-the-flame",
+     "summary": "A writer built a 'Stylometer' Claude skill trained on 60,000 words of his prose to flag sentences where rhythm has drifted from his own voice.",
+     "who": "Azeem Azhar"
+    },
+    {
+     "fid": 16647,
+     "source": "Ben's Bites",
+     "date": "2026-02-12",
+     "url": "https://www.bensbites.com/p/something-big-is-happening",
+     "summary": "ashe built a Claude Code/Codex skill using the X API to draft tweets from a writing guide, trending posts and past best posts.",
+     "who": "ashe"
+    },
+    {
+     "fid": 16158,
+     "source": "Don't Worry About the Vase",
+     "date": "2025-11-17",
+     "url": "https://thezvi.substack.com/p/on-writing-2",
+     "summary": "AI writing assistants tend to make prose sound generic and homogenize a distinctive writing style.",
+     "who": "Zvi Mowshowitz"
+    },
+    {
+     "fid": 25129,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-04-21",
+     "url": "https://www.thealgorithmicbridge.com/p/how-the-ai-writing-panic-is-making",
+     "summary": "Writers feel pressure to avoid AI writing tells like em dashes, triads, and antithesis, leading to contorted and unnatural prose.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 8043,
+     "source": "One Useful Thing",
+     "date": "2026-06-04",
+     "url": "https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence",
+     "summary": "AI is poor at long-form writing, with obvious textual tells and dull prose that make it unsuitable for drafting full book chapters.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 25245,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-06-09",
+     "url": "https://www.thealgorithmicbridge.com/p/nine-things-about-claude-mythos-5",
+     "summary": "Claude Fable 5 is criticized for poor writing quality, with the author finding its prose output as generic as earlier models.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 3774,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-02-10",
+     "url": "https://thezvi.substack.com/p/claude-opus-46-system-card-part-2",
+     "summary": "Claude Opus 4.6 falls into generating more 'AI slop' style prose than Opus 4.5, a weakness in writing tasks.",
+     "who": "Zvi Mowshowitz"
+    }
+   ]
+  },
+  {
+   "name": "Side Project Graveyard",
+   "one_liner": "A cemetery-themed board for all the half-built AI side projects you started, with a prompt to resurrect, merge or bury each.",
+   "for_whom": "Vibe coders and tinkerers who start many things in an hour and finish none",
+   "spark": "pain",
+   "why_it_works": "Agents let people spin up many projects that get abandoned and fragment attention; a playful ritual of triage makes it manageable.",
+   "how_it_works": "User adds projects (name, one line, last touched). Each gets a tombstone; the app asks 3 questions and recommends resurrect, merge, or bury with an epitaph. A weekly 'pick one' nudge keeps focus on a single project.",
+   "build": "Mobile-friendly React app with localStorage, an LLM for epitaphs and triage advice. Hardest part: keeping it fun, not another to-do list.",
+   "effort": "a weekend",
+   "demo_moment": "Tombstones rise on screen as a user buries a project with a funny auto-written epitaph.",
+   "post_hook": "I had 23 abandoned AI side projects. I built a graveyard for them. 4 got resurrected.",
+   "risks": "Niche audience; risk of a one-time use.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    5329,
+    11383,
+    25199
+   ],
+   "id": "NE10",
+   "lens": "needs",
+   "start_here": 5,
+   "start_why": "A cemetery board for abandoned side projects is a weekend build with instant humor that resonates with every vibe coder, and it makes a great personal story post.",
+   "score": 16.5,
+   "evidence": [
+    {
+     "fid": 5329,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-05-31",
+     "url": "https://simonwillison.net/2026/May/31/the-solution-might-be-cancelling-my-ai-subscription/",
+     "summary": "Coding agents let users spin up many side projects in an hour, leaving them abandoned and creating attention fragmentation.",
+     "who": "David Wilson"
+    },
+    {
+     "fid": 11383,
+     "source": "Latent Space",
+     "date": "2026-10-02",
+     "url": "https://latent.space/p/rlm/",
+     "summary": "Agent-driven workflows make it hard for a researcher to manage attention across many projects, as prompted tasks are often never revisited.",
+     "who": "swyx"
+    },
+    {
+     "fid": 25199,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-03-24",
+     "url": "https://news.ycombinator.com/item?id=47511075",
+     "summary": "Agent-driven work increases cognitive load because developers can take on more tasks at once, creating a sense of mental creep.",
+     "who": "andrewvector"
+    }
+   ]
+  },
+  {
+   "name": "Do I Actually Get This?",
+   "one_liner": "Paste anything AI wrote for you (memo, formula, script) and get a quick quiz to prove you understand it before you send it.",
+   "for_whom": "Professionals who use AI-written content or spreadsheets and must defend them in meetings.",
+   "spark": "culture",
+   "why_it_works": "There is growing worry that people lose understanding of AI-produced work, and developers keep checking output step by step to keep their grip. A quiz turns passive acceptance into active comprehension.",
+   "how_it_works": "The user pastes the AI output and the context. The app generates five questions of rising difficulty, such as 'Why does this formula use absolute references?' and 'What would a skeptical VP challenge?'. After answering, the user gets a comprehension score and a short explainer on the gaps.",
+   "build": "Web app with LLM question generation and grading, plus shareable score cards. Hardest part is questions that test understanding rather than recall.",
+   "effort": "a weekend",
+   "demo_moment": "A pasted Excel formula yields a quiz and a 3/5 score, and the explainer fills the gaps.",
+   "post_hook": "AI wrote it, but could you defend it in the meeting? I built a 2-minute test.",
+   "risks": "Quiz quality varies; the user can ignore it.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    22954,
+    9638,
+    13575,
+    29640
+   ],
+   "id": "HA15",
+   "lens": "hacks",
+   "start_here": 6,
+   "start_why": "A quiz to prove you understand what AI wrote for you before you send it is quick to build, solves a real professional worry, and has a fun pass/fail moment on screen.",
+   "score": 15.0,
+   "evidence": [
+    {
+     "fid": 22954,
+     "source": "AINews (smol.ai)",
+     "date": "2026-01-14",
+     "url": "https://news.smol.ai/issues/26-01-14-not-much/",
+     "summary": "Lucid coding describes developers who use generative AI while understanding and being able to fix the code it produces.",
+     "who": ""
+    },
+    {
+     "fid": 9638,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-10-19",
+     "url": "https://news.ycombinator.com/item?id=50151036",
+     "summary": "Keep agent prompts small and check output at each step, manually editing occasionally to preserve tacit understanding of the code.",
+     "who": "DanielHB"
+    },
+    {
+     "fid": 13575,
+     "source": "Marcus on AI",
+     "date": "2026-04-27",
+     "url": "https://garymarcus.substack.com/p/dario-amodei-hype-ai-safety-and-the",
+     "summary": "Some experienced coders are writing code by hand again after early enthusiasm for coding agents faded due to maintainability problems.",
+     "who": ""
+    },
+    {
+     "fid": 29640,
+     "source": "Bluesky",
+     "date": "2026-08-19",
+     "url": "https://bsky.app/profile/charity.wtf/post/3mtgw45ee222b",
+     "summary": "Engineers with long experience debugging manually before modern tooling may be especially effective at debugging AI-generated or AI-assisted code.",
+     "who": "@robbyonrails.com"
+    }
+   ]
+  },
+  {
+   "name": "AGI Argument Referee",
+   "one_liner": "Paste an AGI hot take and a referee bot identifies the debate move (moving goalposts, scaling-is-all, vibes-as-evidence) and calls it with a whistle.",
+   "for_whom": "People who follow AI arguments online and want a laugh and a clearer view.",
+   "spark": "culture",
+   "why_it_works": "Scaling vs world models vs 'LLMs aren't enough' debates recycle the same rhetorical moves. A playful referee that names them teaches critical reading.",
+   "how_it_works": "User pastes a tweet or paragraph. An LLM returns a penalty card (e.g., 'Goalpost shift, 5 yards'), the strongest point made, and the missing evidence. A replay-style commentary adds humor.",
+   "build": "Simple web page with a structured LLM prompt returning JSON, sports-style UI. Hardest part: keeping outputs consistent and fair across both sides.",
+   "effort": "a weekend",
+   "demo_moment": "Pasting a spicy tweet and a referee card slams down: 'Flag: appeal to the next model release'.",
+   "post_hook": "I built a referee for AI arguments. It flagged both Gary Marcus and his critics. Paste your favorite take.",
+   "risks": "Can appear biased; prompt for even-handedness and show reasoning.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 4,
+   "shareable": 5,
+   "evidence_ids": [
+    6817,
+    27073,
+    12782,
+    26564
+   ],
+   "id": "CU11",
+   "lens": "culture",
+   "start_here": 7,
+   "start_why": "A referee bot that blows a whistle on AGI hot-take moves like goalpost-moving makes a funny, highly shareable 30-second demo and is easy to build.",
+   "score": 15.5,
+   "evidence": [
+    {
+     "fid": 6817,
+     "source": "Marcus on AI",
+     "date": "2026-03-14",
+     "url": "https://garymarcus.substack.com/p/breaking-expensive-new-evidence-that",
+     "summary": "Whether scaling compute and data is sufficient for AGI versus needing world models and neurosymbolic AI.",
+     "who": "Gary Marcus"
+    },
+    {
+     "fid": 27073,
+     "source": "Bluesky",
+     "date": "2026-09-12",
+     "url": "https://bsky.app/profile/hardmaru.bsky.social/post/3mvdg3pillk22",
+     "summary": "Whether the next leap in AI requires self-modeling, world models, and agentic temporal grounding rather than simply scaling next-token prediction.",
+     "who": "hardmaru"
+    },
+    {
+     "fid": 12782,
+     "source": "AINews (smol.ai)",
+     "date": "2026-01-08",
+     "url": "https://news.smol.ai/issues/26-01-08-not-much/",
+     "summary": "LLMs alone may not reach AGI, with calls for world models and biologically inspired research versus claims current models already have utility.",
+     "who": ""
+    },
+    {
+     "fid": 26564,
+     "source": "Marcus on AI",
+     "date": "2026-09-09",
+     "url": "https://garymarcus.substack.com/p/the-case-for-boycotting-generative",
+     "summary": "Whether frontier labs' pursuit of AGI is commercially justified or ideologically driven, with the claim that there is no real commercial case for LLM-based unstable systems.",
+     "who": "Cal Newport"
+    }
+   ]
+  },
+  {
+   "name": "Jevons or Doom? Dev Job Slider",
+   "one_liner": "A playful simulation where you adjust 'cost of software' and 'demand elasticity' sliders and watch the number of engineering jobs rise or crash.",
+   "for_whom": "Non-engineers and engineers wanting to understand the Jevons paradox argument.",
+   "spark": "culture",
+   "why_it_works": "The Jevons paradox is invoked constantly in the engineering-jobs debate yet rarely explained. A toy model makes the logic intuitive.",
+   "how_it_works": "User moves two sliders (AI productivity gain, how much new demand cheaper software creates). A bar chart of jobs animates with a plain-language caption ('Demand outran productivity: more devs'). Presets for 'Optimist', 'Pessimist', 'Agents automate everything'.",
+   "build": "Single page React with a simple formula and Chart.js. Hardest part: choosing a model that's simple but not misleading.",
+   "effort": "a weekend",
+   "demo_moment": "Dragging the elasticity slider past a threshold and watching jobs flip from falling to booming.",
+   "post_hook": "The 'Jevons paradox will save software jobs' argument is just one slider. Here's the slider.",
+   "risks": "Toy model could be read as prediction; label clearly as illustrative.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    19992,
+    3507,
+    24084,
+    29030
+   ],
+   "id": "CU07",
+   "lens": "culture",
+   "start_here": 8,
+   "start_why": "A Jevons-or-doom slider simulation is a weekend build with live-moving visuals that turn a heated job-market debate into something people can play with.",
+   "score": 15.0,
+   "evidence": [
+    {
+     "fid": 19992,
+     "source": "AI as Normal Technology",
+     "date": "2026-07-13",
+     "url": "https://www.normaltech.ai/p/what-will-be-left-for-us-to-work",
+     "summary": "Whether AI will compress software engineering jobs versus expand demand, with the speaker arguing demand grows as cognitive tasks get cheaper, citing Jevons-style effects.",
+     "who": "Arvind Narayanan"
+    },
+    {
+     "fid": 3507,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-01-08",
+     "url": "https://simonwillison.net/2026/Jan/8/llm-predictions-for-2026/",
+     "summary": "Whether AI coding agents will devalue software engineering careers (fewer, cheaper workers) or increase demand for custom software (Jevons paradox) remains unresolved.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 24084,
+     "source": "AINews (smol.ai)",
+     "date": "2026-03-06",
+     "url": "https://news.smol.ai/issues/26-03-06-not-much/",
+     "summary": "Whether Jevons paradox fully explains AI's effect on software engineering jobs, versus AI agents eventually automating engineering itself.",
+     "who": "swyx"
+    },
+    {
+     "fid": 29030,
+     "source": "Bluesky",
+     "date": "2026-05-27",
+     "url": "https://bsky.app/profile/caseynewton.bsky.social/post/3mms7tkwgp222",
+     "summary": "Whether AI will reshape software engineering by net destroying or creating jobs, with Cherny arguing AI may create more jobs than it destroys.",
+     "who": "Boris Cherny"
+    }
+   ]
+  },
+  {
+   "name": "Jira Horror",
+   "one_liner": "Paste your boring work tasks and get them turned into a spooky audio-drama with an eerie narrator.",
+   "for_whom": "Office workers, PMs and anyone who enjoys workplace humor",
+   "spark": "culture",
+   "why_it_works": "Someone turned real Jira tickets into horror-game audiologs, showing that mundane work artifacts become funny when reframed as narrative. TTS is now good enough to deliver it.",
+   "how_it_works": "User pastes 5-10 task titles or a standup note and picks a genre (horror, noir, nature documentary). The LLM writes short log entries and a TTS voice reads them over a looping ambient track. Result plays as a shareable audio card.",
+   "build": "Simple web page, LLM for scripting, a TTS API such as ElevenLabs or OpenAI TTS, and a looped royalty-free ambient track. Hardest part is tone: the script must stay funny, not just creepy, and must avoid leaking confidential info.",
+   "effort": "a weekend",
+   "demo_moment": "Paste 'Q3 roadmap sync moved again' and hear a whispering narrator describe the meeting that would not end.",
+   "post_hook": "I turned my sprint backlog into a horror podcast.",
+   "risks": "Users may paste confidential tickets; add a warning and offer a sample mode.",
+   "fun": 5,
+   "useful": 2,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    29695,
+    22704
+   ],
+   "id": "PO02",
+   "lens": "powers",
+   "start_here": 9,
+   "start_why": "Turning boring work tasks into a spooky audio drama is a pure delight demo that a corporate audience will share, and it takes a weekend with text-to-speech.",
+   "score": 16.0,
+   "evidence": [
+    {
+     "fid": 29695,
+     "source": "Bluesky",
+     "date": "2026-10-30",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mz2nfm6wts2m",
+     "summary": "Using an LLM to convert real Jira tickets into narrative audiologs for a game, turning project tasks into a horror-game plot.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 22704,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-31",
+     "url": "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/",
+     "summary": "A TTS system with controllable inline delivery tags and a tokenizer that captures reference-audio intonation is requested.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Who Pays for the Free Tier?",
+   "one_liner": "A satirical 'cost receipt' that shows what your free AI chat really costs the provider, and what you'd pay if subsidies ended.",
+   "for_whom": "General public who assume AI is free and don't know about subsidized pricing.",
+   "spark": "culture",
+   "why_it_works": "Subsidized inference and fragile economics are a core worry. A receipt format makes the abstract concrete and personal.",
+   "how_it_works": "User enters their usual weekly AI use (chats, images, code help). The app prints a funny itemized receipt showing the 'true cost' vs 'what you paid' with stylized assumptions, plus a 'if prices normalize' total.",
+   "build": "Static React with adjustable assumptions and a receipt-styled share image. Hardest part: choosing defensible, clearly-labeled assumptions.",
+   "effort": "a weekend",
+   "demo_moment": "The receipt prints out line by line ending with 'You owe: $47/month (you paid $0)'.",
+   "post_hook": "I made my AI receipt. My 'free' ChatGPT habit would cost me $47 a month at unsubsidized prices. What's yours?",
+   "risks": "Numbers are estimates; present as illustrative and let users edit assumptions.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    9316,
+    13671,
+    9282,
+    18747
+   ],
+   "id": "CU10",
+   "lens": "culture",
+   "start_here": 10,
+   "start_why": "A satirical cost receipt for your free AI chat is quick to build, looks great as a screenshot, and puts a sharp point on the subsidy debate.",
+   "score": 15.5,
+   "evidence": [
+    {
+     "fid": 9316,
+     "source": "Latent Space",
+     "date": "2026-06-12",
+     "url": "https://latent.space/p/loopcraft/",
+     "summary": "Whether high frontier API prices are subsidized and will rise, or will fall due to distillation and competition.",
+     "who": ""
+    },
+    {
+     "fid": 13671,
+     "source": "AINews (smol.ai)",
+     "date": "2026-05-01",
+     "url": "https://news.smol.ai/issues/26-05-01-not-much/",
+     "summary": "Whether Grok's low prices are sustainable or subsidized by poor hardware utilization, with cache economics driving agentic TCO.",
+     "who": "teortaxesTex"
+    },
+    {
+     "fid": 9282,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-02-16",
+     "url": "https://news.ycombinator.com/item?id=47034849",
+     "summary": "Many AI application startups depend on subsidized inference, making their business models fragile if API pricing normalizes.",
+     "who": "aadarshkumaredu"
+    },
+    {
+     "fid": 18747,
+     "source": "Tomasz Tunguz",
+     "date": "2026-06-07",
+     "url": "https://tomtunguz.com/inflation-deflation-ai/",
+     "summary": "Frontier closed model prices keep rising for the smartest models, pushing AI buyers' unit economics higher.",
+     "who": "Tomasz Tunguz"
+    }
+   ]
+  },
+  {
+   "name": "Me.md",
+   "one_liner": "A 5-minute interview that builds the personal context file you can paste into every AI tool you use.",
+   "for_whom": "Everyday professionals tired of re-explaining their role, preferences and projects to each chatbot.",
+   "spark": "hack",
+   "why_it_works": "Engineers keep AGENTS.md and TRAVEL.md-style context files so agents know them. Non-engineers have no easy way to create the equivalent.",
+   "how_it_works": "A friendly chat asks adaptive questions about role, communication style, current projects, tools and pet peeves. It outputs a structured Me.md with sections such as Work, Writing, Travel and Never Do. The user copies it into custom instructions or downloads it as a file.",
+   "build": "Chat UI with an LLM that asks one question at a time and fills a JSON schema, then renders markdown. Hardest part is keeping the interview short while collecting useful detail.",
+   "effort": "a weekend",
+   "demo_moment": "After five questions, a clean one-page 'user manual for working with me' appears and is pasted into ChatGPT to show the answer quality change.",
+   "post_hook": "Every AI chat starts with you as a stranger. I built a 5-minute fix.",
+   "risks": "ChatGPT memory partially overlaps; privacy concerns around personal details.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    6738,
+    25575,
+    15776,
+    26515
+   ],
+   "id": "HA03",
+   "lens": "hacks",
+   "start_here": 11,
+   "start_why": "A five-minute interview that produces a portable personal context file is useful for any AI user, quick to build, and easy to show start to finish.",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 6738,
+     "source": "Ben's Bites",
+     "date": "2026-07-02",
+     "url": "https://www.bensbites.com/p/fable-is-back",
+     "summary": "Ben runs day-to-day agent conversations from a 'bites' folder of linked memory and context files (AGENTS.md, TRAVEL.md) so agents have the context they need.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 25575,
+     "source": "Hacker News — Ask HN",
+     "date": "2025-11-17",
+     "url": "https://news.ycombinator.com/item?id=45950934",
+     "summary": "Engineers steer coding agents with lengthy agent.md and claude.md instruction files to manage model behavior.",
+     "who": "taariqlewis"
+    },
+    {
+     "fid": 15776,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-05-16",
+     "url": "https://news.ycombinator.com/item?id=48160604",
+     "summary": "Maintaining a personal Obsidian vault of debugged, reusable skill patterns that agents reference when starting new projects instead of relying on a large instruction file.",
+     "who": "zambelli"
+    },
+    {
+     "fid": 26515,
+     "source": "Latent Space",
+     "date": "2026-09-29",
+     "url": "https://latent.space/p/thariq/",
+     "summary": "Using ask-user-question style elicitation so the agent pulls out requirements and unknowns before implementing in Claude Code.",
+     "who": "Thariq Shihipar"
+    }
+   ]
+  },
+  {
+   "name": "AI Pricing Bingo",
+   "one_liner": "A live bingo card of recurring AI industry tropes (price cut, 'this changes everything', silent plan change, bubble tweet) you mark as news happens.",
+   "for_whom": "AI-news-fatigued professionals and the LinkedIn crowd who enjoy gentle self-mockery.",
+   "spark": "culture",
+   "why_it_works": "Vendor pricing changes via tweets, hype cycles, and bubble arguments recur predictably. Bingo turns fatigue into humor and encourages sharing.",
+   "how_it_works": "Users get a randomized 5x5 card of squares such as 'Price cut announced via tweet' or 'Someone compares it to dot-com'. They tap squares during a week; completing a line triggers confetti and a shareable card. Friends can compare cards.",
+   "build": "Static React app with local storage and a share image. Hardest part: writing a funny, evergreen set of squares.",
+   "effort": "a weekend",
+   "demo_moment": "Tapping a square while scrolling feeds and the BINGO confetti triggers.",
+   "post_hook": "I made AI Twitter Bingo. I got a full row before lunch. Post your card.",
+   "risks": "Humor may be hit or miss; keep it affectionate not mean.",
+   "fun": 5,
+   "useful": 2,
+   "ease": 5,
+   "shareable": 5,
+   "evidence_ids": [
+    5411,
+    29499,
+    18163,
+    9544
+   ],
+   "id": "CU08",
+   "lens": "culture",
+   "score": 16.0,
+   "evidence": [
+    {
+     "fid": 5411,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-04-22",
+     "url": "https://simonwillison.net/2026/Apr/22/claude-code-confusion/",
+     "summary": "Pricing and plan changes communicated only via a tweet or silent website edits leave users uncertain about what they actually pay for.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 29499,
+     "source": "Bluesky",
+     "date": "2026-04-21",
+     "url": "https://bsky.app/profile/simonwillison.net/post/3mk24tklb522i",
+     "summary": "Anthropic's Claude Code pricing changes on the $20/month plan were confusing and announced only through a pricing page update, leaving users unsure what they get.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 18163,
+     "source": "Tomasz Tunguz",
+     "date": "2026-08-04",
+     "url": "https://tomtunguz.com/what-if-gpu-prices-double/",
+     "summary": "Whether OpenAI's 80% price cut on GPT-5.6 Luna reflects a market-capture push or a fundamental cost breakthrough is unresolved.",
+     "who": "Tomasz Tunguz"
+    },
+    {
+     "fid": 9544,
+     "source": "Marcus on AI",
+     "date": "2026-06-26",
+     "url": "https://garymarcus.substack.com/p/the-month-generative-ai-lost-its",
+     "summary": "Whether AI revenue growth signals a sustainable bubble-free business, with Noah Smith arguing no bubble versus Marcus arguing revenue growth does not imply profitability or sustainability.",
+     "who": "Gary Marcus"
+    }
+   ]
+  },
+  {
+   "name": "Human or Slop? The Guessing Game",
+   "one_liner": "Show two paragraphs, one written by a human author and one by AI, and guess which; see how your streak compares to others.",
+   "for_whom": "General public, writers, teachers, curious LinkedIn crowd.",
+   "spark": "culture",
+   "why_it_works": "Everyone claims they can spot AI prose, and the tells argument is hot. A head-to-head game tests that confidence and teaches the tells.",
+   "how_it_works": "Each round shows two passages on the same prompt; user picks the AI one, then gets a reveal explaining the tells. Final screen: accuracy, 'detector rank', and a share card.",
+   "build": "Static web app with curated passage pairs (public-domain human text plus pre-generated AI text). Hardest part: curating good pairs and avoiding copyright problems.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Confidently choosing wrong, then the reveal highlighting the AI tells.",
+   "post_hook": "I got 6 out of 10 on spotting AI writing. Most people think they'd get 9. Take the test.",
+   "risks": "Content curation effort; results could discourage if too hard.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 4,
+   "shareable": 5,
+   "evidence_ids": [
+    25129,
+    8043,
+    16158
+   ],
+   "id": "CU04",
+   "lens": "culture",
+   "score": 15.5,
+   "evidence": [
+    {
+     "fid": 25129,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-04-21",
+     "url": "https://www.thealgorithmicbridge.com/p/how-the-ai-writing-panic-is-making",
+     "summary": "Writers feel pressure to avoid AI writing tells like em dashes, triads, and antithesis, leading to contorted and unnatural prose.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 8043,
+     "source": "One Useful Thing",
+     "date": "2026-06-04",
+     "url": "https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence",
+     "summary": "AI is poor at long-form writing, with obvious textual tells and dull prose that make it unsuitable for drafting full book chapters.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 16158,
+     "source": "Don't Worry About the Vase",
+     "date": "2025-11-17",
+     "url": "https://thezvi.substack.com/p/on-writing-2",
+     "summary": "AI writing assistants tend to make prose sound generic and homogenize a distinctive writing style.",
+     "who": "Zvi Mowshowitz"
+    }
+   ]
+  },
+  {
+   "name": "Ask Me First",
+   "one_liner": "Before you send a prompt, an AI interviews you with the questions that matter and builds the final prompt.",
+   "for_whom": "Non-technical AI users whose results suffer from vague requests.",
+   "spark": "hack",
+   "why_it_works": "Planning workflows and ask-user-question elicitation surface requirements before the agent starts. The same trick helps any professional prompt.",
+   "how_it_works": "The user types a rough request. The app asks 3-6 multiple-choice clarifying questions tailored to it, such as audience, length and what to avoid. It assembles a structured prompt, previews it and sends it to the model alongside a before/after comparison.",
+   "build": "Web app with a two-step LLM chain: question generator, then prompt assembler. Hardest part is questions that are specific, not generic.",
+   "effort": "a weekend",
+   "demo_moment": "A vague 'write a project update' request becomes a sharp prompt after four taps, and the side-by-side outputs differ sharply.",
+   "post_hook": "The best prompt trick: make the AI interview you first.",
+   "risks": "Chat assistants can already ask questions when told to; the packaging must be faster.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    26515,
+    12016,
+    14439,
+    7827
+   ],
+   "id": "HA09",
+   "lens": "hacks",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 26515,
+     "source": "Latent Space",
+     "date": "2026-09-29",
+     "url": "https://latent.space/p/thariq/",
+     "summary": "Using ask-user-question style elicitation so the agent pulls out requirements and unknowns before implementing in Claude Code.",
+     "who": "Thariq Shihipar"
+    },
+    {
+     "fid": 12016,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-01-20",
+     "url": "https://news.ycombinator.com/item?id=46691243",
+     "summary": "Plan-first workflow: have the agent analyze the codebase and propose a plan from your spec, iterate on the plan, then implement, reviewing each step.",
+     "who": "defatigable"
+    },
+    {
+     "fid": 14439,
+     "source": "Ben's Bites",
+     "date": "2026-10-27",
+     "url": "https://www.bensbites.com/p/is-anthropic-the-best-business-in",
+     "summary": "Thorsten Ball's agent workflow: describe outcomes, generate variations, request proof, and use scheduled checks instead of constant back-and-forth.",
+     "who": "Thorsten Ball"
+    },
+    {
+     "fid": 7827,
+     "source": "AINews (smol.ai)",
+     "date": "2026-04-24",
+     "url": "https://news.smol.ai/issues/26-04-24-deepseek-v4/",
+     "summary": "Running Qwen 3.6 35B locally with a plan-first skill file in the PI coding agent enforces TODO approval before code execution.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Boss & Interns",
+   "one_liner": "Watch a smart AI break your goal into pieces and hand them to cheaper AI interns, with the bill shown live.",
+   "for_whom": "Curious professionals who hear about 'agent orchestration' and want to see it work.",
+   "spark": "new_capability",
+   "why_it_works": "The planner plus cheap executor pattern is everywhere in agent circles. It is abstract, so a visual explainer that actually does a task would help people grasp it.",
+   "how_it_works": "The user enters a goal like 'plan a 3-day offsite'. The boss model produces a task list, and intern models run each task in parallel as animated cards. The boss reviews and assembles the result while a cost meter compares against a single big-model run.",
+   "build": "React page with parallel API calls to one strong and one cheap model, with streaming cards. Hardest part is task decomposition reliability and clean assembly.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Six intern cards light up at once, finish in seconds, and the boss merges them into a polished plan with '73% cheaper' on screen.",
+   "post_hook": "This is what an AI 'agent team' actually looks like, and why it's cheaper.",
+   "risks": "Cost savings claims depend on current prices; output may not beat a single model.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    9672,
+    28557,
+    26592,
+    2587
+   ],
+   "id": "HA08",
+   "lens": "hacks",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 9672,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-07-28",
+     "url": "https://thezvi.substack.com/p/claude-opus-5-is-highly-capable-but",
+     "summary": "Users pair Fable as orchestrator with cheaper Opus subagents to balance cost and quality.",
+     "who": "Charles"
+    },
+    {
+     "fid": 28557,
+     "source": "Bluesky",
+     "date": "2026-07-04",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mps4xss2uc2t",
+     "summary": "Using a smart frontier model as a planner that delegates subtasks to cheaper, dumber models as needed.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 26592,
+     "source": "AINews (smol.ai)",
+     "date": "2026-07-09",
+     "url": "https://news.smol.ai/issues/26-07-09-gpt-56/",
+     "summary": "Users pin subagents to cheaper models with a coordinator model dispatching scoped work, using Claude Code model frontmatter and delegation policy files.",
+     "who": ""
+    },
+    {
+     "fid": 2587,
+     "source": "Ben's Bites",
+     "date": "2026-09-24",
+     "url": "https://www.bensbites.com/p/back-to-claude",
+     "summary": "Using a stronger orchestrator model like Astra to drive cheaper Sol subagents is being explored as a way to manage cost and capability.",
+     "who": "Keshav"
+    }
+   ]
+  },
+  {
+   "name": "Chat Escape Pod",
+   "one_liner": "Turn a messy long AI conversation into a clean, portable 'brain transfer' brief you can paste into any other chatbot.",
+   "for_whom": "Anyone whose long chats died, hit limits, or who is switching AI providers",
+   "spark": "hack",
+   "why_it_works": "Memory and history are locked into vendors, and people already hack around with summaries and re-uploaded PDFs. A purpose-built hand-off packaging is the product.",
+   "how_it_works": "User pastes or uploads an exported chat. The app extracts goals, decisions, open questions, preferences and style, and outputs a compact brief with a 'paste this into Claude/ChatGPT/Gemini' button. Optionally keeps a local library of briefs.",
+   "build": "Web app with file upload (JSON/txt), LLM summarization with a fixed template, localStorage for the library. Hardest part: handling very long transcripts via chunking.",
+   "effort": "a weekend",
+   "demo_moment": "Drop in a 200-page chat export and get a one-page brief that works instantly in a new chatbot.",
+   "post_hook": "My ChatGPT history is a hostage situation. I built an escape pod.",
+   "risks": "Export formats vary by vendor and change; privacy concerns about uploading chats.",
+   "fun": 3,
+   "useful": 5,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    4678,
+    23694,
+    9700,
+    141,
+    8028,
+    5702,
+    23134
+   ],
+   "id": "NE05",
+   "lens": "needs",
+   "also_from": [
+    "hacks"
+   ],
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 4678,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-11-02",
+     "url": "https://news.ycombinator.com/item?id=50336034",
+     "summary": "A way to keep memory and context portable across AI providers and to back up provider-built-in memory before it is removed.",
+     "who": "mlapeter"
+    },
+    {
+     "fid": 23694,
+     "source": "Ben's Bites",
+     "date": "2026-08-21",
+     "url": "https://www.bensbites.com/p/how-i-built-this",
+     "summary": "A tool that searches past agent chat sessions stored on disk, so users can find where they discussed a topic without manual memory files.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 9700,
+     "source": "AINews (smol.ai)",
+     "date": "2025-12-24",
+     "url": "https://news.smol.ai/issues/25-12-24-nvidia-groq/",
+     "summary": "Paid ChatGPT users reported their entire chat history disappearing.",
+     "who": ""
+    },
+    {
+     "fid": 141,
+     "source": "AINews (smol.ai)",
+     "date": "2026-08-31",
+     "url": "https://news.smol.ai/issues/26-08-31-not-much/",
+     "summary": "Users manually chunk long coding tasks into plan, implement, document, and restart-with-fresh-context cycles to cope with context limits on local models.",
+     "who": ""
+    },
+    {
+     "fid": 8028,
+     "source": "Ben's Bites",
+     "date": "2026-04-16",
+     "url": "https://www.bensbites.com/p/my-cheatsheet-for-a-clean-context",
+     "summary": "Using separate sessions as context-gathering sessions that produce one summary file to keep the main session's context clean.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 5702,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-03-11",
+     "url": "https://thezvi.substack.com/p/gpt-54-is-a-substantial-upgrade",
+     "summary": "Codex compaction gives a feel of an effectively infinite context window for long coding sessions.",
+     "who": "papaya ꙮ"
+    },
+    {
+     "fid": 23134,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-24",
+     "url": "https://latent.space/p/ainews-kimi-31/",
+     "summary": "A solo builder used custom Claude skills (route, handoff, research validation) to keep token costs down and preserve project state across sessions while building a Godot game.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Make It A LOT More Fun",
+   "one_liner": "Paste in any boring thing, such as a chore list, a quiz, or a meeting agenda, and get a gamified version that is playable in the browser.",
+   "for_whom": "Teachers, team leads and parents who want to make dull material engaging",
+   "spark": "new_capability",
+   "why_it_works": "Simon found that telling Claude to make a game 'a LOT more fun' markedly improved the design, and vibe-coded games have become genuinely fun. The prompt trick becomes a product when packaged with a fun-dial.",
+   "how_it_works": "User pastes content and picks a fun-dial level from 1 to 5. The app generates a single-file HTML mini-game and then re-runs a 'make it a LOT more fun' pass. User plays it instantly and gets a share link.",
+   "build": "Next.js or plain HTML, LLM API generating a single HTML file, rendered in a sandboxed iframe. Hardest part is reliably valid, safe output; use a template skeleton and validate before showing.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Press the fun-dial from 1 to 5 and watch the same compliance training quiz become a chaotic boss battle.",
+   "post_hook": "One sentence made my AI games dramatically better. So I built a dial for it.",
+   "risks": "Generic output and sandboxing issues; API cost per generation.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    23650,
+    14839,
+    23659
+   ],
+   "id": "MA02",
+   "lens": "makers",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 23650,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-28",
+     "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+     "summary": "Telling Claude Opus 5.5 to 'Make it a LOT more fun' substantially improved game design quality of a vibe-coded game.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 14839,
+     "source": "Ben's Bites",
+     "date": "2026-10-29",
+     "url": "https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it",
+     "summary": "Simon Willison argues vibe-coded games have reached an inflection point where they are actually fun to play.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 23659,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-28",
+     "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+     "summary": "Static hosting on GitHub Pages or Cloudflare Pages suits browser-based HTML/JavaScript vibe-coded games.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Model Gallery Arena",
+   "one_liner": "Give one weird creative prompt to several AI models and see their outputs side by side in a shareable grid.",
+   "for_whom": "AI-curious professionals who want to judge models for themselves",
+   "spark": "maker",
+   "why_it_works": "Simon's pelican-on-bicycle grid and Mollick's Harbor Town benchmark show personal weird benchmarks are beloved and sticky, but each is a one-off built by experts.",
+   "how_it_works": "User picks a quirky challenge such as 'draw a pelican on a bicycle' or 'a procedurally generated harbor town'. The app sends it to multiple models using the user's keys or a demo budget. Results render in a grid with voting and a share image.",
+   "build": "Web app with API calls to several providers via OpenRouter; render SVG or HTML outputs in sandboxed iframes. Hardest part is safely rendering generated code and managing cost.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Eight tiny bicycles appear in a grid, each wildly different, and you tap your favourite.",
+   "post_hook": "Forget benchmarks. I made a gallery to compare AI models on pelicans.",
+   "risks": "API costs; the quality of the challenge library matters.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    15582,
+    29890,
+    28611
+   ],
+   "id": "MA04",
+   "lens": "makers",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 15582,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-26",
+     "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/",
+     "summary": "Simon Willison built a comparison grid showing pelican-on-bicycle outputs across every reasoning level of OpenAI's frontier lineup, a reusable way to compare models.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 29890,
+     "source": "Bluesky",
+     "date": "2026-07-16",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mqryjkgzjc2q",
+     "summary": "Mollick built a benchmark that has AIs generate a single file of procedurally generated harbor towns, with an interactive gallery to compare model outputs.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 28611,
+     "source": "Bluesky",
+     "date": "2026-07-20",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mr44tng2ak2f",
+     "summary": "Mollick built a personal weird benchmark (Harbor Town gallery) to compare models informally instead of relying only on published stats.",
+     "who": "Ethan Mollick"
+    }
+   ]
+  },
+  {
+   "name": "Review Debt Meter",
+   "one_liner": "A daily budget for how much AI-generated work you can honestly review, with a meter that fills as you paste.",
+   "for_whom": "Managers and analysts who let AI produce more than they can check.",
+   "spark": "culture",
+   "why_it_works": "Some developers cap daily agent output to what they can realistically review, while human review is the bottleneck everywhere. A playful meter makes the discipline visible.",
+   "how_it_works": "The user sets a daily review capacity in pages or minutes. Each time they paste AI output, the app estimates review time and adds it to the meter, with stages from 'fine' to 'rubber stamping'. A weekly recap shows unreviewed output.",
+   "build": "Client-side web app or Chrome extension with local storage and a simple reading-time heuristic plus an optional LLM risk rating. Hardest part is making the estimate feel meaningful.",
+   "effort": "a weekend",
+   "demo_moment": "The gauge climbs into the red as three AI reports are pasted, and a banner says 'You are now rubber-stamping.'",
+   "post_hook": "AI can write faster than you can read. I built a speedometer for it.",
+   "risks": "Relies on user discipline; novelty may wear off.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    5278,
+    13209,
+    7002,
+    13308
+   ],
+   "id": "HA13",
+   "lens": "hacks",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 5278,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-03-25",
+     "url": "https://simonwillison.net/2026/Mar/25/thoughts-on-slowing-the-fuck-down/",
+     "summary": "Setting daily limits on how much code an agent may generate, matched to what the developer can realistically review.",
+     "who": "Mario Zechner"
+    },
+    {
+     "fid": 13209,
+     "source": "Ben's Bites",
+     "date": "2026-03-10",
+     "url": "https://www.bensbites.com/p/just-use-gpt-54-xhigh",
+     "summary": "Agent-driven code review that reviews every PR with a team of agents, costing roughly $15-25 per review.",
+     "who": ""
+    },
+    {
+     "fid": 7002,
+     "source": "Latent Space",
+     "date": "2026-10-21",
+     "url": "https://latent.space/p/claude-mods/",
+     "summary": "Cursor PR Routing & Approval assigns reviewers by code ownership and commit history, auto-approves low-risk PRs using a risk score threshold, and reads approval policy from the base branch so agents cannot relax their own review.",
+     "who": "swyx & Alessio Fanelli"
+    },
+    {
+     "fid": 13308,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-08-08",
+     "url": "https://news.ycombinator.com/item?id=49227024",
+     "summary": "Solo developer uses Claude Code with a staged pipeline: agent writes code and tests, human verifies in a staging environment, agent runs an external code review skill, then CI/CD runs a type check before merge.",
+     "who": "alekstret"
+    }
+   ]
+  },
+  {
+   "name": "Scene Spinner",
+   "one_liner": "Upload a short video clip of a room or object and get a spinnable 3D web scene you can embed.",
+   "for_whom": "Real estate hobbyists, Etsy sellers, parents and travelers who want 3D memories",
+   "spark": "new_capability",
+   "why_it_works": "Mollick showed video clips becoming interactive three.js scenes in a few prompts, so a simple wrapper could bring that to everyone.",
+   "how_it_works": "User uploads a 10-second clip. The app extracts frames, a vision LLM writes a stylized three.js scene approximating layout and objects, and it renders in a viewer with orbit controls. A share link and embed code are provided.",
+   "build": "Frame extraction in browser, multimodal LLM generating three.js code, sandboxed iframe preview. Hardest part is making scenes look consistent rather than random; lean into a low-poly diorama style.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A shaky living room video becomes a tiny low-poly diorama you can rotate.",
+   "post_hook": "I turned a 10-second video of my desk into a 3D diorama.",
+   "risks": "Output is approximate not photoreal; set expectations with the diorama framing.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    29620,
+    23615,
+    25288
+   ],
+   "id": "PO05",
+   "lens": "powers",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 29620,
+     "source": "Bluesky",
+     "date": "2026-11-10",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mzxw7q2jgs2r",
+     "summary": "Using AI to generate interactive 3D visualizations from video clips, reproducing scenes in three.js with a few prompts.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 23615,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-09-28",
+     "url": "https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/",
+     "summary": "Using the claude.ai free tier to generate a WebGL 3D pelican-on-bicycle page from a single prompt.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 25288,
+     "source": "AINews (smol.ai)",
+     "date": "2026-11-07",
+     "url": "https://latent.space/p/ainews-anthropic-ipo-whither-now/",
+     "summary": "A 3D asset generator fine-tuned on Qwen3.5-4B outputs complete Three.js scenes with GLB export; Q8 reportedly works while Q4 does not.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Unstick Me",
+   "one_liner": "When your AI chat goes in circles, paste it and get the diagnosis plus three reset moves.",
+   "for_whom": "Anyone who has watched a chatbot repeat the same wrong answer for 20 minutes.",
+   "spark": "pain",
+   "why_it_works": "Agent users unstick churning loops by switching models, lowering reasoning effort or giving one nudge. The routine is learnable but not obvious to newcomers.",
+   "how_it_works": "The user pastes the stuck conversation. The app identifies the pattern (repeating itself, conflicting constraints, missing info, task too big) and suggests three moves, such as splitting the task or restating the goal, each with a ready-to-paste prompt. A 'try again in another model' link is included.",
+   "build": "Simple web app with an LLM diagnosing against a fixed list of loop patterns. Hardest part is writing a good taxonomy and reset prompts.",
+   "effort": "a weekend",
+   "demo_moment": "A frustrating circular chat is diagnosed as 'contradictory constraints', and the suggested reset prompt fixes it on the first try.",
+   "post_hook": "The 4 reasons your AI keeps looping and the one-line fix for each.",
+   "risks": "Diagnoses can be wrong; generic advice might be enough.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    13490,
+    10293,
+    19558,
+    22522
+   ],
+   "id": "HA14",
+   "lens": "hacks",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 13490,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-05-08",
+     "url": "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+     "summary": "Users switch to a different model or reduce reasoning effort when an agent churns for an hour, prompting it with a single suggestion to unstick it.",
+     "who": "kache"
+    },
+    {
+     "fid": 10293,
+     "source": "Latent Space",
+     "date": "2026-07-03",
+     "url": "https://latent.space/p/aiewf-daily-dispatch-locomotives/",
+     "summary": "Starting small with agent loops to build intuition rather than automating a software factory end to end from the start.",
+     "who": "Dex Horthy"
+    },
+    {
+     "fid": 19558,
+     "source": "AINews (smol.ai)",
+     "date": "2026-05-08",
+     "url": "https://news.smol.ai/issues/26-05-08-not-much/",
+     "summary": "Codex Goals is used as a mechanism for indefinite long-running tasks like refactors, migrations, and experiments.",
+     "who": "@reach_vb"
+    },
+    {
+     "fid": 22522,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-04-30",
+     "url": "https://simonwillison.net/2026/Apr/30/codex-goals/",
+     "summary": "Codex CLI 0.128.0 adds a /goal command that keeps the coding agent looping until a goal is judged complete or a token budget runs out, implementing a Ralph-loop style workflow.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Voice Memo Remix",
+   "one_liner": "Hum or ramble an idea into your phone and get back a produced track in a chosen genre.",
+   "for_whom": "Hobbyist musicians, creators and curious non-musicians",
+   "spark": "new_capability",
+   "why_it_works": "Suno-style models can now turn rough voice memos into full productions, and hobbyist communities already share this music.",
+   "how_it_works": "User records or uploads a 20-second hum. They pick a genre card (lo-fi, polka, synthwave) and the app submits the audio to a music-generation API. It returns before and after players for side-by-side sharing.",
+   "build": "Mobile-friendly web page with MediaRecorder, a music generation API with audio-to-audio support, and a split-screen share page. Hardest part is API availability and licensing; fall back to a text-conditioned model if audio input is unavailable.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Play a clumsy kitchen hum, then the same melody as a polished synthwave track.",
+   "post_hook": "My off-key shower humming, remixed in 5 genres.",
+   "risks": "Music API access may be restricted or costly; copyright of outputs is murky.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    20335,
+    20346,
+    4263
+   ],
+   "id": "PO03",
+   "lens": "powers",
+   "score": 14.5,
+   "evidence": [
+    {
+     "fid": 20335,
+     "source": "Understanding AI",
+     "date": "2026-10-19",
+     "url": "https://www.understandingai.org/p/ai-is-ushering-in-an-age-personal",
+     "summary": "Suno's version 4.5 can transform an existing recording into a different genre, letting a hobbyist turn rough voice memos into full productions.",
+     "who": "Benj Edwards"
+    },
+    {
+     "fid": 20346,
+     "source": "Understanding AI",
+     "date": "2026-10-19",
+     "url": "https://www.understandingai.org/p/ai-is-ushering-in-an-age-personal",
+     "summary": "Communities like the Suno Discord and r/SunoAI gather hobbyists who share personal AI music, with posting limits to manage volume.",
+     "who": ""
+    },
+    {
+     "fid": 4263,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-10-05",
+     "url": "https://news.ycombinator.com/item?id=49972125",
+     "summary": "AudioX and AudioLDM(2) are reported to support combined text and audio input to generate audio.",
+     "who": "chr15m"
+    }
+   ]
+  },
+  {
+   "name": "Beep Hunter",
+   "one_liner": "Turn the phones and laptops in your house into a team that finds the mystery chirp from a smoke detector or appliance.",
+   "for_whom": "Homeowners and renters annoyed by an intermittent beep they cannot locate",
+   "spark": "maker",
+   "why_it_works": "Simon Willison vibe-coded a multi-device acoustic triangulation system to find a beep. It is a delightful, relatable problem that most people never solve, and the maker version is developer-only.",
+   "how_it_works": "Open the page on every device you have and join a room with a short code. Each device listens through its mic and timestamps the beep. The host page shows a heat-map of which device heard it first, so you walk toward the loudest or earliest one.",
+   "build": "Static web app with Web Audio API and a tiny WebSocket or Firebase relay for rooms. Hardest part is clock sync across devices, so use loudness comparison instead of precise timing for v1.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A beep sounds, three phones on the table light up in order, and an arrow points to the cupboard where the chirping device is.",
+   "post_hook": "I turned my junk drawer of old phones into a beep-finding detective squad.",
+   "risks": "Mic permission friction and echo make accuracy fuzzy; frame it as a hot-or-cold game rather than precision.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    908,
+    28742
+   ],
+   "id": "MA01",
+   "lens": "makers",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 908,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-11-09",
+     "url": "https://simonwillison.net/2026/Nov/9/mysterious-beeps/",
+     "summary": "Built a multi-device acoustic triangulation system (Beep Locator) to locate an intermittent beep by coordinating phones, tablets and laptops as listeners.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 28742,
+     "source": "Bluesky",
+     "date": "2026-10-20",
+     "url": "https://bsky.app/profile/simonwillison.net/post/3mydffvspjs2x",
+     "summary": "Built a browser-based RTS game with Claude Opus 5.5 supporting device-to-device multiplayer over an audio link.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Brain Gym",
+   "one_liner": "Daily 5-minute 'think first, then compare to AI' drills that keep your own reasoning sharp.",
+   "for_whom": "Professionals worried about outsourcing their thinking to AI",
+   "spark": "culture",
+   "why_it_works": "Cognitive offloading and skill atrophy are widely worried about, but current remedies are vague (go handwrite). A game structure makes deliberate practice easy.",
+   "how_it_works": "The app gives a daily work-style puzzle (e.g. summarize this memo, spot the flaw). The user answers first, then the AI reveals its answer and scores the gap on structure and insight. A streak and a 'your thinking vs AI' chart build over time.",
+   "build": "Mobile-friendly web app, LLM generates the scenario and grades the user answer against a rubric, simple streaks in localStorage. Hardest part: fair grading and fresh daily content.",
+   "effort": "1-2 weeks",
+   "demo_moment": "The reveal: your answer next to the AI's, with a 'you caught what it missed' badge.",
+   "post_hook": "I'm building a gym for the muscle AI is quietly weakening: your own thinking.",
+   "risks": "Retention depends on a daily habit; grading subjectivity.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    24192,
+    5287,
+    16971
+   ],
+   "id": "NE13",
+   "lens": "needs",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 24192,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-10-21",
+     "url": "https://www.thealgorithmicbridge.com/p/put-some-brain-in-your-thinking",
+     "summary": "People increasingly outsource thinking to AI, leading to cognitive atrophy and reduced attention among users.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 5287,
+     "source": "Marcus on AI",
+     "date": "2026-10-24",
+     "url": "https://garymarcus.substack.com/p/will-generative-ai-do-more-harm-than",
+     "summary": "Users are experiencing cognitive surrender, outsourcing thinking to AI systems.",
+     "who": "Gary Marcus"
+    },
+    {
+     "fid": 16971,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-03-15",
+     "url": "https://news.ycombinator.com/item?id=47388646",
+     "summary": "Engineers worry that relying on AI coding tools causes skill atrophy and harms ability to write code unaided.",
+     "who": "Izkata"
+    }
+   ]
+  },
+  {
+   "name": "Coding Agent Feelings Wheel",
+   "one_liner": "A mood-check quiz for people who work alongside AI tools (relief, loss, FOMO, busier-than-ever) that returns a shareable 'AI work feelings' profile.",
+   "for_whom": "Knowledge workers and developers feeling mixed emotions about AI coding agents and automation.",
+   "spark": "culture",
+   "why_it_works": "Programmers describe both real loss of puzzle-solving and relief at drudgery, and others say agents make them busier. People want language for ambivalence.",
+   "how_it_works": "User answers 8 quick, humorous scenario questions ('The agent fixed the bug in 3 minutes. You feel...'). They get a profile such as 'Reluctant Supervisor' or 'Drudgery Liberated' plus a short reflective blurb and a matching meme card.",
+   "build": "Static quiz in React with a scoring matrix and share image generator. Hardest part: writing sharp, funny, recognizable questions and profiles.",
+   "effort": "a weekend",
+   "demo_moment": "The profile reveal card, with a relatable caption like 'You supervise 4 agents and miss writing loops'.",
+   "post_hook": "AI coding agents: relief or grief? I made a quiz to find out which one you are. I got 'Reluctant Supervisor.'",
+   "risks": "Narrow audience if too developer-centric; frame for any AI-assisted work.",
+   "fun": 4,
+   "useful": 2,
+   "ease": 5,
+   "shareable": 4,
+   "evidence_ids": [
+    21002,
+    28352,
+    13747,
+    12036
+   ],
+   "id": "CU15",
+   "lens": "culture",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 21002,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-19",
+     "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/",
+     "summary": "Programmers who enjoyed solving logic puzzles feel a real loss as coding agents take over the problem-solving, while others see LLMs as a gift that removes unwanted drudgery.",
+     "who": "Jeremy Scheff"
+    },
+    {
+     "fid": 28352,
+     "source": "Bluesky",
+     "date": "2026-01-19",
+     "url": "https://bsky.app/profile/benjedwards.com/post/3mcrswsei2k2j",
+     "summary": "Whether human developers remain essential when AI coding agents are used, versus agents making workers busier rather than replacing them.",
+     "who": "Benj Edwards"
+    },
+    {
+     "fid": 13747,
+     "source": "Ben's Bites",
+     "date": "2026-09-29",
+     "url": "https://www.bensbites.com/p/sonnet-55-is-worth-a-try",
+     "summary": "Whether coding agents make software engineering harder or whether it has always been that way.",
+     "who": ""
+    },
+    {
+     "fid": 12036,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-01-20",
+     "url": "https://news.ycombinator.com/item?id=46691243",
+     "summary": "Whether agentic coding is net-positive: one side reports large speedups and value, the other reports it fails to scale to large or complex codebases without constant supervision.",
+     "who": "stavros"
+    }
+   ]
+  },
+  {
+   "name": "Feed Dial",
+   "one_liner": "A browser extension that adds a slider to your feed to dim posts that read as generic AI filler.",
+   "for_whom": "People who scroll LinkedIn, X, Reddit and Substack and are tired of slop",
+   "spark": "request",
+   "why_it_works": "There are direct requests for a cross-platform extension that flags AI content, and for user-configured feeds instead of algorithmic ones.",
+   "how_it_works": "User installs the extension and sets a 'slop tolerance' slider. Posts matching tells get blurred with a 'peek' button and a reason chip. Stats at the week's end show how much of your feed was dimmed.",
+   "build": "Chrome extension (Manifest V3) with content scripts, a heuristic scorer first, optional LLM call for ambiguous posts. Hardest part: site DOM selectors that change often; start with only LinkedIn.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Slide the dial up and a LinkedIn feed visibly blurs out half of its posts live.",
+   "post_hook": "I gave my LinkedIn feed a slop dial. Here's what % of my feed disappeared.",
+   "risks": "Brittle selectors, accuracy concerns, API cost per post; use local heuristics by default.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    4815,
+    28356,
+    8415,
+    23371,
+    5366,
+    990
+   ],
+   "id": "NE02",
+   "lens": "needs",
+   "also_from": [
+    "powers"
+   ],
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 4815,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-05-13",
+     "url": "https://www.thealgorithmicbridge.com/p/how-this-small-startup-achieved-a",
+     "summary": "A cross-platform Chrome extension that flags AI-generated content on sites like X, Substack, Medium, LinkedIn, and Reddit.",
+     "who": ""
+    },
+    {
+     "fid": 28356,
+     "source": "Bluesky",
+     "date": "2026-06-17",
+     "url": "https://bsky.app/profile/gergely.pragmaticengineer.com/post/3mohzeauhjk22",
+     "summary": "A tool to flag or report undisclosed AI-generated content on social feeds would address a gap users currently face.",
+     "who": "Gergely Orosz"
+    },
+    {
+     "fid": 8415,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-04-25",
+     "url": "https://news.ycombinator.com/item?id=47902507",
+     "summary": "A way for users to configure their own content feeds and recommendations rather than relying on AI-driven personalization.",
+     "who": "nicbou"
+    },
+    {
+     "fid": 23371,
+     "source": "Ben's Bites",
+     "date": "2026-11-03",
+     "url": "https://www.bensbites.com/p/if-you-feel-behind-right-now-dont",
+     "summary": "A Chrome extension that replaces clickbait video thumbnails with real stills from the video itself would address a demand for less misleading video previews.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 5366,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-11-05",
+     "url": "https://thezvi.substack.com/p/ai-193-progress-may-dramatically",
+     "summary": "Recommendation systems and UIs that favor the user rather than the platform, as demonstrated by a Claude-filtered video site built from 20 years of comments.",
+     "who": ""
+    },
+    {
+     "fid": 990,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-10-29",
+     "url": "https://thezvi.substack.com/p/ai-192-anthropic-is-going-public",
+     "summary": "A tool that continuously A/B tests video titles and thumbnails to improve viewer hooks would address the large effect such testing has on YouTube engagement.",
+     "who": "Zach Weinersmith"
+    }
+   ]
+  },
+  {
+   "name": "Menu Pics",
+   "one_liner": "Snap a restaurant menu and see picture cards for every dish as a swipeable gallery.",
+   "for_whom": "Travellers and diners facing menus in unfamiliar cuisines or languages",
+   "spark": "maker",
+   "why_it_works": "A developer vibe-coded a menu food-picture tool, but Karpathy noted Gemini and ChatGPT do it with one prompt. The packaging, a fast mobile flow with a shareable result, would have to be the point.",
+   "how_it_works": "Take a menu photo. The app extracts dishes, translates them and generates or fetches images. Swipe through cards, mark favourites, and share the shortlist with the table.",
+   "build": "Mobile-friendly web app with a vision LLM and image generation or search. Hardest part is image accuracy and speed; show placeholders while loading.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Photograph a Japanese menu and watch dish cards pop in with photos and a 'vegetarian?' tag.",
+   "post_hook": "Never order blind again: menu photo in, food photos out.",
+   "risks": "Big chatbots do this already; differentiation depends on the UX and group-sharing feature.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    16873
+   ],
+   "id": "MA12",
+   "lens": "makers",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 16873,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-05-07",
+     "url": "https://thezvi.substack.com/p/ai-167-the-prior-restraint-era-begins",
+     "summary": "A developer vibe coded a tool to place food pictures next to menu items, though Gemini and ChatGPT offered comparable or better versions with one prompt.",
+     "who": "Karpathy"
+    }
+   ]
+  },
+  {
+   "name": "NPC Dinner Party",
+   "one_liner": "A mobile-friendly mini-game where you host a dinner for AI characters with secret agendas and try to keep everyone happy.",
+   "for_whom": "Casual gamers and anyone who likes social deduction and roleplay",
+   "spark": "new_capability",
+   "why_it_works": "Intelligent NPCs with lightweight state machines plus occasional model calls make worlds compelling, and playful roleplay is popular.",
+   "how_it_works": "Each round the user picks a conversation topic or seating change. Five characters with hidden moods and goals react via a small state machine, with an LLM writing only the dialogue. After three rounds a reveal shows who wanted what and a score.",
+   "build": "Next.js with a JSON state machine for moods and LLM calls for lines; shareable result card. Hardest part: balancing so the game is winnable and keeping API cost low with short prompts.",
+   "effort": "1-2 weeks",
+   "demo_moment": "The final reveal: each guest's secret goal flips on screen with a funny quote about your hosting.",
+   "post_hook": "I made an AI dinner party where every guest has a secret. I lost in round 2.",
+   "risks": "Content-safety handling for roleplay; API cost per play.",
+   "fun": 5,
+   "useful": 2,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    14698,
+    49,
+    23654
+   ],
+   "id": "NE15",
+   "lens": "needs",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 14698,
+     "source": "Latent Space",
+     "date": "2026-09-21",
+     "url": "https://latent.space/p/jev/",
+     "summary": "Intelligent NPCs in games, using lightweight state machines or occasional model calls, could make game worlds far more compelling.",
+     "who": "Diogo Almeida"
+    },
+    {
+     "fid": 49,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-08",
+     "url": "https://latent.space/p/ainews-not-much-happened-today-60f/",
+     "summary": "Policies on harming AI characters could become unclear as games use LLM-driven NPCs, distinguishing fictional agents from abusive model interaction.",
+     "who": ""
+    },
+    {
+     "fid": 23654,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-28",
+     "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+     "summary": "A tool or editor that lets vibe-coded game creators drop in custom houses, furniture, and landscape features for their own game worlds.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Sketch2App Pocket",
+   "one_liner": "Snap a photo of a napkin sketch or notebook page and get a clickable mobile web prototype with a shareable link.",
+   "for_whom": "PMs, founders, teachers and hobbyists who sketch ideas on paper but can't code",
+   "spark": "new_capability",
+   "why_it_works": "Vision models can now read handwriting and sketches well enough that a student's design notebook became a live app, and non-engineers want that shortcut.",
+   "how_it_works": "User uploads a photo of a sketch or handwritten notes. The app asks 2-3 clarifying questions, then generates a single-file HTML prototype and shows it in a phone frame. One tap gives a shareable link.",
+   "build": "Next.js or plain HTML page, vision-capable LLM API to return one HTML file, rendered in a sandboxed iframe, hosted on Netlify. Hardest part is getting reliable, consistent output from messy handwriting and keeping prototypes inside the iframe sandbox.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Hold up a paper sketch to the camera and 20 seconds later tap through the working version on a phone.",
+   "post_hook": "I drew an app on a napkin and it was clickable 20 seconds later.",
+   "risks": "General tools like Claude artifacts already take screenshots; the value is the sketch-first, phone-frame, shareable packaging.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    3956,
+    3389
+   ],
+   "id": "PO01",
+   "lens": "powers",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 3956,
+     "source": "Latent Space",
+     "date": "2026-11-08",
+     "url": "https://latent.space/p/cs146s/",
+     "summary": "A tool that turns a photo of handwritten notes or sketches into a working app, demonstrated by a student's design-notebook-to-Vercel-app project.",
+     "who": "Mihail Eric"
+    },
+    {
+     "fid": 3389,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-09-26",
+     "url": "https://thezvi.substack.com/p/claude-opus-55-should-raise-your",
+     "summary": "Opus 5.5 vision improvements enable tasks like interpreting charts and images for creative and visual work.",
+     "who": "Cormundus"
+    }
+   ]
+  },
+  {
+   "name": "Three Takes",
+   "one_liner": "Describe a page, flyer or landing page once and get three genuinely different designs to compare, then merge the best parts.",
+   "for_whom": "Small business owners, side-project makers and consultants who need a presentable page without design skills.",
+   "spark": "hack",
+   "why_it_works": "Builders force agents to produce three variants and screenshot them because one pass is never good enough. Merging picked parts is the same trick design skills use.",
+   "how_it_works": "The user describes the page and picks a vibe. The app generates three divergent HTML designs side by side. The user ticks parts they like (hero from A, colors from C) and a merge pass produces the final version for download.",
+   "build": "Web app where an LLM returns self-contained HTML rendered in iframes. Hardest part is making the three variants truly different rather than recolors.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Three wildly different pages appear side by side, two clicks merge them into a fourth that looks better than all three.",
+   "post_hook": "AI designs look generic because you only ask once. Ask three times and merge.",
+   "risks": "Output quality varies; the rendering needs sandboxing.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    3969,
+    11685,
+    5595,
+    10524
+   ],
+   "id": "HA06",
+   "lens": "hacks",
+   "score": 14.0,
+   "evidence": [
+    {
+     "fid": 3969,
+     "source": "Ben's Bites",
+     "date": "2026-08-28",
+     "url": "https://www.bensbites.com/p/how-i-built-this-21f",
+     "summary": "Author forces coding agents to produce three design variants and screenshots them for visual comparison, since they can't be trusted to nail a design in one pass.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 11685,
+     "source": "Latent Space",
+     "date": "2026-07-28",
+     "url": "https://latent.space/p/chatgpt-work/",
+     "summary": "Running a front-end design skill that generates multiple divergent design examples, then condensing by picking preferred parts and merging them, helps refine visual ideas.",
+     "who": "Vibhu"
+    },
+    {
+     "fid": 5595,
+     "source": "AINews (smol.ai)",
+     "date": "2026-01-16",
+     "url": "https://news.smol.ai/issues/26-01-16-chatgpt-ads/",
+     "summary": "Users recommend Tailwind, Tailwind animations, or Framer Motion to make AI-generated frontends look better.",
+     "who": ""
+    },
+    {
+     "fid": 10524,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-07-20",
+     "url": "https://thezvi.substack.com/p/on-kimi-k3-its-capabilities-and-related",
+     "summary": "Kimi K3 is noted as strong on frontend and visual design work, with one OpenAI employee using it as a second reviewer for frontend tasks.",
+     "who": "@viemccoy"
+    }
+   ]
+  },
+  {
+   "name": "Borges Room",
+   "one_liner": "Pick a classic short story or poem and walk through a 3D interpretation generated just for it.",
+   "for_whom": "Book lovers, students and teachers",
+   "spark": "culture",
+   "why_it_works": "Frontier models can now create creative 3D interpretations of literary texts, and interactive game-like explainers get strong engagement.",
+   "how_it_works": "User picks from public-domain stories or pastes a short passage. The LLM generates a three.js scene with lighting, objects and a short on-screen caption. User explores with arrow keys and shares a link.",
+   "build": "Static page with LLM generating three.js code, sandboxed iframe, a curated public-domain library. Hardest part is repair loops when generated code throws errors.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Choose 'The Raven' and wander into a dark chamber with a bust above a door.",
+   "post_hook": "Literature class, but you can walk around inside the story.",
+   "risks": "Quality varies; curate and cache the best scenes.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    29989,
+    29990,
+    23615
+   ],
+   "id": "PO06",
+   "lens": "powers",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 29989,
+     "source": "Bluesky",
+     "date": "2026-10-18",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3my4wwt7wdk2t",
+     "summary": "Prompting a frontier model to implement creative 3D interpretations of Borges stories, with the model needing permission to quote the source text.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 29990,
+     "source": "Bluesky",
+     "date": "2026-10-14",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mxsfdbntvs2o",
+     "summary": "Prompting a model to generate an interactive game about an approaching unknowable presence, showing AI-generated games as a creative medium.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 23615,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-09-28",
+     "url": "https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/",
+     "summary": "Using the claude.ai free tier to generate a WebGL 3D pelican-on-bicycle page from a single prompt.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Claim Check Sheet",
+   "one_liner": "Paste an AI answer and get a clear checklist of its claims, each with a verdict and a source link you can click.",
+   "for_whom": "Students, analysts and writers verifying AI-generated research",
+   "spark": "request",
+   "why_it_works": "Fact checks by models over-hedge on tiny details, and people want extracted facts with source links before trusting output.",
+   "how_it_works": "User pastes AI text. The app splits it into atomic claims, searches the web for each, and returns a table of verdict (supported, contradicted, unclear), quote and link. The top three riskiest claims are pinned first.",
+   "build": "Web app, LLM for claim extraction, a search API (Brave/Tavily) for evidence, table UI. Hardest part: forcing clear verdicts with exact quotes and not fake links.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A pasted report instantly turns into a red/yellow/green claim table with 2 hallucinated stats exposed.",
+   "post_hook": "I fact-checked ChatGPT's market report with another AI. Two of eleven stats were made up.",
+   "risks": "Search quality limits verdicts; user may over-trust the checker.",
+   "fun": 3,
+   "useful": 5,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    12493,
+    20841,
+    27753,
+    2402,
+    27486,
+    13310,
+    24975
+   ],
+   "id": "NE09",
+   "lens": "needs",
+   "also_from": [
+    "hacks"
+   ],
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 12493,
+     "source": "AINews (smol.ai)",
+     "date": "2025-12-22",
+     "url": "https://news.smol.ai/issues/25-12-22-not-much/",
+     "summary": "A tool to check whether AI-generated research or reports are accurate, since a public company republished unchecked output.",
+     "who": ""
+    },
+    {
+     "fid": 20841,
+     "source": "Hamel Husain",
+     "date": "2026-09-18",
+     "url": "https://hamel.dev/blog/posts/evals-faq/",
+     "summary": "A product design that surfaces intermediate extracted facts with source links so experts can verify before a final output is generated.",
+     "who": ""
+    },
+    {
+     "fid": 27753,
+     "source": "Bluesky",
+     "date": "2026-05-24",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mmkordl2vs2z",
+     "summary": "Fact-checking output from top models tends to over-emphasize nuance, returning caveats about tiny details rather than clear verdicts.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 2402,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-07-02",
+     "url": "https://thezvi.substack.com/p/ai-175-the-fable-continues",
+     "summary": "A researcher manually re-checks AI coding agents' claimed task completion because agents report work done that was not actually performed.",
+     "who": "Marius Hobbhahn"
+    },
+    {
+     "fid": 27486,
+     "source": "Bluesky",
+     "date": "2026-03-06",
+     "url": "https://bsky.app/profile/simonwillison.net/post/3mgfrg4gtxc2n",
+     "summary": "Having coding agents manually exercise their own code to catch issues that automated tests miss.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 13310,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-08-08",
+     "url": "https://news.ycombinator.com/item?id=49227024",
+     "summary": "Having agents follow red-green-refactor test-driven development so they write failing tests first, which lets LLMs verify their own work and iterate with less manual validation.",
+     "who": "mr1337"
+    },
+    {
+     "fid": 24975,
+     "source": "Hamel Husain",
+     "date": "2026-03-26",
+     "url": "https://hamel.dev/blog/posts/revenge/",
+     "summary": "Harness engineering combining tests, specs, and an observability stack (logs, metrics, traces) exposed to coding agents so they can detect going off track.",
+     "who": "Hamel Husain"
+    }
+   ]
+  },
+  {
+   "name": "Handwriting to Font in a Minute",
+   "one_liner": "Upload a photo of your handwriting sample and download an installable font of it.",
+   "for_whom": "Creatives, teachers, wedding planners and anyone who wants their own font",
+   "spark": "maker",
+   "why_it_works": "A developer built a Claude Code skill that turns handwriting photos into TTF fonts with a deterministic potrace pipeline. It is a delightful personal artefact, but locked behind a developer tool.",
+   "how_it_works": "User prints a template sheet, writes the characters, and uploads a photo. The app segments glyphs, vectorises them and builds a font file. The user previews typing in their own hand and downloads it.",
+   "build": "Python backend with potrace and fonttools on a small host, simple upload frontend. Hardest part is robust glyph segmentation from phone photos; use a template with alignment markers.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Type a sentence into a box and it appears in your own handwriting, then install it in Google Docs.",
+   "post_hook": "I turned my terrible handwriting into a font. It took 60 seconds.",
+   "risks": "Segmentation errors and font-licensing edge cases; server processing needed.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 2,
+   "shareable": 5,
+   "evidence_ids": [
+    22824
+   ],
+   "id": "MA05",
+   "lens": "makers",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 22824,
+     "source": "AINews (smol.ai)",
+     "date": "2026-07-24",
+     "url": "https://news.smol.ai/issues/26-07-24-opus-5/",
+     "summary": "A developer built a Claude Code skill that converts handwriting photos into installable TTF fonts using a deterministic potrace pipeline with Claude handling segmentation and QA.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Instruction Diet",
+   "one_liner": "Paste your custom instructions and have an AI flag the lines that are stale, contradictory or hurting results.",
+   "for_whom": "Heavy ChatGPT and Claude users with long custom instructions or system prompts.",
+   "spark": "hack",
+   "why_it_works": "Developers now prune their instruction files because newer models do worse when over-constrained by old hand-holding. The same bloat exists in everyday custom instructions.",
+   "how_it_works": "The user pastes their instructions. The app marks each line as keep, trim or cut with a reason, and runs the same test prompt with the old and the slimmed version side by side. The user picks the winner and copies the new version.",
+   "build": "Web app with an LLM critic and parallel runs for A/B comparison. Hardest part is a fair comparison that does not just favor the shorter output.",
+   "effort": "a weekend",
+   "demo_moment": "A 900-word instruction block shrinks to 200 words and the answer to the test prompt is better.",
+   "post_hook": "Your AI instructions are probably making it worse. I tested mine.",
+   "risks": "A/B judgments are subjective; niche audience.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    2930,
+    25575,
+    25449,
+    12650
+   ],
+   "id": "HA12",
+   "lens": "hacks",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 2930,
+     "source": "Ahead of AI",
+     "date": "2026-09-09",
+     "url": "https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and",
+     "summary": "Developers are pruning or regenerating AGENTS.md and SKILL.md instruction files because newer models over-constrained by old hand-holding produce worse solutions.",
+     "who": "Sebastian Raschka"
+    },
+    {
+     "fid": 25575,
+     "source": "Hacker News — Ask HN",
+     "date": "2025-11-17",
+     "url": "https://news.ycombinator.com/item?id=45950934",
+     "summary": "Engineers steer coding agents with lengthy agent.md and claude.md instruction files to manage model behavior.",
+     "who": "taariqlewis"
+    },
+    {
+     "fid": 25449,
+     "source": "AINews (smol.ai)",
+     "date": "2026-08-24",
+     "url": "https://news.smol.ai/issues/26-08-28-not-much/",
+     "summary": "Fine-tuning agentsmd/claudemd instruction files significantly improved PR names and descriptions in T3 Code.",
+     "who": "theo"
+    },
+    {
+     "fid": 12650,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-02-12",
+     "url": "https://thezvi.substack.com/p/ai-155-welcome-to-recursive-self",
+     "summary": "Users write persistent notes and skills files so agents can simulate continual learning across sessions.",
+     "who": "Jason Crawford"
+    }
+   ]
+  },
+  {
+   "name": "Is It Circular?",
+   "one_liner": "An interactive map where you click AI companies and see the money loops between chipmakers, clouds and labs, explained in plain English.",
+   "for_whom": "Curious professionals, investors-at-large and LinkedIn readers trying to understand AI deal fragility",
+   "spark": "culture",
+   "why_it_works": "Circular financing and heavy leverage are a hot argument but hard to read; a visual explainer makes it graspable.",
+   "how_it_works": "User sees a node graph of companies with arrows labeled by deal type and amount. Clicking a loop plays a 20-second animated 'follow the dollar' story and cites the source. A 'circularity meter' totals the loop sizes.",
+   "build": "React with D3 or react-force-graph and a hand-curated JSON of deals with citations. Hardest part: data accuracy and avoiding financial-advice framing; cite everything and label it educational.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Press 'follow the dollar' and watch a coin travel in a loop from the chipmaker to the lab and back.",
+   "post_hook": "Where does the money in AI actually go? I mapped the loops. It's a circle.",
+   "risks": "Factual errors damage credibility; deals change fast; not financial advice.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    26942,
+    9653,
+    1553,
+    13057
+   ],
+   "id": "NE14",
+   "lens": "needs",
+   "also_from": [
+    "culture"
+   ],
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 26942,
+     "source": "Bluesky",
+     "date": "2026-11-12",
+     "url": "https://bsky.app/profile/edzitron.com/post/3n24x2quc5c2v",
+     "summary": "Circular financing deals among AI companies and chipmakers raise concerns about hidden financial fragility in the AI industry.",
+     "who": "Ed Zitron"
+    },
+    {
+     "fid": 9653,
+     "source": "Marcus on AI",
+     "date": "2026-07-27",
+     "url": "https://garymarcus.substack.com/p/circular-financing-aint-what-it-used",
+     "summary": "Circular financing and off-balance-sheet deals are making AI infrastructure funding harder to read and trust.",
+     "who": "Gary Marcus"
+    },
+    {
+     "fid": 1553,
+     "source": "Tomasz Tunguz",
+     "date": "2026-09-04",
+     "url": "https://tomtunguz.com/the-4-trillion-dollar-ai-data-center-debt-wave/",
+     "summary": "Data center projects rely on heavy debt financing (65-90% leverage), raising concern about whether credit markets can absorb the AI buildout.",
+     "who": "Tomasz Tunguz"
+    },
+    {
+     "fid": 13057,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-05-29",
+     "url": "https://www.thealgorithmicbridge.com/p/the-charts-the-ai-industry-doesnt",
+     "summary": "Circular deals among AI companies and Big Tech create financial interdependence where failure of AI would hit chip purchases and stakes at once, a risk visible to investors and operators.",
+     "who": "Alberto Romero"
+    }
+   ]
+  },
+  {
+   "name": "Old Models Time Machine",
+   "one_liner": "Type one prompt and see how it would have looked across a decade of image AI, from DeepDream to today.",
+   "for_whom": "General public curious about how fast AI progressed, and LinkedIn audiences",
+   "spark": "culture",
+   "why_it_works": "The Old Models Foundation shows that historic image models are a fascinating comparison, and a side-by-side timeline makes AI progress tangible.",
+   "how_it_works": "User enters a prompt and sees a timeline slider of outputs from successive years. Dragging the slider morphs between eras. A share image shows the 2015 and 2026 versions side by side.",
+   "build": "Static site with pre-generated sample galleries for common prompts, plus a live call to a current image API for the modern end. Hardest part is sourcing authentic old-model outputs; use a style-emulation approach and label it honestly.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Drag the slider and the otter on a plane goes from swirly nightmare to photoreal.",
+   "post_hook": "The same prompt, ten years of AI image progress.",
+   "risks": "Authenticity of old-style outputs; label clearly as emulations.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    13429,
+    29097,
+    28902
+   ],
+   "id": "PO11",
+   "lens": "powers",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 13429,
+     "source": "Import AI",
+     "date": "2026-09-28",
+     "url": "https://importai.substack.com/p/import-ai-474-platonic-mindspace",
+     "summary": "The Old Models Foundation site lets users run historical image generation models (DRAW, DeepDream, DCGAN, StyleGAN and others), capped at 25 generations per day.",
+     "who": ""
+    },
+    {
+     "fid": 29097,
+     "source": "Bluesky",
+     "date": "2026-10-20",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mydlag277k2c",
+     "summary": "A prompt test of asking an AI to generate an otter on a plane using wifi was used to evaluate image and video generation output.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 28902,
+     "source": "Bluesky",
+     "date": "2026-10-23",
+     "url": "https://bsky.app/profile/antirez.bsky.social/post/3myjth3kl5m2o",
+     "summary": "Iris.c, a work-in-progress image generation tool running Flux 3 Klein on a DGX Spark, works reasonably even with human-written prompts instead of post-processed ones.",
+     "who": "antirez"
+    }
+   ]
+  },
+  {
+   "name": "One Post, Five Places",
+   "one_liner": "Paste a draft once and get platform-ready versions for LinkedIn, X, newsletter and blog, each in your voice.",
+   "for_whom": "Creators and professionals who post the same idea across several channels.",
+   "spark": "maker",
+   "why_it_works": "Bloggers vibe-code extensions and script chains for crossposting, formatting and link-fixing because no tool handles it. The workflow is clear and repeatable.",
+   "how_it_works": "The user pastes a draft and optionally a voice guide. The app produces a LinkedIn post, an X thread, a newsletter version with table of contents and a blog version. Each has editable previews and copy buttons, and a character counter for X.",
+   "build": "Web app with an LLM and per-platform templates, plus an optional Chrome extension for pulling text from the page. Hardest part is making each version genuinely native, not just truncated.",
+   "effort": "1-2 weeks",
+   "demo_moment": "One paragraph becomes five formatted posts side by side, and the X thread breaks at natural points.",
+   "post_hook": "I write once and publish five times. Here's the tool that does the reformatting.",
+   "risks": "Platform formatting rules change; multi-format generators are common.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    16154,
+    29201,
+    21801,
+    19155
+   ],
+   "id": "HA10",
+   "lens": "hacks",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 16154,
+     "source": "Don't Worry About the Vase",
+     "date": "2025-11-17",
+     "url": "https://thezvi.substack.com/p/on-writing-2",
+     "summary": "Zvi built a vibe-coded Chrome extension that generates tables of contents, crossposts to WordPress, auto-populates links, and fixes quote capitalization for his blog workflow.",
+     "who": "Zvi Mowshowitz"
+    },
+    {
+     "fid": 29201,
+     "source": "Bluesky",
+     "date": "2025-11-19",
+     "url": "https://bsky.app/profile/simonwillison.net/post/3m5zb43m4mc23",
+     "summary": "Automating a Substack newsletter from blog content using a chain of homegrown scripts, since Substack offers no API.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 21801,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-03-19",
+     "url": "https://news.ycombinator.com/item?id=47436526",
+     "summary": "A user replaced a paid newsletter tool with a custom in-house solution.",
+     "who": "wmeredith"
+    },
+    {
+     "fid": 19155,
+     "source": "Ben's Bites",
+     "date": "2026-03-24",
+     "url": "https://www.bensbites.com/p/agents-should-interview-you",
+     "summary": "Writing AI style guides so that AI can imitate a person's writing voice.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Plain-Picture Explainer",
+   "one_liner": "Paste anything dense and get a one-screen interactive diagram or animation explaining it in plain English.",
+   "for_whom": "Professionals who read contracts, reports and technical memos",
+   "spark": "hack",
+   "why_it_works": "People ask LLMs for HTML, diagrams, plain English and explainer videos to understand outputs, and tools that generate custom visuals on demand are rising.",
+   "how_it_works": "User pastes text or a PDF page. The LLM chooses a visual form such as flow, timeline or comparison and generates a self-contained interactive HTML explainer. User can click nodes to expand details.",
+   "build": "Single page with LLM generating HTML/SVG, sandboxed preview. Hardest part is reliably choosing the right visual type and avoiding misleading simplifications.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A dense policy paragraph becomes a clickable flowchart in seconds.",
+   "post_hook": "I stopped reading walls of text. I read pictures instead.",
+   "risks": "Chat tools can do HTML artifacts; the differentiator is fixed visual templates and one-click share. Do not present as legal advice.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    4150,
+    14840,
+    27845
+   ],
+   "id": "PO13",
+   "lens": "powers",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 4150,
+     "source": "Ben's Bites",
+     "date": "2026-10-06",
+     "url": "https://www.bensbites.com/p/thoughts-from-san-francisco",
+     "summary": "Users ask LLMs for HTML output, diagrams, plain English, and explainer videos to understand outputs better.",
+     "who": "Andrej Karpathy"
+    },
+    {
+     "fid": 14840,
+     "source": "Ben's Bites",
+     "date": "2026-10-29",
+     "url": "https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it",
+     "summary": "Clicky generates custom visuals on screen when users ask about topics, a new interactive AI feature.",
+     "who": ""
+    },
+    {
+     "fid": 27845,
+     "source": "Bluesky",
+     "date": "2026-10-15",
+     "url": "https://bsky.app/profile/hardmaru.bsky.social/post/3mxwc4blhr22t",
+     "summary": "A tool that generates editable vector diagrams for scientific figures instead of uneditable hallucinated raster images is needed.",
+     "who": "hardmaru"
+    }
+   ]
+  },
+  {
+   "name": "Source Material Dungeon",
+   "one_liner": "Drop in any document, such as your employee handbook, and an AI game master builds a text adventure from it.",
+   "for_whom": "Gamers, teachers and trainers",
+   "spark": "request",
+   "why_it_works": "People asked for a game master agent that builds a campaign from supplied source material, and vibe-coded games are now genuinely fun.",
+   "how_it_works": "User pastes text or a URL. The LLM extracts characters, locations and rules and starts a campaign with choices. A small state panel tracks inventory and health, and the end screen is a shareable recap card.",
+   "build": "Web chat UI with an LLM and structured JSON state per turn, plus optional image per scene. Hardest part is keeping state consistent and stories finishing within about 15 turns.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Paste a quarterly earnings memo and be attacked by The Dreaded Deferred Revenue.",
+   "post_hook": "I turned our compliance training into a dungeon crawl.",
+   "risks": "Long-context drift; limit campaign length.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    25915,
+    14839,
+    3390
+   ],
+   "id": "PO07",
+   "lens": "powers",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 25915,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-10-20",
+     "url": "https://news.ycombinator.com/item?id=50159886",
+     "summary": "AI-generated text adventure where an agent acts as game master and builds a new campaign from supplied source material.",
+     "who": "dangerface"
+    },
+    {
+     "fid": 14839,
+     "source": "Ben's Bites",
+     "date": "2026-10-29",
+     "url": "https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it",
+     "summary": "Simon Willison argues vibe-coded games have reached an inflection point where they are actually fun to play.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 3390,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-09-26",
+     "url": "https://thezvi.substack.com/p/claude-opus-55-should-raise-your",
+     "summary": "Opus 5.5 makes game development suggestions that are fun to play, with strong taste for game design.",
+     "who": "paperclippriors"
+    }
+   ]
+  },
+  {
+   "name": "Which Plan Do I Actually Need?",
+   "one_liner": "Describe your AI habits in plain English and get a plain-language comparison of which chatbot plan fits, including the limit traps.",
+   "for_whom": "Professionals confused by ChatGPT, Claude and Gemini tier names and usage caps",
+   "spark": "pain",
+   "why_it_works": "Plan names map poorly across vendors and usage limits are poorly documented, so people burn through caps or overpay.",
+   "how_it_works": "User answers 5 quick questions (how many long chats a day, files, agents, images). The app maps the answers to a hand-curated plan table and shows a verdict, a 'you'll hit the cap by Wednesday' warning, and a cheaper alternative.",
+   "build": "Static JSON of plans maintained by hand, simple React quiz, an LLM only for the explanation text. Hardest part: keeping plan data current; show a 'last verified' date and a community-correction link.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Answer 5 questions and see a shockingly specific 'You'll run out of Claude Pro on day 3' result.",
+   "post_hook": "AI plan names are a mess. I built a 60-second quiz that tells you what to actually pay for.",
+   "risks": "Plan data goes stale quickly; need a visible freshness stamp.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    20122,
+    22168,
+    26685,
+    14351
+   ],
+   "id": "NE03",
+   "lens": "needs",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 20122,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-01-16",
+     "url": "https://simonwillison.net/2026/Jan/16/chatgpt-ads/",
+     "summary": "The ChatGPT pricing comparison grid is confusing because it doesn't clarify usage limits for the free and Go plans and lists differing context windows.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 22168,
+     "source": "One Useful Thing",
+     "date": "2026-07-23",
+     "url": "https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22",
+     "summary": "Claude and ChatGPT product modes have confusing, poorly documented names that map poorly onto each other, making them hard to choose between.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 26685,
+     "source": "AINews (smol.ai)",
+     "date": "2026-05-04",
+     "url": "https://news.smol.ai/issues/26-05-20-not-much/",
+     "summary": "Users report Gemini Pro usage limits hitting 100% after about 8 minutes of chatting, despite a paid subscription.",
+     "who": ""
+    },
+    {
+     "fid": 14351,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-10-01",
+     "url": "https://thezvi.substack.com/p/ai-188-gemini-dot-argon",
+     "summary": "OpenAI cut weekly usage limits on its $200 subscription by 50% while removing the five-hour limit, drawing user backlash.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Will My Job Survive? Argument Mixer",
+   "one_liner": "Pick your job tasks and an economic 'worldview' (Jevons optimist, structural displacement, macro-only), and see three different futures for the same role.",
+   "for_whom": "Everyday professionals anxious about AI and jobs who are tired of one-sided takes.",
+   "spark": "culture",
+   "why_it_works": "The jobs debate is unresolved and the camps disagree on mechanism, not just outcome. Showing the same job under each worldview reveals the assumptions.",
+   "how_it_works": "User enters their role and ticks 6-8 typical tasks. They toggle between worldview 'lenses' and an AI writes a short, plainly-labeled scenario narrative per lens. A summary card shows what you would need to believe for each.",
+   "build": "Next.js with LLM API, structured prompts per worldview, share card. Hardest part: keeping outputs clearly framed as scenarios rather than predictions.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Flipping the lens toggle and the same job's future flips from 'role expands' to 'role vanishes'.",
+   "post_hook": "Three smart camps, one job, three totally different futures. I built a tool that shows what you'd have to believe for each.",
+   "risks": "Anxiety-inducing outputs; add a disclaimer and a 'what you can do' section. Not career advice.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 4,
+   "evidence_ids": [
+    26206,
+    14363,
+    26933,
+    19785
+   ],
+   "id": "CU06",
+   "lens": "culture",
+   "score": 13.5,
+   "evidence": [
+    {
+     "fid": 26206,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-10-09",
+     "url": "https://news.ycombinator.com/item?id=50020096",
+     "summary": "Commenters disagree on whether full automation of white-collar work would be temporary disruption or permanent structural displacement that society cannot absorb.",
+     "who": "tavavex"
+    },
+    {
+     "fid": 14363,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-10-01",
+     "url": "https://thezvi.substack.com/p/ai-188-gemini-dot-argon",
+     "summary": "Whether AI-driven upcoding and automation will produce large labor displacement soon, with one side expecting huge impacts within four years and the other attributing unemployment mainly to macroeconomics.",
+     "who": "Kelsey Piper"
+    },
+    {
+     "fid": 26933,
+     "source": "Bluesky",
+     "date": "2026-02-11",
+     "url": "https://bsky.app/profile/bcmerchant.bsky.social/post/3mem2m5gotk26",
+     "summary": "Commentators debate whether AI hype will prove true, with some arguing the left should seriously prepare for AI automation cutting labor costs rather than dismissing it as doomerism.",
+     "who": "Brian Merchant"
+    },
+    {
+     "fid": 19785,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-11-05",
+     "url": "https://www.thealgorithmicbridge.com/p/the-ai-industry-thinks-it-has-a-pr",
+     "summary": "Workers laid off in favor of AI budget management face job insecurity with no near-term answer from the industry.",
+     "who": "Alberto Romero"
+    }
+   ]
+  },
+  {
+   "name": "Make Me a Mini Tool",
+   "one_liner": "A search-or-build page for tiny single-purpose utilities, such as a GeoJSON viewer, a token counter or a photo renamer, built on demand and saved to a shelf.",
+   "for_whom": "Non-technical professionals who face small one-off chores that no app quite fits",
+   "spark": "hack",
+   "why_it_works": "Simon builds quick tools when finding an existing one is slower, such as a GeoJSON-to-PNG renderer, plus token counters and log renderers. Non-developers have these chores too but lack the habit.",
+   "how_it_works": "User describes the chore, for example 'rename these files by date'. The app generates a self-contained in-browser tool that runs locally on their files. They can save it to a personal shelf or share a link.",
+   "build": "Web app with an LLM generating single-file HTML tools in a sandboxed iframe with no network access. Hardest part is making the tools work reliably on first try; add auto-test and retry.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Describe a chore, drag in a folder of files, and watch the tool do it in seconds.",
+   "post_hook": "I never download random utilities anymore. I just ask for the exact tool.",
+   "risks": "Overlaps with chatbot artifacts; value rests on the shelf and local-only safety.",
+   "fun": 4,
+   "useful": 5,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    29566,
+    13915,
+    14419
+   ],
+   "id": "MA15",
+   "lens": "makers",
+   "score": 13.0,
+   "evidence": [
+    {
+     "fid": 29566,
+     "source": "Bluesky",
+     "date": "2026-08-31",
+     "url": "https://bsky.app/profile/simonwillison.net#week-2026-W36",
+     "summary": "Simon Willison uses an AI model to build quick vibe-coded tools when finding an existing one is slower, such as a GeoJSON-to-PNG renderer.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 13915,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-05-28",
+     "url": "https://simonwillison.net/2026/May/28/claude-opus-4-8/",
+     "summary": "Simon Willison built an HTML tool to render exported LLM CLI conversation logs in Markdown, displaying svg fenced code blocks as SVGs on the page.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 14419,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-06-30",
+     "url": "https://simonwillison.net/2026/Jun/30/claude-sonnet-5/",
+     "summary": "Simon Willison built a Claude Token Counter tool to measure how many tokens documents consume across Claude model tokenizers.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Notes to Wiki",
+   "one_liner": "Drop in a messy pile of notes and get a linked, Obsidian-ready personal wiki back as a zip.",
+   "for_whom": "Knowledge workers who hoard notes and want a second brain without setting it up.",
+   "spark": "hack",
+   "why_it_works": "Karpathy-style LLM wikis and personal knowledge bases built by agents are trending, but each takes technical setup. Packaging the transformation makes it accessible.",
+   "how_it_works": "The user uploads text or markdown files, or pastes notes. The app groups them into topics, writes linked pages with summaries and backlinks, and builds an index. The result downloads as a zip of markdown files to open in Obsidian.",
+   "build": "Web app with chunked LLM processing and in-browser zip creation. Hardest part is cost and consistency across many files, so cap input to about 50 notes.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A chaotic folder of 40 notes becomes a graph view of linked pages in Obsidian.",
+   "post_hook": "I turned 5 years of messy notes into a linked wiki in 4 minutes.",
+   "risks": "Privacy of personal notes; hallucinated links or merged facts.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    6774,
+    15776,
+    28639,
+    26404
+   ],
+   "id": "HA11",
+   "lens": "hacks",
+   "score": 13.0,
+   "evidence": [
+    {
+     "fid": 6774,
+     "source": "Ben's Bites",
+     "date": "2026-04-14",
+     "url": "https://www.bensbites.com/p/big-lab-leaks",
+     "summary": "Personal wiki tools inspired by Karpathy's knowledge base idea are being built to organize personal knowledge with LLMs.",
+     "who": ""
+    },
+    {
+     "fid": 15776,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-05-16",
+     "url": "https://news.ycombinator.com/item?id=48160604",
+     "summary": "Maintaining a personal Obsidian vault of debugged, reusable skill patterns that agents reference when starting new projects instead of relying on a large instruction file.",
+     "who": "zambelli"
+    },
+    {
+     "fid": 28639,
+     "source": "Bluesky",
+     "date": "2026-09-03",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3munds3sxrc2n",
+     "summary": "A user had an agent assemble a personal knowledge base from years of emails, writings, and calendar data, with twice-daily automated briefings cross-referencing new emails.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 26404,
+     "source": "AINews (smol.ai)",
+     "date": "2026-04-13",
+     "url": "https://news.smol.ai/issues/26-04-13-not-much/",
+     "summary": "Users run a local Qwen-3.5 model over a decade of personal documents to build a queryable personal knowledge base.",
+     "who": "Unlucky-Message8866"
+    }
+   ]
+  },
+  {
+   "name": "Page Feedback Block",
+   "one_liner": "Click anywhere on any web page or draft to leave comments, then copy them all as one clean block to paste into an AI chat.",
+   "for_whom": "Anyone iterating on AI-generated pages, docs or designs",
+   "spark": "pain",
+   "why_it_works": "Ben built a tool to comment on and delete copy while building, then copy all feedback in one block. Iterating with AI by typing scattered feedback is a common frustration.",
+   "how_it_works": "Paste or load a draft and click on text to attach comments or strike it. A panel gathers them into a structured instruction. One click copies it to the clipboard for any chatbot.",
+   "build": "Browser extension or single-page app with text selection and annotation. Hardest part is anchoring comments to selections robustly.",
+   "effort": "a weekend",
+   "demo_moment": "Click four sentences, type quick notes, press Copy, and paste a perfectly structured revision brief.",
+   "post_hook": "The best prompt is a pile of sticky notes. So I built that.",
+   "risks": "Small, simple concept that may feel narrow.",
+   "fun": 2,
+   "useful": 4,
+   "ease": 5,
+   "shareable": 3,
+   "evidence_ids": [
+    12221
+   ],
+   "id": "MA11",
+   "lens": "makers",
+   "score": 13.0,
+   "evidence": [
+    {
+     "fid": 12221,
+     "source": "Ben's Bites",
+     "date": "2026-06-04",
+     "url": "https://www.bensbites.com/p/build-tools-to-build-more",
+     "summary": "Ben built a personal tool to comment on and delete copy while building, then copies all feedback as one block for the agent.",
+     "who": "Ben Tossell"
+    }
+   ]
+  },
+  {
+   "name": "Procedural Painter",
+   "one_liner": "Describe a painting and watch code paint it stroke by stroke on a canvas, with a replay you can export as a video.",
+   "for_whom": "Art-curious people and anyone tired of samey AI image looks",
+   "spark": "hack",
+   "why_it_works": "Generative art built as programs driving a paint engine, not image models, is a distinct aesthetic, and animated stroke replays are inherently watchable.",
+   "how_it_works": "User types a mood or scene. The LLM writes a small p5.js or canvas program using brush strokes and palettes, and it runs live as a painting-in-progress. User exports an MP4 or GIF timelapse.",
+   "build": "p5.js, LLM generating the program, MediaRecorder for canvas capture. Hardest part is prompting for painterly quality and avoiding clip-art outputs.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A sunset gets painted stroke by stroke in a 20-second timelapse.",
+   "post_hook": "No image model here: the AI wrote code that paints.",
+   "risks": "Output may look primitive; curate styles such as impressionist dots.",
+   "fun": 4,
+   "useful": 2,
+   "ease": 3,
+   "shareable": 5,
+   "evidence_ids": [
+    12387,
+    13562
+   ],
+   "id": "PO08",
+   "lens": "powers",
+   "score": 13.0,
+   "evidence": [
+    {
+     "fid": 12387,
+     "source": "AINews (smol.ai)",
+     "date": "2026-11-10",
+     "url": "https://latent.space/p/ainews-fable-5-2-retakes-world-1-llm-spot-as-ant-ipo-roadshow-begins/",
+     "summary": "Procedural generative art built as Python programs driving a simulated paint engine instead of image models.",
+     "who": "jkeatn"
+    },
+    {
+     "fid": 13562,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-20",
+     "url": "https://simonwillison.net/2026/Oct/20/battledrones/",
+     "summary": "Generating game soundtracks entirely through code instead of audio files, with music that intensifies as fighting breaks out.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Voice Library Audiobook",
+   "one_liner": "Turn any article or your own writing into a short audiobook read in your own cloned voice or a family member's.",
+   "for_whom": "Parents, writers, and anyone with a long reading list",
+   "spark": "new_capability",
+   "why_it_works": "Locally run voice cloning has been used to produce custom audiobooks, and cloning can be chained onto existing TTS cheaply.",
+   "how_it_works": "User records 30 seconds of a voice sample with consent, pastes text, and chooses delivery styles. The app produces an MP3 and a podcast-style RSS link.",
+   "build": "Web app with a hosted voice cloning TTS API, text chunking, and audio stitching. Hardest part is consent and abuse prevention for voice cloning, plus chunk consistency.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Paste a bedtime story and hear it read in grandma's recorded voice.",
+   "post_hook": "I made my own articles into audiobooks narrated by me.",
+   "risks": "Voice cloning misuse; require a live read-aloud verification phrase.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    4266,
+    22688,
+    2591
+   ],
+   "id": "PO12",
+   "lens": "powers",
+   "score": 13.0,
+   "evidence": [
+    {
+     "fid": 4266,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-10-05",
+     "url": "https://news.ycombinator.com/item?id=49972125",
+     "summary": "Qwen3 TTS's voice clone feature, run locally with a voice reference and text, was used to produce a custom audiobook.",
+     "who": "jajazheng"
+    },
+    {
+     "fid": 22688,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-31",
+     "url": "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/",
+     "summary": "Chaining Kokoro TTS with OpenVoice's tone color converter adds voice cloning to an existing TTS model for about 600 MB extra VRAM without retraining.",
+     "who": ""
+    },
+    {
+     "fid": 2591,
+     "source": "Ben's Bites",
+     "date": "2026-09-24",
+     "url": "https://www.bensbites.com/p/back-to-claude",
+     "summary": "Cheap voice training and personal dictation models are being built to reduce post-transcription edits.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Commodity or Castle? Moat Builder",
+   "one_liner": "A tiny strategy game where you run an AI lab and choose between racing on model quality, price cuts, or moving up the stack, while rivals commoditize you.",
+   "for_whom": "MBAs, product people and business-curious readers who like case-study games.",
+   "spark": "culture",
+   "why_it_works": "The commoditization debate is a classic strategy question (moat vs commodity trap) with live market evidence. A game lets players feel the margin squeeze.",
+   "how_it_works": "Over 8 quarterly turns, players pick actions (train a bigger model, cut price, launch a product, sign enterprise deals). Rival labs respond and margins/market share update. The end screen assigns a strategy archetype and a shareable scorecard.",
+   "build": "React with a small rules engine, no backend; optional LLM for quarterly news flavor text. Hardest part: balancing the game so that multiple strategies are viable.",
+   "effort": "3-4 weeks",
+   "demo_moment": "A quarter where you cut price 80% and the market-share bar leaps while the margin bar collapses.",
+   "post_hook": "I built a game where you run an AI lab. 9 of 10 friends went bankrupt trying to race on price. Can you build a moat?",
+   "risks": "Game balancing takes iteration; keep scope to 8 turns and 4 actions.",
+   "fun": 5,
+   "useful": 3,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    12289,
+    13021,
+    23386,
+    26564
+   ],
+   "id": "CU13",
+   "lens": "culture",
+   "score": 12.5,
+   "evidence": [
+    {
+     "fid": 12289,
+     "source": "Latent Space",
+     "date": "2026-10-22",
+     "url": "https://latent.space/p/modal-d/",
+     "summary": "Whether LLMs are becoming commodities: one side sees inference providers reallocating demand across models, the other sees brand and repeated model launches sustaining margins for labs.",
+     "who": ""
+    },
+    {
+     "fid": 13021,
+     "source": "Tomasz Tunguz",
+     "date": "2026-09-23",
+     "url": "https://tomtunguz.com/the-most-important-market-in-ai-is-the-middle/",
+     "summary": "Whether AI token demand will shift toward commodity models as intelligence per dollar rises, or stay split with a frontier tier, determines the economics of the market.",
+     "who": "Tomasz Tunguz"
+    },
+    {
+     "fid": 23386,
+     "source": "AI as Normal Technology",
+     "date": "2026-07-09",
+     "url": "https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from",
+     "summary": "Whether AI labs can escape the commodity trap by moving up the stack into products and services, versus remaining undifferentiated model vendors with competition squeezing margins.",
+     "who": "Arvind Narayanan"
+    },
+    {
+     "fid": 26564,
+     "source": "Marcus on AI",
+     "date": "2026-09-09",
+     "url": "https://garymarcus.substack.com/p/the-case-for-boycotting-generative",
+     "summary": "Whether frontier labs' pursuit of AGI is commercially justified or ideologically driven, with the claim that there is no real commercial case for LLM-based unstable systems.",
+     "who": "Cal Newport"
+    }
+   ]
+  },
+  {
+   "name": "Human Receipt",
+   "one_liner": "A writing tool that records your drafting process and produces a verifiable 'written by a human' receipt page.",
+   "for_whom": "Independent writers, students and Substack authors who need to prove their work is their own",
+   "spark": "pain",
+   "why_it_works": "Writers have trouble proving authorship, and detectors alone are unreliable. Process evidence (typing timeline, revisions) is a more convincing artifact.",
+   "how_it_works": "User writes in a distraction-free editor that logs revision history and paste events. When finished, it generates a public receipt link showing a timeline, % typed vs pasted, and an optional AI-assistance disclosure.",
+   "build": "React editor (TipTap) plus Supabase for event logs and a read-only share page. Hardest part: making the receipt credible without overclaiming; show the data, don't claim proof.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A time-lapse replay of an essay being written, appearing on a receipt page with a QR code.",
+   "post_hook": "Nobody believes you wrote it yourself anymore. So I made a receipt.",
+   "risks": "Can be gamed by retyping AI text; privacy of the draft history.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    26661,
+    15261,
+    28356
+   ],
+   "id": "NE08",
+   "lens": "needs",
+   "score": 12.5,
+   "evidence": [
+    {
+     "fid": 26661,
+     "source": "The Algorithmic Bridge",
+     "date": "2026-08-12",
+     "url": "https://www.thealgorithmicbridge.com/p/on-substack-pangram-partnership-its",
+     "summary": "Human writers face difficulty proving their work is their own now that AI can generate prose, making authorship verification a problem on writing platforms like Substack.",
+     "who": "Alberto Romero"
+    },
+    {
+     "fid": 15261,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-10-27",
+     "url": "https://news.ycombinator.com/item?id=50265376",
+     "summary": "A tool or policy mechanism to distinguish or moderate AI-written content on discussion sites while preserving human-authored quality.",
+     "who": "amichail"
+    },
+    {
+     "fid": 28356,
+     "source": "Bluesky",
+     "date": "2026-06-17",
+     "url": "https://bsky.app/profile/gergely.pragmaticengineer.com/post/3mohzeauhjk22",
+     "summary": "A tool to flag or report undisclosed AI-generated content on social feeds would address a gap users currently face.",
+     "who": "Gergely Orosz"
+    }
+   ]
+  },
+  {
+   "name": "Penny Router",
+   "one_liner": "Type any task and see which AI model and effort level it deserves, then run it there and see what you saved.",
+   "for_whom": "Professionals who pay for AI subscriptions or APIs and burn through limits on easy tasks.",
+   "spark": "hack",
+   "why_it_works": "Power users manually route work between cheap and strong models and tune thinking levels per task to stay inside limits. Nobody has packaged that judgment for non-engineers.",
+   "how_it_works": "The user pastes a task. A small cheap model rates difficulty, stakes and needed reasoning. The app picks a tier (fast, balanced or deep), runs it, and shows a receipt such as 'Used the cheap model, saved about 80% versus always using the top model'. A override button reruns on the strong model.",
+   "build": "Next.js or single-page app calling the OpenRouter API with 3 model tiers and a classifier prompt. Hardest part is making the difficulty classifier feel trustworthy and the cost math accurate.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Three tasks go in: a typo fix, a market analysis and a trivia question. Each is routed differently and a running 'saved $' counter ticks up.",
+   "post_hook": "I stopped using the biggest AI model for everything. Here's the 30-second router I built and what it saved me.",
+   "risks": "Misrouting hard tasks to weak models; model names and prices change often.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    15272,
+    19210,
+    20930,
+    8073
+   ],
+   "id": "HA01",
+   "lens": "hacks",
+   "score": 12.5,
+   "evidence": [
+    {
+     "fid": 15272,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-03-29",
+     "url": "https://news.ycombinator.com/item?id=47559293",
+     "summary": "Routing tasks across models by cost and specialization, using per-project instruction files to direct cheaper models for simple work and stronger models for hard work.",
+     "who": "DarthCeltic85"
+    },
+    {
+     "fid": 19210,
+     "source": "AINews (smol.ai)",
+     "date": "2026-07-08",
+     "url": "https://news.smol.ai/issues/26-07-08-grok-45/",
+     "summary": "Routing tasks across multiple model vendors on the Pareto frontier is more valuable than single-vendor lock-in for coding work.",
+     "who": "matei_zaharia"
+    },
+    {
+     "fid": 20930,
+     "source": "Ben's Bites",
+     "date": "2026-07-14",
+     "url": "https://www.bensbites.com/p/how-to-use-gpt-56",
+     "summary": "Users pick different GPT-5.6 models and thinking levels per task (Sol medium for building, background agents for hard tasks, Luna xhigh for daily productivity) to manage limits.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 8073,
+     "source": "Latent Space",
+     "date": "2026-09-05",
+     "url": "https://latent.space/p/grok-bot/",
+     "summary": "A user routes coding work across multiple agent CLIs (Claude Code, Codex, Grok Build) via an Agentic Engineer bot with guidelines for picking the right tool per task.",
+     "who": "swyx & Alessio Fanelli"
+    }
+   ]
+  },
+  {
+   "name": "Search Without the Summary",
+   "one_liner": "A browser extension that hides AI Overviews on search pages and shows a ticker of how many publisher clicks that summary likely cost.",
+   "for_whom": "People annoyed by AI summaries and bloggers or readers who care about publishers.",
+   "spark": "pain",
+   "why_it_works": "AI Overviews cut publisher traffic and sometimes make false claims, while the web fills with SEO slop. Users want control and a playful way to see the effect.",
+   "how_it_works": "The extension collapses the AI summary box by default, replaces it with a 'Summary hidden, 7 sources below' banner, and keeps a tally of summaries dodged. Users can click to reveal and a weekly 'clicks returned to publishers' card is shareable.",
+   "build": "Chrome extension (Manifest V3) with a content script and CSS selectors, local storage for counts. Hardest part: selectors breaking when Google changes markup.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Searching a question and watching the AI box fold away, with the counter incrementing.",
+   "post_hook": "I hid Google's AI summaries for a week and sent 143 clicks back to real publishers. Here's the extension.",
+   "risks": "Selector fragility; the 'clicks returned' number is an estimate and must be labeled so.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    27945,
+    22683,
+    19661,
+    1640
+   ],
+   "id": "CU14",
+   "lens": "culture",
+   "score": 12.5,
+   "evidence": [
+    {
+     "fid": 27945,
+     "source": "Bluesky",
+     "date": "2025-11-17",
+     "url": "https://bsky.app/profile/caseynewton.bsky.social/post/3m5tnb4enwc2g",
+     "summary": "Publishers like Stereogum report steep ad revenue losses after Google shifted search to AI Overviews, cutting traffic to their sites.",
+     "who": "Casey Newton"
+    },
+    {
+     "fid": 22683,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-31",
+     "url": "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/",
+     "summary": "AI Overviews and AI Mode summaries reduce click-through traffic to publisher pages, hurting the ad revenue that funds the content being summarized.",
+     "who": ""
+    },
+    {
+     "fid": 19661,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-06-11",
+     "url": "https://thezvi.substack.com/p/ai-172-the-first-fable",
+     "summary": "AI Overviews produced false claims tying publishers to shady business practices, creating legal liability for search summaries.",
+     "who": ""
+    },
+    {
+     "fid": 1640,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-05-22",
+     "url": "https://news.ycombinator.com/item?id=48235223",
+     "summary": "Blogs and the open web are cluttered with AI-generated SEO content, pushing people to search forums like Reddit for genuine answers.",
+     "who": "denistarasenko"
+    }
+   ]
+  },
+  {
+   "name": "Soundtrack by Code",
+   "one_liner": "Open a web page or doc and get a live-generated ambient soundtrack that reacts to what you do, from calm typing to rushed deadlines.",
+   "for_whom": "Remote workers, students, game fans",
+   "spark": "hack",
+   "why_it_works": "Soundtracks generated through code instead of audio files, intensifying with action, show music can be adaptive and free.",
+   "how_it_works": "User picks a vibe and the page runs a Web Audio synthesizer whose tempo and layers shift with typing speed or a timer. A slider shows the system adding layers as intensity rises.",
+   "build": "Web Audio API or Tone.js with an LLM that writes the generator code per vibe. Hardest part is making it sound pleasant rather than noisy.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Type faster and watch drums and bass layers kick in.",
+   "post_hook": "My focus music reacts to how fast I type.",
+   "risks": "Music quality is subjective; offer 3-4 polished presets.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    13562,
+    3391
+   ],
+   "id": "PO09",
+   "lens": "powers",
+   "score": 12.5,
+   "evidence": [
+    {
+     "fid": 13562,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-20",
+     "url": "https://simonwillison.net/2026/Oct/20/battledrones/",
+     "summary": "Generating game soundtracks entirely through code instead of audio files, with music that intensifies as fighting breaks out.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 3391,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-09-26",
+     "url": "https://thezvi.substack.com/p/claude-opus-55-should-raise-your",
+     "summary": "Opus 5.5 generates a credible Bach-style fugue, which one musician found listenable for the first time from AI.",
+     "who": "Ulkar"
+    }
+   ]
+  },
+  {
+   "name": "Parent Playlist Rescue",
+   "one_liner": "A guided checker and migrator that helps parents lock down kid-unfriendly features and move playlists between music services.",
+   "for_whom": "Parents of young kids using streaming apps",
+   "spark": "pain",
+   "why_it_works": "Parents disable Spotify's video feature or transfer playlists with scripts and cheap tools. The hack exists, but only as scattered tips and vibe-coded scripts.",
+   "how_it_works": "Parent picks a service and sees a step-by-step settings checklist with screenshots. Optionally they paste a playlist link and the app builds a matching list for another service. A final 'kid-safe' score shows what is still open.",
+   "build": "Static guide site with checklist state plus playlist-matching via public APIs. Hardest part is API approvals, so make the checklist the core and the migration optional via CSV exports.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A progress ring fills as each setting is toggled, ending with a green 'ready for the back seat' badge.",
+   "post_hook": "One tiny setting changed what my kid sees on Spotify. I made a checklist for the rest.",
+   "risks": "Settings change often; API restrictions from streaming services.",
+   "fun": 2,
+   "useful": 4,
+   "ease": 4,
+   "shareable": 3,
+   "evidence_ids": [
+    23999
+   ],
+   "id": "MA14",
+   "lens": "makers",
+   "score": 12.0,
+   "evidence": [
+    {
+     "fid": 23999,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-07-08",
+     "url": "https://thezvi.substack.com/p/childhood-and-education-20-phones",
+     "summary": "Parents disable Spotify's video feature via the Videos and Canvas setting, or transfer playlists to another platform using cheap tools or vibecoded scripts.",
+     "who": "PoIiMath"
+    }
+   ]
+  },
+  {
+   "name": "Personal Canvas",
+   "one_liner": "A drag-and-drop home page of widgets, such as todos, bookmarks and notes, that you describe in plain English.",
+   "for_whom": "Professionals who want a custom dashboard without a Notion rabbit hole",
+   "spark": "maker",
+   "why_it_works": "Ben Tossell built a visual all-in-one dashboard and a personal canvas of widgets, and users build custom TV launchers. People want personal software shaped to them but not the code.",
+   "how_it_works": "User types 'add a widget that shows my top 3 priorities and a countdown to launch'. The AI generates the widget on a canvas that they can drag around. Data is stored locally and the layout is shareable as a template.",
+   "build": "React with a widget sandbox iframe, LLM generating widget HTML and localStorage. Hardest part is safe sandboxing and stable widget editing.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Describe a widget in a sentence and it appears on the canvas, working, in 5 seconds.",
+   "post_hook": "I stopped searching for the right dashboard app and just describe widgets.",
+   "risks": "Widget quality varies; competes with Notion and similar tools.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    24036,
+    16938,
+    17867
+   ],
+   "id": "MA10",
+   "lens": "makers",
+   "score": 12.0,
+   "evidence": [
+    {
+     "fid": 24036,
+     "source": "Ben's Bites",
+     "date": "2026-10-20",
+     "url": "https://www.bensbites.com/p/how-i-built-my-everything-app",
+     "summary": "Ben Tossell built a visual all-in-one dashboard combining todos, email, CRM, domains, and agent work logs so he and his agents can coordinate in one place.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 16938,
+     "source": "Ben's Bites",
+     "date": "2026-07-30",
+     "url": "https://www.bensbites.com/p/1-billion-chatgpt-users",
+     "summary": "Ben built a personal canvas of widgets pulling X bookmarks, emails, and todos, and had Codex generate a replacement for Loom after Loom's acquisition degraded it.",
+     "who": "Ben Tossell"
+    },
+    {
+     "fid": 17867,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-23",
+     "url": "https://latent.space/p/ainews-black-october/",
+     "summary": "Users built custom TV launchers with Claude that personalize home screens and integrate with Home Assistant and Plex.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Pocket Arena",
+   "one_liner": "Two phones in the same room battle in a mini browser game with no accounts, joined by a code or a sound.",
+   "for_whom": "Friends, families and classrooms who want instant local multiplayer",
+   "spark": "maker",
+   "why_it_works": "Makers built browser RTS games with device-to-device multiplayer over an audio link and use WebSocket relays for multiplayer. Nobody has packaged zero-setup party games for non-developers.",
+   "how_it_works": "Host picks a game template such as tug of war, reaction duel or word race. Friends join by scanning a QR code. The AI customises the theme, such as 'office edition', and the game starts.",
+   "build": "Static site plus a small WebSocket relay on Cloudflare Workers; LLM only for themes and content. Hardest part is real-time sync, so keep the games turn-based or tap-based.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Scan a QR code on a second phone and both screens instantly turn into a head-to-head duel.",
+   "post_hook": "I vibe-coded a multiplayer party game in an afternoon. Here is how the relay works.",
+   "risks": "Real-time networking bugs; scope creep into too many games.",
+   "fun": 5,
+   "useful": 2,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    28742,
+    23657,
+    23659
+   ],
+   "id": "MA03",
+   "lens": "makers",
+   "score": 12.0,
+   "evidence": [
+    {
+     "fid": 28742,
+     "source": "Bluesky",
+     "date": "2026-10-20",
+     "url": "https://bsky.app/profile/simonwillison.net/post/3mydffvspjs2x",
+     "summary": "Built a browser-based RTS game with Claude Opus 5.5 supporting device-to-device multiplayer over an audio link.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 23657,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-28",
+     "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+     "summary": "Developers use a vibe-coded WebSockets relay server to enable multiplayer in browser games.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 23659,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-28",
+     "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+     "summary": "Static hosting on GitHub Pages or Cloudflare Pages suits browser-based HTML/JavaScript vibe-coded games.",
+     "who": "Simon Willison"
+    }
+   ]
+  },
+  {
+   "name": "Weekend Dataset Maker",
+   "one_liner": "Describe a niche collection you wish existed, and the app builds a browsable, shareable dataset page from public sources.",
+   "for_whom": "Journalists, analysts, hobbyists and consultants who want a custom list or map",
+   "spark": "maker",
+   "why_it_works": "Makers built a film-discovery dataset, a map of lighthouses, and a dataset of open LLM mentions across 500K papers in a weekend. Non-coders want these artefacts but not the scripting.",
+   "how_it_works": "User types a topic like 'every lighthouse you can visit in Maine'. The app searches the web, extracts structured rows, and shows an editable table plus a map or card view. User exports CSV or shares a public page.",
+   "build": "Web app using LLM with web search tool, a table UI and Leaflet maps. Hardest part is accuracy and source citations, so show a source link per row and flag low-confidence entries.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Type one sentence and watch rows fill in live with pins appearing on a map.",
+   "post_hook": "I built a dataset that did not exist, in 5 minutes, from one sentence.",
+   "risks": "Hallucinated rows and scraping limits; needs clear sourcing.",
+   "fun": 4,
+   "useful": 4,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    27453,
+    29999,
+    29942
+   ],
+   "id": "MA07",
+   "lens": "makers",
+   "score": 12.0,
+   "evidence": [
+    {
+     "fid": 27453,
+     "source": "Bluesky",
+     "date": "2026-09-19",
+     "url": "https://bsky.app/profile/mikecaulfield.bsky.social/post/3mvve5ezh522v",
+     "summary": "A user built a film-discovery dataset from a convenience set on plot.fyi, using AI to assemble a corpus that doesn't exist in full.",
+     "who": "Mike Caulfield"
+    },
+    {
+     "fid": 29999,
+     "source": "Bluesky",
+     "date": "2026-03-09",
+     "url": "https://bsky.app/profile/emollick.bsky.social/post/3mgmeeq3tv22x",
+     "summary": "Mollick built a lighthouse map visualization by giving Claude Code plain-English instructions, showing non-coders can produce interactive tools this way.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 29942,
+     "source": "Bluesky",
+     "date": "2026-08-24",
+     "url": "https://bsky.app/profile/natolambert.bsky.social/post/3mttl2tpb4g2g",
+     "summary": "Building a dataset of which open LLMs are mentioned across ~500K arXiv ML papers was done as a weekend project in under 72 hours using Codex.",
+     "who": "Nathan Lambert"
+    }
+   ]
+  },
+  {
+   "name": "Cap Clock",
+   "one_liner": "A tiny dashboard where you log how fast you burn your AI chat limits and it predicts when you'll hit the wall.",
+   "for_whom": "Heavy chatbot users on $20 plans who get cut off mid-project",
+   "spark": "pain",
+   "why_it_works": "Users get limits hit after minutes and no vendor shows a clear meter, so people rely on trial and error.",
+   "how_it_works": "User taps 'I got capped' with the app, plan, and approximate time of day. Over time the app shows patterns ('You cap Gemini after ~25 messages') and suggests a fallback tool for the rest of the day. Anonymous aggregates show community-reported caps by plan.",
+   "build": "Mobile-friendly web app, Supabase for logs, simple charts. Hardest part: cold-start data; seed with the user's own logs and make it valuable solo.",
+   "effort": "1-2 weeks",
+   "demo_moment": "A countdown ring that says 'cap in ~42 minutes at your current pace' with a switch-to-backup suggestion.",
+   "post_hook": "Nobody tells you how fast you're burning your AI limit. So I made a clock.",
+   "risks": "Manual logging is a friction; crowdsourced data may be noisy.",
+   "fun": 3,
+   "useful": 3,
+   "ease": 4,
+   "shareable": 3,
+   "evidence_ids": [
+    26685,
+    22701,
+    22169
+   ],
+   "id": "NE04",
+   "lens": "needs",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 26685,
+     "source": "AINews (smol.ai)",
+     "date": "2026-05-04",
+     "url": "https://news.smol.ai/issues/26-05-20-not-much/",
+     "summary": "Users report Gemini Pro usage limits hitting 100% after about 8 minutes of chatting, despite a paid subscription.",
+     "who": ""
+    },
+    {
+     "fid": 22701,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-31",
+     "url": "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/",
+     "summary": "Anthropic's subscription tier renaming and wording of weekly limits created confusion about whether effective Max usage quotas were reduced.",
+     "who": ""
+    },
+    {
+     "fid": 22169,
+     "source": "One Useful Thing",
+     "date": "2026-07-23",
+     "url": "https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22",
+     "summary": "Agent usage limits on the $20 subscription tiers are consumed quickly, and heavier plans mainly buy more agent hours.",
+     "who": "Ethan Mollick"
+    }
+   ]
+  },
+  {
+   "name": "Handoff Slides",
+   "one_liner": "Paste a list of URLs or notes and get a clean full-screen deck that you control from your phone.",
+   "for_whom": "Speakers, teachers and anyone giving quick talks who hates slide tooling",
+   "spark": "maker",
+   "why_it_works": "Simon built a custom presentation app that turns a list of URLs into slides remote-controlled from his phone, and Nathan Lambert built a markdown-native slides tool. A web version for non-developers is missing.",
+   "how_it_works": "User pastes links or markdown. The app builds slides with screenshots and AI-written talking points. A QR code opens a phone remote with notes and next/prev buttons.",
+   "build": "Web app with markdown to slides, screenshot API, and a WebSocket remote. Hardest part is reliable URL screenshots and cross-device sync.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Scan the QR code, swipe on your phone, and the laptop deck changes with your notes visible on the phone.",
+   "post_hook": "I stopped making slides. I paste links and present from my phone.",
+   "risks": "Competes with existing deck tools; screenshot rights and quality.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 3,
+   "evidence_ids": [
+    28754,
+    29281,
+    28364
+   ],
+   "id": "MA08",
+   "lens": "makers",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 28754,
+     "source": "Bluesky",
+     "date": "2026-02-25",
+     "url": "https://bsky.app/profile/simonwillison.net/post/3mfp5dhg24c2r",
+     "summary": "Built a custom macOS SwiftUI presentation app, remote-controlled from a phone, to turn a list of URLs into full-screen slides.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 29281,
+     "source": "Bluesky",
+     "date": "2026-10-19",
+     "url": "https://bsky.app/profile/natolambert.bsky.social/post/3mya62iykzy2l",
+     "summary": "Built a markdown-native slides tool for academics that works with agents, after investing hundreds of hours learning to make slides with agents.",
+     "who": "Nathan Lambert"
+    },
+    {
+     "fid": 28364,
+     "source": "Bluesky",
+     "date": "2026-03-20",
+     "url": "https://bsky.app/profile/natolambert.bsky.social/post/3mhipiintlc2v",
+     "summary": "Nathan Lambert built an agent-native slides tool for academics that builds to HTML/PDF with code, math, bibliography, and charts, and is seeking early testers.",
+     "who": "Nathan Lambert"
+    }
+   ]
+  },
+  {
+   "name": "Offline Pocket Oracle",
+   "one_liner": "A fully in-browser decision helper that weighs your options using a small local model, with nothing leaving your device.",
+   "for_whom": "Privacy-minded professionals and anyone facing small daily decisions",
+   "spark": "new_capability",
+   "why_it_works": "There is demand for fast, cheap in-browser decision models, and local models in the browser are now practical.",
+   "how_it_works": "User types a choice such as two job offers or dinner options and sets what matters. A WebGPU local model scores each option and shows probability bars with a short reasoning line. A 'privacy: nothing sent' badge stays visible.",
+   "build": "WebLLM or Transformers.js in a static page with a small model. Hardest part is model download size, load time and getting stable numeric scoring.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Turn on airplane mode and it still ranks your options.",
+   "post_hook": "An AI decision helper that works in airplane mode.",
+   "risks": "Small model quality and WebGPU support vary; frame it as a thinking aid.",
+   "fun": 3,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 4,
+   "evidence_ids": [
+    25289,
+    24045,
+    15303
+   ],
+   "id": "PO14",
+   "lens": "powers",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 25289,
+     "source": "AINews (smol.ai)",
+     "date": "2026-11-07",
+     "url": "https://latent.space/p/ainews-anthropic-ipo-whither-now/",
+     "summary": "Users want fast, cheap in-browser decision or option-probability models for quick judgments without generating text.",
+     "who": ""
+    },
+    {
+     "fid": 24045,
+     "source": "Ben's Bites",
+     "date": "2026-10-20",
+     "url": "https://www.bensbites.com/p/how-i-built-my-everything-app",
+     "summary": "Mirai lets users run local models directly in the browser.",
+     "who": ""
+    },
+    {
+     "fid": 15303,
+     "source": "AINews (smol.ai)",
+     "date": "2026-10-28",
+     "url": "https://latent.space/p/ainews-anthropic-ends-coding-interviews-hunger-beats-tenure/",
+     "summary": "Running a 1.7B on-device model with 256K context fits in about 1GB at 4-bit, enabling local agents on small hardware.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "Open vs Closed Race Track",
+   "one_liner": "A little racing game where a closed-model car leads by months and an open-weight car keeps catching up; tweak the 'gap' and watch the race.",
+   "for_whom": "Curious non-technical readers who've heard 'open models are six months behind' but don't get why it matters.",
+   "spark": "culture",
+   "why_it_works": "The open-closed gap is a recurring, quantified debate (4-6 months, widening vs converging). A race metaphor makes the stakes tangible.",
+   "how_it_works": "User picks 'gap dynamics' (converging, constant, widening) and a price lever. The race animates over several 'model release' laps and a caption explains who wins which task categories. Result card summarizes what that world looks like for users.",
+   "build": "HTML canvas or simple CSS animation with JS timers. Hardest part: making the metaphor accurate and not just cute.",
+   "effort": "1-2 weeks",
+   "demo_moment": "The open car draws level at the final lap just as the closed car launches a boost.",
+   "post_hook": "Is open-source AI catching up or falling behind? I made a race where you set the rules and watch.",
+   "risks": "Metaphor may oversimplify; keep captions grounded in the debate.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 3,
+   "shareable": 3,
+   "evidence_ids": [
+    8533,
+    28006,
+    6687,
+    5148
+   ],
+   "id": "CU12",
+   "lens": "culture",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 8533,
+     "source": "Interconnects",
+     "date": "2026-09-11",
+     "url": "https://www.interconnects.ai/p/open-source-ai-reading-list",
+     "summary": "Open-closed model gap debate: whether open models will always lag closed frontier models or are converging, with data showing a 4-6 month gap.",
+     "who": "Nathan Lambert"
+    },
+    {
+     "fid": 28006,
+     "source": "Bluesky",
+     "date": "2026-04-20",
+     "url": "https://bsky.app/profile/natolambert.bsky.social/post/3mjxa2tmyac2q",
+     "summary": "Open-weight models trail closed frontier models by roughly six months, and the gap may persist unless training dynamics change or open builders run out of money.",
+     "who": "Nathan Lambert"
+    },
+    {
+     "fid": 6687,
+     "source": "Latent Space",
+     "date": "2026-01-23",
+     "url": "https://latent.space/p/captaining-imo-gold-deep-think-on/",
+     "summary": "Whether the gap between frontier closed labs and open source models is widening because ideas compound over time.",
+     "who": "Yi Tay"
+    },
+    {
+     "fid": 5148,
+     "source": "Don't Worry About the Vase",
+     "date": "2026-07-03",
+     "url": "https://thezvi.substack.com/p/fable-6-the-return-of-the-king",
+     "summary": "Whether GLM-5.2 is near frontier parity with Mythos (rebutted as nonsense) versus being a strong but clearly behind open model.",
+     "who": "Zvi Mowshowitz"
+    }
+   ]
+  },
+  {
+   "name": "Token Price Time Machine",
+   "one_liner": "Type a task and see what it would have cost with frontier AI over the past year as prices dropped, rose, or got quietly changed.",
+   "for_whom": "Curious professionals and AI-budget owners who can't tell whether AI is getting cheaper or pricier.",
+   "spark": "pain",
+   "why_it_works": "Price cuts, hikes, and plan changes are contested and confusing: cheaper models, 80% cuts, rising frontier prices. A simple timeline makes the confusion legible.",
+   "how_it_works": "User picks a typical task ('summarize 50-page PDF', 'draft 100 emails') and sees a timeline of what it costs on a budget vs frontier model with annotated events. A toggle shows the 'if subsidies end' scenario.",
+   "build": "React with a hand-curated JSON of model prices and events plus Chart.js. Hardest part: keeping price data accurate and sourced; label as approximate.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Selecting a task and watching two lines diverge as an annotated 80% price cut drops one of them.",
+   "post_hook": "The same AI task cost $4 last year and 12 cents now. Or did it? Here's the time machine.",
+   "risks": "Data maintenance burden and accuracy; scope to a few models.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 3,
+   "evidence_ids": [
+    18163,
+    18747,
+    16228,
+    9282
+   ],
+   "id": "CU09",
+   "lens": "culture",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 18163,
+     "source": "Tomasz Tunguz",
+     "date": "2026-08-04",
+     "url": "https://tomtunguz.com/what-if-gpu-prices-double/",
+     "summary": "Whether OpenAI's 80% price cut on GPT-5.6 Luna reflects a market-capture push or a fundamental cost breakthrough is unresolved.",
+     "who": "Tomasz Tunguz"
+    },
+    {
+     "fid": 18747,
+     "source": "Tomasz Tunguz",
+     "date": "2026-06-07",
+     "url": "https://tomtunguz.com/inflation-deflation-ai/",
+     "summary": "Frontier closed model prices keep rising for the smartest models, pushing AI buyers' unit economics higher.",
+     "who": "Tomasz Tunguz"
+    },
+    {
+     "fid": 16228,
+     "source": "AINews (smol.ai)",
+     "date": "2026-09-23",
+     "url": "https://latent.space/p/ainews-claude-opus-55-the-new-default/",
+     "summary": "Opus 5.5's 40% cheaper claim is contested: some say cost and speed gains are negated by usage and by cheaper rival models, while others see it as a real win on price.",
+     "who": "@teortaxesTex"
+    },
+    {
+     "fid": 9282,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-02-16",
+     "url": "https://news.ycombinator.com/item?id=47034849",
+     "summary": "Many AI application startups depend on subsidized inference, making their business models fragile if API pricing normalizes.",
+     "who": "aadarshkumaredu"
+    }
+   ]
+  },
+  {
+   "name": "Vibe Game Jam Arena",
+   "one_liner": "A showcase site where people submit AI-built mini-games and everyone plays and votes in 60-second rounds.",
+   "for_whom": "Vibe coders, game fans and casual players",
+   "spark": "request",
+   "why_it_works": "Simon Willison noted that vibe-coded games are now fun but that traditional game jams don't fit, and wants new ways to compare them.",
+   "how_it_works": "Creators paste a link or HTML file and a prompt-used note. Players get a random game for 60 seconds, then rate it on fun and originality. A leaderboard and badges show the top builds each week.",
+   "build": "Next.js with Supabase for submissions and votes, sandboxed iframes. Hardest part is moderating and sandboxing arbitrary user HTML safely.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Swipe through a feed of tiny games, each playable instantly.",
+   "post_hook": "A game jam where every entry took under an hour to build.",
+   "risks": "Moderation burden and cold start; seed it with your own games.",
+   "fun": 4,
+   "useful": 3,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    23661,
+    14839,
+    13569
+   ],
+   "id": "PO10",
+   "lens": "powers",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 23661,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-28",
+     "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+     "summary": "New avenues or competitions for vibe game developers to compare and showcase their projects, since traditional game jams may not suit them.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 14839,
+     "source": "Ben's Bites",
+     "date": "2026-10-29",
+     "url": "https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it",
+     "summary": "Simon Willison argues vibe-coded games have reached an inflection point where they are actually fun to play.",
+     "who": "Simon Willison"
+    },
+    {
+     "fid": 13569,
+     "source": "Simon Willison's Weblog",
+     "date": "2026-10-20",
+     "url": "https://simonwillison.net/2026/Oct/20/battledrones/",
+     "summary": "Interest in a no-AI filter on Steam, reflecting demand for distinguishing vibe-coded games from legitimate indie projects.",
+     "who": ""
+    }
+   ]
+  },
+  {
+   "name": "What Was I Doing Yesterday",
+   "one_liner": "A browser extension that quietly logs tabs and summarises your day into a recap you can ask questions of.",
+   "for_whom": "Busy knowledge workers who lose context between days",
+   "spark": "pain",
+   "why_it_works": "A developer built a daemon that logs activity and answers 'what was I doing yesterday'. Non-developers have the same pain with tabs and docs, and local-first logging is attractive.",
+   "how_it_works": "Install the extension, which stores page titles and time spent locally. At end of day it creates a three-bullet recap and an open-loops list. User asks 'where was that pricing page?' and gets the link.",
+   "build": "Chrome extension with IndexedDB and an LLM call on titles only, user-supplied key. Hardest part is privacy defaults, so exclude domains and keep everything local.",
+   "effort": "1-2 weeks",
+   "demo_moment": "Ask 'what was that article about pricing I read Tuesday?' and the link pops up instantly.",
+   "post_hook": "My browser now remembers my week better than I do.",
+   "risks": "Privacy sensitivity and extension store review; browser history already exists.",
+   "fun": 3,
+   "useful": 4,
+   "ease": 3,
+   "shareable": 3,
+   "evidence_ids": [
+    6375,
+    6383
+   ],
+   "id": "MA09",
+   "lens": "makers",
+   "score": 11.5,
+   "evidence": [
+    {
+     "fid": 6375,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-06-08",
+     "url": "https://news.ycombinator.com/item?id=48449187",
+     "summary": "A developer built a daemon that logs shell, editor, and Claude activity, summarizes it with Haiku, stores it in SQLite, and exposes it via MCP to answer 'what was I doing yesterday'.",
+     "who": "andrewstuart2"
+    },
+    {
+     "fid": 6383,
+     "source": "Hacker News — Ask HN",
+     "date": "2026-06-08",
+     "url": "https://news.ycombinator.com/item?id=48449187",
+     "summary": "An HN user built a personal MCP service that lets any AI chat save structured data, auto-generating schemas and Kanban, timeline, and calendar views.",
+     "who": "michaelbuckbee"
+    }
+   ]
+  },
+  {
+   "name": "Text Adventure Skin",
+   "one_liner": "Load a classic text adventure and play it with a friendly GUI that has maps, inventory and optional hints.",
+   "for_whom": "Nostalgic gamers and newcomers who find parsers intimidating",
+   "spark": "maker",
+   "why_it_works": "Users built a Codex interface for the open-sourced A Mind Forever Voyaging, in original or easier form. Interactive fiction has many open classics, and a generic skin would widen the audience.",
+   "how_it_works": "User picks an open-source interactive fiction title from a shelf. The app runs it in a web interpreter and adds clickable verbs, an auto-map and hint levels. An optional AI narrator rewrites the prose in a chosen style.",
+   "build": "Web app embedding a Z-machine interpreter such as Parchment with an overlay UI. Hardest part is parsing the game state for maps and inventory.",
+   "effort": "3-4 weeks",
+   "demo_moment": "Click a verb instead of typing and a map draws itself as you walk through rooms.",
+   "post_hook": "I made a 1980s text adventure playable for people who never touched a parser.",
+   "risks": "Licensing of games; only open-source titles.",
+   "fun": 4,
+   "useful": 2,
+   "ease": 2,
+   "shareable": 4,
+   "evidence_ids": [
+    20340,
+    14839
+   ],
+   "id": "MA13",
+   "lens": "makers",
+   "score": 11.0,
+   "evidence": [
+    {
+     "fid": 20340,
+     "source": "Understanding AI",
+     "date": "2026-10-19",
+     "url": "https://www.understandingai.org/p/ai-is-ushering-in-an-age-personal",
+     "summary": "Users built an interface using Codex to play the open-sourced text adventure A Mind Forever Voyaging in original or easier GUI form.",
+     "who": "Ethan Mollick"
+    },
+    {
+     "fid": 14839,
+     "source": "Ben's Bites",
+     "date": "2026-10-29",
+     "url": "https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it",
+     "summary": "Simon Willison argues vibe-coded games have reached an inflection point where they are actually fun to play.",
+     "who": "Simon Willison"
+    }
+   ]
+  }
+ ]
+}
