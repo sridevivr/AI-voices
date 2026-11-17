@@ -77,7 +77,7 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    `site` (free) -> `data/out/insights/site/index.html` (src/site.py): all reports as one page, Artifact-ready.
    Published (private) at https://claude.ai/artifact/LcSyqw1ZZwQFEwWcT7uuuq ; republish the same file to update.
 11. Credits: the first promo credits expired Nov 16; owner has a new $100 promo grant (2026-11-16). The $40
-   BUDGET_TOTAL in extract.py is the owner's cap, not the balance; ask before raising it. Spend so far ≈ $11.23.
+   BUDGET_TOTAL in extract.py is the owner's cap, not the balance; ask before raising it. Spend so far ≈ $24 (see spend.json).
 12. Bluesky + fresh synthesis (2026-11-16 plan): `fetch bluesky` -> `extract estimate` (now prices only pending
    items) -> `submit`/`collect`/`export` -> `synthesize reset --yes` (archives old state; empty cache) ->
    `estimate`/`submit`/`collect`/`finish` -> `vibe --yes` -> `insights build`/`write --yes`/`ideas --yes`/`site`.
@@ -87,6 +87,10 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    (needs, hacks, new powers, culture, makers) + 1 curate pass -> `data/out/insights/app_ideas.json` + `.md`;
    ideas need not be requested; general public, easy to prototype, useful and/or fun, demo-able. Site shows them
    as the first tab (filters: start here, fun, useful, weekend builds).
+14. 2026-11-17 DONE: Bluesky 865 weekly items -> 3,216 findings ($0.16); fresh synthesis 72 chunks (2 thin, redone),
+   1,231 themes, 24,578/30,139 findings themed, 17 opportunities; reports rewritten; 63 app ideas (11 start-here).
+   One wording fix applied by hand in replies.json (state_of_ai: "five of the six biggest sources", not "all five").
+   Site republished (v2). Theme-level trends are now usable (chunks span the year).
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
