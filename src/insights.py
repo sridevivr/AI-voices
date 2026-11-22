@@ -658,8 +658,6 @@ def render_report_v2(p: dict, name: str, reply: dict, rows_by_fid: dict, allowed
         for c in s["cards"]:
             who = f" ({', '.join(c['people'])})" if c["people"] else ""
             md.append(f"- **{c['label']}**{who}: {c['text']} {cite(c['evidence_ids'])}".rstrip())
-        if s["post_angle"]:
-            md += ["", f"> **Post angle:** {s['post_angle']}"]
         md.append("")
     if reply.get("voice_positions"):
         md += ["## Where they stand", "", "| Person | Skeptic (-2) to enthusiast (+2) | Builder (-2) to commentator (+2) | In one line |",
@@ -733,6 +731,23 @@ def render(names: list[str] | None = None):
     for n in names or [n for n in REPORTS if n in replies]:
         (INS_DIR / REPORTS[n]["file"]).write_text(render_report(p, n, replies[n], rows_by_fid))
         print(f"wrote {INS_DIR / REPORTS[n]['file']}")
+    post_ideas(replies)
+
+
+def post_ideas(replies: dict):
+    """Every post angle from the reports, in one file (they are not shown on the web page)."""
+    md = ["# Post ideas", "", "One-line takes for LinkedIn or X, one per report section that has one. Written by Sonnet "
+          "alongside the reports (`python -m src.insights write`); check the section's sources before posting.", ""]
+    for n, spec in REPORTS.items():
+        r = replies.get(n)
+        if not r or not is_v2(r):
+            continue
+        items = [(s["heading"], s["takeaway"], s["post_angle"]) for s in r["sections"] if s.get("post_angle")]
+        if items:
+            md += [f"## {r['title']}", ""]
+            md += [f"- **{h}** ({t})\n  > {a}" for h, t, a in items] + [""]
+    (INS_DIR / "post_ideas.md").write_text("\n".join(md) + "\n")
+    print(f"wrote {INS_DIR / 'post_ideas.md'}")
 
 
 def site():

@@ -988,8 +988,7 @@ def intro(p) -> str:
         "Jul to Oct 2026 as in Dec 2025 to Mar 2026 (a small cushion stops topics that start near zero from showing absurd "
         "jumps). <b>Rising</b> or <b>falling</b> means most of the six biggest sources agree, not just one.</li>"
         "<li><b>Two kinds of reader.</b> Sections marked <span class='aud'>For builders</span> are for people who build "
-        "with AI coding tools; they start folded. <b>Post idea</b> toggles hold a one-line take you could post on "
-        "LinkedIn or X.</li></ul>"
+        "with AI coding tools; they start folded.</li></ul>"
         "<p class='start'>New to this? Start with <a href='#debates'>Debates</a>, then <i>What this means for you</i> below, "
         "then the first sections of <a href='#tools'>Tools</a>.</p></section>")
 
@@ -1032,8 +1031,7 @@ def section_v2(s, ctx, quotes, fold=False, auto=True) -> str:
             f"{ctx.src(c['evidence_ids'])}</div></div>" for c in cards) + "</div>"
     else:
         body = f"<div class='cards'>{''.join(card_v2(c, ctx) for c in cards)}</div>"
-    post = (f"<details class='postidea'><summary title='A one-line take you could post on LinkedIn or X'>Post idea</summary><p>{inline(s['post_angle'])}</p></details>"
-            if s.get("post_angle") else "")
+    post = ""  # post angles live in post_ideas.md, not on the page (owner, 2026-11-22)
     q = quotes.pick([i for c in cards for i in c["evidence_ids"]], ctx)
     return foldable(sec_head(s, builder), f"{body}{q}{post}", open_=not (fold or (builder and auto)))
 
@@ -1195,8 +1193,6 @@ def debates_v2(reply, ctx) -> str:
                 f"<div><span class='kicker'>{inline(c['label'])}</span>{chips(c['people'])}<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>"
                 for c in rest) + "</div>"
         html_ += q.pick([i for c in cards for i in c["evidence_ids"]], ctx)
-        if s.get("post_angle"):
-            html_ += f"<details class='postidea'><summary title='A one-line take you could post on LinkedIn or X'>Post idea</summary><p>{inline(s['post_angle'])}</p></details>"
         out.append(html_ + "</div></details>")
     return "".join(out)
 

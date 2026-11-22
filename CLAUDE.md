@@ -134,3 +134,6 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    WRITER now targets both audiences (REPORT_READER) with rules 6-8: plain-language numbers (no "per 1k"/"x1.72" in text),
    explain names from the input, forum users by role. Needs `write --yes` on the Mac (~$0.54 for the 4 reports on the page;
    `--only state_of_ai` ~$0.16 as a preview).
+19. 2026-11-22: post angles OFF the page and out of the report .md files; `render` (and so `write`) writes them all to
+   `data/out/insights/post_ideas.md`. Pre-rewrite set kept in `post_ideas_2026-11-22.md`. Next: owner runs
+   `write --only state_of_ai,debates,trends,tools_guide --yes` (dry run says ~$0.61; last real run of these 4 was $0.54).

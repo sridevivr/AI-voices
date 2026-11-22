@@ -23,8 +23,6 @@
 - **Joy of the puzzle lost** (Jeremy Scheff): Some programmers who loved solving logic puzzles feel a real loss as agents take over, while others see LLMs as a gift that removes drudgery. ([Simon Willison's Weblog, 2026-10-19](https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/))
 - **Why it matters**: For anyone building with AI, the live question is how much architecture and code review a human must still supply, not whether the tools run. ([AINews (smol.ai), 2026-02-13](https://news.smol.ai/issues/26-02-13-minimax25/)) ([Don't Worry About the Vase, 2026-03-25](https://thezvi.substack.com/p/claude-code-cowork-and-codex-6-claude))
 
-> **Post angle:** Vibe coding isn't about whether AI can write the code. It's about who still owns the architecture, and that part is still you.
-
 ## Is scaling enough for AGI?
 
 *Will bigger models reach general intelligence, or does AI need world models and new designs?*
@@ -35,8 +33,6 @@
 - **Needs world models** (Gary Marcus, hardmaru, Jason Ma): Critics say next-token prediction alone will not reach AGI and call for world models, self-modeling and neurosymbolic approaches, including robot models that predict the full future world. ([Marcus on AI, 2026-03-14](https://garymarcus.substack.com/p/breaking-expensive-new-evidence-that)) ([Bluesky, 2026-09-12](https://bsky.app/profile/hardmaru.bsky.social/post/3mvdg3pillk22)) ([Latent Space, 2026-10-13](https://latent.space/p/dyna/))
 - **Smaller models may win usage** (Tomasz Tunguz): A separate question is whether frontier scaling still pays back, or whether cheaper specialized and smaller models win most usage. ([Tomasz Tunguz, 2026-11-02](https://tomtunguz.com/the-four-questions-of-ai/))
 - **Why it matters**: The answer steers research funding and business bets, including whether to rely on a few frontier labs or on cheaper specialized models. ([Tomasz Tunguz, 2026-11-02](https://tomtunguz.com/the-four-questions-of-ai/)) ([The Algorithmic Bridge, 2026-05-18](https://www.thealgorithmicbridge.com/p/how-to-think-of-ai-as-a-normal-technology))
-
-> **Post angle:** Everyone asks which AI model is smartest. The better question for your business: do you need a frontier model, or a cheap specialized one?
 
 ## Is the AI boom a bubble?
 
@@ -49,8 +45,6 @@
 - **Prices and demand twist** (Arvind Narayanan, Zvi Mowshowitz): Falling token prices could squeeze margins or be offset by growing demand. Revenue could also rise if prices went up and free tiers disappeared. ([AI as Normal Technology, 2026-07-09](https://www.normaltech.ai/p/up-the-stack-how-ais-escape-from)) ([Don't Worry About the Vase, 2026-04-23](https://thezvi.substack.com/p/ai-165-in-our-image))
 - **Why it matters**: If a correction comes, effects could reach beyond tech, though some argue the impact would be temporary. Careers and investments tied to AI carry that risk. ([AINews (smol.ai), 2025-12-03](https://news.smol.ai/issues/25-12-03-not-much/)) ([Hacker News — Ask HN, 2026-11-04](https://news.ycombinator.com/item?id=50362700))
 
-> **Post angle:** Whether AI is a bubble matters less than whether your plans survive either answer. Stress-test your AI strategy against a price shock.
-
 ## Open weights: cyber shield or threat?
 
 *Do open-weight frontier models make cyberattacks easier, or do they help defenders more?*
@@ -61,8 +55,6 @@
 - **Open weights invite disaster** (Gary Marcus): Safety advocates warn of disaster, and attackers can strip guardrails from open models. Some experts favor tighter release controls and pre-release government review. ([Interconnects, 2026-10-30](https://www.interconnects.ai/p/was-i-wrong-about-open-models-and)) ([Marcus on AI, 2026-07-22](https://garymarcus.substack.com/p/openais-disconcerting-hack-of-huggingface)) ([AINews (smol.ai), 2026-07-27](https://news.smol.ai/issues/26-07-27-not-much/))
 - **Defense versus attacker imagination** (Alberto Romero): A deeper question is whether AI defense can beat AI attack, given the attacker's asymmetric imagination advantage. ([The Algorithmic Bridge, 2026-09-02](https://www.thealgorithmicbridge.com/p/the-ai-industry-has-a-really-dark-70d))
 - **Why it matters**: Rules on open weights and gated access could decide who gets powerful security-capable models, and the net effect is still unclear. ([Marcus on AI, 2026-07-22](https://garymarcus.substack.com/p/openais-disconcerting-hack-of-huggingface)) ([Hacker News — Ask HN, 2026-06-13](https://news.ycombinator.com/item?id=48519780))
-
-> **Post angle:** The open-versus-closed AI safety fight has no clear winner yet. Be wary of anyone who claims one side is obviously safer.
 
 ## Will open models catch up?
 
@@ -76,8 +68,6 @@
 - **Open source and geopolitics** (kimmonismus): Restricted frontier access may strengthen open ecosystems, though open models do not stop malicious use. ([AINews (smol.ai), 2026-06-26](https://news.smol.ai/issues/26-06-26-gpt-56-preview/))
 - **Why it matters**: If open models stay close, restrictions on frontier access matter less. If the gap grows, closed labs hold the real leverage. ([Import AI, 2026-07-20](https://importai.substack.com/p/import-ai-465-open-vs-closed-gaps)) ([AINews (smol.ai), 2026-06-26](https://news.smol.ai/issues/26-06-26-gpt-56-preview/))
 
-> **Post angle:** Pick an AI vendor like you'd pick a lease. Open models may be months behind, and months matter less than lock-in.
-
 ## Who should police AI, and how?
 
 *Is liability enough to keep AI safe, or does government need to oversee frontier releases?*
@@ -88,8 +78,6 @@
 - **New regulation also needed** (Gary Marcus): Others say liability alone is insufficient. Marcus wants new regulation, and even receivership after security incidents, rather than self-regulation. ([Marcus on AI, 2026-09-17](https://garymarcus.substack.com/p/liability-regulation-and-ais-new)) ([Marcus on AI, 2026-09-24](https://garymarcus.substack.com/p/i-think-the-answer-is-we-have-to))
 - **Government gating contested** (Casey Newton, Alberto Romero, Eliezer Yudkowsky): US review of frontier releases is seen by some as a safety step and by others as an opaque licensing regime or monopoly pretext. ([Bluesky, 2026-06-26](https://bsky.app/profile/caseynewton.bsky.social/post/3mp7hfne36s2h)) ([The Algorithmic Bridge, 2026-06-27](https://www.thealgorithmicbridge.com/p/the-ai-industry-as-you-know-it-died)) ([Don't Worry About the Vase, 2026-06-13](https://thezvi.substack.com/p/american-government-takes-down-claude))
 - **Why it matters** (Richard Socher, Clement Delangue): Whether rules target weights, APIs or applications decides which companies and products face them, including smaller builders. ([Latent Space, 2026-09-17](https://latent.space/p/recursive/)) ([AINews (smol.ai), 2026-08-05](https://news.smol.ai/issues/26-08-05-gdm-reset/))
-
-> **Post angle:** If your AI agent makes a costly mistake, who pays? Liability may shape business AI adoption faster than any new law.
 
 ## Should frontier AI slow down?
 
@@ -102,8 +90,6 @@
 - **Pacing as cover** (Gary Marcus): One view holds that labs' talk of pacing is cover for racing ahead while managing legal risk before an IPO. ([Marcus on AI, 2026-09-15](https://garymarcus.substack.com/p/translating-sam))
 - **Why it matters**: Pause talk shapes how much the pace of AI change is a choice versus a given, which affects planning for companies and workers. ([Latent Space, 2026-09-29](https://latent.space/p/thariq/)) ([Import AI, 2026-02-16](https://importai.substack.com/p/import-ai-445-timing-superintelligence))
 
-> **Post angle:** Labs say they support slowing down while racing ahead. Watch what they ship, not what they say about pacing.
-
 ## Can AI think or feel?
 
 *Are today's AI systems genuinely intelligent or conscious, or just advanced pattern-matchers?*
@@ -114,8 +100,6 @@
 - **Statistics without experience** (Gary Marcus, Emily M. Bender): Critics say LLMs lack experience, needs and emotions, and that correlations in outputs do not imply real states. Uncertainty alone does not justify taking consciousness claims seriously. ([Marcus on AI, 2026-10-31](https://garymarcus.substack.com/p/report-from-the-vatican)) ([Bluesky, 2026-06-03](https://bsky.app/profile/emilymbender.bsky.social/post/3mnfuqdlutr27)) ([Hacker News — Ask HN, 2026-11-06](https://news.ycombinator.com/item?id=50392695))
 - **Confusion and alien minds** (Zvi Mowshowitz, Janus): Zvi Mowshowitz admits he remains deeply confused. Researchers also disagree on whether to reason about models as alien minds or through humanlike analogies. ([Don't Worry About the Vase, 2025-12-31](https://thezvi.substack.com/p/2025-year-in-review)) ([Don't Worry About the Vase, 2025-12-04](https://thezvi.substack.com/p/ai-145-youve-got-soul))
 - **Why it matters**: How you think about models affects how you predict their behavior, and the moral-patient question may shape future policy. ([Don't Worry About the Vase, 2025-12-04](https://thezvi.substack.com/p/ai-145-youve-got-soul)) ([Don't Worry About the Vase, 2026-10-13](https://thezvi.substack.com/p/arguments-about-ai-consciousness-b99))
-
-> **Post angle:** Whether AI is conscious may stay unanswered. What you can control is how much you anthropomorphize the tools your team uses.
 
 ## Is AI doom talk genuine?
 
@@ -128,8 +112,6 @@
 - **Catastrophe short of extinction** (Gary Marcus, Alberto Romero): Marcus rates extinction near zero but catastrophic non-extinction risks as real. Romero says legitimate criticism gets muddied by some unfounded claims. ([Marcus on AI, 2026-09-10](https://garymarcus.substack.com/p/no-anderson-cooper-ai-is-not-going)) ([The Algorithmic Bridge, 2026-04-11](https://www.thealgorithmicbridge.com/p/ai-will-be-met-with-violence-and))
 - **Why it matters** (Nilay Patel): AI is unpopular with the general public even as ChatGPT usage grows, so trust and framing affect adoption. ([Simon Willison's Weblog, 2026-04-24](https://simonwillison.net/2026/Apr/24/the-people-do-not-yearn-for-automation/)) ([Bluesky, 2026-09-26](https://bsky.app/profile/anildash.com/post/3mwgo5xu7pk2l))
 
-> **Post angle:** The public doesn't want AI automation as much as tech insiders assume. Lead your AI pitch with the problem solved, not the technology.
-
 ## Will AI cause mass unemployment?
 
 *Will AI automation displace workers fast and at scale, or will change be slower and more complementary?*
@@ -140,6 +122,4 @@
 - **Slower, with bottlenecks** (Dean W. Ball, Gary Marcus): Others point to bottlenecks in relationship management and judgment, legal and regulatory barriers, and say most gains are a decade or more away. ([Don't Worry About the Vase, 2026-02-19](https://thezvi.substack.com/p/ai-156-part-1-they-do-mean-the-effect)) ([AINews (smol.ai), 2026-05-18](https://news.smol.ai/issues/26-05-18-not-much/)) ([Marcus on AI, 2026-04-01](https://garymarcus.substack.com/p/on-employment-dont-panic-yet))
 - **Jagged and complementary** (Ethan Mollick, Pascual Restrepo): AI may stay complementary across uneven task areas rather than fully replacing consultants or designers, while some economists expect human expertise to become scarce. ([One Useful Thing, 2025-12-20](https://www.oneusefulthing.org/p/the-shape-of-ai-jaggedness-bottlenecks)) ([The Algorithmic Bridge, 2026-11-02](https://www.thealgorithmicbridge.com/p/new-survey-math-students-are-giving))
 - **Why it matters** (Zvi Mowshowitz): Software engineers' productivity gains may be correlated with future unemployment rather than contradicting it, so career planning needs scenarios. ([Don't Worry About the Vase, 2026-04-30](https://thezvi.substack.com/p/ai-166-google-sells-out)) ([Hacker News — Ask HN, 2026-10-09](https://news.ycombinator.com/item?id=50020096))
-
-> **Post angle:** Nobody knows whether AI job loss arrives in four years or fourteen. Build skills that hold up in both timelines.
 
