@@ -144,3 +144,14 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    "Open models help defenders", Bluesky handle -> "Emily M. Bender", "Dean Ball" -> "Dean W. Ball", p(doom) explained,
    "Hacker News commenter group" -> "Some Hacker News commenters"; State "What this means for you" audience -> everyone.
    site.py: big stats get thousands separators (`commas`).
+21. 2026-11-22: five no-context persona reviews (Maya ops mgr 5/10, Raj engineer 5, Linda retired teacher 5, Amara firm
+   owner 4, Sofia journalism student 5). Owner chose: Raj's fixes, keep the number animation, jobs + bubble debates first,
+   source toggles that show what each source says. Done (free): `trends()` stores `early_n`/`late_n` and `period_totals`,
+   `source_share` has counts (rebuilt pack; nothing else changed); charts/tables show raw counts and `ratio_label`
+   ("new" from 0, "gone" to 0, "≈×10" when the early count < 30); "Where this comes from" panel in the intro (all 20
+   sources, counts, share early -> late, big six marked); source toggles list outlet · date, speaker, finding text
+   (`display_name` cleans Bluesky handles); pull quotes that describe their 'who' in the third person are captioned as
+   the outlet's words; builder sections fold everywhere, with a remembered "I build with AI" switch (localStorage);
+   debates reordered jobs, bubble, then by volume. Hand fixes: State "growing use of local models" -> "steady interest"
+   (Ollama/LM Studio fell), KP3 "share fell" -> "slipped (big sources disagree)" (coding agents is MIXED), builders stat
+   36% (arithmetic) -> 126 findings; Trends stats x10.03 -> "14 → 161", x33.63 -> "0 → 155".

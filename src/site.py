@@ -121,11 +121,17 @@ section.s > h3 { font: 650 23px/1.25 var(--display); margin: 0; text-wrap: balan
 .post .kicker { color: var(--accent); }
 /* sources toggle */
 details.src { font-size: 12px; }
-details.src summary { cursor: pointer; font: 12px/1.6 var(--mono); color: var(--muted); list-style: none; display: inline-block; }
+details.src summary { cursor: pointer; font: 13px/1.8 var(--mono); padding: 2px 0; color: var(--muted); list-style: none; display: inline-block; }
 details.src summary::-webkit-details-marker { display: none; }
 details.src summary::before { content: "▸ "; }
 details.src[open] summary::before { content: "▾ "; }
 .cites { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.srclist { list-style: none; margin: 8px 0 2px; padding: 0; display: grid; gap: 8px; font: 13.5px/1.45 var(--body); color: var(--muted); }
+.srclist li { border-left: 2px solid var(--line); padding-left: 10px; overflow-wrap: anywhere; }
+.srclist a { display: block; font-weight: 600; color: var(--accent); text-decoration: none; }
+.srclist a:hover { text-decoration: underline; }
+.srclist .by { color: var(--fg); font-weight: 500; }
+.srclist .by::after { content: ":"; }
 .cite { font: 11px/1.6 var(--mono); padding: 0 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
   text-decoration: none; white-space: nowrap; background: var(--surface); }
 .cite:hover { color: var(--accent); border-color: var(--accent); }
@@ -138,7 +144,8 @@ details.more[open] > summary { margin-bottom: 12px; }
 .chart .note { font-size: 13px; color: var(--muted); margin: 0; }
 .legend { display: flex; flex-wrap: wrap; gap: 12px; font: 12px/1.4 var(--mono); color: var(--muted); }
 .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
-.div-row { display: grid; grid-template-columns: minmax(110px, 190px) minmax(0, 1fr) 58px; gap: 10px; align-items: center; font-size: 14px; }
+.div-v small { display: block; font-size: 10.5px; opacity: .8; margin-top: 2px; }
+.div-row { display: grid; grid-template-columns: minmax(110px, 190px) minmax(0, 1fr) 86px; gap: 10px; align-items: center; font-size: 14px; }
 .div-track { position: relative; height: 16px; }
 .div-track::before { content: ""; position: absolute; left: 50%; top: -4px; bottom: -4px; width: 1px; background: var(--line); }
 .div-bar { position: absolute; top: 2px; height: 12px; border-radius: 3px; }
@@ -196,7 +203,7 @@ footer.f { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line
   .vs { grid-template-columns: minmax(0, 1fr); }
   .vs .v { justify-self: center; }
   .bar { grid-template-columns: minmax(90px, 130px) minmax(0, 1fr) 44px; }
-  .div-row { grid-template-columns: minmax(90px, 120px) minmax(0, 1fr) 48px; }
+  .div-row { grid-template-columns: minmax(90px, 120px) minmax(0, 1fr) 74px; }
   body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 }
 @media (prefers-reduced-motion: no-preference) { .view:not([hidden]) { animation: rise .25s ease-out; } }
@@ -282,6 +289,21 @@ FX_JS = """
     var open = btn.dataset.fold === "open", view = btn.closest(".view");
     view.querySelectorAll("details.fold").forEach(function (d) { d.open = open; });
   });
+  var bswitch = document.getElementById("builder-open");
+  function builders(open) {
+    document.querySelectorAll("details.fold").forEach(function (d) {
+      if (d.querySelector(":scope > summary .aud")) d.open = open;
+    });
+  }
+  if (bswitch) {
+    var saved = null;
+    try { saved = localStorage.getItem("aiv-builders"); } catch (e) {}
+    if (saved === "1") { bswitch.checked = true; builders(true); }
+    bswitch.addEventListener("change", function () {
+      builders(bswitch.checked);
+      try { localStorage.setItem("aiv-builders", bswitch.checked ? "1" : "0"); } catch (e) {}
+    });
+  }
   window.addEventListener("hashchange", grid);
   desk.addEventListener("change", grid);
   grid();
@@ -330,12 +352,14 @@ class Ctx:
             if i not in self.allowed or not r or r["url"] in seen:
                 continue
             seen.add(r["url"])
-            chips.append(f'<a class="cite" href="{esc(r["url"])}" target="_blank" rel="noopener" '
-                         f'title="{esc(r["summary"])}">{esc(r["source"])} · {esc(short_date(r["date"]))}</a>')
+            who = display_name(r.get("who"))
+            by = f"<span class='by'>{esc(who)}</span> " if who and who != r["source"] else ""
+            chips.append(f"<li><a href='{esc(r['url'])}' target='_blank' rel='noopener'>{esc(r['source'])} · "
+                         f"{esc(short_date(r['date']))}</a> {by}<span class='says'>{esc(r['summary'])}</span></li>")
         if not chips:
             return ""
         n = len(chips)
-        return f"<details class='src'><summary>{n} source{'s' if n > 1 else ''}</summary><div class='cites'>{''.join(chips)}</div></details>"
+        return f"<details class='src'><summary>{n} source{'s' if n > 1 else ''}</summary><ul class='srclist'>{''.join(chips)}</ul></details>"
 
 
 LABEL = re.compile(r"^\s*\*\*(.+?)\*\*\s*(.*)$", re.S)
@@ -411,6 +435,31 @@ def bars(items, unit="", k=12) -> str:
         f"<span class='v'>{v:,}{unit}</span></div>" for n, v in items) + "</div>"
 
 
+DISPLAY_NAMES = {"emilymbender.bsky.social": "Emily M. Bender"}
+
+
+def display_name(who: str) -> str:
+    """Readable names for raw handles (Bluesky handles, known accounts)."""
+    who = (who or "").strip()
+    return DISPLAY_NAMES.get(who, who[:-len(".bsky.social")] if who.endswith(".bsky.social") else who)
+
+
+def ratio_label(x) -> str:
+    """No false precision: 'new' from zero, a rough multiple when the early count is small."""
+    if x.get("early_n") == 0 or x["early_per_1k"] == 0:
+        return "new"
+    if x.get("late_n") == 0:
+        return "gone"
+    r = x["ratio"]
+    if x.get("early_n", 999) < 30:
+        return f"≈×{r:.0f}" if r >= 2 else f"≈×{r:.1f}"
+    return f"×{r:.2f}".rstrip("0").rstrip(".") if r < 10 else f"×{r:.0f}"
+
+
+def raw_counts(x) -> str:
+    return f"{x['early_n']:,} → {x['late_n']:,}" if "early_n" in x else ""
+
+
 def change_chart(p, k=14, title="What rose and what fell", note="") -> str:
     tr = p["trends"]
     moved = [x for x in tr["domains"] + tr["terms"] if x["verdict"] in ("rising", "falling") and x["findings"] >= 60]
@@ -420,8 +469,8 @@ def change_chart(p, k=14, title="What rose and what fell", note="") -> str:
     rows = "".join(
         f"<div class='div-row'><span>{esc(x['key'])}</span><div class='div-track'>"
         f"<div class='div-bar {x['verdict']}' style='width:{48 * abs(math.log2(x['ratio'])) / top:.1f}%'></div></div>"
-        f"<span class='div-v'>×{x['ratio']}</span></div>" for x in moved)
-    return (f"<div class='chart'><h4>{esc(title)}</h4><p class='note'>{esc(note or 'Share of findings, ' + p['overview']['trend_periods'] + '. Only changes that most of the six biggest sources show on their own.')}</p>"
+        f"<span class='div-v'>{ratio_label(x)}<small>{raw_counts(x)}</small></span></div>" for x in moved)
+    return (f"<div class='chart'><h4>{esc(title)}</h4><p class='note'>{esc(note or 'Share of findings, ' + p['overview']['trend_periods'] + '. Only changes that most of the six biggest sources show on their own. Small grey numbers are the raw finding counts in each period (the periods differ in size, which is why the change is measured as a share).')}</p>"
             "<div class='legend'><span><i style='background:var(--up)'></i>rising</span><span><i style='background:var(--down)'></i>falling</span></div>"
             f"{rows}</div>")
 
@@ -445,7 +494,7 @@ def multiples(p, k=16) -> str:
     pick = sorted(pick[:k], key=lambda x: (x["verdict"] != "rising", x["verdict"] != "falling", -x["ratio"]))
     cells = "".join(
         f"<div class='mini'><div class='top'><span>{esc(x['key'])}</span><span class='pill {x['verdict']}'>{x['verdict']}</span></div>"
-        f"{sparkline(x['monthly_per_1k'], x['verdict'])}<span class='ch'>{x['early_per_1k']} → {x['late_per_1k']} per 1k</span></div>"
+        f"{sparkline(x['monthly_per_1k'], x['verdict'])}<span class='ch'>{raw_counts(x)} findings · {ratio_label(x)}</span></div>"
         for x in pick)
     return ("<div class='chart'><h4>Topic by topic, month by month</h4><p class='note'>Mentions per 1,000 findings each "
             f"month. Green and red lines passed the trend test.</p><div class='multiples'>{cells}</div></div>")
@@ -475,10 +524,10 @@ def spike_timeline(p) -> str:
 
 def trend_table(items) -> str:
     rows = "".join(f"<tr><td>{esc(x['key'])}</td><td class='num'>{x['findings']:,}</td>"
-                   f"<td class='num'>{x['early_per_1k']} → {x['late_per_1k']}</td><td class='num'>×{x['ratio']}</td>"
+                   f"<td class='num'>{raw_counts(x)}</td><td class='num'>{x['early_per_1k']} → {x['late_per_1k']}</td><td class='num'>{ratio_label(x)}</td>"
                    f"<td class='num'>{x['big_sources_up']} / {x['big_sources_down']}</td>"
                    f"<td><span class='pill {x['verdict']}'>{x['verdict']}</span></td></tr>" for x in items)
-    return ("<div class='tablewrap'><table><thead><tr><th>Topic</th><th>Findings</th><th>Early → late per 1k</th><th>Change</th>"
+    return ("<div class='tablewrap'><table><thead><tr><th>Topic</th><th>Findings</th><th>Early → late (count)</th><th>Early → late per 1k</th><th>Change</th>"
             f"<th>Big sources ↑/↓</th><th>Verdict</th></tr></thead><tbody>{rows}</tbody></table></div>")
 
 
@@ -882,6 +931,12 @@ details.postidea > p { margin: 4px 0 0; border-left: 3px solid var(--accent); ba
 .mini .top span:first-child { min-width: 0; overflow-wrap: anywhere; }
 @media (max-width: 900px) { .nav a { padding: 8px 10px; font-size: 14.5px; } .nav .ic { display: none; } }
 
+.big6 { font: 600 10px/1 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+  background: var(--accent-soft); border-radius: 999px; padding: 3px 7px; margin-left: 6px; white-space: nowrap; }
+.srcpanel { box-shadow: none; }
+.bswitch { display: inline-flex; gap: 6px; align-items: center; margin-left: 6px; color: var(--fg); font-weight: 500; cursor: pointer; }
+.bswitch input { accent-color: var(--accent); width: 16px; height: 16px; }
+
 /* Foldable sections and debates */
 details.fold > summary { list-style: none; cursor: pointer; border-radius: 10px; }
 details.fold > summary::-webkit-details-marker { display: none; }
@@ -946,7 +1001,10 @@ class QuotePicker:
             return ""
         _, _, r = max(cands, key=lambda c: (c[0], c[1]))
         self.used.add(r["short_quote"].strip())
-        who = f"{esc(r['who'])}, " if r["who"] else ""
+        name = display_name(r["who"])
+        if name and name.lower() in r["short_quote"].lower():  # third-person description: the outlet's words
+            name = ""
+        who = f"{esc(name)}, " if name else ""
         return (f"<figure class='pq'><blockquote>“{esc(r['short_quote'].strip())}”</blockquote>"
                 f"<figcaption>{who}<a href='{esc(r['url'])}' target='_blank' rel='noopener'>{esc(r['source'])}, "
                 f"{esc(short_date(r['date']))}</a></figcaption></figure>")
@@ -971,6 +1029,25 @@ def nice_window(w: str) -> str:
     return " to ".join(d(x) for x in parts) if len(parts) == 2 else esc(w)
 
 
+def sources_panel(p) -> str:
+    """All sources with finding counts and share early -> late; the six that the trend test uses are marked."""
+    o, tr = p["overview"], p["trends"]
+    big = tr.get("big_sources", [])
+    share = tr.get("source_share", {})
+    rows = "".join(
+        f"<tr><td>{esc(src)}{' <span class=\'big6\'>big six</span>' if src in big else ''}</td><td class='num'>{n:,}</td>"
+        f"<td class='num'>{share.get(src, {}).get('early_pct', 0)}% → {share.get(src, {}).get('late_pct', 0)}%</td></tr>"
+        for src, n in sorted(o["sources"].items(), key=lambda kv: -kv[1]))
+    pt = tr.get("period_totals", {})
+    return ("<details class='more srcpanel'><summary>Where this comes from: all " + str(len(o["sources"])) + " sources</summary>"
+            f"<p class='note'>Findings per source, and each source's share of the early ({pt.get('early', 0):,} findings, "
+            f"Dec 2025 to Mar 2026) and late ({pt.get('late', 0):,}, Jul to Oct 2026) periods. The <b>big six</b> are the "
+            "sources the trend test checks: a topic only counts as rising or falling if at least four of them agree. "
+            "Hacker News means its Ask HN and Tell HN threads that mention AI; Bluesky means a curated list of AI accounts.</p>"
+            "<div class='tablewrap'><table><thead><tr><th>Source</th><th>Findings</th><th>Share early → late</th></tr></thead>"
+            f"<tbody>{rows}</tbody></table></div></details>")
+
+
 def intro(p) -> str:
     """What the page is, how it was made, how to read it. Facts come from the pack."""
     o = p["overview"]
@@ -986,11 +1063,13 @@ def intro(p) -> str:
         "They lean toward developers and AI insiders, so this shows what that crowd talked about, not what everyone thinks.</li>"
         "<li><b>Reading the numbers.</b> <b>x2.4</b> means a topic took up 2.4 times as big a share of the conversation in "
         "Jul to Oct 2026 as in Dec 2025 to Mar 2026 (a small cushion stops topics that start near zero from showing absurd "
-        "jumps). <b>Rising</b> or <b>falling</b> means most of the six biggest sources agree, not just one.</li>"
+        "jumps; very small counts show as a rough multiple or as new). <b>Rising</b> or <b>falling</b> means most of the six biggest "
+        "sources agree, not just one; they are listed below.</li>"
         "<li><b>Two kinds of reader.</b> Sections marked <span class='aud'>For builders</span> are for people who build "
-        "with AI coding tools; they start folded.</li></ul>"
+        "with AI coding tools; they start folded. <label class='bswitch'><input type='checkbox' id='builder-open'> I build with AI: "
+        "open them</label></li></ul>"
         "<p class='start'>New to this? Start with <a href='#debates'>Debates</a>, then <i>What this means for you</i> below, "
-        "then the first sections of <a href='#tools'>Tools</a>.</p></section>")
+        "then the first sections of <a href='#tools'>Tools</a>.</p>" + sources_panel(p) + "</section>")
 
 
 AUD = "<span class='aud'>For builders</span>"
@@ -1076,7 +1155,7 @@ def heatmap(p) -> str:
                         f"<i style='opacity:{0.06 + 0.94 * (v - lo) / span:.2f}'></i></span>" for m, v in zip(months, vals))
         rows += f"<span>{esc(d['key'])}</span>{cells}<span class='pill {d['verdict']}'>{d['verdict']}</span>"
     return (f"<div class='chart'><h4>{icon('chart')} Where attention went, month by month</h4><p class='note'>Each row is a "
-            "topic area; darker = a bigger share of that month's findings, from the row's own lowest month (pale) to its highest (dark). Sorted by overall change; the label says "
+            "topic area; a stronger colour = a bigger share of that month's findings, from the row's own lowest month (faint) to its highest (strong). Sorted by overall change; the label says "
             "whether most big sources agreed. These are broad topic groups, so a group can stay flat while one keyword "
             f"inside it (such as 'open weights') rises.</p><div class='heat'><div class='heat-grid' style='--cols:{len(months)}'>"
             f"{head}{rows}</div></div></div>")
@@ -1169,7 +1248,7 @@ def state_v2(reply, ctx) -> str:
     while i < len(secs):
         s, h = secs[i], secs[i]["heading"].lower()
         if "struggl" in h and i + 1 < len(secs) and "struggl" in secs[i + 1]["heading"].lower():
-            out.append(f"<div class='split'><div>{section_v2(s, ctx, q, auto=False)}</div><div>{section_v2(secs[i + 1], ctx, q, auto=False)}</div></div>")
+            out.append(f"<div class='split'><div>{section_v2(s, ctx, q)}</div><div>{section_v2(secs[i + 1], ctx, q)}</div></div>")
             i += 2
             continue
         out.append(section_v2(s, ctx, q, fold=bool(FOLD.search(h))))
@@ -1177,10 +1256,15 @@ def state_v2(reply, ctx) -> str:
     return "".join(out)
 
 
+JOBS = re.compile(r"unemploy|\bjobs?\b|workers", re.I)
+BUBBLE = re.compile(r"bubble", re.I)
+
+
 def debates_v2(reply, ctx) -> str:
     p, q = ctx.p, PAGE_QUOTES[0]
     out = [header_v2("Debates", reply, p), kp_v2(reply, ctx), debate_chart(p)]
-    for n, s in enumerate(reply["sections"], 1):
+    first = lambda s: (0 if JOBS.search(s["heading"] + " " + s["takeaway"]) else 1 if BUBBLE.search(s["heading"]) else 2)
+    for n, s in enumerate(sorted(reply["sections"], key=first), 1):  # stable: the rest keep the most-debated-first order
         cards = s["cards"]
         sides, rest = cards[:2], cards[2:]
         html_ = (f"<details class='debate2 fold'{' open' if n == 1 else ''}><summary><span class='kicker'>Debate {n}</span>"

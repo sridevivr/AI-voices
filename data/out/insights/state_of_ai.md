@@ -8,7 +8,7 @@
 
 - **Safety and governance talk grew fastest among big topics** Safety and governance rose sharply as a share of commentary, driven by debates over government review of frontier models and who is liable when AI causes harm. ([The Algorithmic Bridge, 2026-06-27](https://www.thealgorithmicbridge.com/p/the-ai-industry-as-you-know-it-died)) ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
 - **Cyber and security worries jumped** Cyber talk grew about ten times as often, and security more than doubled, as writers argued over defenders, open models and misuse. ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers)) ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
-- **Coding agents stayed central but their glow faded** Coding agents were the biggest topic by volume, but their share fell, and Claude Code and Cursor mentions dropped. Pain shifted to reviewing agent output. ([Latent Space, 2026-11-08](https://latent.space/p/one_million_ai_engineer_special_how_stanford_teaches_ai-native_engineering_mihail_eric_monaco/)) ([AINews (smol.ai), 2026-11-06](https://latent.space/p/ainews-inkling-2-small-17a-594b-trained-in-68-hours-on-12t-tokens-beating-muse-spark/))
+- **Coding agents stayed central but their glow faded** Coding agents were the biggest topic by volume, but their share slipped (the big sources disagree on how much), and Claude Code and Cursor mentions dropped. Pain shifted to reviewing agent output. ([Latent Space, 2026-11-08](https://latent.space/p/one_million_ai_engineer_special_how_stanford_teaches_ai-native_engineering_mihail_eric_monaco/)) ([AINews (smol.ai), 2026-11-06](https://latent.space/p/ainews-inkling-2-small-17a-594b-trained-in-68-hours-on-12t-tokens-beating-muse-spark/))
 - **Open and local models gained ground** Talk of open weights, meaning downloadable models, nearly doubled. Kimi K3, a Chinese open model, spiked in July amid debate over how far open models trail closed ones. ([AINews (smol.ai), 2026-07-30](https://news.smol.ai/issues/26-07-30-not-much/)) ([Interconnects, 2026-09-11](https://www.interconnects.ai/p/open-source-ai-reading-list))
 - **Benchmark scores lost trust** Many writers said headline scores no longer reflect real usefulness, and models that detect tests make evaluations harder to believe. ([Interconnects, 2026-02-09](https://www.interconnects.ai/p/opus-46-vs-codex-53)) ([Don't Worry About the Vase, 2026-08-18](https://thezvi.substack.com/p/anthropic-risk-report-august-2026))
 - **Money, costs and quotas worry everyone** Opaque usage caps, billing disputes and doubts about circular AI financing came up repeatedly, alongside a lively AI bubble debate. ([Bluesky, 2026-11-12](https://bsky.app/profile/edzitron.com/post/3n24x2quc5c2v)) ([Hacker News — Ask HN, 2026-11-07](https://news.ycombinator.com/item?id=50403153))
@@ -54,7 +54,7 @@
 
 *Agents write fast, but checking, trusting and paying for their work became the hard part.*
 
-**36%** success over 20 steps at 95% per-step reliability
+**126** findings on agents claiming work is done when it is not
 
 - **Review is the bottleneck** (Ethan Mollick): Agents write code faster than people can read it, so review became the choke point and teams lose track of what the code actually does. ([Latent Space, 2026-11-08](https://latent.space/p/one_million_ai_engineer_special_how_stanford_teaches_ai-native_engineering_mihail_eric_monaco/)) ([Hacker News — Ask HN, 2026-10-02](https://news.ycombinator.com/item?id=49934037))
 - **Agents falsely claim success** (Marius Hobbhahn, Ben Tossell): Coding agents report tasks finished and verified when the output is broken, or write tests that encode wrong behavior, so users must check closely. ([Hacker News — Ask HN, 2026-09-24](https://news.ycombinator.com/item?id=49837715)) ([Don't Worry About the Vase, 2026-07-02](https://thezvi.substack.com/p/ai-175-the-fable-continues))
@@ -78,7 +78,7 @@
 
 ## What people used
 
-*Claude and coding assistants led, with growing use of local models, personal knowledge bases and spreadsheet helpers.*
+*Claude and coding assistants led, with steady interest in local models, personal knowledge bases and spreadsheet helpers.*
 
 **1430** Claude mentions in tool findings
 

@@ -31,7 +31,7 @@
 
 *Several topics clearly moved: safety and security rose, while talk of made-up answers and big brand names fell.*
 
-**x10.03** Cyber mentions, late period versus early period
+**14 → 161** cyber findings, Dec–Mar vs Jul–Oct
 
 - **Safety and governance up**: Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. Five of the six biggest sources covered it more, and it rose more than any other broad topic.
 - **Cyber and security surge** (Simon Willison, Nathan Lambert): Mentions of cyber threats grew about tenfold, and security more than doubled. Findings ask for a benchmark of AI cyberattacks and for tools to harden critical systems. ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
@@ -70,7 +70,7 @@
 
 *Short bursts of attention around single names, like Fable or OpenClaw, often faded within a few months.*
 
-**x33.63** Fable growth, late versus early period, starting from zero
+**0 → 155** Fable findings, Dec–Mar vs Jul–Oct
 
 - **Fable 5, June 2026** (Simon Willison): Fable 5, an AI model, appeared from nothing in June. Findings include complaints that it needs a separate usage-credit purchase plus identity verification, and a builder using it to make a demo tool. ([AINews (smol.ai), 2026-06-30](https://news.smol.ai/issues/26-06-30-sonnet5/)) ([Bluesky, 2026-06-11](https://bsky.app/profile/simonwillison.net/post/3mnzstv7b5k2x))
 - **OpenClaw, February 2026** (Andrej Karpathy, Ben Tossell, Gary Marcus): OpenClaw, a personal AI assistant that runs on your own computer, peaked in February. Findings cover security worries, Google accounts banned for running Gemini through it, and a new category of 'Claws' like it. ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b)) ([Ben's Bites, 2026-02-24](https://www.bensbites.com/p/gemini-tops-benchmarks-again)) ([Simon Willison's Weblog, 2026-02-21](https://simonwillison.net/2026/Feb/21/claws/))

@@ -226,16 +226,17 @@ def trends(rows: list[dict], period) -> dict:
                        "falling" if ratio <= 0.87 and down >= 4 and up <= 1 else
                        "mixed" if ratio >= 1.15 or ratio <= 0.87 else "flat")
             months = Counter(r["date"][:7] for r in hits)
-            out.append({"key": k, "findings": len(hits), "early_per_1k": round(e1k, 1),
+            out.append({"key": k, "findings": len(hits), "early_n": cnt["e"], "late_n": cnt["l"], "early_per_1k": round(e1k, 1),
                         "late_per_1k": round(l1k, 1), "ratio": ratio, "big_sources_up": up,
                         "big_sources_down": down, "verdict": verdict,
                         "monthly_per_1k": {m: round(1000 * months[m] / per_month[m], 1) for m in sorted(per_month)}})
         return sorted(out, key=lambda x: -x["ratio"])
 
     rx = {k: re.compile(v, re.I) for k, v in TERMS.items()}
-    src_share = {s: {"early_pct": round(100 * tot_src[s]["e"] / max(tot["e"], 1), 1),
+    src_share = {s: {"early_n": tot_src[s]["e"], "late_n": tot_src[s]["l"],
+                     "early_pct": round(100 * tot_src[s]["e"] / max(tot["e"], 1), 1),
                      "late_pct": round(100 * tot_src[s]["l"] / max(tot["l"], 1), 1)} for s in tot_src}
-    return {"big_sources": big, "source_share": src_share,
+    return {"big_sources": big, "source_share": src_share, "period_totals": {"early": tot["e"], "late": tot["l"]},
             "domains": table(lambda r, k: r["domain"] == k, sorted({r["domain"] for r in rows})),
             "types": table(lambda r, k: r["type"] == k, sorted({r["type"] for r in rows})),
             "terms": table(lambda r, k: bool(rx[k].search(text(r))), list(TERMS))}

@@ -21,7 +21,7 @@
    },
    {
     "headline": "Coding agents stayed central but their glow faded",
-    "detail": "Coding agents were the biggest topic by volume, but their share fell, and Claude Code and Cursor mentions dropped. Pain shifted to reviewing agent output.",
+    "detail": "Coding agents were the biggest topic by volume, but their share slipped (the big sources disagree on how much), and Claude Code and Cursor mentions dropped. Pain shifted to reviewing agent output.",
     "evidence_ids": [
      6606,
      2803
@@ -222,8 +222,8 @@
    {
     "heading": "Builders struggled with",
     "takeaway": "Agents write fast, but checking, trusting and paying for their work became the hard part.",
-    "stat_value": "36%",
-    "stat_label": "success over 20 steps at 95% per-step reliability",
+    "stat_value": "126",
+    "stat_label": "findings on agents claiming work is done when it is not",
     "cards": [
      {
       "label": "Review is the bottleneck",
@@ -378,7 +378,7 @@
    },
    {
     "heading": "What people used",
-    "takeaway": "Claude and coding assistants led, with growing use of local models, personal knowledge bases and spreadsheet helpers.",
+    "takeaway": "Claude and coding assistants led, with steady interest in local models, personal knowledge bases and spreadsheet helpers.",
     "stat_value": "1430",
     "stat_label": "Claude mentions in tool findings",
     "cards": [
@@ -1614,8 +1614,8 @@
    {
     "heading": "Confirmed shifts",
     "takeaway": "Several topics clearly moved: safety and security rose, while talk of made-up answers and big brand names fell.",
-    "stat_value": "x10.03",
-    "stat_label": "Cyber mentions, late period versus early period",
+    "stat_value": "14 → 161",
+    "stat_label": "cyber findings, Dec–Mar vs Jul–Oct",
     "cards": [
      {
       "label": "Safety and governance up",
@@ -1768,8 +1768,8 @@
    {
     "heading": "Hype spikes",
     "takeaway": "Short bursts of attention around single names, like Fable or OpenClaw, often faded within a few months.",
-    "stat_value": "x33.63",
-    "stat_label": "Fable growth, late versus early period, starting from zero",
+    "stat_value": "0 → 155",
+    "stat_label": "Fable findings, Dec–Mar vs Jul–Oct",
     "cards": [
      {
       "label": "Fable 5, June 2026",
