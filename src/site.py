@@ -602,13 +602,15 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
     """`ideas` is accepted for compatibility but no longer shown (app ideas live in app_ideas.md / .csv)."""
     o = p["overview"]
     views = [v for v in VIEWS if v[2] in replies]
-    nav = "".join(f"<a href='#{h}'><span>{esc(label)}</span><span class='n'>{n:02d}</span></a>"
+    nav = "".join(f"<a href='#{h}'><span>{icon(TAB_ICONS.get(h, 'chart'))}{esc(label)}</span><span class='n'>{n:02d}</span></a>"
                   for n, (h, label, _) in enumerate(views, 1))
     body = ""
     for h, label, name in views:
         reply = replies[name]
         ctx = Ctx(p, rows_by_fid, set(reply.get("_allowed") or from_insights.allowed_ids(p, name)))
-        body += f"<article class='view' id='v-{h}' aria-label='{esc(label)}'>{RENDERERS[name](reply, ctx)}</article>"
+        v2 = bool(reply.get("sections")) and "cards" in reply["sections"][0]
+        render_fn = (RENDERERS_V2 if v2 else RENDERERS)[name]
+        body += f"<article class='view' id='v-{h}' aria-label='{esc(label)}'>{render_fn(reply, ctx)}</article>"
     kinds = "newsletters, blogs, Hacker News" + (" and Bluesky" if "Bluesky" in o["sources"] else "")
     facts = (f"<div class='facts'><div><b>{o['findings']:,}</b> findings</div><div><b>{len(o['sources'])}</b> sources</div>"
              f"<div><b>{o['items']:,}</b> articles, threads &amp; posts</div><div>{esc(o['window'])}</div></div>")
@@ -617,7 +619,7 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
 <meta name="description" content="What a year of AI commentary says: the state of AI, debates, trends, tools and voices.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<style>{CSS}</style>
+<style>{CSS}{CSS2}</style>
 <div class="shell">
   <aside class="side">
     <div class="brand"><h1>AI Voices 2026</h1><p>What a year of AI commentary says, from {len(o['sources'])} sources: {kinds}.</p></div>
@@ -638,3 +640,395 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
 </div>
 <script>{JS % json.dumps([v[0] for v in views])}</script>
 """
+
+
+# ================================================================== v2: short, structured replies
+ICON_SVG = {
+    "shield": '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/>',
+    "coins": '<ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5M5 11.5v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/>',
+    "terminal": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12.5 15H17"/>',
+    "chat": '<path d="M4 5h16v11H9l-5 4z"/>',
+    "chart": '<path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/>',
+    "bolt": '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+    "wrench": '<path d="M15 4a5 5 0 0 0-5.6 6.6L3 17l4 4 6.4-6.4A5 5 0 0 0 20 9l-3 3-4-4z"/>',
+    "bulb": '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
+    "book": '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5zM4 19.5A1.5 1.5 0 0 0 5.5 21H20"/>',
+    "briefcase": '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 12h18"/>',
+    "spark": '<path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3"/>',
+    "scale": '<path d="M12 4v16M6 20h12M4 8h16M4 8l-2.5 6h5zM20 8l-2.5 6h5z"/>',
+    "robot": '<rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16h6"/>',
+    "people": '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.8.4 5 2.8 5 5.8"/>',
+}
+ICON_RULES = [  # first match wins
+    (r"secur|safety|risk|cyber|sandbox|guard|trust|attack", "shield"),
+    (r"regulat|polic|govern|liab|law|court|militar|pause|pac", "scale"),
+    (r"cost|price|pric|money|bubble|financ|pay|market|quota|subscript|moat|commod|spend|bill", "coins"),
+    (r"robot|hardware|gpu|chip|compute|data cent", "robot"),
+    (r"learn|educat|student|school|teach|explain", "book"),
+    (r"job|career|work|enterprise|team|unemploy|hire|hiring|business", "briefcase"),
+    (r"creat|media|design|video|music|image|art|voice|writ|slop", "spark"),
+    (r"argu|debat|said|voices|who|people|follow", "chat"),
+    (r"trend|rose|rise|fell|fall|change|shift|spike|hype|moment|uncertain|steady", "bolt"),
+    (r"tool|use|habit|technique|step|stack", "wrench"),
+    (r"cod|build|agent|devtool|engineer|harness|software|program", "terminal"),
+    (r"research|model|capabilit|scal|agi|reason|open|conscious|think", "bulb"),
+]
+TAB_ICONS = {"state": "chart", "debates": "chat", "trends": "bolt", "tools": "wrench", "voices": "people"}
+
+
+def icon(name: str, cls: str = "ic") -> str:
+    return (f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" '
+            f'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{ICON_SVG.get(name, ICON_SVG["chart"])}</svg>')
+
+
+def icon_for(text: str) -> str:
+    t = text.lower()
+    return next((ic for rx, ic in ICON_RULES if re.search(rx, t)), "chart")
+
+
+CSS2 = """
+.ic { width: 20px; height: 20px; flex: none; color: var(--accent); }
+.nav .ic { width: 17px; height: 17px; color: currentColor; opacity: .8; }
+.nav a { align-items: center; }
+.nav a > span:first-child { display: flex; gap: 9px; align-items: center; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: end;
+  border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.sec-title { display: grid; gap: 6px; min-width: 0; }
+.sec-title h3 { display: flex; gap: 10px; align-items: center; margin: 0; font: 650 23px/1.25 var(--display); }
+.sec-title .ic { width: 24px; height: 24px; }
+.takeaway { margin: 0; font-size: 17px; color: var(--muted); max-width: 70ch; text-wrap: pretty; }
+.bigstat { text-align: right; display: grid; gap: 2px; max-width: 200px; }
+.bigstat b { font: 700 clamp(28px, 4vw, 40px)/1 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.bigstat span { font-size: 12.5px; color: var(--muted); line-height: 1.3; }
+.card .ch { display: flex; gap: 8px; align-items: center; }
+.card .ch .ic { width: 18px; height: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font: 500 12px/1.6 var(--body); padding: 0 9px; border-radius: 999px; background: var(--side-soft); color: var(--side); white-space: nowrap; }
+.sidebox.a .chip { background: var(--surface); color: var(--accent); }
+.sidebox.b .chip { background: var(--surface); color: var(--side); }
+figure.pq { margin: 0; padding: 20px 24px; border-radius: 14px; background: var(--accent-soft); display: grid; gap: 10px; max-width: 76ch; }
+figure.pq blockquote { margin: 0; font: 600 clamp(19px, 2.4vw, 23px)/1.4 var(--display); text-wrap: pretty; }
+figure.pq figcaption { font-size: 13.5px; color: var(--muted); }
+figure.pq a { color: inherit; }
+.kp2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; align-items: start; }
+.kp2 .card { border-top: 3px solid var(--accent); }
+.kp2 .num { font: 600 13px/1 var(--mono); color: var(--accent); }
+.kp2 h4 { font-size: 18px; }
+.kp2 p { color: var(--muted); font-size: 14.5px; }
+.year { overflow-x: auto; }
+.year-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(78px, 1fr)); min-width: 760px; }
+.year-col { display: grid; align-content: start; gap: 8px; padding: 0 4px; border-left: 1px solid var(--line); min-height: 120px; }
+.year-col:first-child { border-left: 0; }
+.year-col .mo { font: 600 11px/1.2 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; padding: 2px 4px 6px; }
+.moment { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px;
+  padding: 6px 8px; font-size: 12.5px; line-height: 1.35; }
+.heat { overflow-x: auto; }
+.heat-grid { display: grid; grid-template-columns: minmax(140px, 200px) repeat(var(--cols), minmax(26px, 1fr)) 70px; gap: 3px; min-width: 700px; align-items: center; font-size: 13px; }
+.heat-grid .hd { font: 11px/1.1 var(--mono); color: var(--muted); text-align: center; }
+.heat-cell { height: 22px; border-radius: 3px; background: var(--bg); position: relative; overflow: hidden; }
+.heat-cell > i { position: absolute; inset: 0; background: var(--accent); }
+.heat-grid .pill { justify-self: start; }
+.bubwrap { overflow-x: auto; }
+svg.bubbles { width: 100%; min-width: 640px; height: auto; display: block; }
+svg.bubbles text { fill: var(--fg); font: 11px var(--body); }
+svg.bubbles text.ax { fill: var(--muted); font: 11px var(--mono); }
+svg.bubbles text.q { fill: var(--muted); font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+svg.bubbles line { stroke: var(--line); }
+svg.bubbles circle { stroke: var(--surface); stroke-width: 1; }
+svg.bubbles circle.up { fill: var(--up); fill-opacity: .75; }
+svg.bubbles circle.down { fill: var(--down); fill-opacity: .7; }
+svg.bubbles circle.flat { fill: var(--muted); fill-opacity: .45; }
+.vmap { display: grid; grid-template-columns: 26px repeat(5, minmax(0, 1fr)); gap: 4px; }
+.vmap .cell { min-height: 64px; border-radius: 8px; background: var(--bg); padding: 6px; display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start; }
+.vmap .cell.mid { background: color-mix(in srgb, var(--bg) 70%, var(--line)); }
+.vmap .yl { writing-mode: vertical-rl; transform: rotate(180deg); font: 11px/1.2 var(--mono); color: var(--muted); text-align: center; align-self: center; }
+.vmap .xl { grid-column: 2 / -1; display: flex; justify-content: space-between; font: 11px/1.2 var(--mono); color: var(--muted); }
+.vname { font: 500 12px/1.5 var(--body); padding: 1px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.debate2 { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
+.debate2 h4 { margin: 0; font: 650 21px/1.25 var(--display); display: flex; gap: 10px; align-items: center; }
+.debate2 .q { margin: 0; font-size: 17px; color: var(--muted); }
+.debate2 .sidebox h5 { margin: 0; font: 650 15.5px/1.3 var(--display); }
+.debate2 .sidebox p, .debate2 .extra p { margin: 0; }
+@media (max-width: 900px) {
+  .sec-head { grid-template-columns: minmax(0, 1fr); }
+  .bigstat { text-align: left; }
+  .vmap .cell { min-height: 54px; }
+}
+"""
+
+
+def chips(names) -> str:
+    return "<div class='chips'>" + "".join(f"<span class='chip'>{esc(n)}</span>" for n in names) + "</div>" if names else ""
+
+
+class QuotePicker:
+    """One real, verified quote per section, never the same quote twice on the page."""
+    def __init__(self):
+        self.used = set()
+
+    def pick(self, ids, ctx) -> str:
+        cands = []
+        for i in ids:
+            r = ctx.rows.get(i)
+            if not r or i not in ctx.allowed or r["quote_verified"] != "True":
+                continue
+            q = r["short_quote"].strip()
+            n = len(q.split())
+            if n < 8 or q in self.used:
+                continue
+            cands.append((bool(r["who"]), -abs(n - 16), r))
+        if not cands:
+            return ""
+        _, _, r = max(cands, key=lambda c: (c[0], c[1]))
+        self.used.add(r["short_quote"].strip())
+        who = f"{esc(r['who'])}, " if r["who"] else ""
+        return (f"<figure class='pq'><blockquote>“{esc(r['short_quote'].strip())}”</blockquote>"
+                f"<figcaption>{who}<a href='{esc(r['url'])}' target='_blank' rel='noopener'>{esc(r['source'])}, "
+                f"{esc(short_date(r['date']))}</a></figcaption></figure>")
+
+
+def kp_v2(reply, ctx) -> str:
+    cards = "".join(f"<div class='card'><span class='num'>{n:02d}</span><h4>{inline(k['headline'])}</h4>"
+                    f"<p>{inline(k['detail'])}</p>{ctx.src(k['evidence_ids'])}</div>"
+                    for n, k in enumerate(reply["key_points"], 1))
+    return f"<section class='s' aria-label='Key points'><div class='kp2'>{cards}</div></section>"
+
+
+def sec_head(s) -> str:
+    stat = (f"<div class='bigstat'><b>{esc(s['stat_value'])}</b><span>{esc(s['stat_label'])}</span></div>"
+            if s.get("stat_value") else "")
+    return (f"<div class='sec-head'><div class='sec-title'><h3>{icon(icon_for(s['heading']))}{inline(s['heading'])}</h3>"
+            f"<p class='takeaway'>{inline(s['takeaway'])}</p></div>{stat}</div>")
+
+
+def card_v2(c, ctx, with_icon=True) -> str:
+    ic = icon(icon_for(c["label"] + " " + c["text"])) if with_icon else ""
+    return (f"<div class='card'><div class='ch'>{ic}<h4>{inline(c['label'])}</h4></div>{chips(c['people'])}"
+            f"<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>")
+
+
+def section_v2(s, ctx, quotes, fold=False) -> str:
+    cards = s["cards"]
+    numbered = cards and all(re.match(r"^\d+\.", c["label"]) for c in cards)
+    if numbered:
+        body = "<div class='steps'>" + "".join(
+            f"<div class='step'><span class='badge'>{esc(re.match(r'^(\d+)', c['label']).group(1))}</span><div>"
+            f"<h4>{inline(re.sub(r'^\d+\.\s*', '', c['label']))}</h4>{chips(c['people'])}<p>{inline(c['text'])}</p>"
+            f"{ctx.src(c['evidence_ids'])}</div></div>" for c in cards) + "</div>"
+    else:
+        body = f"<div class='cards'>{''.join(card_v2(c, ctx) for c in cards)}</div>"
+    post = (f"<div class='post'><span class='kicker'>Post angle</span><p>{inline(s['post_angle'])}</p></div>"
+            if s.get("post_angle") else "")
+    q = quotes.pick([i for c in cards for i in c["evidence_ids"]], ctx)
+    inner = f"{sec_head(s)}{body}{q}{post}"
+    if fold:
+        return f"<details class='more'><summary>{inline(s['heading'])}</summary><section class='s'>{inner}</section></details>"
+    return f"<section class='s'>{inner}</section>"
+
+
+def year_strip(moments, p, ctx) -> str:
+    months = list(p["trends"]["terms"][0]["monthly_per_1k"]) if p["trends"]["terms"] else []
+    if not months:
+        return ""
+    if not moments:  # fallback: spike terms
+        moments = [{"month": s["month"], "label": f"{s['term']} spike", "evidence_ids": []} for s in p["spikes"]]
+    by = {}
+    for m in moments:
+        by.setdefault(m["month"], []).append(m)
+    cols = "".join(
+        f"<div class='year-col'><span class='mo'>{MONTHS[int(mo[5:]) - 1]} {mo[2:4]}</span>"
+        + "".join(f"<div class='moment'>{inline(m['label'])}</div>" for m in by.get(mo, [])) + "</div>"
+        for mo in months)
+    return (f"<div class='chart'><h4>{icon('bolt')} The year in AI</h4><p class='note'>Key moments, from the months when a "
+            f"topic spiked far above its usual level.</p><div class='year'><div class='year-grid' style='--cols:{len(months)}'>"
+            f"{cols}</div></div></div>")
+
+
+def heatmap(p) -> str:
+    doms = sorted(p["trends"]["domains"], key=lambda x: -x["ratio"])
+    if not doms:
+        return ""
+    months = list(doms[0]["monthly_per_1k"])
+    head = "<span></span>" + "".join(f"<span class='hd'>{MONTHS[int(m[5:]) - 1][:1]}<br>{m[2:4]}</span>" for m in months) + "<span></span>"
+    rows = ""
+    for d in doms:
+        vals = [d["monthly_per_1k"][m] for m in months]
+        lo, hi = min(vals), max(vals)
+        span = (hi - lo) or 1
+        cells = "".join(f"<span class='heat-cell' title='{esc(d['key'])}, {m}: {v:.0f} per 1,000 findings'>"
+                        f"<i style='opacity:{0.06 + 0.94 * (v - lo) / span:.2f}'></i></span>" for m, v in zip(months, vals))
+        rows += f"<span>{esc(d['key'])}</span>{cells}<span class='pill {d['verdict']}'>{d['verdict']}</span>"
+    return (f"<div class='chart'><h4>{icon('chart')} Where attention went, month by month</h4><p class='note'>Each row is a "
+            "topic area; darker = a bigger share of that month's findings, from the row's own lowest month (pale) to its highest (dark). Sorted from "
+            f"fastest-growing to fastest-shrinking.</p><div class='heat'><div class='heat-grid' style='--cols:{len(months)}'>"
+            f"{head}{rows}</div></div></div>")
+
+
+def bubble_chart(p, n=60, labels=10) -> str:
+    g = [x for x in p.get("theme_growth", []) if x["findings"] >= 30][:n]
+    if len(g) < 5:
+        return ""
+    W, H, L, R, T, B = 720, 420, 48, 20, 24, 40
+    fx = [math.log10(x["findings"]) for x in g]
+    fy = [max(-3, min(3, math.log2(x["ratio"]))) for x in g]
+    x0, x1 = min(fx), max(fx)
+    sx = lambda v: L + (v - x0) / ((x1 - x0) or 1) * (W - L - R)
+    sy = lambda v: T + (3 - v) / 6 * (H - T - B)
+    xmid = sorted(fx)[len(fx) // 2]
+    out = [f'<line x1="{sx(xmid):.0f}" y1="{T}" x2="{sx(xmid):.0f}" y2="{H - B}"/>',
+           f'<line x1="{L}" y1="{sy(0):.0f}" x2="{W - R}" y2="{sy(0):.0f}"/>',
+           f'<text class="q" x="{W - R - 4}" y="{T + 12}" text-anchor="end">big &amp; growing</text>',
+           f'<text class="q" x="{L + 4}" y="{T + 12}">niche &amp; growing</text>',
+           f'<text class="q" x="{W - R - 4}" y="{H - B - 8}" text-anchor="end">big &amp; fading</text>',
+           f'<text class="q" x="{L + 4}" y="{H - B - 8}">niche &amp; fading</text>',
+           f'<text class="ax" x="{(L + W - R) / 2:.0f}" y="{H - 10}" text-anchor="middle">size: findings (log scale) →</text>',
+           f'<text class="ax" x="14" y="{(T + H - B) / 2:.0f}" text-anchor="middle" transform="rotate(-90 14 {(T + H - B) / 2:.0f})">growth: late vs early share →</text>']
+    order = sorted(range(len(g)), key=lambda i: -g[i]["findings"])
+    # Label the most notable themes (biggest, and biggest movers), skipping any label that would overlap another
+    # label or a corner caption. Every dot still has a hover title.
+    priority = sorted(range(len(g)), key=lambda i: -(fx[i] - x0 + 0.6) * (abs(fy[i]) + 0.4))
+    boxes = [(L, T, L + 150, T + 16), (W - R - 150, T, W - R, T + 16),
+             (L, H - B - 22, L + 150, H - B), (W - R - 150, H - B - 22, W - R, H - B)]
+    placed = []
+    for i in priority:
+        if len(placed) >= labels:
+            break
+        t = g[i]["title"]
+        t = t if len(t) <= 34 else t[:32].rsplit(" ", 1)[0] + "…"
+        cx, cy = sx(fx[i]), sy(fy[i])
+        w = 6.0 * len(t)
+        right = cx + 8 + w <= W - R
+        bx = (cx + 8, cy - 7, cx + 8 + w, cy + 6) if right else (cx - 8 - w, cy - 7, cx - 8, cy + 6)
+        if bx[0] < L or any(not (bx[2] < b[0] or bx[0] > b[2] or bx[3] < b[1] or bx[1] > b[3]) for b in boxes):
+            continue
+        boxes.append(bx)
+        placed.append((i, t, bx[0] if right else bx[2], "start" if right else "end", cy))
+    for i in order:
+        x = g[i]
+        cls = "up" if x["ratio"] >= 1.5 else "down" if x["ratio"] <= 0.67 else "flat"
+        r = 3 + 1.4 * math.sqrt(x["n_sources"])
+        tip = f"{x['title']} ({x['domain']}): {x['findings']} findings, {x['n_sources']} sources, ×{x['ratio']} late vs early"
+        out.append(f'<circle class="{cls}" cx="{sx(fx[i]):.1f}" cy="{sy(fy[i]):.1f}" r="{r:.1f}"><title>{esc(tip)}</title></circle>')
+    for i, t, tx, anchor, cy in placed:
+        out.append(f'<text x="{tx:.0f}" y="{cy + 4:.0f}" text-anchor="{anchor}">{esc(t)}</text>')
+    return (f"<div class='chart'><h4>{icon('bolt')} What's big, and what's growing</h4><p class='note'>Each dot is a theme with "
+            "30+ findings. Right = more findings; up = a bigger share of the conversation late in the year than early. "
+            "Dot size = number of sources. Hover a dot for its name.</p>"
+            f'<div class="bubwrap"><svg class="bubbles" viewBox="0 0 {W} {H}" role="img" aria-label="Themes by size and growth">{"".join(out)}</svg></div></div>')
+
+
+def voices_map(positions) -> str:
+    if not positions:
+        return ""
+    grid = {}
+    for v in positions:
+        grid.setdefault((v["builder_commentator"], v["skeptic_enthusiast"]), []).append(v)
+    rows = ""
+    for y in (2, 1, 0, -1, -2):  # top = enthusiast
+        yl = {2: "enthusiast", 0: "", -2: "skeptic"}.get(y, "")
+        rows += f"<span class='yl'>{yl}</span>" if yl else "<span></span>"
+        for x in (-2, -1, 0, 1, 2):
+            names = "".join(f"<span class='vname' title='{esc(v['one_line'])}'>{esc(v['name'])}</span>" for v in grid.get((x, y), []))
+            rows += f"<div class='cell{' mid' if x == 0 or y == 0 else ''}'>{names}</div>"
+    return (f"<div class='chart'><h4>{icon('people')} Where they stand</h4><p class='note'>Sonnet's reading of each "
+            "person's findings, not their own labels. Hover a name for a one-line summary.</p>"
+            f"<div class='vmap'>{rows}<span></span><div class='xl'><span>hands-on builder</span><span>commentator</span></div></div></div>")
+
+
+def header_v2(eyebrow, reply, p) -> str:
+    o = p["overview"]
+    return (f"<header><div class='eyebrow'>{esc(eyebrow)}</div><h2>{inline(reply['title'])}</h2>"
+            f"<p class='dek'>{inline(reply['dek'])}</p><div class='meta'>{esc(o['window'])} · {o['findings']:,} findings · "
+            f"{len(o['sources'])} sources</div></header>")
+
+
+def state_v2(reply, ctx) -> str:
+    p, q = ctx.p, QuotePicker()
+    out = [header_v2("State of AI", reply, p), kp_v2(reply, ctx), year_strip(reply.get("moments"), p, ctx)]
+    secs, i = reply["sections"], 0
+    while i < len(secs):
+        s, h = secs[i], secs[i]["heading"].lower()
+        if "struggl" in h and i + 1 < len(secs) and "struggl" in secs[i + 1]["heading"].lower():
+            out.append(f"<div class='split'><div>{section_v2(s, ctx, q)}</div><div>{section_v2(secs[i + 1], ctx, q)}</div></div>")
+            i += 2
+            continue
+        out.append(section_v2(s, ctx, q, fold=bool(FOLD.search(h))))
+        if "changed" in h:
+            out.append(change_chart(p))
+        if "used" in h or "tool" in h:
+            out.append(tool_chart(p, 10))
+        i += 1
+    out.append(voice_chart(p, 10))
+    return "".join(out)
+
+
+def debates_v2(reply, ctx) -> str:
+    p, q = ctx.p, QuotePicker()
+    out = [header_v2("Debates", reply, p), kp_v2(reply, ctx), debate_chart(p)]
+    for n, s in enumerate(reply["sections"], 1):
+        cards = s["cards"]
+        sides, rest = cards[:2], cards[2:]
+        html_ = (f"<article class='debate2'><span class='kicker'>Debate {n}</span>"
+                 f"<h4>{icon(icon_for(s['heading'] + ' ' + s['takeaway']))}{inline(s['heading'])}</h4>"
+                 f"<p class='q'>{inline(s['takeaway'])}</p>")
+        if len(sides) == 2:
+            a, b = sides
+            html_ += ("<div class='vs'>" + "".join(
+                f"<div class='sidebox {cls}'><h5>{inline(c['label'])}</h5>{chips(c['people'])}<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>"
+                + ("<span class='v'>vs</span>" if cls == "a" else "") for cls, c in (("a", a), ("b", b))) + "</div>")
+        else:
+            rest = cards
+        if rest:
+            html_ += "<div class='extra'>" + "".join(
+                f"<div><span class='kicker'>{inline(c['label'])}</span>{chips(c['people'])}<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>"
+                for c in rest) + "</div>"
+        html_ += q.pick([i for c in cards for i in c["evidence_ids"]], ctx)
+        if s.get("post_angle"):
+            html_ += f"<div class='post'><span class='kicker'>Post angle</span><p>{inline(s['post_angle'])}</p></div>"
+        out.append(html_ + "</article>")
+    return "".join(out)
+
+
+def trends_v2(reply, ctx) -> str:
+    p, q, tr = ctx.p, QuotePicker(), ctx.p["trends"]
+    out = [header_v2("Trends", reply, p), kp_v2(reply, ctx), change_chart(p, 16), heatmap(p), bubble_chart(p),
+           year_strip(reply.get("moments"), p, ctx)]
+    out += [section_v2(s, ctx, q, fold=bool(FOLD.search(s["heading"]))) for s in reply["sections"]]
+    out.append(multiples(p))
+    out.append("<details class='more'><summary>All the trend data</summary>"
+               f"<p class='lede'>Periods: {esc(p['overview']['trend_periods'])}. Rising or falling = a change of 15% or more that "
+               "at least four of the six biggest sources show on their own, with at most one against.</p>"
+               "<h4>Domains</h4>" + trend_table(tr["domains"]) + "<h4>Finding types</h4>" + trend_table(tr["types"])
+               + "<h4>Terms (50+ findings, keyword matches)</h4>" + trend_table([x for x in tr["terms"] if x["findings"] >= 50])
+               + "</details>")
+    return "".join(out)
+
+
+def tools_v2(reply, ctx) -> str:
+    q = QuotePicker()
+    out = [header_v2("Tools", reply, ctx.p), kp_v2(reply, ctx), tool_chart(ctx.p)]
+    out += [section_v2(s, ctx, q, fold=bool(FOLD.search(s["heading"]))) for s in reply["sections"]]
+    return "".join(out)
+
+
+def voices_v2(reply, ctx) -> str:
+    p, q = ctx.p, QuotePicker()
+    by_name = {v["who"]: v for v in p["voices"]}
+    top = max((v["findings"] for v in p["voices"]), default=1)
+    out = [header_v2("Voices", reply, p), kp_v2(reply, ctx), voices_map(reply.get("voice_positions")), voice_chart(p, 15)]
+    for s in reply["sections"]:
+        cards = ""
+        for c in s["cards"]:
+            v = next((by_name[n] for n in c["people"] + [c["label"]] if n in by_name), None)
+            stats = ""
+            if v:
+                stats = (f"<div class='person'><div class='stats'><span class='count'>{v['findings']:,} findings</span>"
+                         + "".join(f"<span class='tag'>{esc(d)}</span>" for d in v["top_domains"][:2])
+                         + f"</div><div class='meter'><span style='width:{100 * v['findings'] / top:.0f}%'></span></div></div>")
+            cards += f"<div class='card'><h4>{inline(c['label'])}</h4>{stats}<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>"
+        qt = q.pick([i for c in s["cards"] for i in c["evidence_ids"]], ctx)
+        out.append(f"<section class='s'>{sec_head(s)}<div class='cards'>{cards}</div>{qt}</section>")
+    return "".join(out)
+
+
+RENDERERS_V2 = {"state_of_ai": state_v2, "debates": debates_v2, "trends": trends_v2, "tools_guide": tools_v2, "voices": voices_v2}

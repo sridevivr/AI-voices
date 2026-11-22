@@ -97,6 +97,12 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    key points -> headline cards; **Label** paragraphs -> cards ("1." labels -> steps); debates -> question, two sides
    side by side, why it matters, post angle; method/limits folded. Charts from pack: risers vs fallers, trend lines,
    spike timeline, debate volume, tool mentions, voices. Citations behind "N sources" toggles.
+16. 2026-11-22: short structured reports (v2) + more visuals. `REPORT_SCHEMA` now = key_points {headline, detail},
+   sections {heading, takeaway, stat_value/label, cards[{label, text<=45w, people}], post_angle}, moments[], voice_positions[].
+   `validate()` drops stats not in the input, unknown people/voices, bad months, and reports over-long text (`_notes`).
+   `build` adds `theme_growth`. site.py v2 renderers (old replies still render via v1): icons, section headers with big
+   numbers, one verified pull quote per section (no repeats), year-in-AI strip, attention heatmap, big-vs-growing bubble
+   chart, debate side chips, voices map. Needs `insights build` + `write --yes` (~$0.74) + `site` on the Mac.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).

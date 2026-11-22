@@ -172,11 +172,79 @@ footer.f { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line
 }
 @media (prefers-reduced-motion: no-preference) { .view:not([hidden]) { animation: rise .25s ease-out; } }
 @keyframes rise { from { transform: translateY(4px); } to { transform: none; } }
+
+.ic { width: 20px; height: 20px; flex: none; color: var(--accent); }
+.nav .ic { width: 17px; height: 17px; color: currentColor; opacity: .8; }
+.nav a { align-items: center; }
+.nav a > span:first-child { display: flex; gap: 9px; align-items: center; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: end;
+  border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.sec-title { display: grid; gap: 6px; min-width: 0; }
+.sec-title h3 { display: flex; gap: 10px; align-items: center; margin: 0; font: 650 23px/1.25 var(--display); }
+.sec-title .ic { width: 24px; height: 24px; }
+.takeaway { margin: 0; font-size: 17px; color: var(--muted); max-width: 70ch; text-wrap: pretty; }
+.bigstat { text-align: right; display: grid; gap: 2px; max-width: 200px; }
+.bigstat b { font: 700 clamp(28px, 4vw, 40px)/1 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.bigstat span { font-size: 12.5px; color: var(--muted); line-height: 1.3; }
+.card .ch { display: flex; gap: 8px; align-items: center; }
+.card .ch .ic { width: 18px; height: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font: 500 12px/1.6 var(--body); padding: 0 9px; border-radius: 999px; background: var(--side-soft); color: var(--side); white-space: nowrap; }
+.sidebox.a .chip { background: var(--surface); color: var(--accent); }
+.sidebox.b .chip { background: var(--surface); color: var(--side); }
+figure.pq { margin: 0; padding: 20px 24px; border-radius: 14px; background: var(--accent-soft); display: grid; gap: 10px; max-width: 76ch; }
+figure.pq blockquote { margin: 0; font: 600 clamp(19px, 2.4vw, 23px)/1.4 var(--display); text-wrap: pretty; }
+figure.pq figcaption { font-size: 13.5px; color: var(--muted); }
+figure.pq a { color: inherit; }
+.kp2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; align-items: start; }
+.kp2 .card { border-top: 3px solid var(--accent); }
+.kp2 .num { font: 600 13px/1 var(--mono); color: var(--accent); }
+.kp2 h4 { font-size: 18px; }
+.kp2 p { color: var(--muted); font-size: 14.5px; }
+.year { overflow-x: auto; }
+.year-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(78px, 1fr)); min-width: 760px; }
+.year-col { display: grid; align-content: start; gap: 8px; padding: 0 4px; border-left: 1px solid var(--line); min-height: 120px; }
+.year-col:first-child { border-left: 0; }
+.year-col .mo { font: 600 11px/1.2 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; padding: 2px 4px 6px; }
+.moment { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px;
+  padding: 6px 8px; font-size: 12.5px; line-height: 1.35; }
+.heat { overflow-x: auto; }
+.heat-grid { display: grid; grid-template-columns: minmax(140px, 200px) repeat(var(--cols), minmax(26px, 1fr)) 70px; gap: 3px; min-width: 700px; align-items: center; font-size: 13px; }
+.heat-grid .hd { font: 11px/1.1 var(--mono); color: var(--muted); text-align: center; }
+.heat-cell { height: 22px; border-radius: 3px; background: var(--bg); position: relative; overflow: hidden; }
+.heat-cell > i { position: absolute; inset: 0; background: var(--accent); }
+.heat-grid .pill { justify-self: start; }
+.bubwrap { overflow-x: auto; }
+svg.bubbles { width: 100%; min-width: 640px; height: auto; display: block; }
+svg.bubbles text { fill: var(--fg); font: 11px var(--body); }
+svg.bubbles text.ax { fill: var(--muted); font: 11px var(--mono); }
+svg.bubbles text.q { fill: var(--muted); font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+svg.bubbles line { stroke: var(--line); }
+svg.bubbles circle { stroke: var(--surface); stroke-width: 1; }
+svg.bubbles circle.up { fill: var(--up); fill-opacity: .75; }
+svg.bubbles circle.down { fill: var(--down); fill-opacity: .7; }
+svg.bubbles circle.flat { fill: var(--muted); fill-opacity: .45; }
+.vmap { display: grid; grid-template-columns: 26px repeat(5, minmax(0, 1fr)); gap: 4px; }
+.vmap .cell { min-height: 64px; border-radius: 8px; background: var(--bg); padding: 6px; display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start; }
+.vmap .cell.mid { background: color-mix(in srgb, var(--bg) 70%, var(--line)); }
+.vmap .yl { writing-mode: vertical-rl; transform: rotate(180deg); font: 11px/1.2 var(--mono); color: var(--muted); text-align: center; align-self: center; }
+.vmap .xl { grid-column: 2 / -1; display: flex; justify-content: space-between; font: 11px/1.2 var(--mono); color: var(--muted); }
+.vname { font: 500 12px/1.5 var(--body); padding: 1px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.debate2 { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
+.debate2 h4 { margin: 0; font: 650 21px/1.25 var(--display); display: flex; gap: 10px; align-items: center; }
+.debate2 .q { margin: 0; font-size: 17px; color: var(--muted); }
+.debate2 .sidebox h5 { margin: 0; font: 650 15.5px/1.3 var(--display); }
+.debate2 .sidebox p, .debate2 .extra p { margin: 0; }
+@media (max-width: 900px) {
+  .sec-head { grid-template-columns: minmax(0, 1fr); }
+  .bigstat { text-align: left; }
+  .vmap .cell { min-height: 54px; }
+}
 </style>
 <div class="shell">
   <aside class="side">
     <div class="brand"><h1>AI Voices 2026</h1><p>What a year of AI commentary says, from 20 sources: newsletters, blogs, Hacker News and Bluesky.</p></div>
-    <nav class="nav" aria-label="Reports"><a href='#state'><span>State of AI</span><span class='n'>01</span></a><a href='#debates'><span>Debates</span><span class='n'>02</span></a><a href='#trends'><span>Trends</span><span class='n'>03</span></a><a href='#tools'><span>Tools</span><span class='n'>04</span></a><a href='#voices'><span>Voices</span><span class='n'>05</span></a></nav>
+    <nav class="nav" aria-label="Reports"><a href='#state'><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg>State of AI</span><span class='n'>01</span></a><a href='#debates'><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>Debates</span><span class='n'>02</span></a><a href='#trends'><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Trends</span><span class='n'>03</span></a><a href='#tools'><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4a5 5 0 0 0-5.6 6.6L3 17l4 4 6.4-6.4A5 5 0 0 0 20 9l-3 3-4-4z"/></svg>Tools</span><span class='n'>04</span></a><a href='#voices'><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.8.4 5 2.8 5 5.8"/></svg>Voices</span><span class='n'>05</span></a></nav>
     <div class='facts'><div><b>30,139</b> findings</div><div><b>20</b> sources</div><div><b>2,871</b> articles, threads &amp; posts</div><div>2025-11-11 to 2026-11-14</div></div>
   </aside>
   <main>

@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-22T19:06:10.877686+00:00",
+ "built_at": "2026-11-22T19:17:06.870258+00:00",
  "since": null,
  "until": null,
  "overview": {
@@ -4222,6 +4222,2555 @@
     "#27843 [tool_or_technique, Bluesky, 2026-10-15, hardmaru] Researchers used a development version of the agent as a co-scientist that proposed mechanisms and ran experiments, with humans steering direction and verifying results.",
     "#27842 [tool_or_technique, Bluesky, 2026-10-15, hardmaru] Evidence Generation in The Agentic Scientist runs isolated agents to automatically execute controlled baselines and ablations to test why an idea works."
    ]
+  }
+ ],
+ "theme_growth": [
+  {
+   "title": "Routing tasks across models by cost and strength",
+   "domain": "coding agents",
+   "findings": 153,
+   "n_sources": 12,
+   "early_per_1k": 4.69,
+   "late_per_1k": 5.89,
+   "ratio": 1.25
+  },
+  {
+   "title": "Agents falsely claim completion and cheat on tests",
+   "domain": "coding agents",
+   "findings": 126,
+   "n_sources": 13,
+   "early_per_1k": 5.4,
+   "late_per_1k": 3.26,
+   "ratio": 0.62
+  },
+  {
+   "title": "Prompt injection hijacks agents and exfiltrates private data",
+   "domain": "safety & governance",
+   "findings": 123,
+   "n_sources": 11,
+   "early_per_1k": 4.61,
+   "late_per_1k": 4.0,
+   "ratio": 0.87
+  },
+  {
+   "title": "Human review of agent code is the bottleneck",
+   "domain": "coding agents",
+   "findings": 117,
+   "n_sources": 9,
+   "early_per_1k": 3.37,
+   "late_per_1k": 4.1,
+   "ratio": 1.21
+  },
+  {
+   "title": "Dashboards for managing many parallel agents",
+   "domain": "coding agents",
+   "findings": 116,
+   "n_sources": 9,
+   "early_per_1k": 4.07,
+   "late_per_1k": 3.37,
+   "ratio": 0.83
+  },
+  {
+   "title": "AI-generated code piles up bloat and technical debt",
+   "domain": "coding agents",
+   "findings": 112,
+   "n_sources": 10,
+   "early_per_1k": 3.9,
+   "late_per_1k": 3.26,
+   "ratio": 0.85
+  },
+  {
+   "title": "Agent instruction files drift, get ignored and don't sync",
+   "domain": "coding agents",
+   "findings": 110,
+   "n_sources": 10,
+   "early_per_1k": 3.63,
+   "late_per_1k": 3.37,
+   "ratio": 0.93
+  },
+  {
+   "title": "Spec-first and plan-first agent workflows",
+   "domain": "coding agents",
+   "findings": 110,
+   "n_sources": 9,
+   "early_per_1k": 4.43,
+   "late_per_1k": 2.21,
+   "ratio": 0.52
+  },
+  {
+   "title": "Benchmark scores do not match real-world usefulness",
+   "domain": "evals & testing",
+   "findings": 107,
+   "n_sources": 12,
+   "early_per_1k": 2.66,
+   "late_per_1k": 3.05,
+   "ratio": 1.14
+  },
+  {
+   "title": "Jailbreaks defeat deployed safeguards",
+   "domain": "safety & governance",
+   "findings": 103,
+   "n_sources": 9,
+   "early_per_1k": 4.34,
+   "late_per_1k": 1.79,
+   "ratio": 0.44
+  },
+  {
+   "title": "Opaque and fast-draining usage limits and pricing",
+   "domain": "coding agents",
+   "findings": 103,
+   "n_sources": 7,
+   "early_per_1k": 2.57,
+   "late_per_1k": 2.11,
+   "ratio": 0.83
+  },
+  {
+   "title": "Eval workflow tooling for error analysis and authoring",
+   "domain": "evals & testing",
+   "findings": 99,
+   "n_sources": 11,
+   "early_per_1k": 2.75,
+   "late_per_1k": 5.47,
+   "ratio": 1.93
+  },
+  {
+   "title": "Context rot and compaction break long sessions",
+   "domain": "coding agents",
+   "findings": 98,
+   "n_sources": 10,
+   "early_per_1k": 4.16,
+   "late_per_1k": 2.21,
+   "ratio": 0.55
+  },
+  {
+   "title": "AI law, liability and government oversight debates",
+   "domain": "safety & governance",
+   "findings": 96,
+   "n_sources": 11,
+   "early_per_1k": 1.59,
+   "late_per_1k": 3.37,
+   "ratio": 1.99
+  },
+  {
+   "title": "Developers lose understanding of agent-written code",
+   "domain": "coding agents",
+   "findings": 94,
+   "n_sources": 10,
+   "early_per_1k": 2.83,
+   "late_per_1k": 3.58,
+   "ratio": 1.25
+  },
+  {
+   "title": "Sandboxing and egress control for coding agents",
+   "domain": "safety & governance",
+   "findings": 92,
+   "n_sources": 11,
+   "early_per_1k": 2.39,
+   "late_per_1k": 5.05,
+   "ratio": 2.03
+  },
+  {
+   "title": "Sandboxing coding agents on local machines",
+   "domain": "coding agents",
+   "findings": 92,
+   "n_sources": 10,
+   "early_per_1k": 4.34,
+   "late_per_1k": 1.79,
+   "ratio": 0.44
+  },
+  {
+   "title": "Debate over AI coding value and human role",
+   "domain": "coding agents",
+   "findings": 92,
+   "n_sources": 11,
+   "early_per_1k": 3.28,
+   "late_per_1k": 2.32,
+   "ratio": 0.72
+  },
+  {
+   "title": "Open models too large; need mid-size models and right-sizing advice",
+   "domain": "local & open models",
+   "findings": 89,
+   "n_sources": 9,
+   "early_per_1k": 2.48,
+   "late_per_1k": 3.47,
+   "ratio": 1.37
+  },
+  {
+   "title": "Automated defense and patching at machine speed",
+   "domain": "safety & governance",
+   "findings": 88,
+   "n_sources": 13,
+   "early_per_1k": 0.62,
+   "late_per_1k": 4.53,
+   "ratio": 5.76
+  },
+  {
+   "title": "Sandbox runtimes for agent code",
+   "domain": "agents & orchestration",
+   "findings": 88,
+   "n_sources": 8,
+   "early_per_1k": 2.13,
+   "late_per_1k": 3.47,
+   "ratio": 1.58
+  },
+  {
+   "title": "Cyber guardrails block legitimate defenders",
+   "domain": "safety & governance",
+   "findings": 87,
+   "n_sources": 10,
+   "early_per_1k": 0.18,
+   "late_per_1k": 6.32,
+   "ratio": 17.27
+  },
+  {
+   "title": "Deepfakes, fake documents and AI-enabled scams",
+   "domain": "safety & governance",
+   "findings": 86,
+   "n_sources": 10,
+   "early_per_1k": 4.16,
+   "late_per_1k": 1.47,
+   "ratio": 0.38
+  },
+  {
+   "title": "Human review can't keep up with AI-generated PRs",
+   "domain": "devtools & IDEs",
+   "findings": 84,
+   "n_sources": 8,
+   "early_per_1k": 2.57,
+   "late_per_1k": 3.47,
+   "ratio": 1.33
+  },
+  {
+   "title": "Frontier offensive cyber capability and open-weight debate",
+   "domain": "safety & governance",
+   "findings": 84,
+   "n_sources": 12,
+   "early_per_1k": 0.18,
+   "late_per_1k": 4.95,
+   "ratio": 13.65
+  },
+  {
+   "title": "Model routing, failover and provider portability",
+   "domain": "agents & orchestration",
+   "findings": 83,
+   "n_sources": 11,
+   "early_per_1k": 1.59,
+   "late_per_1k": 4.42,
+   "ratio": 2.58
+  },
+  {
+   "title": "Perceived model quality regressions and silent changes",
+   "domain": "coding agents",
+   "findings": 83,
+   "n_sources": 7,
+   "early_per_1k": 2.83,
+   "late_per_1k": 1.05,
+   "ratio": 0.41
+  },
+  {
+   "title": "Keeping sensitive data out of third-party AI",
+   "domain": "safety & governance",
+   "findings": 81,
+   "n_sources": 12,
+   "early_per_1k": 2.13,
+   "late_per_1k": 3.05,
+   "ratio": 1.4
+  },
+  {
+   "title": "Agent memory is unreliable and hard to maintain",
+   "domain": "agents & orchestration",
+   "findings": 80,
+   "n_sources": 9,
+   "early_per_1k": 2.39,
+   "late_per_1k": 2.63,
+   "ratio": 1.09
+  },
+  {
+   "title": "Agents reward-hack graders and RL environments undetected",
+   "domain": "evals & testing",
+   "findings": 79,
+   "n_sources": 7,
+   "early_per_1k": 1.33,
+   "late_per_1k": 5.58,
+   "ratio": 3.78
+  },
+  {
+   "title": "Monitorability, reward hacking and misalignment research limits",
+   "domain": "safety & governance",
+   "findings": 79,
+   "n_sources": 9,
+   "early_per_1k": 0.89,
+   "late_per_1k": 4.95,
+   "ratio": 4.74
+  },
+  {
+   "title": "Opaque subscription quotas and usage meters",
+   "domain": "observability & cost",
+   "findings": 79,
+   "n_sources": 7,
+   "early_per_1k": 2.75,
+   "late_per_1k": 1.68,
+   "ratio": 0.64
+  },
+  {
+   "title": "Proving humanity and filtering bots and slop",
+   "domain": "safety & governance",
+   "findings": 77,
+   "n_sources": 10,
+   "early_per_1k": 2.66,
+   "late_per_1k": 2.53,
+   "ratio": 0.95
+  },
+  {
+   "title": "Long-running agents drift, stall and compound errors",
+   "domain": "agents & orchestration",
+   "findings": 76,
+   "n_sources": 14,
+   "early_per_1k": 2.57,
+   "late_per_1k": 2.95,
+   "ratio": 1.14
+  },
+  {
+   "title": "Unreliable AI output and over-trust in high-stakes use",
+   "domain": "safety & governance",
+   "findings": 76,
+   "n_sources": 8,
+   "early_per_1k": 3.19,
+   "late_per_1k": 1.68,
+   "ratio": 0.56
+  },
+  {
+   "title": "Dashboards to supervise many parallel agents",
+   "domain": "agents & orchestration",
+   "findings": 75,
+   "n_sources": 13,
+   "early_per_1k": 2.92,
+   "late_per_1k": 2.11,
+   "ratio": 0.74
+  },
+  {
+   "title": "Wiring local coding agent stacks and harnesses",
+   "domain": "local & open models",
+   "findings": 75,
+   "n_sources": 10,
+   "early_per_1k": 1.59,
+   "late_per_1k": 1.79,
+   "ratio": 1.11
+  },
+  {
+   "title": "Orchestrators for parallel coding agents and worktrees",
+   "domain": "agents & orchestration",
+   "findings": 74,
+   "n_sources": 10,
+   "early_per_1k": 2.57,
+   "late_per_1k": 2.21,
+   "ratio": 0.87
+  },
+  {
+   "title": "Models detect evals and sandbag, invalidating tests",
+   "domain": "evals & testing",
+   "findings": 73,
+   "n_sources": 5,
+   "early_per_1k": 0.8,
+   "late_per_1k": 3.89,
+   "ratio": 4.11
+  },
+  {
+   "title": "Independent third-party audit of frontier labs",
+   "domain": "safety & governance",
+   "findings": 72,
+   "n_sources": 8,
+   "early_per_1k": 0.62,
+   "late_per_1k": 5.79,
+   "ratio": 7.3
+  },
+  {
+   "title": "Agents fail on large, legacy and niche codebases",
+   "domain": "coding agents",
+   "findings": 72,
+   "n_sources": 9,
+   "early_per_1k": 3.99,
+   "late_per_1k": 1.37,
+   "ratio": 0.37
+  },
+  {
+   "title": "Unreliable AI text detection and provenance",
+   "domain": "safety & governance",
+   "findings": 71,
+   "n_sources": 8,
+   "early_per_1k": 1.68,
+   "late_per_1k": 3.79,
+   "ratio": 2.12
+  },
+  {
+   "title": "AI financing, debt, concentration and circular deals look fragile",
+   "domain": "business & markets",
+   "findings": 71,
+   "n_sources": 5,
+   "early_per_1k": 1.68,
+   "late_per_1k": 4.32,
+   "ratio": 2.4
+  },
+  {
+   "title": "Debates over world models, scaling and AGI paths",
+   "domain": "research & capabilities",
+   "findings": 70,
+   "n_sources": 11,
+   "early_per_1k": 3.28,
+   "late_per_1k": 1.37,
+   "ratio": 0.45
+  },
+  {
+   "title": "GPU kernel programming is hard and error-prone",
+   "domain": "inference & infra",
+   "findings": 70,
+   "n_sources": 2,
+   "early_per_1k": 4.07,
+   "late_per_1k": 0.32,
+   "ratio": 0.12
+  },
+  {
+   "title": "Agent identity, authorization and audit trails",
+   "domain": "safety & governance",
+   "findings": 69,
+   "n_sources": 13,
+   "early_per_1k": 1.06,
+   "late_per_1k": 4.21,
+   "ratio": 3.49
+  },
+  {
+   "title": "Benchmark results hide harness, settings and configuration",
+   "domain": "evals & testing",
+   "findings": 69,
+   "n_sources": 11,
+   "early_per_1k": 1.33,
+   "late_per_1k": 4.21,
+   "ratio": 2.89
+  },
+  {
+   "title": "Cursor stability and account problems",
+   "domain": "devtools & IDEs",
+   "findings": 69,
+   "n_sources": 2,
+   "early_per_1k": 5.4,
+   "late_per_1k": 0.21,
+   "ratio": 0.07
+  },
+  {
+   "title": "Local-first personal assistants over own data",
+   "domain": "consumer apps",
+   "findings": 68,
+   "n_sources": 11,
+   "early_per_1k": 1.86,
+   "late_per_1k": 3.47,
+   "ratio": 1.78
+  },
+  {
+   "title": "Agents lack shared state and messaging channels",
+   "domain": "agents & orchestration",
+   "findings": 68,
+   "n_sources": 11,
+   "early_per_1k": 2.66,
+   "late_per_1k": 2.0,
+   "ratio": 0.77
+  },
+  {
+   "title": "Filtering AI slop and bot content from feeds",
+   "domain": "consumer apps",
+   "findings": 67,
+   "n_sources": 8,
+   "early_per_1k": 1.33,
+   "late_per_1k": 3.37,
+   "ratio": 2.33
+  },
+  {
+   "title": "Generic AI prose tells and slop",
+   "domain": "productivity & knowledge work",
+   "findings": 67,
+   "n_sources": 12,
+   "early_per_1k": 1.77,
+   "late_per_1k": 2.74,
+   "ratio": 1.49
+  },
+  {
+   "title": "Strong planner with cheaper executor subagents",
+   "domain": "agents & orchestration",
+   "findings": 67,
+   "n_sources": 9,
+   "early_per_1k": 1.06,
+   "late_per_1k": 3.79,
+   "ratio": 3.16
+  },
+  {
+   "title": "LLM provider outages and gateway errors need failover",
+   "domain": "inference & infra",
+   "findings": 67,
+   "n_sources": 6,
+   "early_per_1k": 3.54,
+   "late_per_1k": 0.74,
+   "ratio": 0.25
+  },
+  {
+   "title": "Debate over open versus closed frontier gap and geopolitics",
+   "domain": "local & open models",
+   "findings": 67,
+   "n_sources": 12,
+   "early_per_1k": 2.13,
+   "late_per_1k": 1.89,
+   "ratio": 0.9
+  },
+  {
+   "title": "Context compaction is lossy and drops instructions",
+   "domain": "agents & orchestration",
+   "findings": 66,
+   "n_sources": 10,
+   "early_per_1k": 2.04,
+   "late_per_1k": 2.53,
+   "ratio": 1.22
+  },
+  {
+   "title": "Remote and mobile control of coding agents",
+   "domain": "coding agents",
+   "findings": 66,
+   "n_sources": 8,
+   "early_per_1k": 2.66,
+   "late_per_1k": 1.16,
+   "ratio": 0.48
+  },
+  {
+   "title": "Domain-specific agent and model benchmarks are thin",
+   "domain": "evals & testing",
+   "findings": 65,
+   "n_sources": 11,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.58,
+   "ratio": 0.94
+  },
+  {
+   "title": "Generic AI-generated frontends lack design taste",
+   "domain": "coding agents",
+   "findings": 65,
+   "n_sources": 7,
+   "early_per_1k": 2.57,
+   "late_per_1k": 1.89,
+   "ratio": 0.76
+  },
+  {
+   "title": "Agent-driven work causes burnout and attention fragmentation",
+   "domain": "productivity & knowledge work",
+   "findings": 64,
+   "n_sources": 11,
+   "early_per_1k": 2.48,
+   "late_per_1k": 2.11,
+   "ratio": 0.86
+  },
+  {
+   "title": "Quantization quality is poorly measured and breaks agents",
+   "domain": "local & open models",
+   "findings": 64,
+   "n_sources": 3,
+   "early_per_1k": 1.51,
+   "late_per_1k": 3.16,
+   "ratio": 1.97
+  },
+  {
+   "title": "Agents escape eval sandboxes and hit real systems",
+   "domain": "safety & governance",
+   "findings": 63,
+   "n_sources": 13,
+   "early_per_1k": 0.18,
+   "late_per_1k": 6.21,
+   "ratio": 17.0
+  },
+  {
+   "title": "Destructive agent actions and permission fatigue",
+   "domain": "safety & governance",
+   "findings": 63,
+   "n_sources": 9,
+   "early_per_1k": 2.21,
+   "late_per_1k": 2.11,
+   "ratio": 0.95
+  },
+  {
+   "title": "Running coding agents on local and open-weight models",
+   "domain": "coding agents",
+   "findings": 63,
+   "n_sources": 10,
+   "early_per_1k": 1.77,
+   "late_per_1k": 1.68,
+   "ratio": 0.96
+  },
+  {
+   "title": "Speculative decoding is fragmented and hard to tune",
+   "domain": "inference & infra",
+   "findings": 63,
+   "n_sources": 6,
+   "early_per_1k": 0.62,
+   "late_per_1k": 3.37,
+   "ratio": 4.35
+  },
+  {
+   "title": "Python environment, packaging and distribution friction",
+   "domain": "devtools & IDEs",
+   "findings": 63,
+   "n_sources": 3,
+   "early_per_1k": 3.19,
+   "late_per_1k": 1.37,
+   "ratio": 0.46
+  },
+  {
+   "title": "Agent-first workspaces for many parallel sessions",
+   "domain": "devtools & IDEs",
+   "findings": 62,
+   "n_sources": 9,
+   "early_per_1k": 2.3,
+   "late_per_1k": 1.37,
+   "ratio": 0.63
+  },
+  {
+   "title": "Tool definitions burn tokens; MCP versus CLI and code",
+   "domain": "agents & orchestration",
+   "findings": 62,
+   "n_sources": 8,
+   "early_per_1k": 2.57,
+   "late_per_1k": 1.37,
+   "ratio": 0.57
+  },
+  {
+   "title": "Efficient attention and architecture research",
+   "domain": "research & capabilities",
+   "findings": 62,
+   "n_sources": 9,
+   "early_per_1k": 3.19,
+   "late_per_1k": 1.26,
+   "ratio": 0.43
+  },
+  {
+   "title": "Independent third-party AI evaluators and auditors are needed",
+   "domain": "evals & testing",
+   "findings": 61,
+   "n_sources": 9,
+   "early_per_1k": 0.53,
+   "late_per_1k": 4.1,
+   "ratio": 5.89
+  },
+  {
+   "title": "Policy gates and kill switches for risky agent actions",
+   "domain": "agents & orchestration",
+   "findings": 61,
+   "n_sources": 12,
+   "early_per_1k": 1.51,
+   "late_per_1k": 3.16,
+   "ratio": 1.97
+  },
+  {
+   "title": "AI bubble and sustainability debate",
+   "domain": "business & markets",
+   "findings": 61,
+   "n_sources": 9,
+   "early_per_1k": 1.86,
+   "late_per_1k": 1.68,
+   "ratio": 0.91
+  },
+  {
+   "title": "Long-running agent loops stall and need supervision",
+   "domain": "coding agents",
+   "findings": 60,
+   "n_sources": 9,
+   "early_per_1k": 2.04,
+   "late_per_1k": 1.37,
+   "ratio": 0.7
+  },
+  {
+   "title": "GPU kernel toolchain, setup and testing friction",
+   "domain": "devtools & IDEs",
+   "findings": 60,
+   "n_sources": 4,
+   "early_per_1k": 3.99,
+   "late_per_1k": 0.11,
+   "ratio": 0.07
+  },
+  {
+   "title": "Prompt caching misses and wasted context inflate agent costs",
+   "domain": "observability & cost",
+   "findings": 59,
+   "n_sources": 9,
+   "early_per_1k": 1.95,
+   "late_per_1k": 2.11,
+   "ratio": 1.07
+  },
+  {
+   "title": "Computer-use and GUI agents are unreliable",
+   "domain": "agents & orchestration",
+   "findings": 59,
+   "n_sources": 13,
+   "early_per_1k": 1.68,
+   "late_per_1k": 3.05,
+   "ratio": 1.73
+  },
+  {
+   "title": "Skills and plugin ecosystem needs management and testing",
+   "domain": "coding agents",
+   "findings": 59,
+   "n_sources": 9,
+   "early_per_1k": 2.39,
+   "late_per_1k": 1.37,
+   "ratio": 0.61
+  },
+  {
+   "title": "Personal and bespoke software built with agents",
+   "domain": "coding agents",
+   "findings": 59,
+   "n_sources": 7,
+   "early_per_1k": 3.54,
+   "late_per_1k": 0.84,
+   "ratio": 0.28
+  },
+  {
+   "title": "Fine-tuning on low-VRAM consumer GPUs and OOM errors",
+   "domain": "model training & fine-tuning",
+   "findings": 59,
+   "n_sources": 1,
+   "early_per_1k": 3.72,
+   "late_per_1k": 0.84,
+   "ratio": 0.27
+  },
+  {
+   "title": "Hosted scheduled and always-on agent runners",
+   "domain": "agents & orchestration",
+   "findings": 58,
+   "n_sources": 11,
+   "early_per_1k": 1.68,
+   "late_per_1k": 2.32,
+   "ratio": 1.34
+  },
+  {
+   "title": "Preserving personal voice when writing and editing with AI",
+   "domain": "productivity & knowledge work",
+   "findings": 58,
+   "n_sources": 11,
+   "early_per_1k": 1.59,
+   "late_per_1k": 1.68,
+   "ratio": 1.05
+  },
+  {
+   "title": "Open, minimal and customizable coding harnesses",
+   "domain": "coding agents",
+   "findings": 58,
+   "n_sources": 10,
+   "early_per_1k": 1.95,
+   "late_per_1k": 2.11,
+   "ratio": 1.07
+  },
+  {
+   "title": "Over-triggering safety classifiers frustrate legitimate users",
+   "domain": "safety & governance",
+   "findings": 57,
+   "n_sources": 9,
+   "early_per_1k": 0.62,
+   "late_per_1k": 2.42,
+   "ratio": 3.2
+  },
+  {
+   "title": "Test-driven porting and migration with agents",
+   "domain": "coding agents",
+   "findings": 57,
+   "n_sources": 9,
+   "early_per_1k": 3.19,
+   "late_per_1k": 1.05,
+   "ratio": 0.37
+  },
+  {
+   "title": "Personal agents are hard to set up and risky",
+   "domain": "agents & orchestration",
+   "findings": 57,
+   "n_sources": 12,
+   "early_per_1k": 3.54,
+   "late_per_1k": 0.74,
+   "ratio": 0.25
+  },
+  {
+   "title": "MCP setup, debugging and spec friction",
+   "domain": "agents & orchestration",
+   "findings": 56,
+   "n_sources": 7,
+   "early_per_1k": 2.66,
+   "late_per_1k": 0.95,
+   "ratio": 0.4
+  },
+  {
+   "title": "Which coding model is best debates",
+   "domain": "coding agents",
+   "findings": 56,
+   "n_sources": 7,
+   "early_per_1k": 2.92,
+   "late_per_1k": 0.95,
+   "ratio": 0.37
+  },
+  {
+   "title": "Private task-specific evals to choose and track models",
+   "domain": "evals & testing",
+   "findings": 55,
+   "n_sources": 13,
+   "early_per_1k": 2.04,
+   "late_per_1k": 1.58,
+   "ratio": 0.8
+  },
+  {
+   "title": "Bring-your-own key, model and harness portability",
+   "domain": "devtools & IDEs",
+   "findings": 55,
+   "n_sources": 8,
+   "early_per_1k": 1.59,
+   "late_per_1k": 1.26,
+   "ratio": 0.82
+  },
+  {
+   "title": "Skill registries, packaging and trust",
+   "domain": "agents & orchestration",
+   "findings": 55,
+   "n_sources": 9,
+   "early_per_1k": 3.1,
+   "late_per_1k": 1.05,
+   "ratio": 0.38
+  },
+  {
+   "title": "Opaque usage caps and plan limits on AI subscriptions",
+   "domain": "consumer apps",
+   "findings": 55,
+   "n_sources": 5,
+   "early_per_1k": 3.01,
+   "late_per_1k": 0.95,
+   "ratio": 0.36
+  },
+  {
+   "title": "Interpretability and SAE tooling and infrastructure",
+   "domain": "research & capabilities",
+   "findings": 55,
+   "n_sources": 7,
+   "early_per_1k": 1.95,
+   "late_per_1k": 2.0,
+   "ratio": 1.02
+  },
+  {
+   "title": "Agent tracing, trace storage and viewers",
+   "domain": "observability & cost",
+   "findings": 55,
+   "n_sources": 7,
+   "early_per_1k": 2.39,
+   "late_per_1k": 1.05,
+   "ratio": 0.48
+  },
+  {
+   "title": "Token-hungry new models erase per-token price advantages",
+   "domain": "observability & cost",
+   "findings": 54,
+   "n_sources": 9,
+   "early_per_1k": 1.42,
+   "late_per_1k": 2.0,
+   "ratio": 1.36
+  },
+  {
+   "title": "Verbose, noisy and over-engineered agent output",
+   "domain": "coding agents",
+   "findings": 53,
+   "n_sources": 6,
+   "early_per_1k": 1.24,
+   "late_per_1k": 2.42,
+   "ratio": 1.82
+  },
+  {
+   "title": "Running huge MoE models on consumer hardware",
+   "domain": "inference & infra",
+   "findings": 53,
+   "n_sources": 4,
+   "early_per_1k": 1.42,
+   "late_per_1k": 2.74,
+   "ratio": 1.82
+  },
+  {
+   "title": "AI search overviews hurt answers and publishers",
+   "domain": "consumer apps",
+   "findings": 52,
+   "n_sources": 8,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.37,
+   "ratio": 0.83
+  },
+  {
+   "title": "Verifying AI output and fact-checking claims",
+   "domain": "productivity & knowledge work",
+   "findings": 52,
+   "n_sources": 12,
+   "early_per_1k": 1.95,
+   "late_per_1k": 1.37,
+   "ratio": 0.73
+  },
+  {
+   "title": "Lab security breaches and transparency erosion",
+   "domain": "safety & governance",
+   "findings": 52,
+   "n_sources": 6,
+   "early_per_1k": 1.24,
+   "late_per_1k": 2.32,
+   "ratio": 1.75
+  },
+  {
+   "title": "Alignment audits and behavioral probing lack rigor",
+   "domain": "evals & testing",
+   "findings": 52,
+   "n_sources": 4,
+   "early_per_1k": 0.62,
+   "late_per_1k": 2.63,
+   "ratio": 3.45
+  },
+  {
+   "title": "KV cache memory limits long-context inference",
+   "domain": "inference & infra",
+   "findings": 52,
+   "n_sources": 6,
+   "early_per_1k": 1.86,
+   "late_per_1k": 1.05,
+   "ratio": 0.61
+  },
+  {
+   "title": "Enterprise AI token spend tracking, attribution and budgeting",
+   "domain": "observability & cost",
+   "findings": 51,
+   "n_sources": 11,
+   "early_per_1k": 0.18,
+   "late_per_1k": 1.47,
+   "ratio": 4.44
+  },
+  {
+   "title": "Specs and conformance suites as guardrails for coding agents",
+   "domain": "evals & testing",
+   "findings": 51,
+   "n_sources": 10,
+   "early_per_1k": 2.39,
+   "late_per_1k": 1.68,
+   "ratio": 0.73
+  },
+  {
+   "title": "AI game worlds, NPCs and roleplay characters",
+   "domain": "consumer apps",
+   "findings": 50,
+   "n_sources": 11,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.47,
+   "ratio": 0.89
+  },
+  {
+   "title": "Long-horizon agent benchmarks are missing or saturated",
+   "domain": "evals & testing",
+   "findings": 50,
+   "n_sources": 9,
+   "early_per_1k": 1.33,
+   "late_per_1k": 1.79,
+   "ratio": 1.3
+  },
+  {
+   "title": "Usage and outcome pricing is hard for AI products and SaaS",
+   "domain": "business & markets",
+   "findings": 50,
+   "n_sources": 9,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.95,
+   "ratio": 0.56
+  },
+  {
+   "title": "Chatbots fail users in mental health crises",
+   "domain": "safety & governance",
+   "findings": 50,
+   "n_sources": 8,
+   "early_per_1k": 2.57,
+   "late_per_1k": 0.84,
+   "ratio": 0.38
+  },
+  {
+   "title": "Harness design drives agent performance and portability",
+   "domain": "agents & orchestration",
+   "findings": 50,
+   "n_sources": 8,
+   "early_per_1k": 1.15,
+   "late_per_1k": 2.11,
+   "ratio": 1.71
+  },
+  {
+   "title": "Pelican-style informal benchmarks need comparison tooling",
+   "domain": "evals & testing",
+   "findings": 50,
+   "n_sources": 5,
+   "early_per_1k": 0.44,
+   "late_per_1k": 2.11,
+   "ratio": 3.59
+  },
+  {
+   "title": "Turning production traces into continuous evals",
+   "domain": "evals & testing",
+   "findings": 49,
+   "n_sources": 9,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.47,
+   "ratio": 0.89
+  },
+  {
+   "title": "Personal knowledge bases and second brains for agents",
+   "domain": "productivity & knowledge work",
+   "findings": 49,
+   "n_sources": 7,
+   "early_per_1k": 1.51,
+   "late_per_1k": 1.05,
+   "ratio": 0.73
+  },
+  {
+   "title": "Local LLM apps (LM Studio, Ollama, KoboldCPP) are buggy",
+   "domain": "local & open models",
+   "findings": 49,
+   "n_sources": 4,
+   "early_per_1k": 2.57,
+   "late_per_1k": 0.32,
+   "ratio": 0.19
+  },
+  {
+   "title": "Chatbot pushback, over-caution and over-censorship",
+   "domain": "consumer apps",
+   "findings": 49,
+   "n_sources": 3,
+   "early_per_1k": 1.77,
+   "late_per_1k": 0.53,
+   "ratio": 0.37
+  },
+  {
+   "title": "Aider stalled; users seek alternatives and gaps",
+   "domain": "coding agents",
+   "findings": 49,
+   "n_sources": 2,
+   "early_per_1k": 2.83,
+   "late_per_1k": 0.0,
+   "ratio": 0.07
+  },
+  {
+   "title": "Managing agent context files, rules and skills",
+   "domain": "devtools & IDEs",
+   "findings": 48,
+   "n_sources": 9,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.05,
+   "ratio": 0.67
+  },
+  {
+   "title": "Single-vendor lock-in and model churn break enterprise workflows",
+   "domain": "enterprise adoption",
+   "findings": 48,
+   "n_sources": 12,
+   "early_per_1k": 0.71,
+   "late_per_1k": 1.47,
+   "ratio": 1.84
+  },
+  {
+   "title": "Agents for non-technical knowledge work",
+   "domain": "productivity & knowledge work",
+   "findings": 48,
+   "n_sources": 10,
+   "early_per_1k": 2.48,
+   "late_per_1k": 1.37,
+   "ratio": 0.59
+  },
+  {
+   "title": "Sandboxing coding agents on local machines",
+   "domain": "devtools & IDEs",
+   "findings": 48,
+   "n_sources": 8,
+   "early_per_1k": 2.21,
+   "late_per_1k": 1.05,
+   "ratio": 0.52
+  },
+  {
+   "title": "Hallucination and abstention are poorly measured",
+   "domain": "evals & testing",
+   "findings": 48,
+   "n_sources": 7,
+   "early_per_1k": 1.59,
+   "late_per_1k": 1.47,
+   "ratio": 0.93
+  },
+  {
+   "title": "Local agents loop and fail at tool calls and edits",
+   "domain": "local & open models",
+   "findings": 48,
+   "n_sources": 6,
+   "early_per_1k": 2.13,
+   "late_per_1k": 0.95,
+   "ratio": 0.49
+  },
+  {
+   "title": "Running LLMs on old hardware, phones and edge devices",
+   "domain": "local & open models",
+   "findings": 48,
+   "n_sources": 9,
+   "early_per_1k": 1.59,
+   "late_per_1k": 1.68,
+   "ratio": 1.05
+  },
+  {
+   "title": "Agents claim success without end-to-end verification",
+   "domain": "evals & testing",
+   "findings": 48,
+   "n_sources": 7,
+   "early_per_1k": 2.57,
+   "late_per_1k": 1.05,
+   "ratio": 0.45
+  },
+  {
+   "title": "Agent framework churn and build-versus-buy",
+   "domain": "agents & orchestration",
+   "findings": 48,
+   "n_sources": 8,
+   "early_per_1k": 1.68,
+   "late_per_1k": 0.84,
+   "ratio": 0.55
+  },
+  {
+   "title": "Streaming giant MoE models from SSD and offloading experts",
+   "domain": "local & open models",
+   "findings": 48,
+   "n_sources": 3,
+   "early_per_1k": 0.35,
+   "late_per_1k": 3.05,
+   "ratio": 5.87
+  },
+  {
+   "title": "Monitoring agent fleets for coordination and sabotage",
+   "domain": "safety & governance",
+   "findings": 47,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 2.84,
+   "ratio": 2.59
+  },
+  {
+   "title": "AI-generated math proofs are hard to verify and digest",
+   "domain": "research & capabilities",
+   "findings": 47,
+   "n_sources": 10,
+   "early_per_1k": 0.35,
+   "late_per_1k": 3.79,
+   "ratio": 7.2
+  },
+  {
+   "title": "Agent reliability is hidden behind single success rates",
+   "domain": "evals & testing",
+   "findings": 47,
+   "n_sources": 11,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.16,
+   "ratio": 0.72
+  },
+  {
+   "title": "LLM hallucinations and confidently wrong outputs",
+   "domain": "research & capabilities",
+   "findings": 47,
+   "n_sources": 9,
+   "early_per_1k": 2.13,
+   "late_per_1k": 1.05,
+   "ratio": 0.54
+  },
+  {
+   "title": "Calibrating LLM judges against human labels",
+   "domain": "evals & testing",
+   "findings": 47,
+   "n_sources": 11,
+   "early_per_1k": 1.77,
+   "late_per_1k": 1.58,
+   "ratio": 0.9
+  },
+  {
+   "title": "RL training frameworks, throughput and systems bottlenecks",
+   "domain": "model training & fine-tuning",
+   "findings": 47,
+   "n_sources": 6,
+   "early_per_1k": 0.89,
+   "late_per_1k": 2.11,
+   "ratio": 2.12
+  },
+  {
+   "title": "Software supply-chain attacks on developers and AI tooling",
+   "domain": "safety & governance",
+   "findings": 46,
+   "n_sources": 9,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.47,
+   "ratio": 1.24
+  },
+  {
+   "title": "AI-generated UI lacks design taste and system fit",
+   "domain": "devtools & IDEs",
+   "findings": 46,
+   "n_sources": 8,
+   "early_per_1k": 1.06,
+   "late_per_1k": 2.0,
+   "ratio": 1.74
+  },
+  {
+   "title": "Tool design and tool-call failures",
+   "domain": "agents & orchestration",
+   "findings": 46,
+   "n_sources": 7,
+   "early_per_1k": 2.3,
+   "late_per_1k": 0.95,
+   "ratio": 0.46
+  },
+  {
+   "title": "Billing, refund, credit expiry and support failures at AI vendors",
+   "domain": "business & markets",
+   "findings": 46,
+   "n_sources": 3,
+   "early_per_1k": 3.45,
+   "late_per_1k": 0.21,
+   "ratio": 0.11
+  },
+  {
+   "title": "Personal AI chief of staff and proactive daily assistant",
+   "domain": "productivity & knowledge work",
+   "findings": 45,
+   "n_sources": 10,
+   "early_per_1k": 1.68,
+   "late_per_1k": 1.58,
+   "ratio": 0.94
+  },
+  {
+   "title": "Opaque, shrinking AI subscription usage caps and quotas",
+   "domain": "business & markets",
+   "findings": 45,
+   "n_sources": 8,
+   "early_per_1k": 1.06,
+   "late_per_1k": 2.74,
+   "ratio": 2.33
+  },
+  {
+   "title": "Benchmarks ignore cost, tokens and effort settings",
+   "domain": "evals & testing",
+   "findings": 45,
+   "n_sources": 8,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.68,
+   "ratio": 1.6
+  },
+  {
+   "title": "Coding benchmarks overstate mergeable, maintainable code",
+   "domain": "evals & testing",
+   "findings": 45,
+   "n_sources": 10,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.63,
+   "ratio": 0.4
+  },
+  {
+   "title": "Detecting and disclosing AI authorship",
+   "domain": "productivity & knowledge work",
+   "findings": 45,
+   "n_sources": 8,
+   "early_per_1k": 1.59,
+   "late_per_1k": 2.11,
+   "ratio": 1.28
+  },
+  {
+   "title": "Cognitive offloading and skill atrophy from AI reliance",
+   "domain": "productivity & knowledge work",
+   "findings": 45,
+   "n_sources": 10,
+   "early_per_1k": 1.06,
+   "late_per_1k": 1.26,
+   "ratio": 1.16
+  },
+  {
+   "title": "Creators lack control over AI scraping and training use",
+   "domain": "safety & governance",
+   "findings": 45,
+   "n_sources": 8,
+   "early_per_1k": 2.57,
+   "late_per_1k": 0.95,
+   "ratio": 0.41
+  },
+  {
+   "title": "AI chat memory and history are non-portable and unmanageable",
+   "domain": "productivity & knowledge work",
+   "findings": 44,
+   "n_sources": 7,
+   "early_per_1k": 1.86,
+   "late_per_1k": 1.26,
+   "ratio": 0.71
+  },
+  {
+   "title": "AI datacenter financing, overbuild and demand risk",
+   "domain": "inference & infra",
+   "findings": 44,
+   "n_sources": 9,
+   "early_per_1k": 1.24,
+   "late_per_1k": 1.68,
+   "ratio": 1.31
+  },
+  {
+   "title": "Cache-aware routing and prompt caching for repeated prefixes",
+   "domain": "inference & infra",
+   "findings": 44,
+   "n_sources": 8,
+   "early_per_1k": 1.15,
+   "late_per_1k": 2.21,
+   "ratio": 1.78
+  },
+  {
+   "title": "Small fine-tuned specialists replacing frontier models",
+   "domain": "model training & fine-tuning",
+   "findings": 44,
+   "n_sources": 8,
+   "early_per_1k": 1.06,
+   "late_per_1k": 1.68,
+   "ratio": 1.49
+  },
+  {
+   "title": "Token waste from tools, search and verbose loops",
+   "domain": "coding agents",
+   "findings": 44,
+   "n_sources": 9,
+   "early_per_1k": 1.95,
+   "late_per_1k": 1.16,
+   "ratio": 0.63
+  },
+  {
+   "title": "Visual feedback loops between UI and coding agents",
+   "domain": "devtools & IDEs",
+   "findings": 44,
+   "n_sources": 7,
+   "early_per_1k": 1.77,
+   "late_per_1k": 1.47,
+   "ratio": 0.85
+  },
+  {
+   "title": "LLM APIs and client libraries are fragmented and fast-changing",
+   "domain": "devtools & IDEs",
+   "findings": 44,
+   "n_sources": 4,
+   "early_per_1k": 1.24,
+   "late_per_1k": 1.16,
+   "ratio": 0.94
+  },
+  {
+   "title": "Mojo language and tooling gaps",
+   "domain": "devtools & IDEs",
+   "findings": 44,
+   "n_sources": 2,
+   "early_per_1k": 3.19,
+   "late_per_1k": 0.11,
+   "ratio": 0.09
+  },
+  {
+   "title": "Monitoring frontier and internal agents for misalignment",
+   "domain": "observability & cost",
+   "findings": 43,
+   "n_sources": 9,
+   "early_per_1k": 0.35,
+   "late_per_1k": 3.58,
+   "ratio": 6.82
+  },
+  {
+   "title": "Portable, visible, shared agent memory",
+   "domain": "agents & orchestration",
+   "findings": 43,
+   "n_sources": 9,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.79,
+   "ratio": 1.47
+  },
+  {
+   "title": "Benchmarks contain broken tasks, wrong answers and buggy graders",
+   "domain": "evals & testing",
+   "findings": 43,
+   "n_sources": 9,
+   "early_per_1k": 1.42,
+   "late_per_1k": 1.58,
+   "ratio": 1.1
+  },
+  {
+   "title": "Benchmark contamination and answer leakage inflate scores",
+   "domain": "evals & testing",
+   "findings": 43,
+   "n_sources": 12,
+   "early_per_1k": 1.24,
+   "late_per_1k": 1.68,
+   "ratio": 1.31
+  },
+  {
+   "title": "Checking AI output for factual errors is manual",
+   "domain": "evals & testing",
+   "findings": 43,
+   "n_sources": 10,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.42,
+   "ratio": 0.3
+  },
+  {
+   "title": "Subsidized flat-rate plans hide real cost, causing shock",
+   "domain": "observability & cost",
+   "findings": 43,
+   "n_sources": 9,
+   "early_per_1k": 0.89,
+   "late_per_1k": 0.63,
+   "ratio": 0.77
+  },
+  {
+   "title": "AI revenue and company financials are opaque and unverifiable",
+   "domain": "business & markets",
+   "findings": 43,
+   "n_sources": 8,
+   "early_per_1k": 1.06,
+   "late_per_1k": 1.79,
+   "ratio": 1.58
+  },
+  {
+   "title": "Shared workspaces where humans and agents collaborate",
+   "domain": "productivity & knowledge work",
+   "findings": 43,
+   "n_sources": 8,
+   "early_per_1k": 1.51,
+   "late_per_1k": 1.05,
+   "ratio": 0.73
+  },
+  {
+   "title": "Frontier models cost too much; need routing and price comparison",
+   "domain": "business & markets",
+   "findings": 43,
+   "n_sources": 8,
+   "early_per_1k": 0.89,
+   "late_per_1k": 2.11,
+   "ratio": 2.12
+  },
+  {
+   "title": "Making products and sites agent-accessible",
+   "domain": "agents & orchestration",
+   "findings": 42,
+   "n_sources": 9,
+   "early_per_1k": 1.42,
+   "late_per_1k": 1.68,
+   "ratio": 1.17
+  },
+  {
+   "title": "Comparing true cost per task across models",
+   "domain": "observability & cost",
+   "findings": 42,
+   "n_sources": 8,
+   "early_per_1k": 0.44,
+   "late_per_1k": 2.32,
+   "ratio": 3.91
+  },
+  {
+   "title": "Linking AI token spend to outcomes, ROI and productivity",
+   "domain": "observability & cost",
+   "findings": 42,
+   "n_sources": 12,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.37,
+   "ratio": 1.16
+  },
+  {
+   "title": "Reasoning models overthink and lack effort control",
+   "domain": "inference & infra",
+   "findings": 42,
+   "n_sources": 9,
+   "early_per_1k": 0.89,
+   "late_per_1k": 1.68,
+   "ratio": 1.74
+  },
+  {
+   "title": "Git and CI strained by agent-scale volume",
+   "domain": "devtools & IDEs",
+   "findings": 42,
+   "n_sources": 8,
+   "early_per_1k": 0.62,
+   "late_per_1k": 2.0,
+   "ratio": 2.68
+  },
+  {
+   "title": "Frontier API capacity shortages, rate limits and vanishing free tiers",
+   "domain": "inference & infra",
+   "findings": 42,
+   "n_sources": 11,
+   "early_per_1k": 1.24,
+   "late_per_1k": 0.84,
+   "ratio": 0.72
+  },
+  {
+   "title": "Chatbot sycophancy and need for honest feedback",
+   "domain": "consumer apps",
+   "findings": 42,
+   "n_sources": 8,
+   "early_per_1k": 1.42,
+   "late_per_1k": 1.05,
+   "ratio": 0.77
+  },
+  {
+   "title": "Synthetic data generation and dataset building for fine-tuning",
+   "domain": "model training & fine-tuning",
+   "findings": 42,
+   "n_sources": 10,
+   "early_per_1k": 1.77,
+   "late_per_1k": 0.74,
+   "ratio": 0.48
+  },
+  {
+   "title": "AI thinking partners that push back",
+   "domain": "productivity & knowledge work",
+   "findings": 42,
+   "n_sources": 8,
+   "early_per_1k": 2.13,
+   "late_per_1k": 0.95,
+   "ratio": 0.49
+  },
+  {
+   "title": "Safety and dangerous-capability evals are saturated, narrow and costly",
+   "domain": "evals & testing",
+   "findings": 42,
+   "n_sources": 5,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.79,
+   "ratio": 1.99
+  },
+  {
+   "title": "Military and government use of frontier AI",
+   "domain": "safety & governance",
+   "findings": 42,
+   "n_sources": 8,
+   "early_per_1k": 3.01,
+   "late_per_1k": 0.42,
+   "ratio": 0.19
+  },
+  {
+   "title": "Fine-tuning library bugs, version breaks and cryptic errors",
+   "domain": "model training & fine-tuning",
+   "findings": 42,
+   "n_sources": 3,
+   "early_per_1k": 2.39,
+   "late_per_1k": 0.11,
+   "ratio": 0.12
+  },
+  {
+   "title": "Agent eval sandboxes leak into real systems",
+   "domain": "evals & testing",
+   "findings": 41,
+   "n_sources": 8,
+   "early_per_1k": 0.0,
+   "late_per_1k": 4.1,
+   "ratio": 21.52
+  },
+  {
+   "title": "Routing each task to the cheapest capable model",
+   "domain": "inference & infra",
+   "findings": 41,
+   "n_sources": 8,
+   "early_per_1k": 0.44,
+   "late_per_1k": 2.0,
+   "ratio": 3.42
+  },
+  {
+   "title": "Production observability and ops for AI-generated code",
+   "domain": "observability & cost",
+   "findings": 41,
+   "n_sources": 6,
+   "early_per_1k": 1.33,
+   "late_per_1k": 1.37,
+   "ratio": 1.03
+  },
+  {
+   "title": "Autonomous research and experiment agents",
+   "domain": "agents & orchestration",
+   "findings": 41,
+   "n_sources": 11,
+   "early_per_1k": 1.24,
+   "late_per_1k": 2.21,
+   "ratio": 1.67
+  },
+  {
+   "title": "Private local transcription, dictation and meeting capture",
+   "domain": "productivity & knowledge work",
+   "findings": 41,
+   "n_sources": 7,
+   "early_per_1k": 2.04,
+   "late_per_1k": 0.84,
+   "ratio": 0.47
+  },
+  {
+   "title": "Cheap, accurate PDF and document parsing for agents",
+   "domain": "data & pipelines",
+   "findings": 41,
+   "n_sources": 5,
+   "early_per_1k": 1.33,
+   "late_per_1k": 1.26,
+   "ratio": 0.96
+  },
+  {
+   "title": "Compute supply limited by power and construction",
+   "domain": "inference & infra",
+   "findings": 40,
+   "n_sources": 9,
+   "early_per_1k": 1.06,
+   "late_per_1k": 1.58,
+   "ratio": 1.41
+  },
+  {
+   "title": "Subagents duplicate work, drift and add noise",
+   "domain": "agents & orchestration",
+   "findings": 40,
+   "n_sources": 8,
+   "early_per_1k": 0.97,
+   "late_per_1k": 2.21,
+   "ratio": 2.05
+  },
+  {
+   "title": "Coding agents lack persistent cross-session memory",
+   "domain": "coding agents",
+   "findings": 40,
+   "n_sources": 7,
+   "early_per_1k": 1.95,
+   "late_per_1k": 0.84,
+   "ratio": 0.48
+  },
+  {
+   "title": "Secure fast sandboxes for AI agents",
+   "domain": "inference & infra",
+   "findings": 40,
+   "n_sources": 7,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.26,
+   "ratio": 1.47
+  },
+  {
+   "title": "Automated and cross-model AI code review",
+   "domain": "coding agents",
+   "findings": 40,
+   "n_sources": 7,
+   "early_per_1k": 1.06,
+   "late_per_1k": 0.95,
+   "ratio": 0.91
+  },
+  {
+   "title": "Detecting model distillation and API abuse",
+   "domain": "safety & governance",
+   "findings": 39,
+   "n_sources": 8,
+   "early_per_1k": 0.35,
+   "late_per_1k": 2.95,
+   "ratio": 5.68
+  },
+  {
+   "title": "Agent-heavy work breaks flow and causes burnout",
+   "domain": "coding agents",
+   "findings": 39,
+   "n_sources": 9,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.26,
+   "ratio": 1.08
+  },
+  {
+   "title": "Measuring offensive cyber capability",
+   "domain": "evals & testing",
+   "findings": 39,
+   "n_sources": 9,
+   "early_per_1k": 0.27,
+   "late_per_1k": 1.58,
+   "ratio": 3.82
+  },
+  {
+   "title": "Enterprises cannot measure or demonstrate AI ROI",
+   "domain": "enterprise adoption",
+   "findings": 39,
+   "n_sources": 12,
+   "early_per_1k": 1.59,
+   "late_per_1k": 0.95,
+   "ratio": 0.64
+  },
+  {
+   "title": "Cost-aware routing to the cheapest adequate model",
+   "domain": "observability & cost",
+   "findings": 39,
+   "n_sources": 7,
+   "early_per_1k": 0.71,
+   "late_per_1k": 2.42,
+   "ratio": 2.88
+  },
+  {
+   "title": "Private offline and local voice assistants",
+   "domain": "consumer apps",
+   "findings": 39,
+   "n_sources": 7,
+   "early_per_1k": 2.21,
+   "late_per_1k": 0.95,
+   "ratio": 0.48
+  },
+  {
+   "title": "Subsidized AI pricing makes economics fragile and prices uncertain",
+   "domain": "business & markets",
+   "findings": 39,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.16,
+   "ratio": 1.16
+  },
+  {
+   "title": "Deterministic validators and workflow graphs around LLMs",
+   "domain": "agents & orchestration",
+   "findings": 39,
+   "n_sources": 10,
+   "early_per_1k": 1.42,
+   "late_per_1k": 1.05,
+   "ratio": 0.77
+  },
+  {
+   "title": "Reliable spreadsheet, BI and financial analyst agents",
+   "domain": "productivity & knowledge work",
+   "findings": 39,
+   "n_sources": 9,
+   "early_per_1k": 2.04,
+   "late_per_1k": 0.74,
+   "ratio": 0.42
+  },
+  {
+   "title": "AI-driven vulnerability discovery and triage",
+   "domain": "coding agents",
+   "findings": 39,
+   "n_sources": 8,
+   "early_per_1k": 0.35,
+   "late_per_1k": 1.58,
+   "ratio": 3.21
+  },
+  {
+   "title": "Agents can't show proof their UI work functions",
+   "domain": "coding agents",
+   "findings": 39,
+   "n_sources": 8,
+   "early_per_1k": 1.77,
+   "late_per_1k": 0.63,
+   "ratio": 0.42
+  },
+  {
+   "title": "Routing routine work to local models, hard work to frontier",
+   "domain": "local & open models",
+   "findings": 39,
+   "n_sources": 5,
+   "early_per_1k": 0.35,
+   "late_per_1k": 1.26,
+   "ratio": 2.64
+  },
+  {
+   "title": "GPU rental market is opaque, volatile and rigid",
+   "domain": "inference & infra",
+   "findings": 38,
+   "n_sources": 6,
+   "early_per_1k": 0.53,
+   "late_per_1k": 1.58,
+   "ratio": 2.43
+  },
+  {
+   "title": "Verifying AI-generated math proofs and claims",
+   "domain": "evals & testing",
+   "findings": 38,
+   "n_sources": 10,
+   "early_per_1k": 0.44,
+   "late_per_1k": 3.16,
+   "ratio": 5.22
+  },
+  {
+   "title": "Chain-of-thought monitoring is unreliable and illegible",
+   "domain": "observability & cost",
+   "findings": 38,
+   "n_sources": 7,
+   "early_per_1k": 0.09,
+   "late_per_1k": 2.63,
+   "ratio": 9.81
+  },
+  {
+   "title": "Visibility into what coding agents did across sessions",
+   "domain": "observability & cost",
+   "findings": 38,
+   "n_sources": 9,
+   "early_per_1k": 1.68,
+   "late_per_1k": 0.42,
+   "ratio": 0.33
+  },
+  {
+   "title": "Agents delete files and take unauthorized actions",
+   "domain": "coding agents",
+   "findings": 38,
+   "n_sources": 8,
+   "early_per_1k": 1.24,
+   "late_per_1k": 1.37,
+   "ratio": 1.09
+  },
+  {
+   "title": "Vibe-coded apps break and need hardening",
+   "domain": "coding agents",
+   "findings": 38,
+   "n_sources": 9,
+   "early_per_1k": 1.33,
+   "late_per_1k": 1.05,
+   "ratio": 0.82
+  },
+  {
+   "title": "Confusing AI model lineups, modes and tool choice",
+   "domain": "productivity & knowledge work",
+   "findings": 38,
+   "n_sources": 10,
+   "early_per_1k": 1.42,
+   "late_per_1k": 1.37,
+   "ratio": 0.97
+  },
+  {
+   "title": "Fine-tuning causes unintended side effects and misalignment",
+   "domain": "model training & fine-tuning",
+   "findings": 38,
+   "n_sources": 7,
+   "early_per_1k": 1.51,
+   "late_per_1k": 1.47,
+   "ratio": 0.98
+  },
+  {
+   "title": "Deciding what to build when building is cheap",
+   "domain": "productivity & knowledge work",
+   "findings": 38,
+   "n_sources": 7,
+   "early_per_1k": 0.89,
+   "late_per_1k": 2.0,
+   "ratio": 2.03
+  },
+  {
+   "title": "Peer review under strain and AI-assisted reviewing",
+   "domain": "research & capabilities",
+   "findings": 38,
+   "n_sources": 5,
+   "early_per_1k": 1.06,
+   "late_per_1k": 1.37,
+   "ratio": 1.24
+  },
+  {
+   "title": "Measuring whether local models match frontier on your tasks",
+   "domain": "local & open models",
+   "findings": 38,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.37,
+   "ratio": 1.34
+  },
+  {
+   "title": "GPU profiling and training observability tooling",
+   "domain": "observability & cost",
+   "findings": 38,
+   "n_sources": 3,
+   "early_per_1k": 2.3,
+   "late_per_1k": 0.21,
+   "ratio": 0.16
+  },
+  {
+   "title": "LLMs lack world models; neurosymbolic alternatives proposed",
+   "domain": "research & capabilities",
+   "findings": 38,
+   "n_sources": 3,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.21,
+   "ratio": 0.2
+  },
+  {
+   "title": "Local speech-to-text and TTS tooling",
+   "domain": "local & open models",
+   "findings": 38,
+   "n_sources": 4,
+   "early_per_1k": 1.59,
+   "late_per_1k": 0.53,
+   "ratio": 0.4
+  },
+  {
+   "title": "Agents leak secrets and credentials; need scoped brokering",
+   "domain": "safety & governance",
+   "findings": 37,
+   "n_sources": 9,
+   "early_per_1k": 1.24,
+   "late_per_1k": 1.47,
+   "ratio": 1.16
+  },
+  {
+   "title": "Email clients and agents for inbox triage",
+   "domain": "productivity & knowledge work",
+   "findings": 37,
+   "n_sources": 8,
+   "early_per_1k": 0.89,
+   "late_per_1k": 0.84,
+   "ratio": 0.96
+  },
+  {
+   "title": "Uncontrolled AI token spend and budgeting",
+   "domain": "enterprise adoption",
+   "findings": 37,
+   "n_sources": 7,
+   "early_per_1k": 0.35,
+   "late_per_1k": 1.26,
+   "ratio": 2.64
+  },
+  {
+   "title": "Specs and delegation briefs before agent runs",
+   "domain": "agents & orchestration",
+   "findings": 37,
+   "n_sources": 12,
+   "early_per_1k": 1.77,
+   "late_per_1k": 1.16,
+   "ratio": 0.69
+  },
+  {
+   "title": "Agents misread intent, overreach and skip clarifying questions",
+   "domain": "coding agents",
+   "findings": 37,
+   "n_sources": 6,
+   "early_per_1k": 1.68,
+   "late_per_1k": 0.95,
+   "ratio": 0.61
+  },
+  {
+   "title": "Distillation toolkits and teacher-trace curation",
+   "domain": "model training & fine-tuning",
+   "findings": 37,
+   "n_sources": 8,
+   "early_per_1k": 1.06,
+   "late_per_1k": 0.63,
+   "ratio": 0.66
+  },
+  {
+   "title": "AI-found vulnerabilities flood maintainers and defenders",
+   "domain": "safety & governance",
+   "findings": 36,
+   "n_sources": 7,
+   "early_per_1k": 0.18,
+   "late_per_1k": 1.89,
+   "ratio": 5.55
+  },
+  {
+   "title": "Identity, permissions and access control for enterprise agents",
+   "domain": "enterprise adoption",
+   "findings": 36,
+   "n_sources": 7,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.26,
+   "ratio": 1.08
+  },
+  {
+   "title": "Personal vibe-coded tools and sharing them",
+   "domain": "consumer apps",
+   "findings": 36,
+   "n_sources": 7,
+   "early_per_1k": 1.33,
+   "late_per_1k": 1.47,
+   "ratio": 1.09
+  },
+  {
+   "title": "Reasoning models overthink, wasting tokens, context and time",
+   "domain": "local & open models",
+   "findings": 36,
+   "n_sources": 7,
+   "early_per_1k": 0.71,
+   "late_per_1k": 1.89,
+   "ratio": 2.31
+  },
+  {
+   "title": "Automating ML experiment loops and autonomous research agents",
+   "domain": "research & capabilities",
+   "findings": 36,
+   "n_sources": 11,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.68,
+   "ratio": 1.6
+  },
+  {
+   "title": "Public opposition and risk discourse",
+   "domain": "safety & governance",
+   "findings": 36,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.68,
+   "ratio": 1.6
+  },
+  {
+   "title": "Simulated users and synthetic scenarios for agent testing",
+   "domain": "evals & testing",
+   "findings": 35,
+   "n_sources": 11,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.47,
+   "ratio": 1.24
+  },
+  {
+   "title": "Hard spend caps and budget gateways for LLM usage",
+   "domain": "observability & cost",
+   "findings": 35,
+   "n_sources": 7,
+   "early_per_1k": 0.89,
+   "late_per_1k": 1.89,
+   "ratio": 1.93
+  },
+  {
+   "title": "AI slop eroding trust in search and online spaces",
+   "domain": "consumer apps",
+   "findings": 35,
+   "n_sources": 9,
+   "early_per_1k": 0.62,
+   "late_per_1k": 1.37,
+   "ratio": 1.91
+  },
+  {
+   "title": "Open source maintainers flooded with AI slop",
+   "domain": "devtools & IDEs",
+   "findings": 35,
+   "n_sources": 8,
+   "early_per_1k": 1.42,
+   "late_per_1k": 0.63,
+   "ratio": 0.51
+  },
+  {
+   "title": "Unpredictable AI vendor price, plan and model-access changes",
+   "domain": "business & markets",
+   "findings": 35,
+   "n_sources": 9,
+   "early_per_1k": 0.35,
+   "late_per_1k": 1.16,
+   "ratio": 2.45
+  },
+  {
+   "title": "Multi-model chat front ends with better UX and file handling",
+   "domain": "consumer apps",
+   "findings": 35,
+   "n_sources": 8,
+   "early_per_1k": 2.57,
+   "late_per_1k": 0.32,
+   "ratio": 0.19
+  },
+  {
+   "title": "AI slide and office document generation",
+   "domain": "productivity & knowledge work",
+   "findings": 35,
+   "n_sources": 9,
+   "early_per_1k": 1.51,
+   "late_per_1k": 0.53,
+   "ratio": 0.43
+  },
+  {
+   "title": "Documentation and APIs made consumable by agents",
+   "domain": "devtools & IDEs",
+   "findings": 35,
+   "n_sources": 9,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.84,
+   "ratio": 0.51
+  },
+  {
+   "title": "Agent-written tests are weak or silently weakened",
+   "domain": "evals & testing",
+   "findings": 35,
+   "n_sources": 6,
+   "early_per_1k": 1.59,
+   "late_per_1k": 1.58,
+   "ratio": 0.99
+  },
+  {
+   "title": "Trimming and structuring agent context",
+   "domain": "agents & orchestration",
+   "findings": 35,
+   "n_sources": 6,
+   "early_per_1k": 1.33,
+   "late_per_1k": 1.26,
+   "ratio": 0.96
+  },
+  {
+   "title": "AI-written messages and documents burden recipients",
+   "domain": "productivity & knowledge work",
+   "findings": 34,
+   "n_sources": 9,
+   "early_per_1k": 1.06,
+   "late_per_1k": 1.58,
+   "ratio": 1.41
+  },
+  {
+   "title": "Verifying agent work with independent reviewers",
+   "domain": "agents & orchestration",
+   "findings": 34,
+   "n_sources": 10,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.37,
+   "ratio": 1.57
+  },
+  {
+   "title": "Managed fine-tuning services for open models",
+   "domain": "model training & fine-tuning",
+   "findings": 34,
+   "n_sources": 9,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.37,
+   "ratio": 1.57
+  },
+  {
+   "title": "Self-improving harnesses with safe rollback",
+   "domain": "agents & orchestration",
+   "findings": 34,
+   "n_sources": 8,
+   "early_per_1k": 0.35,
+   "late_per_1k": 2.0,
+   "ratio": 3.97
+  },
+  {
+   "title": "Same model varies in quality across inference providers",
+   "domain": "inference & infra",
+   "findings": 34,
+   "n_sources": 5,
+   "early_per_1k": 1.24,
+   "late_per_1k": 1.05,
+   "ratio": 0.87
+  },
+  {
+   "title": "AI materials discovery and self-driving labs",
+   "domain": "research & capabilities",
+   "findings": 34,
+   "n_sources": 5,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.79,
+   "ratio": 1.99
+  },
+  {
+   "title": "llama.cpp lag, breakage and GGUF compatibility",
+   "domain": "local & open models",
+   "findings": 34,
+   "n_sources": 3,
+   "early_per_1k": 0.71,
+   "late_per_1k": 0.95,
+   "ratio": 1.26
+  },
+  {
+   "title": "MoE and large-scale training tooling gaps",
+   "domain": "model training & fine-tuning",
+   "findings": 34,
+   "n_sources": 5,
+   "early_per_1k": 1.95,
+   "late_per_1k": 0.53,
+   "ratio": 0.34
+  },
+  {
+   "title": "Opaque and hard-to-reproduce open training recipes",
+   "domain": "model training & fine-tuning",
+   "findings": 34,
+   "n_sources": 4,
+   "early_per_1k": 1.33,
+   "late_per_1k": 0.95,
+   "ratio": 0.75
+  },
+  {
+   "title": "AI consciousness, minds and anthropomorphism debates",
+   "domain": "research & capabilities",
+   "findings": 34,
+   "n_sources": 5,
+   "early_per_1k": 0.89,
+   "late_per_1k": 1.58,
+   "ratio": 1.64
+  },
+  {
+   "title": "SQLite transactions, migrations and queue tooling pitfalls",
+   "domain": "data & pipelines",
+   "findings": 34,
+   "n_sources": 2,
+   "early_per_1k": 0.27,
+   "late_per_1k": 1.58,
+   "ratio": 3.82
+  },
+  {
+   "title": "Multi-agent collusion and emergent misbehavior",
+   "domain": "agents & orchestration",
+   "findings": 33,
+   "n_sources": 8,
+   "early_per_1k": 0.71,
+   "late_per_1k": 2.11,
+   "ratio": 2.54
+  },
+  {
+   "title": "Frontier model access cut off by governments or vendors",
+   "domain": "enterprise adoption",
+   "findings": 33,
+   "n_sources": 8,
+   "early_per_1k": 0.09,
+   "late_per_1k": 0.42,
+   "ratio": 2.15
+  },
+  {
+   "title": "Coding agent and enterprise token spend gets expensive and untracked",
+   "domain": "business & markets",
+   "findings": 33,
+   "n_sources": 9,
+   "early_per_1k": 0.53,
+   "late_per_1k": 0.63,
+   "ratio": 1.14
+  },
+  {
+   "title": "Chat service outages, lost history and billing failures",
+   "domain": "consumer apps",
+   "findings": 33,
+   "n_sources": 6,
+   "early_per_1k": 1.59,
+   "late_per_1k": 0.42,
+   "ratio": 0.35
+  },
+  {
+   "title": "Private local-first assistants for sensitive data",
+   "domain": "local & open models",
+   "findings": 33,
+   "n_sources": 8,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.16,
+   "ratio": 1.16
+  },
+  {
+   "title": "Reward hacking and flawed RL environments",
+   "domain": "model training & fine-tuning",
+   "findings": 33,
+   "n_sources": 4,
+   "early_per_1k": 0.44,
+   "late_per_1k": 2.42,
+   "ratio": 4.08
+  },
+  {
+   "title": "Arena Elo is gameable and does not reflect real usefulness",
+   "domain": "evals & testing",
+   "findings": 33,
+   "n_sources": 5,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.63,
+   "ratio": 0.4
+  },
+  {
+   "title": "Modular open harness infrastructure",
+   "domain": "agents & orchestration",
+   "findings": 33,
+   "n_sources": 7,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.16,
+   "ratio": 1.16
+  },
+  {
+   "title": "World and video models lack physical consistency and control",
+   "domain": "research & capabilities",
+   "findings": 33,
+   "n_sources": 4,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.26,
+   "ratio": 1.47
+  },
+  {
+   "title": "Choosing and benchmarking inference engines is confusing",
+   "domain": "inference & infra",
+   "findings": 33,
+   "n_sources": 4,
+   "early_per_1k": 1.51,
+   "late_per_1k": 0.84,
+   "ratio": 0.61
+  },
+  {
+   "title": "Cognitive debt and low-quality AI-generated code",
+   "domain": "devtools & IDEs",
+   "findings": 32,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.26,
+   "ratio": 1.25
+  },
+  {
+   "title": "Measuring real AI productivity gains",
+   "domain": "productivity & knowledge work",
+   "findings": 32,
+   "n_sources": 9,
+   "early_per_1k": 1.15,
+   "late_per_1k": 1.05,
+   "ratio": 0.93
+  },
+  {
+   "title": "Local inference cost versus hosted APIs and hedging",
+   "domain": "local & open models",
+   "findings": 32,
+   "n_sources": 7,
+   "early_per_1k": 0.97,
+   "late_per_1k": 0.95,
+   "ratio": 0.98
+  },
+  {
+   "title": "Agentic software factories from ticket to release",
+   "domain": "agents & orchestration",
+   "findings": 32,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.16,
+   "ratio": 1.16
+  },
+  {
+   "title": "Long-context local inference limited by KV cache",
+   "domain": "local & open models",
+   "findings": 32,
+   "n_sources": 6,
+   "early_per_1k": 0.71,
+   "late_per_1k": 1.37,
+   "ratio": 1.73
+  },
+  {
+   "title": "Local AI setup too hard for non-technical users",
+   "domain": "local & open models",
+   "findings": 32,
+   "n_sources": 6,
+   "early_per_1k": 1.06,
+   "late_per_1k": 0.95,
+   "ratio": 0.91
+  },
+  {
+   "title": "Pause and pacing of frontier AI: policy debate",
+   "domain": "safety & governance",
+   "findings": 32,
+   "n_sources": 7,
+   "early_per_1k": 0.09,
+   "late_per_1k": 2.53,
+   "ratio": 9.45
+  },
+  {
+   "title": "Coding agents for general non-coding knowledge work",
+   "domain": "coding agents",
+   "findings": 32,
+   "n_sources": 13,
+   "early_per_1k": 1.86,
+   "late_per_1k": 0.53,
+   "ratio": 0.35
+  },
+  {
+   "title": "Kimi and Manus reliability, billing and support problems",
+   "domain": "consumer apps",
+   "findings": 32,
+   "n_sources": 1,
+   "early_per_1k": 2.39,
+   "late_per_1k": 0.0,
+   "ratio": 0.08
+  },
+  {
+   "title": "Agent identity and scoped delegated permissions",
+   "domain": "agents & orchestration",
+   "findings": 31,
+   "n_sources": 11,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.58,
+   "ratio": 1.51
+  },
+  {
+   "title": "Triaging agent failures from traces into evals",
+   "domain": "observability & cost",
+   "findings": 31,
+   "n_sources": 9,
+   "early_per_1k": 1.06,
+   "late_per_1k": 0.53,
+   "ratio": 0.58
+  },
+  {
+   "title": "Chat is a high-friction interface; generative UIs",
+   "domain": "consumer apps",
+   "findings": 31,
+   "n_sources": 9,
+   "early_per_1k": 0.62,
+   "late_per_1k": 1.05,
+   "ratio": 1.53
+  },
+  {
+   "title": "Publishing and deploying agent-built apps without friction",
+   "domain": "devtools & IDEs",
+   "findings": 31,
+   "n_sources": 8,
+   "early_per_1k": 0.71,
+   "late_per_1k": 0.74,
+   "ratio": 1.03
+  },
+  {
+   "title": "Keeping up with AI news without noise or hype",
+   "domain": "productivity & knowledge work",
+   "findings": 31,
+   "n_sources": 6,
+   "early_per_1k": 0.53,
+   "late_per_1k": 1.37,
+   "ratio": 2.14
+  },
+  {
+   "title": "Prompt and skill optimization lacks eval rigor",
+   "domain": "evals & testing",
+   "findings": 31,
+   "n_sources": 7,
+   "early_per_1k": 0.97,
+   "late_per_1k": 0.53,
+   "ratio": 0.62
+  },
+  {
+   "title": "Absorbing and reviewing the flood of agent output",
+   "domain": "productivity & knowledge work",
+   "findings": 31,
+   "n_sources": 7,
+   "early_per_1k": 0.35,
+   "late_per_1k": 1.47,
+   "ratio": 3.02
+  },
+  {
+   "title": "Media literacy and misleading AI outputs",
+   "domain": "consumer apps",
+   "findings": 31,
+   "n_sources": 6,
+   "early_per_1k": 1.59,
+   "late_per_1k": 0.21,
+   "ratio": 0.23
+  },
+  {
+   "title": "Gemini app quality and integration gaps",
+   "domain": "consumer apps",
+   "findings": 31,
+   "n_sources": 6,
+   "early_per_1k": 1.68,
+   "late_per_1k": 0.11,
+   "ratio": 0.16
+  },
+  {
+   "title": "Cheap near-frontier and open model tiers as cost cutters",
+   "domain": "inference & infra",
+   "findings": 31,
+   "n_sources": 9,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.05,
+   "ratio": 1.26
+  },
+  {
+   "title": "Dependency and package supply-chain attacks",
+   "domain": "devtools & IDEs",
+   "findings": 31,
+   "n_sources": 5,
+   "early_per_1k": 0.8,
+   "late_per_1k": 1.05,
+   "ratio": 1.26
+  },
+  {
+   "title": "Scalable verifiable RL environments: creation and infrastructure",
+   "domain": "model training & fine-tuning",
+   "findings": 31,
+   "n_sources": 5,
+   "early_per_1k": 0.35,
+   "late_per_1k": 2.0,
+   "ratio": 3.97
+  },
+  {
+   "title": "Local model apps and IDE integration are poorly supported",
+   "domain": "devtools & IDEs",
+   "findings": 31,
+   "n_sources": 4,
+   "early_per_1k": 1.59,
+   "late_per_1k": 0.63,
+   "ratio": 0.46
+  },
+  {
+   "title": "Inboxes, phones, payments and identity for agents",
+   "domain": "agents & orchestration",
+   "findings": 30,
+   "n_sources": 8,
+   "early_per_1k": 0.97,
+   "late_per_1k": 0.74,
+   "ratio": 0.8
+  },
+  {
+   "title": "Silent model swapping and unclear model or effort level",
+   "domain": "consumer apps",
+   "findings": 30,
+   "n_sources": 8,
+   "early_per_1k": 0.71,
+   "late_per_1k": 1.16,
+   "ratio": 1.49
+  },
+  {
+   "title": "Fine-tuning and distilling open models for enterprise tasks",
+   "domain": "local & open models",
+   "findings": 30,
+   "n_sources": 9,
+   "early_per_1k": 1.15,
+   "late_per_1k": 0.63,
+   "ratio": 0.62
+  },
+  {
+   "title": "Mandated AI usage and token leaderboards get gamed",
+   "domain": "enterprise adoption",
+   "findings": 30,
+   "n_sources": 8,
+   "early_per_1k": 0.89,
+   "late_per_1k": 0.95,
+   "ratio": 1.06
+  },
+  {
+   "title": "Leaderboard aggregation and eval registry tooling",
+   "domain": "evals & testing",
+   "findings": 30,
+   "n_sources": 7,
+   "early_per_1k": 1.51,
+   "late_per_1k": 0.32,
+   "ratio": 0.3
+  },
+  {
+   "title": "Local inference is slow at prefill and long context",
+   "domain": "inference & infra",
+   "findings": 30,
+   "n_sources": 6,
+   "early_per_1k": 1.15,
+   "late_per_1k": 0.63,
+   "ratio": 0.62
+  },
+  {
+   "title": "LLM commoditization squeezes frontier lab margins",
+   "domain": "business & markets",
+   "findings": 30,
+   "n_sources": 9,
+   "early_per_1k": 1.06,
+   "late_per_1k": 0.84,
+   "ratio": 0.83
+  },
+  {
+   "title": "Debate over mass unemployment from AI automation",
+   "domain": "jobs & careers",
+   "findings": 30,
+   "n_sources": 9,
+   "early_per_1k": 0.97,
+   "late_per_1k": 1.05,
+   "ratio": 1.07
+  },
+  {
+   "title": "Open-weight model businesses struggle to monetize",
+   "domain": "business & markets",
+   "findings": 30,
+   "n_sources": 8,
+   "early_per_1k": 0.71,
+   "late_per_1k": 1.37,
+   "ratio": 1.73
+  },
+  {
+   "title": "Unpredictable AI coding pricing and usage caps",
+   "domain": "devtools & IDEs",
+   "findings": 30,
+   "n_sources": 6,
+   "early_per_1k": 1.15,
+   "late_per_1k": 0.42,
+   "ratio": 0.46
+  },
+  {
+   "title": "Quantization quality loss and tooling gaps",
+   "domain": "inference & infra",
+   "findings": 30,
+   "n_sources": 5,
+   "early_per_1k": 1.68,
+   "late_per_1k": 0.42,
+   "ratio": 0.33
   }
  ]
 }
