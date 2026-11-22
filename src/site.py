@@ -277,6 +277,12 @@ FX_JS = """
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
     grids.forEach(function (g) { g.setOptions({ tint: accent() }); });
   });
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest(".foldbar button");
+    if (!btn) return;
+    var open = btn.dataset.fold === "open", view = btn.closest(".view");
+    view.querySelectorAll("details.fold").forEach(function (d) { d.open = open; });
+  });
   window.addEventListener("hashchange", grid);
   desk.addEventListener("change", grid);
   grid();
@@ -856,6 +862,26 @@ svg.bubbles circle.flat { fill: var(--muted); fill-opacity: .45; }
 .facts, footer.f, .sec-head { border-color: var(--line-subtle); }
 .view:not([hidden]) { animation-duration: var(--dur-slide); animation-timing-function: var(--ease-out); }
 
+/* Foldable sections and debates */
+details.fold > summary { list-style: none; cursor: pointer; border-radius: 10px; }
+details.fold > summary::-webkit-details-marker { display: none; }
+details.fold > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.chev { width: 20px; height: 20px; flex: none; margin-left: 2px; color: var(--muted); transform: rotate(-90deg);
+  transition: transform var(--dur-base) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+details.fold[open] > summary .chev { transform: none; }
+details.fold > summary:hover .chev, details.fold > summary:hover h3, details.fold > summary:hover h4 { color: var(--accent); }
+details.fold > .fold-body { display: grid; gap: 16px; padding-top: 16px; }
+details.fold:not([open]) > summary .sec-head { border-bottom-style: dashed; }
+details.debate2 > summary { display: grid; gap: 8px; }
+details.debate2:not([open]) { padding-block: 16px; }
+details.debate2 > .fold-body { gap: 14px; }
+.foldbar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.foldbar button { font: 500 12.5px/1 var(--mono); color: var(--muted); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 7px 12px; cursor: pointer; transition: color var(--dur-fast) var(--ease-out),
+  border-color var(--dur-fast) var(--ease-out), transform var(--dur-press) var(--ease-out); }
+.foldbar button:hover { color: var(--accent); border-color: var(--accent); }
+.foldbar button:active { transform: scale(0.97); }
+
 /* Big numbers "decode" once when they first scroll into view (skipped with reduced motion). */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .bigstat b span { font: inherit; color: inherit; line-height: inherit; }
@@ -913,10 +939,20 @@ def kp_v2(reply, ctx) -> str:
     return f"<section class='s' aria-label='Key points'><div class='kp2'>{cards}</div></section>"
 
 
+CHEV = ('<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>')
+
+
+def foldable(head_html: str, body_html: str, open_: bool = True) -> str:
+    """A section whose heading row (title, takeaway, big number) folds the cards beneath it."""
+    return (f"<section class='s'><details class='fold'{' open' if open_ else ''}><summary>{head_html}</summary>"
+            f"<div class='fold-body'>{body_html}</div></details></section>")
+
+
 def sec_head(s) -> str:
     stat = (f"<div class='bigstat'><b>{esc(s['stat_value'])}</b><span>{esc(s['stat_label'])}</span></div>"
             if s.get("stat_value") else "")
-    return (f"<div class='sec-head'><div class='sec-title'><h3>{icon(icon_for(s['heading']))}{inline(s['heading'])}</h3>"
+    return (f"<div class='sec-head'><div class='sec-title'><h3>{icon(icon_for(s['heading']))}{inline(s['heading'])}{CHEV}</h3>"
             f"<p class='takeaway'>{inline(s['takeaway'])}</p></div>{stat}</div>")
 
 
@@ -939,10 +975,7 @@ def section_v2(s, ctx, quotes, fold=False) -> str:
     post = (f"<div class='post'><span class='kicker'>Post angle</span><p>{inline(s['post_angle'])}</p></div>"
             if s.get("post_angle") else "")
     q = quotes.pick([i for c in cards for i in c["evidence_ids"]], ctx)
-    inner = f"{sec_head(s)}{body}{q}{post}"
-    if fold:
-        return f"<details class='more'><summary>{inline(s['heading'])}</summary><section class='s'>{inner}</section></details>"
-    return f"<section class='s'>{inner}</section>"
+    return foldable(sec_head(s), f"{body}{q}{post}", open_=not fold)
 
 
 def year_strip(moments, p, ctx) -> str:
@@ -1061,7 +1094,8 @@ def header_v2(eyebrow, reply, p) -> str:
     return (f"<div class='hero'><canvas class='grid-src'></canvas><canvas class='grid-fx' aria-hidden='true'></canvas>"
             f"<header><div class='eyebrow'>{esc(eyebrow)}</div><h2>{inline(reply['title'])}</h2>"
             f"<p class='dek'>{inline(reply['dek'])}</p><div class='meta'>{esc(o['window'])} · {o['findings']:,} findings · "
-            f"{len(o['sources'])} sources</div></header></div>")
+            f"{len(o['sources'])} sources</div><div class='foldbar'><button type='button' data-fold='open'>Expand all</button>"
+            f"<button type='button' data-fold='close'>Collapse all</button></div></header></div>")
 
 
 def state_v2(reply, ctx) -> str:
@@ -1090,9 +1124,9 @@ def debates_v2(reply, ctx) -> str:
     for n, s in enumerate(reply["sections"], 1):
         cards = s["cards"]
         sides, rest = cards[:2], cards[2:]
-        html_ = (f"<article class='debate2'><span class='kicker'>Debate {n}</span>"
-                 f"<h4>{icon(icon_for(s['heading'] + ' ' + s['takeaway']))}{inline(s['heading'])}</h4>"
-                 f"<p class='q'>{inline(s['takeaway'])}</p>")
+        html_ = (f"<details class='debate2 fold'{' open' if n == 1 else ''}><summary><span class='kicker'>Debate {n}</span>"
+                 f"<h4>{icon(icon_for(s['heading'] + ' ' + s['takeaway']))}{inline(s['heading'])}{CHEV}</h4>"
+                 f"<p class='q'>{inline(s['takeaway'])}</p></summary><div class='fold-body'>")
         if len(sides) == 2:
             a, b = sides
             html_ += ("<div class='vs'>" + "".join(
@@ -1107,7 +1141,7 @@ def debates_v2(reply, ctx) -> str:
         html_ += q.pick([i for c in cards for i in c["evidence_ids"]], ctx)
         if s.get("post_angle"):
             html_ += f"<div class='post'><span class='kicker'>Post angle</span><p>{inline(s['post_angle'])}</p></div>"
-        out.append(html_ + "</article>")
+        out.append(html_ + "</div></details>")
     return "".join(out)
 
 
@@ -1149,7 +1183,7 @@ def voices_v2(reply, ctx) -> str:
                          + f"</div><div class='meter'><span style='width:{100 * v['findings'] / top:.0f}%'></span></div></div>")
             cards += f"<div class='card'><h4>{inline(c['label'])}</h4>{stats}<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>"
         qt = q.pick([i for c in s["cards"] for i in c["evidence_ids"]], ctx)
-        out.append(f"<section class='s'>{sec_head(s)}<div class='cards'>{cards}</div>{qt}</section>")
+        out.append(foldable(sec_head(s), f"<div class='cards'>{cards}</div>{qt}"))
     return "".join(out)
 
 

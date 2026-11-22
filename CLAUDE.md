@@ -123,3 +123,5 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    esbuild from the cloned repo) as a faint ripple behind each report header, desktop with a mouse only, canvas opacity
    .32/.4. Credit line in the page footer. Do not sell/redistribute the component itself. Preview (separate, private):
    https://claude.ai/artifact/GPSeTQjMoMVX7NYb16dUm2 ; the main artifact is still v4 until the owner approves.
+   Same day: every v2 section is a `details.fold` (heading row = summary with chevron; starts open), every debate
+   folds to its question (only debate 1 starts open), "Expand all / Collapse all" buttons in each report header.
