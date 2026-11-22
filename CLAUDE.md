@@ -155,3 +155,11 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    debates reordered jobs, bubble, then by volume. Hand fixes: State "growing use of local models" -> "steady interest"
    (Ollama/LM Studio fell), KP3 "share fell" -> "slipped (big sources disagree)" (coding agents is MIXED), builders stat
    36% (arithmetic) -> 126 findings; Trends stats x10.03 -> "14 → 161", x33.63 -> "0 → 155".
+22. 2026-11-22: owner approved OPUS (claude-opus-5-5, $4/$20 per MTok, 2x Sonnet) for the deeper builder content Raj
+   asked for. `synthesize.PRICES` per model + `cost(..., model)`; `call(..., model=)` (fallback: Sonnet 5.5 if Opus
+   refuses); `insights write --model claude-opus-5-5` (Sonnet stays the default). `build` adds pack["builders"]
+   (`builder_evidence`: coding-work findings only (CODEWORK regex), 40 workflows, 30 practitioner numbers (no build
+   requests), 30 pushback, 15 HN setups) and REPORTS["builders"] (sections: workflows that hold up, what practitioners
+   measured, where agents break, setups worth copying; all audience builders). site: when replies has "builders", the
+   Tools tab drops the guide's own builder sections and shows these under a "For builders" divider (`EXTRA`).
+   Run: `write --only builders --model claude-opus-5-5 --yes` (dry run ~$0.32).

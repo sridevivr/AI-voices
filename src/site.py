@@ -724,6 +724,9 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
     nav = "".join(f"<a href='#{h}'><span>{icon(TAB_ICONS.get(h, 'chart'))}{esc(label)}</span><span class='n'>{n:02d}</span></a>"
                   for n, (h, label, _) in enumerate(views, 1))
     PAGE_QUOTES[0] = QuotePicker()
+    b = replies.get("builders")  # deeper builder sections, written separately; shown inside the Tools tab
+    EXTRA["builders"] = ((b, Ctx(p, rows_by_fid, set(b.get("_allowed") or from_insights.allowed_ids(p, "builders"))))
+                         if b and b.get("sections") and "cards" in b["sections"][0] else None)
     body = ""
     for h, label, name in views:
         reply = replies[name]
@@ -937,6 +940,10 @@ details.postidea > p { margin: 4px 0 0; border-left: 3px solid var(--accent); ba
 .bswitch { display: inline-flex; gap: 6px; align-items: center; margin-left: 6px; color: var(--fg); font-weight: 500; cursor: pointer; }
 .bswitch input { accent-color: var(--accent); width: 16px; height: 16px; }
 
+.bdivider { display: grid; gap: 6px; padding-top: 8px; border-top: 1px dashed var(--line-strong); }
+.bdivider .aud { justify-self: start; margin: 0; }
+.bdivider p { margin: 0; color: var(--muted); max-width: 70ch; }
+
 /* Foldable sections and debates */
 details.fold > summary { list-style: none; cursor: pointer; border-radius: 10px; }
 details.fold > summary::-webkit-details-marker { display: none; }
@@ -1018,6 +1025,7 @@ def kp_v2(reply, ctx) -> str:
 
 
 PAGE_QUOTES = [None]  # one QuotePicker per page build, shared by all tabs
+EXTRA = {}  # replies shown inside another tab (the builders report goes into Tools)
 
 
 def nice_window(w: str) -> str:
@@ -1303,7 +1311,15 @@ def trends_v2(reply, ctx) -> str:
 def tools_v2(reply, ctx) -> str:
     q = PAGE_QUOTES[0]
     out = [header_v2("Tools", reply, ctx.p), kp_v2(reply, ctx), tool_chart(ctx.p)]
-    out += [section_v2(s, ctx, q, fold=bool(FOLD.search(s["heading"]))) for s in reply["sections"]]
+    extra = EXTRA.get("builders")
+    secs = reply["sections"]
+    if extra:  # the deeper builder report replaces the guide's own builder sections
+        secs = [s for s in secs if not (s.get("audience") == "builders" or BUILDER.search(s["heading"]))]
+    out += [section_v2(s, ctx, q, fold=bool(FOLD.search(s["heading"]))) for s in secs]
+    if extra:
+        b, bctx = extra
+        out.append("<div class='bdivider'><span class='aud'>For builders</span><p>" + inline(b["dek"]) + "</p></div>")
+        out += [section_v2({**s, "audience": "builders"}, bctx, q) for s in b["sections"]]
     return "".join(out)
 
 

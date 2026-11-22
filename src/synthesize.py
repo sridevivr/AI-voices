@@ -40,7 +40,9 @@ from .extract import BUDGET_TOTAL, CONFIRM_ABOVE, client, load_json, record_spen
 
 MODEL = "claude-sonnet-5-5"
 FALLBACK_MODEL = "claude-sonnet-5"  # only used when MODEL refuses a request
-PRICE_IN, PRICE_OUT = 2.0, 10.0      # $ / million tokens
+PRICE_IN, PRICE_OUT = 2.0, 10.0      # $ / million tokens (MODEL)
+PRICES = {"claude-sonnet-5-5": (2.0, 10.0), "claude-sonnet-5": (2.0, 10.0), "claude-opus-5-5": (4.0, 20.0),
+          "claude-haiku-5-5": (0.10, 0.50)}  # $ / million input, output tokens (checked 2026-11-22)
 BATCH_DISCOUNT = 0.5
 CACHE_WRITE_1H, CACHE_READ = 2.0, 0.05  # multipliers on input price (Sonnet 5.5 cache reads $0.10)
 CHUNK = 500
@@ -226,13 +228,13 @@ def thin_chunks(stage1: dict, chunks: list[dict]) -> list[str]:
 
 
 # ------------------------------------------------------------------ cost
-def cost(usage: dict, batch: bool) -> float:
+def cost(usage: dict, batch: bool, model: str = MODEL) -> float:
+    p_in, p_out = PRICES.get(model, (PRICE_IN, PRICE_OUT))
     inp = usage.get("input_tokens") or 0
     cw = usage.get("cache_creation_input_tokens") or 0
     cr = usage.get("cache_read_input_tokens") or 0
     out = usage.get("output_tokens") or 0
-    d = (inp * PRICE_IN + cw * PRICE_IN * CACHE_WRITE_1H + cr * PRICE_IN * CACHE_READ
-         + out * PRICE_OUT) / 1e6
+    d = (inp * p_in + cw * p_in * CACHE_WRITE_1H + cr * p_in * CACHE_READ + out * p_out) / 1e6
     return d * (BATCH_DISCOUNT if batch else 1.0)
 
 
@@ -386,10 +388,11 @@ def redo(ids: list[str], yes: bool = False):
 
 
 # ------------------------------------------------------------------ stages 2-3 (synchronous)
-def call(system: str, user: str, schema: dict, effort: str, label: str) -> dict:
-    """One streamed Sonnet request with structured output; on refusal retry once on FALLBACK_MODEL."""
+def call(system: str, user: str, schema: dict, effort: str, label: str, model: str = MODEL) -> dict:
+    """One streamed request (Sonnet unless the owner picks another model) with structured output; on refusal
+    retry once on a fallback model."""
     c = client()
-    for model in (MODEL, FALLBACK_MODEL):
+    for model in (model, FALLBACK_MODEL if model == MODEL else MODEL):
         with c.messages.stream(
             model=model, max_tokens=64000,
             system=[{"type": "text", "text": system}],
@@ -397,7 +400,7 @@ def call(system: str, user: str, schema: dict, effort: str, label: str) -> dict:
             messages=[{"role": "user", "content": user}],
         ) as stream:
             msg = stream.get_final_message()
-        d = cost(msg.usage.to_dict(), False)
+        d = cost(msg.usage.to_dict(), False, model)
         record_spend(f"synth:{label}", d, {"model": model, **msg.usage.to_dict()})
         if msg.stop_reason == "refusal":
             log(f"{label}: {model} declined; retrying on {FALLBACK_MODEL}")

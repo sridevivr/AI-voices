@@ -177,6 +177,33 @@ def line(r: dict) -> str:
     return f"#{r['fid']} [{r['type']}, {r['source']}, {r['date']}{who}] {r['summary']}"
 
 
+NUMBERED = re.compile(r"\d+(?:\.\d+)?\s?(?:%|x\b|×|times|minutes?|hours?|days?|weeks?|agents?|lines|files|tokens|"
+                      r"\$|dollars|k\b|steps?|tests?|prs?|pull requests?)|\$\d", re.I)
+PUSHBACK = re.compile(r"\b(fail|fails|failed|doesn'?t work|did not work|worse|slower|waste|overhyp|not worth|gave up|"
+                      r"abandon|broke|breaks|unreliable|lied|lies|fake|false(ly)?|regress|rollback|revert|"
+                      r"skeptic|no productivity|net negative|slows? (me|us|down))", re.I)
+
+
+CODEWORK = re.compile(r"\bagent|\bcod(e|ing|ebase)|claude code|cursor|codex|copilot|pull request|\bprs?\b|code review|"
+                      r"\brepo|\btests?\b|\bcommit(s|ted)?\b|\bide\b|refactor|debug|worktree|agents\.md|claude\.md|subagent", re.I)
+
+
+def builder_evidence(rows: list[dict]) -> dict:
+    """Evidence for the builder sections: concrete workflows, practitioners' own numbers, and pushback
+    (where agents fail, when not to use them). Each list is spread over sources."""
+    b = [r for r in rows if r["domain"] in BUILDER_DOMAINS and CODEWORK.search(text(r))]
+    how = [r for r in b if r["type"] in ("workaround", "tool_or_technique")]
+    lived = [r for r in b if r["type"] != "build_request"]  # what people did or saw, not what they wish existed
+    pick = lambda fs, k, topic="": [line(r) for r in diverse(fs, k, topic)]
+    return {
+        "workflows": pick([r for r in how if len(r["summary"].split()) >= 14], 40, "plan spec test review agent workflow step"),
+        "numbers": pick([r for r in lived if NUMBERED.search(text(r))], 30),
+        "pushback": pick([r for r in lived if r["type"] in ("pain_point", "debate", "tool_complaint")
+                          and PUSHBACK.search(text(r))], 30, "agent code review tests codebase"),
+        "hn_practice": pick([r for r in how if r["source"].startswith("Hacker News")], 15),
+    }
+
+
 # ------------------------------------------------------------------ build (free)
 def periods(rows: list[dict], since: str | None, until: str | None):
     """Return (period_fn, label). period_fn(row) -> "e", "l" or None."""
@@ -310,6 +337,7 @@ def build(since: str | None = None, until: str | None = None) -> dict:
                               key=lambda t: (-(tcount(t, "tool_or_technique") + tcount(t, "workaround")),
                                              -len({by_fid[i]["source"] for i in t["win_ids"]})))[:15]]
                 for name, doms in (("everyday", EVERYDAY_DOMAINS), ("building", BUILDER_DOMAINS))}}
+    builders = builder_evidence(rows)
     voices = []
     for who, n in Counter(r["who"] for r in rows if r["who"]).most_common(20):
         fs = [r for r in rows if r["who"] == who]
@@ -335,7 +363,7 @@ def build(since: str | None = None, until: str | None = None) -> dict:
     theme_growth.sort(key=lambda x: -x["findings"])
     pack = {"built_at": now_utc().isoformat(), "since": since, "until": until, "overview": overview,
             "trends": tr, "spikes": spikes(rows, tr), "debates": debates, "pains": pains,
-            "tools": tools, "voices": voices, "theme_growth": theme_growth}
+            "tools": tools, "voices": voices, "theme_growth": theme_growth, "builders": builders}
     INS_DIR.mkdir(parents=True, exist_ok=True)
     PACK.write_text(json.dumps(pack, indent=1, ensure_ascii=False))
     (INS_DIR / "trends.json").write_text(json.dumps(tr, indent=1, ensure_ascii=False))
@@ -494,6 +522,20 @@ REPORTS = {
                 "that work, with people where named), then 'Tools for building with AI' (cards = the tools), then "
                 "'Techniques that make builds work' (cards labelled '1. ...', '2. ...' in order, 6-8 of them).",
         "tables": ["tool_counts"]},
+    "builders": {
+        "file": "builders.md", "sections": ["builders", "tools"],
+        "task": "The builder part of the tools guide, for people who write software with AI coding agents every day and "
+                "are allergic to hype. Depth over breadth: concrete steps, real numbers, honest limits. key_points: 4-5 "
+                "lines a working engineer would not already know or would want confirmed. Sections, all audience "
+                "'builders': 'Workflows that hold up' (4-6 cards, each a concrete workflow as short steps in one or two "
+                "sentences, naming the tools; people = who described it); 'What practitioners measured' (4-6 cards, each "
+                "built on a figure stated in the input, with what it was measured on; say when a figure is one person's "
+                "anecdote); 'Where agents break' (4-6 cards of counter-evidence: failure modes, cases where people stopped "
+                "using agents or found them slower, and what they did instead); 'Setups worth copying' (3-5 cards: tool "
+                "combinations and configuration habits, e.g. instruction files, worktrees, local models, review bots). "
+                "Use stat_value only for a figure copied exactly from the input. post_angle: \"\". Do not repeat the same "
+                "finding in two cards.",
+        "tables": []},
     "voices": {
         "file": "voices.md", "sections": ["voices"],
         "task": "A guide to the people who drive this conversation. key_points: who to start with and why (4 lines). "
@@ -538,6 +580,13 @@ def section_text(p: dict, name: str) -> str:
         return ("TOOL MENTIONS in tool/technique/workaround findings: " + json.dumps(p["tools"]["counts"]) + "\n"
                 + "\n\n".join(f"TOOL THEMES ({g})\n" + "\n\n".join(blk(t) for t in p["tools"][g][:k])
                               for g in ("everyday", "building")))
+    if name == "builders":
+        bl = p.get("builders") or {}
+        return "\n\n".join(f"{title}\n" + "\n".join(bl.get(k, [])) for k, title in (
+            ("workflows", "WORKFLOWS AND TECHNIQUES (builders describing what they do)"),
+            ("numbers", "PRACTITIONER NUMBERS (findings that state a figure)"),
+            ("pushback", "PUSHBACK (where agents fail, skepticism, things that did not work)"),
+            ("hn_practice", "HACKER NEWS PRACTICE (forum users describing their setups)")))
     if name == "voices":
         return "VOICES\n" + "\n\n".join(
             f"{v['who']}: {v['findings']} findings; mostly {', '.join(v['top_domains'])}; via {', '.join(v['via'])}; "
@@ -693,15 +742,16 @@ def render_report(p: dict, name: str, reply: dict, rows_by_fid: dict) -> str:
     return "\n".join(md) + "\n"
 
 
-def write(only: list[str] | None, yes: bool):
+def write(only: list[str] | None, yes: bool, model: str | None = None):
     from .extract import BUDGET_TOTAL, spent
-    from .synthesize import MODEL, call, cost, log
+    from .synthesize import MODEL as DEFAULT_MODEL, call, cost, log
+    MODEL = model or DEFAULT_MODEL
     if not PACK.exists():
         sys.exit("Run `python -m src.insights build` first.")
     p = json.loads(PACK.read_text())
     names = only or list(REPORTS)
     prompts = {n: prompt_for(p, n) for n in names}
-    est = sum(cost({"input_tokens": len(WRITER + u) // 3, "output_tokens": 12_000}, False) for u in prompts.values())
+    est = sum(cost({"input_tokens": len(WRITER + u) // 3, "output_tokens": 12_000}, False, MODEL) for u in prompts.values())
     if not yes:
         for n, u in prompts.items():
             print(f"  {n:12} ~{len(WRITER + u) // 3:,} input tokens")
@@ -712,7 +762,7 @@ def write(only: list[str] | None, yes: bool):
         sys.exit(f"Would exceed ${BUDGET_TOTAL} budget (spent ${spent():.2f} + est ${est:.2f}).")
     replies = json.loads(REPLIES.read_text()) if REPLIES.exists() else {}
     for n in names:
-        reply = call(WRITER, prompts[n], REPORT_SCHEMA, "high", f"insights:{n}")
+        reply = call(WRITER, prompts[n], REPORT_SCHEMA, "high", f"insights:{n}", model=MODEL)
         notes = validate(reply, prompts[n], p)
         for note in notes:
             print(f"  {n}: {note}")
@@ -800,11 +850,13 @@ def main():
     ap.add_argument("--only", help="comma-separated report names: " + ",".join(REPORTS))
     ap.add_argument("--yes", action="store_true")
     ap.add_argument("--render", action="store_true", help="ideas: rewrite from saved replies (free)")
+    ap.add_argument("--model", choices=["claude-sonnet-5-5", "claude-opus-5-5"],
+                    help="write: model to use (default Sonnet; Opus only with the owner's OK)")
     a = ap.parse_args()
     if a.cmd == "build":
         build(a.since, a.until)
     elif a.cmd == "write":
-        write(a.only.split(",") if a.only else None, a.yes)
+        write(a.only.split(",") if a.only else None, a.yes, a.model)
     elif a.cmd == "render":
         render()
     elif a.cmd == "ideas":
