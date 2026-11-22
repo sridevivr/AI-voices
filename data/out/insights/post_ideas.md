@@ -2,26 +2,26 @@
 
 One-line takes for LinkedIn or X, one per report section that has one. Written by Sonnet alongside the reports (`python -m src.insights write`); check the section's sources before posting.
 
-## The Biggest AI Debates of the Year
+## The Biggest Debates in AI This Year
 
-- **Do coding agents really pay off?** (Do AI coding agents deliver real value, and do human developers still matter?)
-  > Vibe coding isn't about whether AI can write the code. It's about who still owns the architecture, and that part is still you.
-- **Is scaling enough for AGI?** (Will bigger models reach general intelligence, or does AI need world models and new designs?)
-  > Everyone asks which AI model is smartest. The better question for your business: do you need a frontier model, or a cheap specialized one?
-- **Is the AI boom a bubble?** (Is AI spending a sustainable build-out, or a bubble that could trigger a painful correction?)
-  > Whether AI is a bubble matters less than whether your plans survive either answer. Stress-test your AI strategy against a price shock.
-- **Open weights: cyber shield or threat?** (Do open-weight frontier models make cyberattacks easier, or do they help defenders more?)
-  > The open-versus-closed AI safety fight has no clear winner yet. Be wary of anyone who claims one side is obviously safer.
-- **Will open models catch up?** (Are open models closing the gap with closed frontier labs, or falling further behind?)
-  > Pick an AI vendor like you'd pick a lease. Open models may be months behind, and months matter less than lock-in.
-- **Who should police AI, and how?** (Is liability enough to keep AI safe, or does government need to oversee frontier releases?)
-  > If your AI agent makes a costly mistake, who pays? Liability may shape business AI adoption faster than any new law.
-- **Should frontier AI slow down?** (Should AI labs pace or pause frontier development, and could anyone actually enforce it?)
-  > Labs say they support slowing down while racing ahead. Watch what they ship, not what they say about pacing.
-- **Can AI think or feel?** (Are today's AI systems genuinely intelligent or conscious, or just advanced pattern-matchers?)
-  > Whether AI is conscious may stay unanswered. What you can control is how much you anthropomorphize the tools your team uses.
-- **Is AI doom talk genuine?** (Are AI risk warnings real concern, a marketing ploy, or a distraction from nearer harms?)
-  > The public doesn't want AI automation as much as tech insiders assume. Lead your AI pitch with the problem solved, not the technology.
-- **Will AI cause mass unemployment?** (Will AI automation displace workers fast and at scale, or will change be slower and more complementary?)
-  > Nobody knows whether AI job loss arrives in four years or fourteen. Build skills that hold up in both timelines.
+- **Do coding agents really pay off** (Do AI tools that write code deliver real gains, or do they still need constant human supervision?)
+  > The coding agent debate is really about what we want developers to spend their time on, not just speed.
+- **Is scaling enough for AGI** (Will simply making today's AI bigger reach human-level AI, or is a different approach needed?)
+  > Bigger is not the only road to smarter AI, and the people betting on it disagree about what comes next.
+- **Is AI a bubble** (Is the AI boom built on real demand, or will spending outrun the money coming in?)
+  > Nobody agrees if AI is a bubble, but both camps point to the same revenue numbers.
+- **Should open AI models be restricted** (Do freely downloadable AI models make cyberattacks more likely, or do they help defenders more?)
+  > Open versus closed AI is not a simple safe versus unsafe choice, since each side has a cyber risk.
+- **Will open models catch up** (Are free-to-download AI models closing the gap with the best closed models, or falling behind?)
+  > Whether open models catch up decides if controlling the best AI is even possible.
+- **Liability or regulation for AI** (Should lawsuits alone keep AI safe, or does government need to set rules and review releases?)
+  > Suing after harm and setting rules before it are different safety plans, and AI needs a decision on the mix.
+- **Should frontier AI be paused** (Should the leading labs slow down or pause their most advanced AI, and could they?)
+  > Slowing AI sounds simple until you ask who enforces it, and the supporters admit that too.
+- **Can AI be conscious** (Do AI systems have anything like thoughts or feelings, or are they just pattern-matching software?)
+  > We argue about AI consciousness without agreeing on what the word means, and even experts say they are confused.
+- **How seriously to take AI risk** (Are warnings about dangerous AI genuine concerns, guesswork, or a marketing and lobbying move?)
+  > Marketing hype and real risk can both be true, and sorting them apart is the hard part.
+- **Will AI cause mass unemployment** (Will AI quickly replace large numbers of workers, or will change be slower and more complementary?)
+  > The jobs debate hinges on speed, so ask not whether AI changes work but how fast.
 

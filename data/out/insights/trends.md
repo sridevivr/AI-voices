@@ -1,93 +1,91 @@
-# What shifted in AI talk, and what only spiked
+# What changed in AI talk this year
 
-*Safety, security and open models grew fastest over the year, while talk of named tools like Claude Code, Cursor and Gemini faded.*
+*Safety, security and open models gained ground, while complaints about made-up answers and big brand names cooled, based on how often topics appeared in a year of AI commentary.*
 
 *Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; text is Sonnet's; every link is a finding the text cites.*
 
 ## Key points
 
-- **Safety and governance talk grew most, in five of six big sources** Mentions rose from 73.7 to 127.1 per 1k (x1.72), up in five of the six biggest sources and down in none. ([Don't Worry About the Vase, 2026-09-30](https://thezvi.substack.com/p/a-morally-binding-white-house-accord))
-- **Security and cyber worries jumped** Security mentions rose x2.4 and cyber x10.03 per 1k, both up in six big sources. Cyber requests focus on monitoring and defenders. ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
-- **Open weights and sandboxing are both rising** Local/open weights rose x1.89 and sandbox x1.99. People want models they can control and agents that stay contained. ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm)) ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))
-- **Named tools lost share of attention** Claude Code fell x0.45, Cursor x0.3, Gemini x0.28 and Perplexity x0.17, all with a falling verdict. ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas)) ([Don't Worry About the Vase, 2025-11-24](https://thezvi.substack.com/p/gemini-3-pro-is-a-vast-intelligence))
-- **Old accuracy worries are fading** Hallucination fell x0.5 and sycophancy x0.51, both with a falling verdict. RAG also fell, x0.57. ([Don't Worry About the Vase, 2025-11-28](https://thezvi.substack.com/p/claude-opus-45-model-card-alignment))
-- **Product hype spikes fade fast, with some rebounds** Fable peaked at 49.9 per 1k in June 2026 and dipped to 2.1 by October. OpenClaw peaked at 28.6 in February 2026. ([Bluesky, 2026-06-11](https://bsky.app/profile/simonwillison.net/post/3mnzstv7b5k2x)) ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b))
+- **Safety and governance talk grew the most** It now fills about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more.
+- **Cyber and security mentions surged** Cyber threats came up about ten times as often, and security more than doubled. Findings ask for ways to measure AI cyberattacks and protect systems. ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
+- **Open-weight models gained ground** Open-weight models, which anyone can download and run, came up nearly twice as often, and DeepSeek, an AI model maker, rose too.
+- **Agents running on their own got more attention** Sandboxes, locked-off spaces where agents run, nearly doubled in mentions. Browser-controlling agents and background agents also rose. ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))
+- **Complaints about made-up answers fell by half** Hallucination, AI stating false things, fell by about half, and none of the big sources wrote more about it.
+- **Big product names lost attention** Gemini, Google's AI model, and the coding tools Cursor and Claude Code fell sharply from their early share. This measures attention, not use.
 
 ## Key moments
 
-- **2025-11**: Gemini talk peaks at 84.5 per 1k ([Don't Worry About the Vase, 2025-11-28](https://thezvi.substack.com/p/claude-opus-45-model-card-alignment)) ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas))
-- **2025-11**: Cursor talk peaks ([Don't Worry About the Vase, 2025-11-24](https://thezvi.substack.com/p/gemini-3-pro-is-a-vast-intelligence)) ([Tomasz Tunguz, 2025-11-12](https://tomtunguz.com/running-out-of-ai/))
-- **2025-11**: Image generation talk peaks ([Don't Worry About the Vase, 2025-11-27](https://thezvi.substack.com/p/ai-144-thanks-for-the-models)) ([Bluesky, 2025-11-21](https://bsky.app/profile/emollick.bsky.social/post/3m65eoydujk2u))
-- **2025-12**: OpenRouter requests peak ([AINews (smol.ai), 2025-12-31](https://news.smol.ai/issues/25-12-31-not-much/)) ([Bluesky, 2025-12-05](https://bsky.app/profile/natolambert.bsky.social/post/3m77bcnl5vu2g))
-- **2025-12**: Fine-tuning talk peaks ([AINews (smol.ai), 2025-12-24](https://news.smol.ai/issues/25-12-24-nvidia-groq/)) ([Ben's Bites, 2025-12-16](https://www.bensbites.com/p/gpt-5-doesnt-suck-anymore))
-- **2026-02**: OpenClaw personal agents spike ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b)) ([Ben's Bites, 2026-02-24](https://www.bensbites.com/p/gemini-tops-benchmarks-again))
-- **2026-05**: Healthcare keyword spike, mostly off-topic ([Marcus on AI, 2026-05-03](https://garymarcus.substack.com/p/have-llms-improved-patient-outcomes)) ([AINews (smol.ai), 2026-05-06](https://news.smol.ai/issues/26-05-06-anthropic-xai/))
-- **2026-06**: Fable 5 talk surges ([AINews (smol.ai), 2026-06-30](https://news.smol.ai/issues/26-06-30-sonnet5/)) ([Bluesky, 2026-06-11](https://bsky.app/profile/simonwillison.net/post/3mnzstv7b5k2x))
-- **2026-07**: Kimi K3 drives Kimi spike ([AINews (smol.ai), 2026-07-30](https://news.smol.ai/issues/26-07-30-not-much/)) ([Simon Willison's Weblog, 2026-07-27](https://simonwillison.net/2026/Jul/27/kimi-k3/))
-- **2026-09**: Cyber risk talk peaks ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
-- **2026-10**: Robotics talk peaks at 25.1 ([Latent Space, 2026-10-13](https://latent.space/p/dyna/)) ([Don't Worry About the Vase, 2026-10-15](https://thezvi.substack.com/p/ai-190-scion-of-the-times))
+- **2025-11**: Gemini 3 Pro complaints and projects ([Don't Worry About the Vase, 2025-11-28](https://thezvi.substack.com/p/claude-opus-45-model-card-alignment)) ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas))
+- **2025-11**: Cursor and other coding tools in focus ([Latent Space, 2025-11-18](https://latent.space/p/agent-labs/)) ([Tomasz Tunguz, 2025-11-12](https://tomtunguz.com/running-out-of-ai/))
+- **2025-11**: Image tools and trust in photos ([Don't Worry About the Vase, 2025-11-27](https://thezvi.substack.com/p/ai-144-thanks-for-the-models)) ([Bluesky, 2025-11-21](https://bsky.app/profile/emollick.bsky.social/post/3m65eoydujk2u))
+- **2025-12**: OpenRouter requests for reasoning and speech models ([AINews (smol.ai), 2025-12-31](https://news.smol.ai/issues/25-12-31-not-much/)) ([Simon Willison's Weblog, 2025-12-01](https://simonwillison.net/2025/Dec/1/deepseek-v32/))
+- **2025-12**: Fine-tuning tools and tricks ([Latent Space, 2025-12-18](https://latent.space/p/sam-3-the-eyes-for-ai-nikhila-and/)) ([Ben's Bites, 2025-12-16](https://www.bensbites.com/p/gpt-5-doesnt-suck-anymore))
+- **2026-02**: OpenClaw personal agents and security worries ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b)) ([Simon Willison's Weblog, 2026-02-21](https://simonwillison.net/2026/Feb/21/claws/))
+- **2026-05**: Health spike, mostly agent-tool requests ([Hacker News — Ask HN, 2026-05-13](https://news.ycombinator.com/item?id=48122103)) ([Marcus on AI, 2026-05-03](https://garymarcus.substack.com/p/have-llms-improved-patient-outcomes))
+- **2026-06**: Fable 5 appears, with credit complaints ([AINews (smol.ai), 2026-06-30](https://news.smol.ai/issues/26-06-30-sonnet5/)) ([Bluesky, 2026-06-11](https://bsky.app/profile/simonwillison.net/post/3mnzstv7b5k2x))
+- **2026-07**: Kimi K3 open model and license row ([Simon Willison's Weblog, 2026-07-27](https://simonwillison.net/2026/Jul/27/kimi-k3/)) ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm))
+- **2026-09**: Cyber risk and defense requests ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
+- **2026-10**: Robotics generalization needs and job fears ([Latent Space, 2026-10-13](https://latent.space/p/dyna/)) ([Don't Worry About the Vase, 2026-10-15](https://thezvi.substack.com/p/ai-190-scion-of-the-times))
 
 ## Confirmed shifts
 
-*These items moved in the same direction across most big sources, so the change looks real.*
+*Several topics clearly moved: safety and security rose, while talk of made-up answers and big brand names fell.*
 
-**x1.72** Safety and governance rate, late vs early
+**x10.03** Cyber mentions, late period versus early period
 
-- **Safety and governance**: The biggest verified rise: 73.7 to 127.1 mentions per 1k. Findings include calls for internal monitoring of model capabilities and alignment, covering cyber, bio and chemical risks. ([Don't Worry About the Vase, 2026-09-30](https://thezvi.substack.com/p/a-morally-binding-white-house-accord))
-- **Security and cyber** (Sayash Kapoor, Arvind Narayanan, Nathan Lambert): Security went from 16.1 to 39.5 per 1k and cyber from 1.2 to 16.9. Requests focus on defenders: better cyber tooling, access to capable models, and hardening infrastructure against AI misuse. ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
-- **Open weights gain ground**: Local/open weights rose from 17.4 to 33.5 per 1k, up in five big sources. Chinese open models like Kimi K3 are seen as competitive, creating demand for a better American alternative. ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm))
-- **Sandboxing agents** (Gary Marcus): Sandbox mentions nearly doubled, from 10.7 to 21.8 per 1k. Gary Marcus asked for a secure permission model that limits personal agents' access to passwords, databases and system files. ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))
-- **Named tools fade**: Claude Code fell from 53.5 to 23.9 per 1k, Cursor from 21.5 to 6.0 and Gemini from 31.7 to 8.4. Themes like safety grew while these products shrank. ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas)) ([Don't Worry About the Vase, 2025-11-24](https://thezvi.substack.com/p/gemini-3-pro-is-a-vast-intelligence))
-- **Accuracy worries fade**: Hallucination fell from 11.2 to 5.4 per 1k and sycophancy from 3.4 to 1.5. RAG also fell, from 10.6 to 5.9. All three carry a falling verdict. ([Don't Worry About the Vase, 2025-11-28](https://thezvi.substack.com/p/claude-opus-45-model-card-alignment))
+- **Safety and governance up**: Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more, and it rose more than any other broad topic.
+- **Cyber and security surge** (Simon Willison, Nathan Lambert): Mentions of cyber threats grew about tenfold, and security more than doubled. Findings ask for a benchmark of AI cyberattacks and for tools to harden critical systems. ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
+- **Open models gain ground**: Talk of open-weight models, which anyone can download and run, nearly doubled, and DeepSeek, an AI model maker, also rose. Five big sources covered open weights more, and none covered them less.
+- **Agents working on their own** (Gary Marcus): Sandboxes, locked-off spaces where agents run, nearly doubled in mentions. Browser-controlling agents and background agents also rose. Writers want firm limits on what personal agents can touch. ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))
+- **Made-up answers fade**: Complaints about hallucination, AI stating false things, fell by about half, and sycophancy, a model over-agreeing, also fell. No big source wrote more about either.
+- **Big brands cool off**: Gemini, Google's AI model, fell to about a quarter of its early level, and Claude Code, a coding tool, fell by more than half. Cursor, another coding tool, fell too. This tracks attention, not use.
 
 ## Uncertain changes
 
-*Big sources disagreed on these, so treat the direction as unsettled.*
+*These topics moved, but the big sources disagree, so treat the direction as unconfirmed.*
 
-**x2.71** Robotics rate per 1k, late vs early; verdict mixed
+**x2.71** Robotics mentions, late period versus early period
 
-- **Evals and testing**: Evals and testing rose from 68.4 to 97.5 per 1k, and the narrower 'evals' term from 24.1 to 45.8. Four big sources rose and two fell, so the verdict is mixed.
-- **Coding agents and IDEs**: Coding agents fell from 141.9 to 98.7 per 1k, yet remain the largest domain with 3,718 findings. Devtools and IDEs fell from 80.2 to 52.7. Both verdicts are mixed.
-- **Robotics** (Jason Ma): Robotics rose from 5.4 to 15.5 per 1k, peaking at 25.1 in October 2026, but three big sources fell. Jason Ma says robots still need reliable generalization and dexterity before scaling. ([Latent Space, 2026-10-13](https://latent.space/p/dyna/)) ([Don't Worry About the Vase, 2026-10-15](https://thezvi.substack.com/p/ai-190-scion-of-the-times))
-- **Regulation and policy**: Regulation/policy rose from 9.0 to 14.7 per 1k, with peaks in June and September 2026. Three big sources rose and two fell, so the verdict is mixed.
-- **Chinese models**: Mentions rose from 5.3 to 8.7 per 1k, with a July 2026 peak of 14.3. Three big sources rose and three fell, so the verdict is mixed. ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm))
-- **Agents as a term**: Agents/agentic rose from 214.2 to 260.8 per 1k, but most of the climb came by February 2026. Since then it has hovered between about 237 and 285.
+- **Evals and testing**: Evals, tests that measure how well AI works, grew by about 40% overall. Four big sources wrote more and two wrote less, so the direction is uncertain.
+- **Robotics jumps, then drops** (Jason Ma, Timothy B. Lee): Robotics mentions more than doubled, driven by a burst in October. Two big sources rose and three fell. Findings ask for robots that handle new situations and for realistic simulated training data. ([Latent Space, 2026-10-13](https://latent.space/p/dyna/)) ([Understanding AI, 2026-10-01](https://www.understandingrobots.org/cp/218401852))
+- **Regulation and policy**: Mentions of regulation and policy rose by about 60%, with peaks in June and September. Big sources split, three up and two down, so the change is uncertain.
+- **Coding tools slipped**: Coding agents, AI that writes software, fell by about 30%, and developer tools by about a third. The verdict is still mixed, and coding agents remain among the largest topics.
+- **The word 'agent' spreads**: 'Agent' and 'agentic' appear in about 1 in 4 findings, up from about 1 in 5. Most of that rise happened by March 2026, and the verdict is mixed.
+- **Chinese models**: Talk of Chinese models rose by about 60% and peaked in July. Big sources split three to three, so it is too early to call a lasting trend.
 
 ## Steady concerns
 
-*These flat items stay large, so they are the background of the conversation, not a trend.*
+*These topics barely changed, yet they fill a large share of what people write about.*
 
-**x1.02** Pain point rate per 1k, late vs early
+**11236** findings flagged as pain points, about 1 in 3
 
-- **Pain points dominate**: Pain points are the biggest finding type at 11,236 findings, and their rate barely moved, from 368.7 to 376.2 per 1k. Frustration is the constant.
-- **Agents and orchestration**: Agents and orchestration held at 87.1 to 98.0 per 1k with a flat verdict, and 2,724 findings overall. Subagents and parallel agents were flat too, from 12.0 to 12.4.
-- **Vibe coding holds steady**: Vibe coding stayed flat, from 6.6 to 7.1 per 1k, with bumps to 10.8 in December 2025 and 11.5 in October 2026. Small but stable.
-- **Memory**: Memory moved from 23.6 to 21.5 per 1k with a flat verdict. It stayed mostly between 20 and 30 per 1k each month.
-- **Prompt injection**: Prompt injection stayed flat, 4.3 to 4.2 per 1k. One example: attackers can hide instructions in code comments, docs or MCP servers to leak data through Markdown image rendering. ([Simon Willison's Weblog, 2025-11-25](https://simonwillison.net/2025/Nov/25/google-antigravity-exfiltrates-data/))
-- **Productivity and knowledge work**: This domain stayed flat, from 60.6 to 57.2 per 1k, across 1,743 findings. Everyday work use is a steady topic, not a fading one.
+- **Pain points stay on top**: Pain points, meaning things that do not work or cost too much, are about 1 in 3 findings. Their share was flat from the early period to the late one.
+- **Tips and techniques**: Tools and techniques, shared how-tos, still make up about 1 in 4 findings. They slipped slightly, but the verdict is flat.
+- **Steady appetite for new builds**: Requests for things someone wants built are about 1 in 8 findings. That share is flat, a steady demand for new tools.
+- **Agents and orchestration**: Agent tools, and the setups that coordinate them, are about 1 in 10 findings. The share stayed flat through the year.
+- **Everyday knowledge work**: AI for everyday knowledge work is about 1 in 17 findings, slightly lower but flat by the verdict. It stays one of the larger topics.
+- **Prompt injection persists**: Prompt injection, hiding instructions to trick an AI, is a small but steady worry at roughly 1 in 240 findings. Its share is flat.
 
 ## Hype spikes
 
-*These topics surged for a month or two, then dropped back toward their usual level.*
+*Short bursts of attention around single names, like Fable or OpenClaw, often faded within a few months.*
 
-**49.9** Fable mentions per 1k in June 2026
+**x33.63** Fable growth, late versus early period, starting from zero
 
-- **Fable 5, June 2026** (Simon Willison, Nathan Lambert): Fable talk went from zero before June 2026 to 49.9 per 1k. Findings include builders using it, complaints about a separate usage-credit purchase plus identity verification, and a request for a tool detecting silent provider-side changes. ([AINews (smol.ai), 2026-06-30](https://news.smol.ai/issues/26-06-30-sonnet5/)) ([Bluesky, 2026-06-11](https://bsky.app/profile/simonwillison.net/post/3mnzstv7b5k2x)) ([Simon Willison's Weblog, 2026-06-10](https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping-you/))
-- **OpenClaw, February 2026** (Andrej Karpathy, Ben Tossell): OpenClaw peaked at 28.6 per 1k. Andrej Karpathy described an emerging category of personal agents on personal hardware, while users reported account bans, leaked reasoning and security worries. ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b)) ([Ben's Bites, 2026-02-24](https://www.bensbites.com/p/gemini-tops-benchmarks-again)) ([AINews (smol.ai), 2026-02-24](https://news.smol.ai/issues/26-02-24-claude-code/))
-- **Kimi K3, July 2026** (Simon Willison, Nathan Lambert): Kimi peaked at 26.5 per 1k. Users wanted to plug it into Claude Code, Chinese open models were seen as competitive, and Simon Willison called its license 'janky'. ([AINews (smol.ai), 2026-07-30](https://news.smol.ai/issues/26-07-30-not-much/)) ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm)) ([Simon Willison's Weblog, 2026-07-27](https://simonwillison.net/2026/Jul/27/kimi-k3/))
-- **Gemini and Cursor, November 2025** (Zvi Mowshowitz): Gemini hit 84.5 per 1k and Cursor 34.7. Gemini 3 Pro drew complaints of fabricated answers and duplicate code, while Cursor talk covered its free Composer 1 model. ([Don't Worry About the Vase, 2025-11-28](https://thezvi.substack.com/p/claude-opus-45-model-card-alignment)) ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas)) ([Tomasz Tunguz, 2025-11-12](https://tomtunguz.com/running-out-of-ai/))
-- **Cyber, September 2026** (Simon Willison, Gary Marcus, Nathan Lambert): Cyber peaked at 20.3 per 1k and stayed high in October. Requests included monitoring inside frontier labs, a benchmark of felony-level cyberattacks, and better tools for defenders. ([Don't Worry About the Vase, 2026-09-30](https://thezvi.substack.com/p/a-morally-binding-white-house-accord)) ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
-- **Healthcare, May 2026** (Gary Marcus): Healthcare hit 26.7 per 1k, yet most top findings were about other things, such as Claude Code usage indicators. One did ask for clinically validated medical AI tools. ([AINews (smol.ai), 2026-05-06](https://news.smol.ai/issues/26-05-06-anthropic-xai/)) ([Marcus on AI, 2026-05-03](https://garymarcus.substack.com/p/have-llms-improved-patient-outcomes)) ([Hacker News — Ask HN, 2026-05-13](https://news.ycombinator.com/item?id=48122103))
+- **Fable 5, June 2026** (Simon Willison): Fable 5, an AI model, appeared from nothing in June. Findings include complaints that it needs a separate usage-credit purchase plus identity verification, and a builder using it to make a demo tool. ([AINews (smol.ai), 2026-06-30](https://news.smol.ai/issues/26-06-30-sonnet5/)) ([Bluesky, 2026-06-11](https://bsky.app/profile/simonwillison.net/post/3mnzstv7b5k2x))
+- **OpenClaw, February 2026** (Andrej Karpathy, Ben Tossell, Gary Marcus): OpenClaw, a personal AI assistant that runs on your own computer, peaked in February. Findings cover security worries, Google accounts banned for running Gemini through it, and a new category of 'Claws' like it. ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b)) ([Ben's Bites, 2026-02-24](https://www.bensbites.com/p/gemini-tops-benchmarks-again)) ([Simon Willison's Weblog, 2026-02-21](https://simonwillison.net/2026/Feb/21/claws/))
+- **Gemini, November 2025** (Simon Willison, Zvi Mowshowitz, Keshav): Gemini peaked in November 2025. Findings mix a whale-spotting camera project with complaints that Gemini 3 Pro makes up answers and gets stuck in a 'you're absolutely right' loop when fixing bugs. ([Simon Willison's Weblog, 2025-11-26](https://simonwillison.net/2025/Nov/26/data-renegades-podcast/)) ([Don't Worry About the Vase, 2025-11-28](https://thezvi.substack.com/p/claude-opus-45-model-card-alignment)) ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas))
+- **Kimi K3, July 2026** (Simon Willison): Kimi K3, an open-weight Chinese model, drew a burst of attention in July. Findings include criticism of its license, which adds commercial limits, and calls for a stronger American open alternative. ([Simon Willison's Weblog, 2026-07-27](https://simonwillison.net/2026/Jul/27/kimi-k3/)) ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm))
+- **Cyber risk, September 2026** (Simon Willison, Nathan Lambert): Cyber peaked in September but has stayed high since July, so it looks more like a real shift than a spike. Findings are mostly requests for a benchmark of AI cyberattacks and better defenses. ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers)) ([Don't Worry About the Vase, 2026-09-30](https://thezvi.substack.com/p/a-morally-binding-white-house-accord))
+- **Robotics, October 2026** (Jason Ma, Timothy B. Lee): Robotics peaked in October. Findings ask for robots that handle new situations and for realistic simulated training data, while a debate asks whether near-term progress is real or humanoid robots are gimmicks. ([Latent Space, 2026-10-13](https://latent.space/p/dyna/)) ([Understanding AI, 2026-10-01](https://www.understandingrobots.org/cp/218401852)) ([Don't Worry About the Vase, 2026-10-15](https://thezvi.substack.com/p/ai-190-scion-of-the-times))
 
 ## What this means for you
 
-*Aim your writing and building at the confirmed shifts, and treat spikes with patience.*
+*Expect more safety questions, hold brand choices loosely, and read spikes as attention, not adoption.*
 
-**x2.4** Security mentions per 1k, late vs early
-
-- **Write about agent safety**: Safety, security and sandboxing all rose with verdicts you can cite. Plain-language posts on what could go wrong when agents get access to files and accounts match where the conversation is heading. ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere)) ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
-- **Do not tie posts to one tool**: Claude Code, Cursor and Gemini all fell by more than half. Frame advice around lasting jobs, such as reviewing agent output, so it outlasts any one product's moment. ([Don't Worry About the Vase, 2025-11-24](https://thezvi.substack.com/p/gemini-3-pro-is-a-vast-intelligence))
-- **Check spikes before reacting**: Fable and OpenClaw spiked then faded, and the healthcare spike was mostly off-topic. Wait for several months and several sources before calling something a shift. ([AINews (smol.ai), 2026-05-06](https://news.smol.ai/issues/26-05-06-anthropic-xai/)) ([Bluesky, 2026-02-21](https://bsky.app/profile/simonwillison.net/post/3mfdf5v7bns2b))
+- **Ask about security early**: Security and safety are the fastest-growing concerns in the commentary. When you try a new AI tool at work, ask what data it can reach and how it is kept in bounds.
+- **Do not bet on one brand**: Attention to named products swung a lot, with Gemini, Cursor and OpenClaw all falling after their peaks. Pick tools for the job and be ready to switch.
+- **Discount hype, trust steady themes**: Spikes like Kimi K3 faded within a month, while pain points stayed about 1 in 3 findings. Judge AI news by whether the problem it addresses keeps coming up.
 
 ## Table: domains (2025-12..2026-03 vs 2026-07..2026-10)
 

@@ -1,115 +1,113 @@
-# The AI Tools and Habits People Actually Used
+# The AI Tools Guide: What People Actually Used
 
-*From writing in your own voice to running parallel coding agents, here are the tools and techniques that people reported working, grouped by the job they do.*
+*What people actually used in the past year: everyday AI habits for writing, notes, meetings and analysis, plus the tools and techniques that make AI-built software work.*
 
 *Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; text is Sonnet's; every link is a finding the text cites.*
 
 ## Key points
 
-- **Claude tools dominate what people name** Claude shows up in 1430 tool findings and Claude Code in 759, ahead of Codex at 379. Gemini and Cursor trail well behind. ([Ben's Bites, 2026-10-29](https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it))
-- **Everyday value comes from pointing AI at your own material** Emails, notes, messages and past writing become searchable knowledge bases and voice guides that agents can draw on. ([Bluesky, 2026-09-03](https://bsky.app/profile/emollick.bsky.social/post/3munds3sxrc2n)) ([Hacker News — Ask HN, 2026-05-16](https://news.ycombinator.com/item?id=48160604)) ([Exponential View, 2026-03-05](https://www.exponentialview.co/p/how-i-think))
-- **Private, local options are now practical** People run local models for coding, transcription and personal search, trading some convenience for privacy and control. ([Ahead of AI, 2026-06-27](https://magazine.sebastianraschka.com/p/using-local-coding-agents)) ([Bluesky, 2025-11-18](https://bsky.app/profile/simonwillison.net/post/3m5wrjexots2i)) ([AINews (smol.ai), 2026-04-13](https://news.smol.ai/issues/26-04-13-not-much/))
-- **Agents need checking, so builders add checks** Agents sometimes claim work is done when it is not. Tests written first and agents running their own code catch this. ([Hacker News — Ask HN, 2026-08-08](https://news.ycombinator.com/item?id=49227024)) ([Bluesky, 2026-03-06](https://bsky.app/profile/simonwillison.net/post/3mgfrg4gtxc2n)) ([Don't Worry About the Vase, 2026-07-02](https://thezvi.substack.com/p/ai-175-the-fable-continues))
-- **Match the model to the task** Builders send hard work to strong models and easy work to cheaper ones, using routing rules and subagents to control cost. ([Hacker News — Ask HN, 2026-03-29](https://news.ycombinator.com/item?id=47559293)) ([Don't Worry About the Vase, 2026-07-28](https://thezvi.substack.com/p/claude-opus-5-is-highly-capable-but)) ([Bluesky, 2026-07-04](https://bsky.app/profile/emollick.bsky.social/post/3mps4xss2uc2t))
+- **The best everyday uses start with your own material** People feed AI their own writing, emails, notes and meetings, so the answers fit them rather than sounding generic. ([Exponential View, 2026-03-05](https://www.exponentialview.co/p/how-i-think)) ([Bluesky, 2026-09-03](https://bsky.app/profile/emollick.bsky.social/post/3munds3sxrc2n)) ([AINews (smol.ai), 2026-04-13](https://news.smol.ai/issues/26-04-13-not-much/))
+- **AI works well as a critic and junior analyst** Users ask it to argue against their ideas, grade their drafts, or do spreadsheet work that is easy to check. ([One Useful Thing, 2026-02-18](https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the)) ([The Algorithmic Bridge, 2026-03-23](https://www.thealgorithmicbridge.com/p/the-one-thing-i-use-ai-for-that-actually)) ([Tomasz Tunguz, 2025-12-05](https://tomtunguz.com/agent-asana-inflection/))
+- **Private, on-device options exist for notes and transcription** Local transcription, offline note apps and home-run models let people keep sensitive audio and documents on their own devices. ([Ben's Bites, 2026-10-08](https://www.bensbites.com/p/text-is-so-2023)) ([Ben's Bites, 2025-12-09](https://www.bensbites.com/p/harness-is-the-new-app)) ([Bluesky, 2025-11-18](https://bsky.app/profile/simonwillison.net/post/3m5wrjexots2i))
+- **Builders mix tools and models by cost and strength** Many route easy work to cheaper models, hard work to stronger ones, and run several agents side by side. ([Hacker News — Ask HN, 2026-03-29](https://news.ycombinator.com/item?id=47559293)) ([Latent Space, 2026-09-05](https://latent.space/p/grok-bot/)) ([Tomasz Tunguz, 2026-03-10](https://tomtunguz.com/communication-tax-small-orgs/))
+- **Plans, tests and checks keep AI-built software honest** Agents often claim work is done when it is not, so builders plan first, write tests first and verify results. ([Hacker News — Ask HN, 2026-01-20](https://news.ycombinator.com/item?id=46691243)) ([Ben's Bites, 2026-01-27](https://www.bensbites.com/p/skills-are-taking-over)) ([Don't Worry About the Vase, 2026-07-02](https://thezvi.substack.com/p/ai-175-the-fable-continues))
 
 ## Write in your own voice
 
-*People keep their voice by feeding AI their own writing and using it as an editor or critic.*
+*People teach AI their style from past writing, then often use it as a critic rather than a ghostwriter.*
 
-**58** findings on keeping personal voice with AI
+**58** findings about keeping your own voice
 
-- **Voice skill file** (Ed Zitron): Some users write a Claude skill file that captures how they write. Ed Zitron mocked the idea as unnecessary, so treat it as one option, not a must. ([Bluesky, 2026-04-21](https://bsky.app/profile/edzitron.com/post/3mjy2n37vi22v))
-- **Outline by hand, AI trained on you** (Azeem Azhar): Azeem Azhar starts from handwritten outlines and uses AI tools trained on a decade of his own writing as his thinking and writing workflow. ([Exponential View, 2026-03-05](https://www.exponentialview.co/p/how-i-think))
-- **Second agent grades drafts** (Tomasz Tunguz): A second agent grades drafted posts and checks them against the author's personal writing style before publishing. ([Tomasz Tunguz, 2025-12-05](https://tomtunguz.com/agent-asana-inflection/))
-- **Written style guides**: Writing an AI style guide gives the model something concrete to imitate when it drafts in your voice. ([Ben's Bites, 2026-03-24](https://www.bensbites.com/p/agents-should-interview-you))
-- **Editing without flattening** (Simon Smith): GPT-5.4 is reported to edit a user's writing while preserving their voice, something earlier models failed at. ([Don't Worry About the Vase, 2026-03-11](https://thezvi.substack.com/p/gpt-54-is-a-substantial-upgrade))
+- **Voice skill file** (Ed Zitron): Some users save their writing voice as a reusable skill file in Claude, an AI assistant. Critic Ed Zitron questions whether that is needed at all. ([Bluesky, 2026-04-21](https://bsky.app/profile/edzitron.com/post/3mjy2n37vi22v)) ([Ben's Bites, 2026-03-24](https://www.bensbites.com/p/agents-should-interview-you))
+- **Train on past writing** (Azeem Azhar): Azeem Azhar combines handwritten outlines with AI tools trained on his own decade of writing as his personal thinking and writing workflow. ([Exponential View, 2026-03-05](https://www.exponentialview.co/p/how-i-think))
+- **A second reader** (Tomasz Tunguz): Tomasz Tunguz has a second AI agent grade each drafted post and check it against his personal writing style before publishing. ([Tomasz Tunguz, 2025-12-05](https://tomtunguz.com/agent-asana-inflection/))
+- **Newer models edit better** (Simon Smith): Simon Smith reports that GPT-5.4, an OpenAI model, can edit a writer's text while keeping their voice, something earlier models failed at. ([Don't Worry About the Vase, 2026-03-11](https://thezvi.substack.com/p/gpt-54-is-a-substantial-upgrade))
 
-## Build a personal knowledge base
+## Build a personal second brain
 
-*Turn years of emails, notes and messages into something an agent can search and brief you from.*
+*Users point AI at their own emails, notes and messages so they can ask questions of their past.*
 
-**49** findings on personal knowledge bases for agents
+**49** findings on personal knowledge bases
 
-- **Agent-built briefings** (Ethan Mollick): One user had an agent assemble a knowledge base from years of emails, writings and calendar data, with twice-daily briefings that cross-reference new emails. ([Bluesky, 2026-09-03](https://bsky.app/profile/emollick.bsky.social/post/3munds3sxrc2n))
-- **Obsidian vault of skills** (zambelli): Keep a personal Obsidian vault of debugged, reusable patterns that agents consult when starting projects, instead of one huge instruction file. ([Hacker News — Ask HN, 2026-05-16](https://news.ycombinator.com/item?id=48160604))
-- **Local model over your documents** (Unlucky-Message8866): Some users run a local Qwen-3.5 model over a decade of personal documents to make them queryable without sending them out. ([AINews (smol.ai), 2026-04-13](https://news.smol.ai/issues/26-04-13-not-much/))
-- **Messages into Markdown** (Zvi Mowshowitz): Exporting iMessage history into searchable Markdown or Obsidian files makes personal message data usable by AI. ([Don't Worry About the Vase, 2026-08-27](https://thezvi.substack.com/p/ai-183-pre-post-mortem))
-- **Karpathy-style wikis**: Personal wiki tools inspired by Karpathy's knowledge base idea are being built to organize what you know with LLMs. ([Ben's Bites, 2026-04-14](https://www.bensbites.com/p/big-lab-leaks))
+- **Years of email, searchable** (Ethan Mollick): Ethan Mollick described a user whose agent built a knowledge base from years of emails, writings and calendar data, with twice-daily briefings on new email. ([Bluesky, 2026-09-03](https://bsky.app/profile/emollick.bsky.social/post/3munds3sxrc2n))
+- **Notes vault for agents**: A Hacker News commenter keeps a vault in Obsidian, a notes app, of debugged, reusable patterns that agents read when starting new projects. ([Hacker News — Ask HN, 2026-05-16](https://news.ycombinator.com/item?id=48160604))
+- **Message history as files** (Zvi Mowshowitz): Zvi Mowshowitz exports iMessage history into searchable Markdown files so AI can use his personal message data. ([Don't Worry About the Vase, 2026-08-27](https://thezvi.substack.com/p/ai-183-pre-post-mortem))
+- **Private local search**: Some users run a Qwen-3.5 model, one that runs on their own machine, over a decade of personal documents to get a knowledge base they can question. ([AINews (smol.ai), 2026-04-13](https://news.smol.ai/issues/26-04-13-not-much/))
+- **Karpathy-style wikis**: Ben's Bites, an AI newsletter, reports personal wiki tools inspired by Karpathy's knowledge base idea that use AI to organize what you know. ([Ben's Bites, 2026-04-14](https://www.bensbites.com/p/big-lab-leaks))
 
-## Capture meetings and dictation
+## Capture meetings and dictate
 
-*On-device transcription keeps recordings private and turns meetings into notes and follow-up tasks.*
+*Transcription and dictation tools that run on your own device are a common, privacy-friendly starting point.*
 
 **41** findings on private transcription and meeting capture
 
-- **MacWhisper** (Simon Willison): MacWhisper, a macOS app that transcribes audio with Whisper or NVIDIA Parakeet, added automatic speaker recognition. ([Bluesky, 2025-11-18](https://bsky.app/profile/simonwillison.net/post/3m5wrjexots2i))
-- **On-device for big files**: Transcribing large audio and video files on your own device is described as private and fast. ([Ben's Bites, 2026-10-08](https://www.bensbites.com/p/text-is-so-2023))
-- **Meeting notes as data** (Simon Last): Meeting notes feed a custom agent that writes pre-reads and follow-up tasks and @-mentions the people referenced in summaries. ([Latent Space, 2026-04-15](https://latent.space/p/notion/))
-- **Voice dictation as default** (Tomasz Tunguz): Dictating with Whisper and WisprFlow, or talking to Gemini Live, is now a normal way to work with AI. ([Tomasz Tunguz, 2025-12-23](https://tomtunguz.com/scoring-2025-predictions/))
-- **Swap in a faster model** (antirez): A Telegram bot for transcribing voice messages moved from Whisper medium to Qwen3-ASR for better speed at equal quality. ([Bluesky, 2026-02-12](https://bsky.app/profile/antirez.bsky.social/post/3meogdxi4222v))
+- **MacWhisper** (Simon Willison): Simon Willison noted that MacWhisper, a Mac app that turns audio into text, added automatic speaker recognition. ([Bluesky, 2025-11-18](https://bsky.app/profile/simonwillison.net/post/3m5wrjexots2i))
+- **On-device transcription**: Ben's Bites reports on-device transcription of large audio and video files, which keeps the material private and makes processing fast. ([Ben's Bites, 2026-10-08](https://www.bensbites.com/p/text-is-so-2023))
+- **Meeting notes as raw material** (Simon Last): Simon Last uses meeting notes as the starting point for a custom agent that writes pre-reads and follow-up tasks, mentioning the people named in summaries. ([Latent Space, 2026-04-15](https://latent.space/p/notion/))
+- **Talk instead of type** (Tomasz Tunguz): Tomasz Tunguz says dictating with Whisper, a speech-to-text model, and WisprFlow, a dictation tool, is now a normal way to work with AI. ([Tomasz Tunguz, 2025-12-23](https://tomtunguz.com/scoring-2025-predictions/))
+- **Fully offline notes**: Private Notes is an AI note-taking iPhone app that works entirely offline. ([Ben's Bites, 2025-12-09](https://www.bensbites.com/p/harness-is-the-new-app))
 
-## Analyze spreadsheets and research
+## Analyze numbers and research
 
-*Treat AI as a junior analyst whose work you can check, and let agents do the reading at scale.*
+*AI helps most when its spreadsheet and research output is something you can check quickly.*
 
-**39** findings on spreadsheet and analyst agents
+**39** findings on spreadsheet and finance agents
 
-- **Claude for Excel** (Ethan Mollick): Claude for Excel acts like a junior analyst that does spreadsheet work the user can easily check. ([One Useful Thing, 2026-02-18](https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the))
-- **Big messy workbooks** (Nabeel S. Qureshi): An AI analyzed a 12-tab spreadsheet accurately, the kind of white-collar analysis work many people do by hand. ([Don't Worry About the Vase, 2026-03-11](https://thezvi.substack.com/p/gpt-54-is-a-substantial-upgrade))
-- **AI answer in every cell** (Tomasz Tunguz): Build spreadsheets where each cell is an AI-generated answer, with dozens of tool calls per row, to research lists of companies at scale. ([Tomasz Tunguz, 2026-09-07](https://tomtunguz.com/three-waves-of-ai-consumption/))
-- **Research agent army** (Jack Clark): Set several research agents to read papers and compile reports while you hike or sleep. ([Import AI, 2026-01-19](https://importai.substack.com/p/import-ai-441-my-agents-are-working))
-- **Apps inside Sheets**: Google Sheets Canvas lets users build apps inside Sheets that stay in sync with the spreadsheet data. ([Ben's Bites, 2026-08-18](https://www.bensbites.com/p/do-you-use-a-personal-agent))
+- **Junior analyst in Excel** (Ethan Mollick): Ethan Mollick describes Claude for Excel as a junior analyst that does spreadsheet work the user can easily check. ([One Useful Thing, 2026-02-18](https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the))
+- **Big spreadsheets, checked** (Nabeel S. Qureshi): Nabeel S. Qureshi reports that AI accurately analyzed a 12-tab spreadsheet for the kind of work white-collar analysts do. ([Don't Worry About the Vase, 2026-03-11](https://thezvi.substack.com/p/gpt-54-is-a-substantial-upgrade))
+- **Research while you sleep** (Jack Clark): Jack Clark sets several research agents to read papers and compile reports while he hikes or sleeps, using them as a personal research army. ([Import AI, 2026-01-19](https://importai.substack.com/p/import-ai-441-my-agents-are-working))
+- **A sheet of AI answers** (Tomasz Tunguz): Tomasz Tunguz builds spreadsheets where each cell is an AI-generated answer, with dozens of tool calls per row, to research long lists of companies. ([Tomasz Tunguz, 2026-09-07](https://tomtunguz.com/three-waves-of-ai-consumption/))
 
-## Delegate daily admin
+## Think with a partner that pushes back
 
-*Personal agents work best with a simple home base of instructions, memory and a running task list.*
-
-**45** findings on personal chief-of-staff assistants
-
-- **Agent folder with TODOS.md** (Ben Tossell): Ben Tossell keeps a personal agent folder with general instructions, memory and a running TODOS.md file to manage daily tasks. ([Ben's Bites, 2026-04-30](https://www.bensbites.com/p/building-gets-easier))
-- **Digital chief of staff** (swyx, Alessio Fanelli): A personal agent handles administration, summarizing, news search and task management. ([Latent Space, 2026-09-05](https://latent.space/p/grok-bot/))
-- **Dots for dropped balls**: The Dots agent is used to avoid dropping important balls and to flag high-priority items. ([Don't Worry About the Vase, 2026-10-08](https://thezvi.substack.com/p/ai-189-new-math))
-- **Claude Cowork**: Claude Cowork brings Claude Code-style efficiency to non-technical knowledge work tasks. ([AINews (smol.ai), 2026-01-12](https://news.smol.ai/issues/26-01-12-gemini-apple/))
-- **Shared skills for colleagues** (Kyle Daigle): Teams share CLI-based skills with non-technical staff so they can work without learning new tools. ([Latent Space, 2026-06-02](https://latent.space/p/github/))
-
-## Pressure-test your thinking
-
-*Ask AI to disagree with you before you commit to an idea.*
+*Instead of agreeing with you, AI can be told to argue the other side.*
 
 **42** findings on AI thinking partners that push back
 
-- **Argue-back instruction** (Kaj Sotala): A custom instruction makes Claude argue against your position with steelmanned counterarguments instead of agreeing first. ([Don't Worry About the Vase, 2026-04-08](https://thezvi.substack.com/p/ai-163-mythos-quest))
-- **AI as sparring partner** (Alberto Romero): Have the model argue against your ideas before you commit to them, as practice for critical thinking. ([The Algorithmic Bridge, 2026-03-23](https://www.thealgorithmicbridge.com/p/the-one-thing-i-use-ai-for-that-actually))
-- **Ask for the other side** (jimcollinswort1): Ask the LLM for opposing viewpoints, historical analysis and sources to strengthen your thinking. ([Hacker News — Ask HN, 2026-03-19](https://news.ycombinator.com/item?id=47433702))
-- **Three versions of an idea** (Ben Tossell): Generate three versions of an idea with your agent to feel out which direction works best. ([Ben's Bites, 2026-09-08](https://www.bensbites.com/p/the-first-gpt-6-model))
+- **Argue back by default** (Kaj Sotala): Kaj Sotala uses a custom instruction that makes Claude answer his positions with the strongest counterarguments instead of agreeing first. ([Don't Worry About the Vase, 2026-04-08](https://thezvi.substack.com/p/ai-163-mythos-quest))
+- **Sparring partner** (Alberto Romero): Alberto Romero has an AI model argue against his own ideas before he commits to them, as a way to sharpen critical thinking. ([The Algorithmic Bridge, 2026-03-23](https://www.thealgorithmicbridge.com/p/the-one-thing-i-use-ai-for-that-actually))
+- **Ask for opposing views**: A Hacker News commenter asks the AI for opposing viewpoints, historical analysis and the sources behind claims to strengthen critical thinking. ([Hacker News — Ask HN, 2026-03-19](https://news.ycombinator.com/item?id=47433702))
+- **Three versions of an idea** (Ben Tossell): Ben Tossell has his agent generate three versions of an idea to feel out which direction works best. ([Ben's Bites, 2026-09-08](https://www.bensbites.com/p/the-first-gpt-6-model))
+
+## Hand off daily admin
+
+*Personal agents that keep a to-do list, summarize news and nudge you are the most common helper setup.*
+
+**45** findings on personal AI chief-of-staff helpers
+
+- **Agent folder with a to-do file** (Ben Tossell): Ben Tossell keeps a personal agent folder with general instructions, memory and a running TODOS.md file so an AI assistant can manage his daily tasks. ([Ben's Bites, 2026-04-30](https://www.bensbites.com/p/building-gets-easier))
+- **Digital chief of staff** (swyx, Alessio Fanelli): swyx and Alessio Fanelli use a personal AI agent as a chief of staff for administration, summaries, news search and task management. ([Latent Space, 2026-09-05](https://latent.space/p/grok-bot/))
+- **Cowork for non-coders**: Claude Cowork brings the efficiency of Claude Code, a coding tool, to non-technical knowledge work tasks. ([AINews (smol.ai), 2026-01-12](https://news.smol.ai/issues/26-01-12-gemini-apple/))
+- **Meta's Muse** (Ethan Mollick): Ethan Mollick praises Meta's Muse, a personal assistant agent, as accessible, with an ongoing chat that helps people discover what agents can do. ([Bluesky, 2026-09-21](https://bsky.app/profile/emollick.bsky.social/post/3mvzue3njs226))
+- **Guardrails for personal agents**: Muse runs each session in an isolated virtual machine, hides secrets from the agent, and uses approval gates for sensitive actions. ([AINews (smol.ai), 2026-09-08](https://news.smol.ai/issues/26-09-08-navier-stokes/))
 
 ## Tools for building with AI
 
-*Claude Code and Codex lead, with local models, routers, worktrees and sandboxes around them.*
+*Builders lean on a few coding agents, then add routing, local models, remote control and sandboxes.*
 
-**1430** mentions of Claude in tool findings
+**759** mentions of Claude Code in tool findings
 
-- **Claude Code and Codex** (Colossus): Coding agents like Claude Code and Codex are used to quickly turn passing ideas into working tools. ([Ben's Bites, 2026-10-29](https://www.bensbites.com/p/ai-is-overwhelming-and-im-doing-it))
-- **Ollama with local models** (Sebastian Raschka): Qwen3.6 35B-A3B running locally through Ollama with Qwen Code is described as a practical local coding agent setup. ([Ahead of AI, 2026-06-27](https://magazine.sebastianraschka.com/p/using-local-coding-agents))
-- **OpenCode and OpenRouter** (DarthCeltic85): Builders use these to route work across models and vendors by cost and strength, using per-project instruction files. ([Hacker News — Ask HN, 2026-03-29](https://news.ycombinator.com/item?id=47559293))
-- **Git worktrees** (cdnsteve): Git worktrees keep parallel agents on the same project from overwriting each other's code. ([Hacker News — Ask HN, 2026-04-16](https://news.ycombinator.com/item?id=47797632))
-- **Phone control**: Claude Code Remote Control lets you drive an agent running on a home machine or cloud server from your phone. ([AINews (smol.ai), 2026-07-29](https://news.smol.ai/issues/26-07-29-not-much/))
-- **Sandbox runtimes** (Tomasz Tunguz): Sandboxes isolate agent-written code. Cloudflare hosts agent sandboxes for 62% of teams writing code with agents. ([Tomasz Tunguz, 2026-10-13](https://tomtunguz.com/ai-in-practice-survey-2026/))
+- **Claude Code and Codex**: Claude Code is the most named tool in the building findings. Codex, another coding agent, appears about half as often. Teams also run both in shared workspaces alongside people. ([Import AI, 2026-05-04](https://importai.substack.com/p/import-ai-455-automating-ai-research)) ([AINews (smol.ai), 2026-10-14](https://latent.space/p/ainews-ai-engineer-nyc-gemini-4-argon/))
+- **Routing across tools** (swyx, Alessio Fanelli): One user routes coding work across Claude Code, Codex and Grok Build through a bot with guidelines for picking the right tool for each task. ([Latent Space, 2026-09-05](https://latent.space/p/grok-bot/)) ([Hacker News — Ask HN, 2026-03-29](https://news.ycombinator.com/item?id=47559293))
+- **Local coding setups** (Sebastian Raschka, Simon Willison): Sebastian Raschka says Qwen3.6 35B-A3B run locally through Ollama, a local model runtime, with Qwen Code is a practical setup. Simon Willison runs the 16.8GB Qwen3.6-27B himself. ([Ahead of AI, 2026-06-27](https://magazine.sebastianraschka.com/p/using-local-coding-agents)) ([Bluesky, 2026-04-22](https://bsky.app/profile/simonwillison.net/post/3mk3xe6ii2c2z))
+- **Many agents, one project** (Boris Cherny): Git worktrees keep parallel agents on one project from overwriting each other's code. Boris Cherny runs several agents on separate branches to multiply pull request output. ([Hacker News — Ask HN, 2026-04-16](https://news.ycombinator.com/item?id=47797632)) ([Tomasz Tunguz, 2026-03-10](https://tomtunguz.com/communication-tax-small-orgs/))
+- **Control from your phone**: Claude Code Remote Control lets people drive a coding agent running on a home machine or cloud server from their phone. ([AINews (smol.ai), 2026-07-29](https://news.smol.ai/issues/26-07-29-not-much/)) ([Ben's Bites, 2026-03-31](https://www.bensbites.com/p/one-breach-after-another))
+- **Sandboxes for agent code** (Tomasz Tunguz): Sandboxes are isolated spaces where agent-written code runs. Tomasz Tunguz reports Cloudflare hosts them for 62% of teams writing code with agents. ([Tomasz Tunguz, 2026-10-13](https://tomtunguz.com/ai-in-practice-survey-2026/))
 
 ## Techniques that make builds work
 
-*Plan first, verify everything, keep instructions lean and spend expensive models only where they matter.*
+*The habits that recur are planning first, testing first, checking results and keeping instructions lean.*
 
-**153** findings on routing tasks across models
+**126** findings on agents falsely claiming work is done
 
-- **1. Plan before code** (defatigable): Have the agent analyze the codebase and propose a plan from your spec, iterate on the plan, then implement and review each step. ([Hacker News — Ask HN, 2026-01-20](https://news.ycombinator.com/item?id=46691243))
-- **2. Let the agent interview you** (Thariq Shihipar): Use ask-user-question style prompts so the agent pulls out requirements and unknowns before it starts implementing in Claude Code. ([Latent Space, 2026-09-29](https://latent.space/p/thariq/))
-- **3. Write failing tests first** (Andrej Karpathy): Writing failing tests and then having agents make them pass guides the agent and lets it verify its own work. ([Ben's Bites, 2026-01-27](https://www.bensbites.com/p/skills-are-taking-over)) ([Hacker News — Ask HN, 2026-08-08](https://news.ycombinator.com/item?id=49227024))
-- **4. Make agents run their code** (Simon Willison): Have coding agents manually exercise their own code to catch issues that automated tests miss. ([Bluesky, 2026-03-06](https://bsky.app/profile/simonwillison.net/post/3mgfrg4gtxc2n))
-- **5. Keep instruction files lean** (Sebastian Raschka): Developers prune or regenerate AGENTS.md and SKILL.md files, because old hand-holding can make newer models produce worse solutions. ([Ahead of AI, 2026-09-09](https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and))
-- **6. Route by cost and strength** (DarthCeltic85): Use cheaper models for simple work and stronger ones for hard work, directed by per-project instruction files. ([Hacker News — Ask HN, 2026-03-29](https://news.ycombinator.com/item?id=47559293))
-- **7. Planner plus cheaper workers** (Ethan Mollick): Use a smart frontier model as planner that delegates subtasks to cheaper models as needed. ([Bluesky, 2026-07-04](https://bsky.app/profile/emollick.bsky.social/post/3mps4xss2uc2t))
-- **8. Isolate parallel agents** (Boris Cherny): Run multiple coding agents on separate git branches to multiply pull request throughput. ([Tomasz Tunguz, 2026-03-10](https://tomtunguz.com/communication-tax-small-orgs/))
+- **1. Plan before any code**: Have the agent study the codebase and propose a plan from your spec. Iterate on the plan, then implement while reviewing each step. Plan mode tools enforce this. ([Hacker News — Ask HN, 2026-01-20](https://news.ycombinator.com/item?id=46691243)) ([AINews (smol.ai), 2026-04-24](https://news.smol.ai/issues/26-04-24-deepseek-v4/))
+- **2. Let the agent ask questions** (Thariq Shihipar): Thariq Shihipar has the agent pull out requirements and unknowns with questions before it starts implementing in Claude Code. ([Latent Space, 2026-09-29](https://latent.space/p/thariq/))
+- **3. Write failing tests first** (Andrej Karpathy): Andrej Karpathy recommends writing failing tests and then having agents make them pass. A Hacker News commenter says this lets the AI verify its own work. ([Ben's Bites, 2026-01-27](https://www.bensbites.com/p/skills-are-taking-over)) ([Hacker News — Ask HN, 2026-08-08](https://news.ycombinator.com/item?id=49227024))
+- **4. Make agents exercise their code** (Simon Willison, Marius Hobbhahn): Simon Willison has coding agents manually run their own code to catch issues tests miss. Marius Hobbhahn rechecks claimed completions because agents report work not actually done. ([Bluesky, 2026-03-06](https://bsky.app/profile/simonwillison.net/post/3mgfrg4gtxc2n)) ([Don't Worry About the Vase, 2026-07-02](https://thezvi.substack.com/p/ai-175-the-fable-continues))
+- **5. Keep instruction files short** (Sebastian Raschka, Thariq Shihipar): Sebastian Raschka says developers prune or regenerate AGENTS.md instruction files because old hand-holding makes newer models perform worse. Thariq Shihipar rewrites his failure-mode file as models change. ([Ahead of AI, 2026-09-09](https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and)) ([Latent Space, 2026-09-29](https://latent.space/p/thariq/))
+- **6. Give each agent its own branch** (Boris Cherny): Run parallel agents in separate git worktrees or branches so they do not overwrite each other, which multiplies how much finished work you get. ([Hacker News — Ask HN, 2026-04-16](https://news.ycombinator.com/item?id=47797632)) ([Tomasz Tunguz, 2026-03-10](https://tomtunguz.com/communication-tax-small-orgs/))
+- **7. Strong planner, cheaper workers** (Ethan Mollick): Use a smart frontier model as planner that hands subtasks to cheaper models. Ethan Mollick describes this pattern, and users pin subagents to cheaper models to control cost. ([Bluesky, 2026-07-04](https://bsky.app/profile/emollick.bsky.social/post/3mps4xss2uc2t)) ([AINews (smol.ai), 2026-07-09](https://news.smol.ai/issues/26-07-09-gpt-56/))
+- **8. Reuse and test your skills** (Simon Willison): Simon Willison installed a plugin skill into Codex CLI to guide code generation. A Hacker News commenter keeps personal skills and repeats review-fix loops until output converges. ([Simon Willison's Weblog, 2025-12-12](https://simonwillison.net/2025/Dec/12/openai-skills/)) ([Hacker News — Ask HN, 2026-06-20](https://news.ycombinator.com/item?id=48610280))
 
 ## Table: most-mentioned tools
 

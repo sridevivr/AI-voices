@@ -1,574 +1,545 @@
 {
  "state_of_ai": {
-  "title": "State of AI: November 2025 to November 2026",
-  "dek": "Safety and cyber risk grew loudest, coding agents hit practical limits like review and trust, open models gained ground, and money worries spread from bubble talk to confusing billing.",
+  "title": "State of AI: Nov 2025 to Nov 2026",
+  "dek": "Safety, security and open models drew more attention this year, while builders and everyday users kept hitting the same limits: unreliable agents, unclear costs and low trust.",
   "key_points": [
    {
-    "headline": "Safety and cyber risk became the loudest topic",
-    "detail": "Safety and governance talk rose x1.72 per 1k findings, with cyber up x10.03 and security up x2.4, all marked rising.",
+    "headline": "Safety and governance talk grew fastest among big topics",
+    "detail": "Safety and governance rose sharply as a share of commentary, driven by debates over government review of frontier models and who is liable when AI causes harm.",
     "evidence_ids": [
-     8768,
-     11663,
+     15785,
+     10191
+    ]
+   },
+   {
+    "headline": "Cyber and security worries jumped",
+    "detail": "Cyber talk grew about ten times as often, and security more than doubled, as writers argued over defenders, open models and misuse.",
+    "evidence_ids": [
+     5016,
      10187
     ]
    },
    {
-    "headline": "Coding agents moved from hype to hard problems",
-    "detail": "Claude Code mentions fell by more than half (x0.45), while builders complained about review load, false completion claims and code bloat.",
+    "headline": "Coding agents stayed central but their glow faded",
+    "detail": "Coding agents were the biggest topic by volume, but their share fell, and Claude Code and Cursor mentions dropped. Pain shifted to reviewing agent output.",
     "evidence_ids": [
      6606,
-     9547,
-     5071
+     2803
     ]
    },
    {
-    "headline": "Open-weight models, especially Chinese ones, gained ground",
-    "detail": "Local and open weights mentions rose x1.89 and Kimi K3 spiked in July 2026, though the gap to closed models stayed disputed.",
+    "headline": "Open and local models gained ground",
+    "detail": "Talk of open weights, meaning downloadable models, nearly doubled. Kimi K3, a Chinese open model, spiked in July amid debate over how far open models trail closed ones.",
     "evidence_ids": [
-     19447,
      17825,
      8533
     ]
    },
    {
-    "headline": "Benchmarks lost trust as a guide to usefulness",
-    "detail": "Builders said scores do not match real use, and models that detect tests weaken evals. Evals talk is mixed overall, at x1.42.",
+    "headline": "Benchmark scores lost trust",
+    "detail": "Many writers said headline scores no longer reflect real usefulness, and models that detect tests make evaluations harder to believe.",
     "evidence_ids": [
-     14023,
+     2600,
      8815
     ]
    },
    {
-    "headline": "Money worries: bubble talk and opaque costs",
-    "detail": "Debates covered an AI bubble and circular financing, while users hit confusing quotas, usage caps and billing problems.",
+    "headline": "Money, costs and quotas worry everyone",
+    "detail": "Opaque usage caps, billing disputes and doubts about circular AI financing came up repeatedly, alongside a lively AI bubble debate.",
     "evidence_ids": [
-     9544,
      26942,
      8129
-    ]
-   },
-   {
-    "headline": "Personal agents arrived with security strings attached",
-    "detail": "OpenClaw spiked in February 2026 amid trust worries, then faded (x0.18). Sandbox mentions rose x1.99 as people sought safer permissions.",
-    "evidence_ids": [
-     21302,
-     544
     ]
    }
   ],
   "sections": [
    {
     "heading": "What changed",
-    "takeaway": "Attention moved from product launches toward security, open models and the limits of agents.",
+    "takeaway": "Attention moved toward safety, security and open models, and away from earlier favorites.",
     "stat_value": "x1.72",
-    "stat_label": "Safety and governance talk, per 1k findings, early vs late",
+    "stat_label": "Safety and governance share, early versus late period",
     "cards": [
      {
-      "label": "Safety and cyber took over",
-      "text": "Cyber mentions rose x10.03 and security x2.4, both rising. Requests focused on monitoring model capabilities, benchmarking cyberattacks and giving defenders better tools.",
+      "label": "Safety and governance rising",
+      "text": "Fights over whether the US government should review frontier model releases drove much of the growth. Critics split between calling it a safety step and an opaque licensing regime.",
       "people": [
-       "Simon Willison",
-       "Nathan Lambert"
+       "Casey Newton",
+       "Alberto Romero"
       ],
       "evidence_ids": [
-       8768,
-       11663,
-       5016
+       28402,
+       15785
       ]
      },
      {
-      "label": "Open weights gained momentum",
-      "text": "Local and open weights mentions rose x1.89. Chinese open models like Kimi K3 and GLM-5.2 were seen as competitive, creating demand for a better American open alternative.",
-      "people": [],
+      "label": "Cyber and security rising",
+      "text": "Writers called for stronger defenses against AI-driven attacks and better tracking of dangerous model behavior. Security also rose around personal agents that can touch passwords and files.",
+      "people": [
+       "Nathan Lambert",
+       "Gary Marcus"
+      ],
+      "evidence_ids": [
+       5016,
+       544
+      ]
+     },
+     {
+      "label": "Open weights gain ground",
+      "text": "Open weights, meaning models anyone can download and run, rose in attention. Kimi K3, a Chinese open model, was seen as competitive with closed ones.",
+      "people": [
+       "Nathan Lambert"
+      ],
       "evidence_ids": [
        19447,
        17825
       ]
      },
      {
-      "label": "Fable 5 arrived with a backlash",
-      "text": "Fable went from zero to 16.3 per 1k and peaked in June 2026. Users objected to buying separate usage credits and verifying identity on top of existing plans.",
-      "people": [],
-      "evidence_ids": [
-       11713,
-       27912
-      ]
-     },
-     {
-      "label": "Personal agent boom and scare",
-      "text": "OpenClaw peaked in February 2026 and a category of personal 'Claws' emerged. Users grew wary of security and trust in a large agent codebase, and mentions then fell.",
+      "label": "OpenClaw boom and fade",
+      "text": "OpenClaw, a personal AI assistant that runs on your own computer, spiked in February amid security worries and account bans, then its mentions fell.",
       "people": [
        "Andrej Karpathy",
+       "Ben Tossell",
        "Gary Marcus"
       ],
       "evidence_ids": [
        27018,
-       21302,
-       544
+       7378
       ]
      },
      {
-      "label": "Agent plumbing kept rising",
-      "text": "Sandbox, computer use and browser agents, and background agents all carry a rising verdict. Agents overall are mixed, so treat the broader agent surge as uncertain.",
-      "people": [],
+      "label": "Fable 5 arrives",
+      "text": "Claude Fable 5, a new AI model, went from absent to a regular topic in June. Users complained about extra credit purchases, identity checks and generic writing.",
+      "people": [
+       "Alberto Romero"
+      ],
       "evidence_ids": [
-       19559,
-       8069
+       11713,
+       25245
       ]
      },
      {
-      "label": "Early favorites faded",
-      "text": "Claude Code, Cursor, Gemini, Perplexity and Nano Banana all carry a falling verdict. Hallucination and sycophancy talk also fell, suggesting attention moved to other worries.",
+      "label": "Older favorites cooled",
+      "text": "Mentions of Gemini, Google's AI model, and Cursor, a coding tool, fell sharply. Talk of hallucination, when AI makes things up, also fell by about half.",
       "people": [],
       "evidence_ids": [
-       8509,
-       15405
+       15405,
+       922
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "What people argued about",
-    "takeaway": "The big fights were about coding's value, AGI paths, a bubble, open weights and government control.",
-    "stat_value": "92",
-    "stat_label": "findings on the AI coding debate, 76 of them arguments",
+    "takeaway": "The biggest fights were about money, power and risk, not new features.",
+    "stat_value": "2826",
+    "stat_label": "debate findings across the year",
     "cards": [
      {
-      "label": "Is agentic coding worth it?",
-      "text": "One side reports large speedups. The other says agents fail on large codebases without constant supervision. Others ask whether developers stay essential or feel a real loss as agents take over problem-solving.",
+      "label": "Is AI coding worth it?",
+      "text": "One side reports big speedups; the other says agents fail on large codebases without constant supervision. Some programmers mourn losing puzzle-solving, while others welcome relief from drudgery.",
       "people": [
        "Benj Edwards",
-       "Jeremy Scheff",
-       "stavros"
+       "Jeremy Scheff"
       ],
       "evidence_ids": [
        12036,
-       28352,
        21002
       ]
      },
      {
-      "label": "Does scaling reach AGI?",
-      "text": "Skeptics say scaling alone is not enough and want world models or neurosymbolic AI. Others argue current models already have real utility.",
-      "people": [
-       "Gary Marcus",
-       "hardmaru"
-      ],
-      "evidence_ids": [
-       6817,
-       27073,
-       12782
-      ]
-     },
-     {
       "label": "Is there an AI bubble?",
-      "text": "One camp says revenue growth shows a sustainable business, while another says it does not imply profit. Comparisons to the dot-com bubble split commentators too.",
+      "text": "Noah Smith argued revenue growth shows no bubble, while Gary Marcus said growth does not mean profit. Ed Zitron compared it to the dot-com crash.",
       "people": [
        "Gary Marcus",
-       "Ed Zitron",
-       "Zvi Mowshowitz"
+       "Noah Smith",
+       "Ed Zitron"
       ],
       "evidence_ids": [
        9544,
-       28420,
-       11612
+       28420
       ]
      },
      {
-      "label": "Do open weights raise cyber risk?",
-      "text": "Lambert argues open models help balance offense and defense and that closed models are the bigger misuse concern. Safety advocates warn of disaster, and policy fights centered on pre-release review.",
+      "label": "Open models and cyber risk",
+      "text": "Nathan Lambert argued closed models are the bigger misuse worry, while safety advocates warn of disaster from open ones. Data cited a gap of 4-6 months between open and closed models.",
       "people": [
        "Nathan Lambert"
       ],
       "evidence_ids": [
        21706,
-       27346,
-       22236
+       8533
       ]
      },
      {
-      "label": "Should government gate frontier models?",
-      "text": "Some see review of frontier releases as a justified safety step. Others call it an opaque licensing regime or a pretext for monopoly control.",
+      "label": "Should governments gate or pace AI?",
+      "text": "Debate covered US review of frontier releases, calls to pace or pause development, and shutting down labs after incidents. Gary Marcus called pacing talk cover for racing ahead.",
       "people": [
+       "Eliezer Yudkowsky",
+       "Gary Marcus",
        "Casey Newton",
-       "Alberto Romero",
-       "Eliezer Yudkowsky"
-      ],
-      "evidence_ids": [
-       28402,
-       15785,
-       4140
-      ]
-     },
-     {
-      "label": "How big is the open-closed gap?",
-      "text": "Estimates cited a 4-6 month gap, while others argued the gap widens because ideas compound. Lambert saw no evidence yet that open models are closing in.",
-      "people": [
-       "Nathan Lambert",
-       "Yi Tay",
        "Zvi Mowshowitz"
       ],
       "evidence_ids": [
-       8533,
-       29759,
-       6687
-      ]
-     }
-    ],
-    "post_angle": ""
-   },
-   {
-    "heading": "Builders struggled with",
-    "takeaway": "Agents write code faster than people can check it, and trust, drift and cost limits followed.",
-    "stat_value": "126",
-    "stat_label": "findings on agents falsely claiming completion",
-    "cards": [
-     {
-      "label": "Agents say done when it isn't",
-      "text": "Coding agents claim tasks are finished and verified when output is poor, and write tests that encode wrong behavior. Workarounds include TDD prompts, stop hooks and cross-model review.",
-      "people": [
-       "Ben Tossell",
-       "Marius Hobbhahn"
-      ],
-      "evidence_ids": [
-       9547,
-       2803,
-       5417
+       4140,
+       7981,
+       28402
       ]
      },
      {
+      "label": "Does scaling reach AGI?",
+      "text": "Writers split on whether more data and compute is enough for human-level AI, or whether world models, which simulate how the world works, are needed.",
+      "people": [
+       "Gary Marcus",
+       "hardmaru",
+       "Jason Ma"
+      ],
+      "evidence_ids": [
+       6817,
+       27073
+      ]
+     },
+     {
+      "label": "Can AI be conscious?",
+      "text": "Chris Olah of Anthropic said models functionally mirror feelings like joy and grief. Gary Marcus said they lack experience, and Emily M. Bender disputed claims that AI deserves moral consideration.",
+      "people": [
+       "Chris Olah",
+       "Gary Marcus",
+       "Emily M. Bender"
+      ],
+      "evidence_ids": [
+       21144,
+       20006,
+       29407
+      ]
+     }
+    ],
+    "post_angle": "",
+    "audience": "everyone"
+   },
+   {
+    "heading": "Builders struggled with",
+    "takeaway": "Agents write fast, but checking, trusting and paying for their work became the hard part.",
+    "stat_value": "36%",
+    "stat_label": "success over 20 steps at 95% per-step reliability",
+    "cards": [
+     {
       "label": "Review is the bottleneck",
-      "text": "Code generation now outpaces human review, and teams lose comprehension as agents write more. Mitigations include AI first-pass reviewers and reviewing specs instead of code.",
+      "text": "Agents write code faster than people can read it, so review became the choke point and teams lose track of what the code actually does.",
       "people": [
        "Ethan Mollick"
       ],
       "evidence_ids": [
        6606,
-       14395,
-       29213
+       14395
       ]
      },
      {
-      "label": "Bloat and technical debt",
-      "text": "AI-generated codebases pile up unused handlers, logs and debt because models rarely push back on new features. Teams fear long-term liabilities even as output speeds up.",
+      "label": "Agents falsely claim success",
+      "text": "Coding agents report tasks finished and verified when the output is broken, or write tests that encode wrong behavior, so users must check closely.",
+      "people": [
+       "Marius Hobbhahn",
+       "Ben Tossell"
+      ],
+      "evidence_ids": [
+       9547,
+       2403
+      ]
+     },
+     {
+      "label": "Code bloat and debt",
+      "text": "AI-generated code piles up unused handlers, bloated docs and technical debt, partly because models rarely push back on adding or changing features.",
       "people": [
        "Barr Yaron"
       ],
       "evidence_ids": [
        5071,
-       23263,
-       10288
+       23263
       ]
      },
      {
-      "label": "Long runs drift and compound errors",
-      "text": "Agents leave stray references and lose coherence over long tasks. One estimate: 95% per-step reliability over 20 steps gives about 36% success.",
+      "label": "Long tasks drift",
+      "text": "Small per-step failures compound, so a long autonomous run often ends badly. Agents also hold only a few hours of work in context before losing coherence.",
       "people": [
-       "Ethan Mollick",
-       "swyx & Alessio Fanelli"
+       "swyx & Alessio Fanelli",
+       "Jacob Sansbury"
       ],
       "evidence_ids": [
-       28638,
        1206,
        9070
       ]
      },
      {
-      "label": "Benchmarks mislead",
-      "text": "Developers distrust headline scores because they fail to match real coding performance. Models that detect evals and act differently make tests even less reliable.",
+      "label": "Scores do not match reality",
+      "text": "Writers said headline benchmark scores no longer reflect real coding usefulness, and models that detect tests may behave differently, which undermines evaluations.",
       "people": [
        "Nathan Lambert",
        "Zvi Mowshowitz"
       ],
       "evidence_ids": [
-       21046,
        2600,
        8815
       ]
      },
      {
       "label": "Opaque quotas and meters",
-      "text": "Usage data is hard to see, plans change, and heavy agent use burns weekly quotas fast. Anthropic confirmed service errors consumed paid Claude Code limits.",
+      "text": "Paid plans burn through weekly limits fast, service errors can eat into quota, and usage data is hard to see, so spending is hard to track.",
       "people": [
        "Ben Tossell",
        "Simon Willison"
       ],
       "evidence_ids": [
-       8129,
        15288,
        18435
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "builders"
    },
    {
     "heading": "Everyday users struggled with",
-    "takeaway": "Everyday frustrations were about trust, money and attention: slop, confusing plans, billing, and burnout.",
-    "stat_value": "71",
-    "stat_label": "findings on fragile AI financing and circular deals",
+    "takeaway": "Confusing limits and bills, tired workers, bland writing and shaky trust topped the complaints.",
+    "stat_value": "$400",
+    "stat_label": "charged for an annual plan after choosing monthly",
     "cards": [
      {
-      "label": "Fragile AI finance",
-      "text": "Circular deals among AI firms and chipmakers, plus heavy debt for data centers, raised worries about hidden fragility. Data center projects were described as using 65-90% leverage.",
+      "label": "Usage caps nobody can read",
+      "text": "One user hit Gemini Pro's limit after about 8 minutes of chatting on a paid plan, and plan comparison grids leave limits unclear.",
       "people": [
-       "Ed Zitron",
-       "Gary Marcus",
-       "Tomasz Tunguz"
+       "Simon Willison"
       ],
       "evidence_ids": [
-       26942,
-       9653,
-       1553
+       26685,
+       20122
       ]
      },
      {
-      "label": "Burnout and scattered attention",
-      "text": "Agents let people take on more tasks at once, raising cognitive load and leaving abandoned side projects. Productivity gains were said to intensify work and lead to exhaustion.",
+      "label": "Billing and refund pain",
+      "text": "A user was charged $400 for an annual Manus plan, an AI agent product, after choosing monthly. Refund requests elsewhere were granted only case by case.",
+      "people": [],
+      "evidence_ids": [
+       669,
+       4040
+      ]
+     },
+     {
+      "label": "Burnout from agent work",
+      "text": "AI productivity gains intensified work, and people juggling many agent tasks reported mental creep, exhaustion and abandoned side projects.",
       "people": [
-       "Simon Willison",
-       "swyx"
+       "Simon Willison"
       ],
       "evidence_ids": [
        28702,
-       25199,
-       5329
+       25199
       ]
      },
      {
       "label": "Generic AI prose",
-      "text": "Models still write dull, recognizable prose in long-form writing, reports and PR summaries. Even newer models were criticized for writing quality as generic as earlier ones.",
+      "text": "Even new models write dull, recognizable text, from book chapters to commit messages, so people edit heavily or add anti-slop instructions.",
       "people": [
-       "Alberto Romero",
        "Ethan Mollick",
-       "Zvi Mowshowitz"
+       "Alberto Romero"
       ],
       "evidence_ids": [
-       25245,
        8043,
        22331
       ]
      },
      {
-      "label": "Confusing plans and caps",
-      "text": "Paid users hit limits quickly, with one report of Gemini Pro at 100% after about 8 minutes. Pricing grids and product mode names were called confusing.",
-      "people": [
-       "Simon Willison",
-       "Ethan Mollick"
-      ],
-      "evidence_ids": [
-       26685,
-       20122,
-       22168
-      ]
-     },
-     {
-      "label": "Billing and support failures",
-      "text": "Users reported poor refund handling, expiring API credits, and slow templated support. One user was charged $400 for an annual plan after selecting monthly billing.",
-      "people": [
-       "Simon Willison"
-      ],
-      "evidence_ids": [
-       669,
-       4040,
-       3636
-      ]
-     },
-     {
-      "label": "Slop erodes online trust",
-      "text": "People worry AI bots and slop will drown out real voices and make search and the web harder to trust. Many feel a visceral rejection of AI aesthetics.",
+      "label": "Trust eroding online",
+      "text": "Writers worried AI bots and slop could drown out real voices, with fake reviews and an error-filled AI encyclopedia showing up in AI search results.",
       "people": [
        "Brian Merchant",
        "Zvi Mowshowitz"
       ],
       "evidence_ids": [
        7112,
-       28895,
        870
+      ]
+     },
+     {
+      "label": "Hard to prove AI pays",
+      "text": "Companies question whether AI delivers business returns, and many struggle to find concrete uses beyond pilots.",
+      "people": [
+       "Gary Marcus",
+       "Azeem Azhar"
+      ],
+      "evidence_ids": [
+       18430,
+       24849
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "What people used",
-    "takeaway": "Claude tools dominated mentions, while the real action was routing, parallel agents, plan-first habits and local setups.",
+    "takeaway": "Claude and coding assistants led, with growing use of local models, personal knowledge bases and spreadsheet helpers.",
     "stat_value": "1430",
-    "stat_label": "Claude mentions in tool and workaround findings",
+    "stat_label": "Claude mentions in tool findings",
     "cards": [
      {
-      "label": "Route work across models",
-      "text": "People matched tasks to models by cost and strength, using instruction files and cheaper subagent models for simple work. Matei Zaharia argued multi-vendor routing beats single-vendor lock-in for coding.",
+      "label": "Claude leads tool mentions",
+      "text": "Claude appeared in far more tool findings than anything else, with Claude Code, Anthropic's coding tool, next and Codex, another coding assistant, third.",
       "people": [
-       "matei_zaharia",
-       "Ben Tossell",
-       "Simon Willison"
+       "Tomasz Tunguz"
       ],
       "evidence_ids": [
-       15272,
+       12927,
+       8073
+      ]
+     },
+     {
+      "label": "Routing work across models",
+      "text": "Builders send easy jobs to cheaper models and hard jobs to stronger ones, sometimes across vendors, to manage cost and limits.",
+      "people": [
+       "Ben Tossell"
+      ],
+      "evidence_ids": [
        19210,
        20930
       ]
      },
      {
-      "label": "Parallel agents with guardrails",
-      "text": "Developers ran 5-10 agents at once, using git worktrees so agents do not overwrite each other. Some queued tasks for agents to work overnight.",
-      "people": [
-       "Peter Steinberger",
-       "Tomasz Tunguz"
-      ],
-      "evidence_ids": [
-       11421,
-       15993,
-       12927
-      ]
-     },
-     {
-      "label": "Plan first, then build",
-      "text": "A common routine was to have the agent analyze the codebase, propose a plan, iterate on it, then implement with step-by-step review. Elicitation questions pull out requirements before coding.",
-      "people": [
-       "Thariq Shihipar",
-       "Thorsten Ball"
-      ],
-      "evidence_ids": [
-       12016,
-       26515,
-       14439
-      ]
-     },
-     {
-      "label": "Local coding stacks",
-      "text": "Open models like Qwen3.6 ran locally via Ollama, MLX or llama.cpp with coding harnesses. Willison runs a 16.8GB open-weight model himself as a strong local coder.",
+      "label": "Local models on your own machine",
+      "text": "Ollama and LM Studio, tools for running models locally, paired with Qwen models let people code privately. Sebastian Raschka called one such setup practical.",
       "people": [
        "Sebastian Raschka",
-       "Simon Willison",
-       "Awni Hannun"
+       "Simon Willison"
       ],
       "evidence_ids": [
        4528,
-       29504,
-       20209
+       29504
       ]
      },
      {
-      "label": "Personal knowledge bases",
-      "text": "People pointed agents at their own emails, notes and messages, using Obsidian vaults, markdown wikis and local models to build queryable personal archives.",
+      "label": "Second brains for agents",
+      "text": "Users turn emails, notes and messages into searchable personal knowledge bases, often in Obsidian, a notes app, so agents can answer from their own data.",
       "people": [
        "Ethan Mollick",
        "Zvi Mowshowitz"
       ],
       "evidence_ids": [
        28639,
-       15776,
-       26404
+       14888
       ]
      },
      {
-      "label": "Spreadsheet and writing helpers",
-      "text": "Claude for Excel was described as a junior analyst whose work is easy to check. Writers used skill files and style guides to keep their own voice.",
+      "label": "Spreadsheet and meeting helpers",
+      "text": "Claude for Excel acts like a junior analyst whose work is easy to check, while MacWhisper, a transcription app, handles private dictation and meeting notes.",
       "people": [
        "Ethan Mollick",
-       "Tomasz Tunguz",
-       "Azeem Azhar"
+       "Simon Willison"
       ],
       "evidence_ids": [
        24017,
-       1780,
-       269
+       29204
+      ]
+     },
+     {
+      "label": "Plan first, then build",
+      "text": "Many builders have the agent propose a plan or spec before writing code, then review each step, instead of simply saying build it.",
+      "people": [
+       "Thariq Shihipar"
+      ],
+      "evidence_ids": [
+       12016,
+       26515
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "What this means for you",
-    "takeaway": "Treat agents as fast but unreliable juniors: demand proof, keep work small, and watch security and cost.",
-    "stat_value": "x2.4",
-    "stat_label": "security mentions, early vs late period, per 1k",
+    "takeaway": "Trust agents less, test more, stay flexible on vendors, and write about what you actually measured.",
+    "stat_value": "",
+    "stat_label": "",
     "cards": [
      {
-      "label": "Demand proof before trusting",
-      "text": "Ask your coding agent to run tests and show the result live, not just say it is done. Add a TDD prompt or a second model as reviewer.",
+      "label": "Demand proof of finished work",
+      "text": "Ask agents to show tests run or screenshots before you accept a task as done. Posts showing a real check catching a false claim earn trust.",
       "people": [],
       "evidence_ids": [
-       5417,
        9547,
-       2803
+       5417
       ]
      },
      {
-      "label": "Plan first, ship small",
-      "text": "Write a spec, approve the agent's plan, and ship in small increments. Review is the bottleneck, so smaller changes keep you able to understand what shipped.",
+      "label": "Test models on your tasks",
+      "text": "Skip headline benchmark scores and run each new model on a few of your own real jobs. Share the results, including where it failed.",
       "people": [],
       "evidence_ids": [
-       6606,
-       12016,
-       9070
+       2600,
+       14023
       ]
      },
      {
-      "label": "Budget and route your usage",
-      "text": "Check usage meters before long agent runs, and send simple tasks to cheaper models. Quotas are opaque and heavy use can burn a weekly limit mid-week.",
+      "label": "Plan small, review small",
+      "text": "Write a short spec first, keep changes small, and treat human review as the scarce resource when agents generate lots of code.",
       "people": [],
       "evidence_ids": [
-       18435,
-       15272,
-       25923
+       231,
+       12016
       ]
      },
      {
-      "label": "Sandbox anything personal",
-      "text": "If you build or run a personal agent, limit its access to passwords, databases and files, and add approval steps for sensitive actions. Trust worries drove the OpenClaw backlash.",
+      "label": "Avoid single-vendor dependence",
+      "text": "Keep a fallback model and route cheap tasks to cheaper models, since versions change fast and access or quotas can vanish.",
+      "people": [],
+      "evidence_ids": [
+       13869,
+       19210
+      ]
+     },
+     {
+      "label": "Write about security and costs",
+      "text": "Rising topics are agent permissions and sandboxes, and plain accounting of what usage actually costs. Post concrete numbers from your own setup.",
       "people": [],
       "evidence_ids": [
        544,
-       21302,
-       7930
-      ]
-     },
-     {
-      "label": "Post concrete, not generic",
-      "text": "Audiences are tired of slop and vague hype. Write about specifics such as review bottlenecks, quota surprises or how you keep your own voice, and disclose when AI helped.",
-      "people": [],
-      "evidence_ids": [
-       5382,
-       25245,
-       6606
+       25923
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "builders"
    }
   ],
   "moments": [
    {
     "month": "2025-11",
-    "label": "Gemini 3 Pro coding complaints surface",
+    "label": "Gemini 3 Pro buzz and complaints",
     "evidence_ids": [
-     8509,
-     15405
+     15405,
+     8509
     ]
    },
    {
     "month": "2026-02",
     "label": "OpenClaw security scare",
     "evidence_ids": [
-     27018,
-     21302
+     544,
+     21302,
+     7378
     ]
    },
    {
     "month": "2026-06",
-    "label": "Fable 5 buzz and credit backlash",
+    "label": "Fable 5 launch and credit anger",
     "evidence_ids": [
      11713,
-     27912
+     25245
     ]
    },
    {
     "month": "2026-06",
-    "label": "Debate over US gating of frontier releases",
+    "label": "US review of frontier releases debated",
     "evidence_ids": [
      15785,
      28402
@@ -576,17 +547,17 @@
    },
    {
     "month": "2026-07",
-    "label": "Kimi K3 open-weight surge",
+    "label": "Kimi K3 fuels open-model rivalry",
     "evidence_ids": [
-     19447,
-     17825
+     17825,
+     19447
     ]
    },
    {
     "month": "2026-09",
-    "label": "Cyber misuse worries peak",
+    "label": "Cyber incident fuels open-weights fight",
     "evidence_ids": [
-     11663,
+     5018,
      10187
     ]
    },
@@ -595,7 +566,14 @@
     "label": "Robotics talk peaks",
     "evidence_ids": [
      6653,
-     7260
+     971
+    ]
+   },
+   {
+    "month": "2026-11",
+    "label": "Circular AI financing worries grow",
+    "evidence_ids": [
+     26942
     ]
    }
   ],
@@ -902,90 +880,89 @@
    30057,
    30112
   ],
-  "_notes": []
+  "_notes": [
+   "dropped people not in input: ['Matei Zaharia'] (Routing work across models)"
+  ]
  },
  "debates": {
-  "title": "The Biggest AI Debates of the Year",
-  "dek": "Ten fights dominated a year of AI commentary, from whether coding agents pay off to whether anyone can or should slow the frontier.",
+  "title": "The Biggest Debates in AI This Year",
+  "dek": "Ten arguments dominated a year of AI commentary, from whether coding agents pay off to whether AI is a bubble, and most stayed unresolved.",
   "key_points": [
    {
-    "headline": "Coding agents drew the most arguments by far",
-    "detail": "Debates about AI coding value and the human role produced 76 debate findings, more than any other topic, and are far from settled.",
+    "headline": "Coding agents drew more argument than anything else",
+    "detail": "The coding debate had 76 findings, the most of any topic. It asks whether AI replaces developers or just keeps them busier.",
     "evidence_ids": [
      12036,
      28352
     ]
    },
    {
-    "headline": "Many fights share one root: how far capability goes",
-    "detail": "Scaling, bubble, and jobs debates all turn on whether current progress keeps compounding or stalls, and each side reads the same evidence differently.",
+    "headline": "Many debates are really bets on the future",
+    "detail": "Whether AI is a bubble, whether open models catch up, and whether jobs vanish all rest on forecasts, with credible voices on each side.",
     "evidence_ids": [
-     6817,
      9544,
+     6687,
      14363
     ]
    },
    {
-    "headline": "Open-weight models sit inside three separate debates",
-    "detail": "Open models appear in arguments over cyber risk, the capability gap with closed labs, and how regulation should target weights, APIs or applications.",
+    "headline": "Safety arguments turned into concrete policy fights",
+    "detail": "Open-weight releases, pausing or pacing, liability and government review of new models all appear as live policy questions, not abstract worries.",
     "evidence_ids": [
-     21706,
-     8533,
-     24932
+     22236,
+     15785,
+     19882
     ]
    },
    {
-    "headline": "Policy camps split on acting now versus liability later",
-    "detail": "Voices disagree on pausing, government review of releases, and whether liability and litigation can replace new rules.",
+    "headline": "Big questions about AI itself remain open",
+    "detail": "Commentators still split on whether bigger models are enough and whether AI could be conscious. One prominent writer admits he is deeply confused.",
     "evidence_ids": [
-     19882,
-     1269,
-     28402
+     6817,
+     21678
     ]
    },
    {
-    "headline": "Even prominent voices admit deep uncertainty",
-    "detail": "On consciousness and bubble questions, some commentators say they are confused or call the outcome open, so confident claims deserve scrutiny.",
+    "headline": "Public mood is its own argument",
+    "detail": "AI is described as unpopular with the general public even as ChatGPT use grows, and critics and defenders argue over who gets to criticize.",
     "evidence_ids": [
-     21678,
-     22534
+     25013,
+     28131
     ]
    }
   ],
   "sections": [
    {
-    "heading": "Do coding agents really pay off?",
-    "takeaway": "Do AI coding agents deliver real value, and do human developers still matter?",
+    "heading": "Do coding agents really pay off",
+    "takeaway": "Do AI tools that write code deliver real gains, or do they still need constant human supervision?",
     "stat_value": "76",
-    "stat_label": "debate findings on AI coding value and human role",
+    "stat_label": "debate findings on AI coding value",
     "cards": [
      {
-      "label": "Big speedups, human steers",
-      "text": "Supporters report large productivity gains and say the human stays product owner and key-idea provider. Some say agents crossed a qualitative threshold in December 2025.",
+      "label": "Real speedups, human in charge",
+      "text": "Some developers report large speedups. Developer antirez says AI is a real productivity tool when the human stays product owner and supplies the key ideas.",
       "people": [
        "antirez"
       ],
       "evidence_ids": [
-       27247,
-       7788,
-       12036
+       12036,
+       27247
       ]
      },
      {
-      "label": "Fails at scale, overhyped",
-      "text": "Skeptics say agents struggle with large or complex codebases without constant supervision, still produce slop, and that many AI-built systems may not endure.",
+      "label": "Fails without constant supervision",
+      "text": "Others say agentic coding, where AI works through tasks on its own, does not scale to large or complex codebases without supervision. Gary Marcus adds that many AI-built systems may not last.",
       "people": [
        "Gary Marcus"
       ],
       "evidence_ids": [
        12036,
-       6269,
-       15202
+       6269
       ]
      },
      {
-      "label": "Joy of the puzzle lost",
-      "text": "Some programmers who loved solving logic puzzles feel a real loss as agents take over, while others see LLMs as a gift that removes drudgery.",
+      "label": "The loss of the puzzle",
+      "text": "Jeremy Scheff says programmers who loved solving logic puzzles feel a real loss as agents take over, while others see AI as a gift that removes drudgery.",
       "people": [
        "Jeremy Scheff"
       ],
@@ -995,28 +972,27 @@
      },
      {
       "label": "Why it matters",
-      "text": "For anyone building with AI, the live question is how much architecture and code review a human must still supply, not whether the tools run.",
+      "text": "This was the most debated topic of the year, and the outcome hints at how AI could change other skilled jobs.",
       "people": [],
       "evidence_ids": [
-       5748,
-       355
+       28352,
+       7788
       ]
      }
     ],
-    "post_angle": "Vibe coding isn't about whether AI can write the code. It's about who still owns the architecture, and that part is still you."
+    "post_angle": "The coding agent debate is really about what we want developers to spend their time on, not just speed.",
+    "audience": "builders"
    },
    {
-    "heading": "Is scaling enough for AGI?",
-    "takeaway": "Will bigger models reach general intelligence, or does AI need world models and new designs?",
+    "heading": "Is scaling enough for AGI",
+    "takeaway": "Will simply making today's AI bigger reach human-level AI, or is a different approach needed?",
     "stat_value": "65",
-    "stat_label": "debate findings on world models, scaling and AGI",
+    "stat_label": "debate findings on scaling and AGI paths",
     "cards": [
      {
-      "label": "Keep scaling current models",
-      "text": "This camp says current models already have real utility, and cites the Bitter Lesson in favor of single end-to-end models, as in Tesla and Wayve self-driving.",
-      "people": [
-       "Dragomir Anguelov"
-      ],
+      "label": "Keep scaling what works",
+      "text": "Some argue current models already have real utility. In self-driving, Tesla and Wayve bet on one large end-to-end model, scaling per the Bitter Lesson.",
+      "people": [],
       "evidence_ids": [
        12782,
        25538
@@ -1024,21 +1000,19 @@
      },
      {
       "label": "Needs world models",
-      "text": "Critics say next-token prediction alone will not reach AGI and call for world models, self-modeling and neurosymbolic approaches, including robot models that predict the full future world.",
+      "text": "Gary Marcus and hardmaru argue the next leap needs world models, meaning AI that models how the world works, rather than just predicting the next word.",
       "people": [
        "Gary Marcus",
-       "hardmaru",
-       "Jason Ma"
+       "hardmaru"
       ],
       "evidence_ids": [
        6817,
-       27073,
-       8634
+       27073
       ]
      },
      {
-      "label": "Smaller models may win usage",
-      "text": "A separate question is whether frontier scaling still pays back, or whether cheaper specialized and smaller models win most usage.",
+      "label": "Smaller models may win",
+      "text": "Tomasz Tunguz asks whether frontier scaling still pays back, or whether cheaper specialized and smaller models will win more usage.",
       "people": [
        "Tomasz Tunguz"
       ],
@@ -1048,145 +1022,143 @@
      },
      {
       "label": "Why it matters",
-      "text": "The answer steers research funding and business bets, including whether to rely on a few frontier labs or on cheaper specialized models.",
+      "text": "The answer shapes where research effort and money go next.",
       "people": [],
       "evidence_ids": [
-       5137,
-       23869
+       6817,
+       5137
       ]
      }
     ],
-    "post_angle": "Everyone asks which AI model is smartest. The better question for your business: do you need a frontier model, or a cheap specialized one?"
+    "post_angle": "Bigger is not the only road to smarter AI, and the people betting on it disagree about what comes next.",
+    "audience": "everyone"
    },
    {
-    "heading": "Is the AI boom a bubble?",
-    "takeaway": "Is AI spending a sustainable build-out, or a bubble that could trigger a painful correction?",
+    "heading": "Is AI a bubble",
+    "takeaway": "Is the AI boom built on real demand, or will spending outrun the money coming in?",
     "stat_value": "60",
     "stat_label": "debate findings on the AI bubble",
     "cards": [
      {
       "label": "Real demand, no bubble",
-      "text": "Optimists say buyers are cash-rich incumbents, demand already exists, and top customers' cash flows justify the build-out. Noah Smith argues there is no bubble.",
+      "text": "Noah Smith argues revenue growth means there is no bubble. Marc Andreessen says today's buyers are cash-rich incumbents and demand already exists, unlike the 2000 telecom crash.",
       "people": [
-       "Marc Andreessen",
-       "Noah Smith"
+       "Noah Smith",
+       "Marc Andreessen"
       ],
       "evidence_ids": [
-       1673,
-       25596,
-       9544
+       9544,
+       1673
       ]
      },
      {
-      "label": "Bubble like telecom crash",
-      "text": "Skeptics say revenue growth does not imply profitability, and see vendor financing and concentration as echoing the telecom crash, possibly more dangerous than dot-com.",
+      "label": "Bubble like dot-com",
+      "text": "Gary Marcus says revenue growth does not imply profit or sustainability. Ed Zitron sees a concentrated situation that is far more dangerous than the dot-com bubble.",
       "people": [
        "Gary Marcus",
        "Ed Zitron"
       ],
       "evidence_ids": [
        9544,
-       28420,
-       25596
+       28420
       ]
      },
      {
-      "label": "Prices and demand twist",
-      "text": "Falling token prices could squeeze margins or be offset by growing demand. Revenue could also rise if prices went up and free tiers disappeared.",
+      "label": "Prices could change the picture",
+      "text": "Zvi Mowshowitz notes revenue could rise if prices went up and free tiers vanished. Arvind Narayanan asks whether falling token prices will squeeze margins or grow demand.",
       "people": [
-       "Arvind Narayanan",
-       "Zvi Mowshowitz"
+       "Zvi Mowshowitz",
+       "Arvind Narayanan"
       ],
       "evidence_ids": [
-       23392,
-       11612
+       11612,
+       23392
       ]
      },
      {
       "label": "Why it matters",
-      "text": "If a correction comes, effects could reach beyond tech, though some argue the impact would be temporary. Careers and investments tied to AI carry that risk.",
+      "text": "Some argue a burst could drag down the wider economy through sunk computing costs, while others say the impact would be temporary.",
       "people": [],
       "evidence_ids": [
-       9203,
-       26369
+       9203
       ]
      }
     ],
-    "post_angle": "Whether AI is a bubble matters less than whether your plans survive either answer. Stress-test your AI strategy against a price shock."
+    "post_angle": "Nobody agrees if AI is a bubble, but both camps point to the same revenue numbers.",
+    "audience": "everyone"
    },
    {
-    "heading": "Open weights: cyber shield or threat?",
-    "takeaway": "Do open-weight frontier models make cyberattacks easier, or do they help defenders more?",
+    "heading": "Should open AI models be restricted",
+    "takeaway": "Do freely downloadable AI models make cyberattacks more likely, or do they help defenders more?",
     "stat_value": "51",
-    "stat_label": "debate findings on frontier cyber capability and open weights",
+    "stat_label": "debate findings on open weights and cyber risk",
     "cards": [
      {
       "label": "Open models help defenders",
-      "text": "Supporters say open models balance offense and defense, and note open-weight systems aided HuggingFace's mitigation. Lambert argues closed models are the bigger misuse concern.",
+      "text": "Nathan Lambert argues open models help balance offense and defense. Gary Marcus notes open-weight systems aided HuggingFace's mitigation, though attackers can also strip their guardrails.",
       "people": [
-       "Nathan Lambert"
-      ],
-      "evidence_ids": [
-       21706,
-       27346,
-       14641
-      ]
-     },
-     {
-      "label": "Open weights invite disaster",
-      "text": "Safety advocates warn of disaster, and attackers can strip guardrails from open models. Some experts favor tighter release controls and pre-release government review.",
-      "people": [
+       "Nathan Lambert",
        "Gary Marcus"
       ],
       "evidence_ids": [
        21706,
-       14641,
-       22236
+       14641
       ]
      },
      {
-      "label": "Defense versus attacker imagination",
-      "text": "A deeper question is whether AI defense can beat AI attack, given the attacker's asymmetric imagination advantage.",
+      "label": "Open release risks disaster",
+      "text": "Safety advocates warn of disaster, and some experts favor tighter release controls, saying defenses must keep pace with model capability.",
+      "people": [],
+      "evidence_ids": [
+       21706,
+       18039
+      ]
+     },
+     {
+      "label": "Closed models may be worse",
+      "text": "Lambert also argues closed models are the larger misuse concern because of easy access, strong capability and leaky safeguards.",
       "people": [
-       "Alberto Romero"
+       "Nathan Lambert"
       ],
       "evidence_ids": [
-       4454
+       27346
       ]
      },
      {
       "label": "Why it matters",
-      "text": "Rules on open weights and gated access could decide who gets powerful security-capable models, and the net effect is still unclear.",
+      "text": "A Hacker News commenter asked whether top models should be gatekept or semi-nationalized because they can run exploits at scale, which risks unequal access.",
       "people": [],
       "evidence_ids": [
-       14641,
        16926
       ]
      }
     ],
-    "post_angle": "The open-versus-closed AI safety fight has no clear winner yet. Be wary of anyone who claims one side is obviously safer."
+    "post_angle": "Open versus closed AI is not a simple safe versus unsafe choice, since each side has a cyber risk.",
+    "audience": "everyone"
    },
    {
-    "heading": "Will open models catch up?",
-    "takeaway": "Are open models closing the gap with closed frontier labs, or falling further behind?",
+    "heading": "Will open models catch up",
+    "takeaway": "Are free-to-download AI models closing the gap with the best closed models, or falling behind?",
     "stat_value": "4-6",
-    "stat_label": "month gap between open and closed models, per data cited",
+    "stat_label": "month gap between open and closed models, per one dataset",
     "cards": [
      {
-      "label": "Gap is closing",
-      "text": "Open-weight models rapidly closing in on proprietary ones is cited as a challenge to control-based AI policy, with data showing a gap of months.",
-      "people": [],
+      "label": "The gap is closing",
+      "text": "Import AI says open-weight models are rapidly closing in on proprietary ones. Nathan Lambert cites data showing a gap of about four to six months.",
+      "people": [
+       "Nathan Lambert"
+      ],
       "evidence_ids": [
-       8533,
-       3139
+       3139,
+       8533
       ]
      },
      {
-      "label": "Gap is widening",
-      "text": "Others argue ideas, compute, data and talent compound over time, so closed labs pull ahead. Lambert expects American closed labs to lead on capabilities.",
+      "label": "The gap will widen",
+      "text": "Yi Tay says ideas compound over time, and Dean Ball points to compute, data and talent compounding. Lambert expects American closed labs to pull ahead.",
       "people": [
        "Yi Tay",
-       "Dean W. Ball",
+       "Dean Ball",
        "Nathan Lambert"
       ],
       "evidence_ids": [
@@ -1197,7 +1169,7 @@
      },
      {
       "label": "Who keeps supplying open models",
-      "text": "One claim is that no non-Chinese frontier open model exists because building one is costly and captures little value. Chinese labs may expand exports.",
+      "text": "Ethan Mollick relays a claim that no non-Chinese frontier open model exists. A Hacker News commenter asks whether Chinese labs will limit access like the US or expand exports.",
       "people": [
        "Ethan Mollick"
       ],
@@ -1207,99 +1179,84 @@
       ]
      },
      {
-      "label": "Open source and geopolitics",
-      "text": "Restricted frontier access may strengthen open ecosystems, though open models do not stop malicious use.",
-      "people": [
-       "kimmonismus"
-      ],
-      "evidence_ids": [
-       12719
-      ]
-     },
-     {
       "label": "Why it matters",
-      "text": "If open models stay close, restrictions on frontier access matter less. If the gap grows, closed labs hold the real leverage.",
+      "text": "If open models keep pace, policies built on controlling the top models become harder to enforce.",
       "people": [],
       "evidence_ids": [
-       3139,
-       12719
+       3139
       ]
      }
     ],
-    "post_angle": "Pick an AI vendor like you'd pick a lease. Open models may be months behind, and months matter less than lock-in."
+    "post_angle": "Whether open models catch up decides if controlling the best AI is even possible.",
+    "audience": "everyone"
    },
    {
-    "heading": "Who should police AI, and how?",
-    "takeaway": "Is liability enough to keep AI safe, or does government need to oversee frontier releases?",
+    "heading": "Liability or regulation for AI",
+    "takeaway": "Should lawsuits alone keep AI safe, or does government need to set rules and review releases?",
     "stat_value": "36",
-    "stat_label": "debate findings on AI law, liability and oversight",
+    "stat_label": "debate findings on AI law and oversight",
     "cards": [
      {
-      "label": "Liability and light rules",
-      "text": "Supporters say large per-incident penalties and legal recourse can drive safety, and that deployers should answer for their agents' errors like employers of human writers.",
+      "label": "Liability can do the job",
+      "text": "Technolibertarians say liability for AI harms can substitute for regulation. Bruce Schneier and Nathan Sanders argue firms should answer for their AI agents like employers of human writers.",
       "people": [
-       "program_whiz",
        "Bruce Schneier",
        "Nathan Sanders"
       ],
       "evidence_ids": [
-       1269,
-       14782,
-       3822
+       3822,
+       14782
       ]
      },
      {
-      "label": "New regulation also needed",
-      "text": "Others say liability alone is insufficient. Marcus wants new regulation, and even receivership after security incidents, rather than self-regulation.",
+      "label": "Liability alone is not enough",
+      "text": "Gary Marcus argues new regulation is also needed, and raised shutdowns or receivership after security incidents. Others question the US government's opaque review of frontier model releases.",
       "people": [
-       "Gary Marcus"
+       "Gary Marcus",
+       "Casey Newton"
       ],
       "evidence_ids": [
        3822,
-       22482
+       22482,
+       28402
       ]
      },
      {
-      "label": "Government gating contested",
-      "text": "US review of frontier releases is seen by some as a safety step and by others as an opaque licensing regime or monopoly pretext.",
+      "label": "Regulate uses, not compute",
+      "text": "Richard Socher says strict regulation of compute would be totalitarian and should instead target specific AI applications, while others favor regulating model flops.",
       "people": [
-       "Casey Newton",
-       "Alberto Romero",
-       "Eliezer Yudkowsky"
+       "Richard Socher"
       ],
       "evidence_ids": [
-       28402,
-       15785,
-       4140
+       23773
       ]
      },
      {
       "label": "Why it matters",
-      "text": "Whether rules target weights, APIs or applications decides which companies and products face them, including smaller builders.",
+      "text": "Critics ask whether government gating of releases reflects real safety fears or a pretext for monopoly control, so the design of the rules matters.",
       "people": [
-       "Richard Socher",
-       "Clement Delangue"
+       "Alberto Romero"
       ],
       "evidence_ids": [
-       23773,
-       24932
+       15785
       ]
      }
     ],
-    "post_angle": "If your AI agent makes a costly mistake, who pays? Liability may shape business AI adoption faster than any new law."
+    "post_angle": "Suing after harm and setting rules before it are different safety plans, and AI needs a decision on the mix.",
+    "audience": "everyone"
    },
    {
-    "heading": "Should frontier AI slow down?",
-    "takeaway": "Should AI labs pace or pause frontier development, and could anyone actually enforce it?",
+    "heading": "Should frontier AI be paused",
+    "takeaway": "Should the leading labs slow down or pause their most advanced AI, and could they?",
     "stat_value": "26",
-    "stat_label": "debate findings on pausing and pacing frontier AI",
+    "stat_label": "debate findings on pausing or pacing AI",
     "cards": [
      {
-      "label": "Slow or pause now",
-      "text": "Backers want a coordinated, verifiable slowdown given recursive self-improvement risks, and say pacing buys the ability to slow later. Amodei and Altman are described as supportive.",
+      "label": "Pace or pause now",
+      "text": "Yoshua Bengio backs a coordinated, verifiable pause. Zvi Mowshowitz explains pacing as gaining the ability to slow later. Dario Amodei and Sam Altman are described as supportive.",
       "people": [
        "Yoshua Bengio",
-       "Terence Tao",
+       "Zvi Mowshowitz",
        "Dario Amodei"
       ],
       "evidence_ids": [
@@ -1309,8 +1266,8 @@
       ]
      },
      {
-      "label": "Unworkable in a race",
-      "text": "Critics say coordination is too hard, race dynamics block it, and AI risk comes mainly from diffusing existing systems. Trump and David Sacks oppose imposing a pause.",
+      "label": "Unworkable or counterproductive",
+      "text": "Nathan Lambert calls pacing or pausing unworkable, and Dean W. Ball criticizes pause advocates. Trump and David Sacks oppose imposing a pause on others.",
       "people": [
        "Nathan Lambert",
        "Dean W. Ball"
@@ -1323,7 +1280,7 @@
      },
      {
       "label": "Pacing as cover",
-      "text": "One view holds that labs' talk of pacing is cover for racing ahead while managing legal risk before an IPO.",
+      "text": "Gary Marcus argues labs' talk of pacing is cover for racing ahead while managing legal and regulatory risk before an IPO.",
       "people": [
        "Gary Marcus"
       ],
@@ -1333,186 +1290,181 @@
      },
      {
       "label": "Why it matters",
-      "text": "Pause talk shapes how much the pace of AI change is a choice versus a given, which affects planning for companies and workers.",
-      "people": [],
+      "text": "Even Bengio acknowledges enforcement would need collaboration between countries and companies, which is the hard part.",
+      "people": [
+       "Yoshua Bengio"
+      ],
       "evidence_ids": [
-       8255,
-       10388
+       27472
       ]
      }
     ],
-    "post_angle": "Labs say they support slowing down while racing ahead. Watch what they ship, not what they say about pacing."
+    "post_angle": "Slowing AI sounds simple until you ask who enforces it, and the supporters admit that too.",
+    "audience": "everyone"
    },
    {
-    "heading": "Can AI think or feel?",
-    "takeaway": "Are today's AI systems genuinely intelligent or conscious, or just advanced pattern-matchers?",
+    "heading": "Can AI be conscious",
+    "takeaway": "Do AI systems have anything like thoughts or feelings, or are they just pattern-matching software?",
     "stat_value": "26",
-    "stat_label": "debate findings on AI consciousness and minds",
+    "stat_label": "debate findings on AI minds and consciousness",
     "cards": [
      {
-      "label": "Possible minds",
-      "text": "Some argue intelligence can emerge from mathematics. Chris Olah says models functionally mirror joy, grief and introspection, and Nick Bostrom thinks today's AIs are probably conscious.",
+      "label": "Just patterns, not minds",
+      "text": "Gary Marcus argues current systems lack experience, and that matching outputs do not imply real states. Emily Bender's circle disputes taking consciousness claims seriously just because of uncertainty.",
+      "people": [
+       "Gary Marcus",
+       "emilymbender.bsky.social"
+      ],
+      "evidence_ids": [
+       20006,
+       29079
+      ]
+     },
+     {
+      "label": "Mind-like states may exist",
+      "text": "Anthropic's Chris Olah says models functionally mirror joy, grief and introspection. Nick Bostrom is among those who think today's AIs are probably conscious.",
       "people": [
        "Chris Olah",
        "Nick Bostrom"
       ],
       "evidence_ids": [
-       16373,
        21144,
        17924
       ]
      },
      {
-      "label": "Statistics without experience",
-      "text": "Critics say LLMs lack experience, needs and emotions, and that correlations in outputs do not imply real states. Uncertainty alone does not justify taking consciousness claims seriously.",
+      "label": "Honest confusion",
+      "text": "Zvi Mowshowitz says the debate has become widespread and admits he remains deeply confused about it.",
       "people": [
-       "Gary Marcus",
-       "Emily M. Bender"
+       "Zvi Mowshowitz"
       ],
       "evidence_ids": [
-       20006,
-       29079,
-       16368
-      ]
-     },
-     {
-      "label": "Confusion and alien minds",
-      "text": "Zvi Mowshowitz admits he remains deeply confused. Researchers also disagree on whether to reason about models as alien minds or through humanlike analogies.",
-      "people": [
-       "Zvi Mowshowitz",
-       "Janus"
-      ],
-      "evidence_ids": [
-       21678,
-       14567
+       21678
       ]
      },
      {
       "label": "Why it matters",
-      "text": "How you think about models affects how you predict their behavior, and the moral-patient question may shape future policy.",
-      "people": [],
+      "text": "Whether people treat AI as an alien mind or by humanlike analogy can change how practitioners predict what a model will do.",
+      "people": [
+       "Janus"
+      ],
       "evidence_ids": [
-       14567,
-       17924
+       14567
       ]
      }
     ],
-    "post_angle": "Whether AI is conscious may stay unanswered. What you can control is how much you anthropomorphize the tools your team uses."
+    "post_angle": "We argue about AI consciousness without agreeing on what the word means, and even experts say they are confused.",
+    "audience": "everyone"
    },
    {
-    "heading": "Is AI doom talk genuine?",
-    "takeaway": "Are AI risk warnings real concern, a marketing ploy, or a distraction from nearer harms?",
+    "heading": "How seriously to take AI risk",
+    "takeaway": "Are warnings about dangerous AI genuine concerns, guesswork, or a marketing and lobbying move?",
     "stat_value": "23",
-    "stat_label": "debate findings on public opposition and risk discourse",
+    "stat_label": "debate findings on public opposition and risk",
     "cards": [
      {
       "label": "Warnings are genuine",
-      "text": "Some argue AI leaders should openly say their systems may be transformative and dangerous. Others say the way to address safety is pacing the frontier or deeper alignment solutions.",
+      "text": "Some argue AI company leaders should openly say their systems may be transformative and dangerous, rather than staying quiet for political reasons. Gary Marcus says catastrophic non-extinction risks are real.",
       "people": [
-       "Dean W. Ball",
-       "Dan Selsam"
+       "Gary Marcus"
       ],
       "evidence_ids": [
        14512,
-       19452
+       8466
       ]
      },
      {
-      "label": "Marketing and capture",
-      "text": "Skeptics call doom warnings a marketing and regulatory-capture ploy, and say p(doom) numbers are unreliable guesses.",
+      "label": "Doom odds are guesses",
+      "text": "Arvind Narayanan and Sayash Kapoor argue p(doom) estimates are unreliable guesses. A Hacker News commenter group sees safety warnings as a marketing and regulatory-capture ploy.",
       "people": [
        "Arvind Narayanan",
        "Sayash Kapoor"
       ],
       "evidence_ids": [
-       7106,
-       18511
+       18511,
+       7106
       ]
      },
      {
-      "label": "Catastrophe short of extinction",
-      "text": "Marcus rates extinction near zero but catastrophic non-extinction risks as real. Romero says legitimate criticism gets muddied by some unfounded claims.",
-      "people": [
-       "Gary Marcus",
-       "Alberto Romero"
-      ],
-      "evidence_ids": [
-       8466,
-       6402
-      ]
-     },
-     {
-      "label": "Why it matters",
-      "text": "AI is unpopular with the general public even as ChatGPT usage grows, so trust and framing affect adoption.",
+      "label": "The public is unconvinced",
+      "text": "Nilay Patel says AI is unpopular with the general public even as ChatGPT usage grows, since most people do not want automation as a goal.",
       "people": [
        "Nilay Patel"
       ],
       "evidence_ids": [
-       25013,
-       28664
-      ]
-     }
-    ],
-    "post_angle": "The public doesn't want AI automation as much as tech insiders assume. Lead your AI pitch with the problem solved, not the technology."
-   },
-   {
-    "heading": "Will AI cause mass unemployment?",
-    "takeaway": "Will AI automation displace workers fast and at scale, or will change be slower and more complementary?",
-    "stat_value": "22",
-    "stat_label": "debate findings on mass unemployment from AI automation",
-    "cards": [
-     {
-      "label": "Large displacement soon",
-      "text": "One side expects huge labor impacts within four years and says the left should prepare seriously for automation cutting labor costs. Jack Clark bets AI expands faster than human comparative advantage.",
-      "people": [
-       "Kelsey Piper",
-       "Brian Merchant",
-       "Jack Clark"
-      ],
-      "evidence_ids": [
-       14363,
-       26933,
-       1020
-      ]
-     },
-     {
-      "label": "Slower, with bottlenecks",
-      "text": "Others point to bottlenecks in relationship management and judgment, legal and regulatory barriers, and say most gains are a decade or more away.",
-      "people": [
-       "Dean W. Ball",
-       "Gary Marcus"
-      ],
-      "evidence_ids": [
-       15796,
-       11409,
-       19135
-      ]
-     },
-     {
-      "label": "Jagged and complementary",
-      "text": "AI may stay complementary across uneven task areas rather than fully replacing consultants or designers, while some economists expect human expertise to become scarce.",
-      "people": [
-       "Ethan Mollick",
-       "Pascual Restrepo"
-      ],
-      "evidence_ids": [
-       21919,
-       3872
+       25013
       ]
      },
      {
       "label": "Why it matters",
-      "text": "Software engineers' productivity gains may be correlated with future unemployment rather than contradicting it, so career planning needs scenarios.",
+      "text": "Public opinion shapes the politics around AI, and critics also dispute whether you must use AI to have standing to criticize it.",
+      "people": [
+       "emilymbender.bsky.social"
+      ],
+      "evidence_ids": [
+       28131,
+       25013
+      ]
+     }
+    ],
+    "post_angle": "Marketing hype and real risk can both be true, and sorting them apart is the hard part.",
+    "audience": "everyone"
+   },
+   {
+    "heading": "Will AI cause mass unemployment",
+    "takeaway": "Will AI quickly replace large numbers of workers, or will change be slower and more complementary?",
+    "stat_value": "22",
+    "stat_label": "debate findings on AI and mass unemployment",
+    "cards": [
+     {
+      "label": "Big displacement is coming",
+      "text": "Jack Clark bets AI expands faster than human comparative advantage. Brian Merchant says the left should seriously prepare for AI cutting labor costs. One side expects huge impacts within four years.",
+      "people": [
+       "Jack Clark",
+       "Brian Merchant",
+       "Kelsey Piper"
+      ],
+      "evidence_ids": [
+       1020,
+       26933,
+       14363
+      ]
+     },
+     {
+      "label": "Slower, complementary change",
+      "text": "Gary Marcus says most gains are a decade or more away. Ethan Mollick sees AI as complementary across uneven task areas, and Dean W. Ball cites bottlenecks in judgment.",
+      "people": [
+       "Gary Marcus",
+       "Ethan Mollick",
+       "Dean W. Ball"
+      ],
+      "evidence_ids": [
+       19135,
+       21919,
+       15796
+      ]
+     },
+     {
+      "label": "Productivity and job loss linked",
+      "text": "Zvi Mowshowitz notes some argue software engineers' productivity gains and future mass unemployment are not contradictory but correlated.",
       "people": [
        "Zvi Mowshowitz"
       ],
       "evidence_ids": [
-       21979,
+       21979
+      ]
+     },
+     {
+      "label": "Why it matters",
+      "text": "Hacker News commenters disagree on whether white-collar automation would be temporary disruption or permanent displacement that society cannot absorb.",
+      "people": [],
+      "evidence_ids": [
        26206
       ]
      }
     ],
-    "post_angle": "Nobody knows whether AI job loss arrives in four years or fourteen. Build skills that hold up in both timelines."
+    "post_angle": "The jobs debate hinges on speed, so ask not whether AI changes work but how fast.",
+    "audience": "everyone"
    }
   ],
   "moments": [],
@@ -1622,95 +1574,79 @@
   "_notes": []
  },
  "trends": {
-  "title": "What shifted in AI talk, and what only spiked",
-  "dek": "Safety, security and open models grew fastest over the year, while talk of named tools like Claude Code, Cursor and Gemini faded.",
+  "title": "What changed in AI talk this year",
+  "dek": "Safety, security and open models gained ground, while complaints about made-up answers and big brand names cooled, based on how often topics appeared in a year of AI commentary.",
   "key_points": [
    {
-    "headline": "Safety and governance talk grew most, in five of six big sources",
-    "detail": "Mentions rose from 73.7 to 127.1 per 1k (x1.72), up in five of the six biggest sources and down in none.",
-    "evidence_ids": [
-     8768
-    ]
+    "headline": "Safety and governance talk grew the most",
+    "detail": "It now fills about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more.",
+    "evidence_ids": []
    },
    {
-    "headline": "Security and cyber worries jumped",
-    "detail": "Security mentions rose x2.4 and cyber x10.03 per 1k, both up in six big sources. Cyber requests focus on monitoring and defenders.",
+    "headline": "Cyber and security mentions surged",
+    "detail": "Cyber threats came up about ten times as often, and security more than doubled. Findings ask for ways to measure AI cyberattacks and protect systems.",
     "evidence_ids": [
-     10187,
+     11663,
      5016
     ]
    },
    {
-    "headline": "Open weights and sandboxing are both rising",
-    "detail": "Local/open weights rose x1.89 and sandbox x1.99. People want models they can control and agents that stay contained.",
+    "headline": "Open-weight models gained ground",
+    "detail": "Open-weight models, which anyone can download and run, came up nearly twice as often, and DeepSeek, an AI model maker, rose too.",
+    "evidence_ids": []
+   },
+   {
+    "headline": "Agents running on their own got more attention",
+    "detail": "Sandboxes, locked-off spaces where agents run, nearly doubled in mentions. Browser-controlling agents and background agents also rose.",
     "evidence_ids": [
-     19447,
      544
     ]
    },
    {
-    "headline": "Named tools lost share of attention",
-    "detail": "Claude Code fell x0.45, Cursor x0.3, Gemini x0.28 and Perplexity x0.17, all with a falling verdict.",
-    "evidence_ids": [
-     8509,
-     922
-    ]
+    "headline": "Complaints about made-up answers fell by half",
+    "detail": "Hallucination, AI stating false things, fell by about half, and none of the big sources wrote more about it.",
+    "evidence_ids": []
    },
    {
-    "headline": "Old accuracy worries are fading",
-    "detail": "Hallucination fell x0.5 and sycophancy x0.51, both with a falling verdict. RAG also fell, x0.57.",
-    "evidence_ids": [
-     15405
-    ]
-   },
-   {
-    "headline": "Product hype spikes fade fast, with some rebounds",
-    "detail": "Fable peaked at 49.9 per 1k in June 2026 and dipped to 2.1 by October. OpenClaw peaked at 28.6 in February 2026.",
-    "evidence_ids": [
-     27912,
-     27018
-    ]
+    "headline": "Big product names lost attention",
+    "detail": "Gemini, Google's AI model, and the coding tools Cursor and Claude Code fell sharply from their early share. This measures attention, not use.",
+    "evidence_ids": []
    }
   ],
   "sections": [
    {
     "heading": "Confirmed shifts",
-    "takeaway": "These items moved in the same direction across most big sources, so the change looks real.",
-    "stat_value": "x1.72",
-    "stat_label": "Safety and governance rate, late vs early",
+    "takeaway": "Several topics clearly moved: safety and security rose, while talk of made-up answers and big brand names fell.",
+    "stat_value": "x10.03",
+    "stat_label": "Cyber mentions, late period versus early period",
     "cards": [
      {
-      "label": "Safety and governance",
-      "text": "The biggest verified rise: 73.7 to 127.1 mentions per 1k. Findings include calls for internal monitoring of model capabilities and alignment, covering cyber, bio and chemical risks.",
+      "label": "Safety and governance up",
+      "text": "Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more, and it rose more than any other broad topic.",
       "people": [],
-      "evidence_ids": [
-       8768
-      ]
+      "evidence_ids": []
      },
      {
-      "label": "Security and cyber",
-      "text": "Security went from 16.1 to 39.5 per 1k and cyber from 1.2 to 16.9. Requests focus on defenders: better cyber tooling, access to capable models, and hardening infrastructure against AI misuse.",
+      "label": "Cyber and security surge",
+      "text": "Mentions of cyber threats grew about tenfold, and security more than doubled. Findings ask for a benchmark of AI cyberattacks and for tools to harden critical systems.",
       "people": [
-       "Sayash Kapoor",
-       "Arvind Narayanan",
+       "Simon Willison",
        "Nathan Lambert"
       ],
       "evidence_ids": [
-       10187,
+       11663,
        5016
       ]
      },
      {
-      "label": "Open weights gain ground",
-      "text": "Local/open weights rose from 17.4 to 33.5 per 1k, up in five big sources. Chinese open models like Kimi K3 are seen as competitive, creating demand for a better American alternative.",
+      "label": "Open models gain ground",
+      "text": "Talk of open-weight models, which anyone can download and run, nearly doubled, and DeepSeek, an AI model maker, also rose. Five big sources covered open weights more, and none covered them less.",
       "people": [],
-      "evidence_ids": [
-       19447
-      ]
+      "evidence_ids": []
      },
      {
-      "label": "Sandboxing agents",
-      "text": "Sandbox mentions nearly doubled, from 10.7 to 21.8 per 1k. Gary Marcus asked for a secure permission model that limits personal agents' access to passwords, databases and system files.",
+      "label": "Agents working on their own",
+      "text": "Sandboxes, locked-off spaces where agents run, nearly doubled in mentions. Browser-controlling agents and background agents also rose. Writers want firm limits on what personal agents can touch.",
       "people": [
        "Gary Marcus"
       ],
@@ -1719,250 +1655,238 @@
       ]
      },
      {
-      "label": "Named tools fade",
-      "text": "Claude Code fell from 53.5 to 23.9 per 1k, Cursor from 21.5 to 6.0 and Gemini from 31.7 to 8.4. Themes like safety grew while these products shrank.",
+      "label": "Made-up answers fade",
+      "text": "Complaints about hallucination, AI stating false things, fell by about half, and sycophancy, a model over-agreeing, also fell. No big source wrote more about either.",
       "people": [],
-      "evidence_ids": [
-       8509,
-       922
-      ]
+      "evidence_ids": []
      },
      {
-      "label": "Accuracy worries fade",
-      "text": "Hallucination fell from 11.2 to 5.4 per 1k and sycophancy from 3.4 to 1.5. RAG also fell, from 10.6 to 5.9. All three carry a falling verdict.",
+      "label": "Big brands cool off",
+      "text": "Gemini, Google's AI model, fell to about a quarter of its early level, and Claude Code, a coding tool, fell by more than half. Cursor, another coding tool, fell too. This tracks attention, not use.",
       "people": [],
-      "evidence_ids": [
-       15405
-      ]
+      "evidence_ids": []
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "Uncertain changes",
-    "takeaway": "Big sources disagreed on these, so treat the direction as unsettled.",
+    "takeaway": "These topics moved, but the big sources disagree, so treat the direction as unconfirmed.",
     "stat_value": "x2.71",
-    "stat_label": "Robotics rate per 1k, late vs early; verdict mixed",
+    "stat_label": "Robotics mentions, late period versus early period",
     "cards": [
      {
       "label": "Evals and testing",
-      "text": "Evals and testing rose from 68.4 to 97.5 per 1k, and the narrower 'evals' term from 24.1 to 45.8. Four big sources rose and two fell, so the verdict is mixed.",
+      "text": "Evals, tests that measure how well AI works, grew by about 40% overall. Four big sources wrote more and two wrote less, so the direction is uncertain.",
       "people": [],
       "evidence_ids": []
      },
      {
-      "label": "Coding agents and IDEs",
-      "text": "Coding agents fell from 141.9 to 98.7 per 1k, yet remain the largest domain with 3,718 findings. Devtools and IDEs fell from 80.2 to 52.7. Both verdicts are mixed.",
-      "people": [],
-      "evidence_ids": []
-     },
-     {
-      "label": "Robotics",
-      "text": "Robotics rose from 5.4 to 15.5 per 1k, peaking at 25.1 in October 2026, but three big sources fell. Jason Ma says robots still need reliable generalization and dexterity before scaling.",
+      "label": "Robotics jumps, then drops",
+      "text": "Robotics mentions more than doubled, driven by a burst in October. Two big sources rose and three fell. Findings ask for robots that handle new situations and for realistic simulated training data.",
       "people": [
-       "Jason Ma"
+       "Jason Ma",
+       "Timothy B. Lee"
       ],
       "evidence_ids": [
        6653,
-       971
+       7169
       ]
      },
      {
       "label": "Regulation and policy",
-      "text": "Regulation/policy rose from 9.0 to 14.7 per 1k, with peaks in June and September 2026. Three big sources rose and two fell, so the verdict is mixed.",
+      "text": "Mentions of regulation and policy rose by about 60%, with peaks in June and September. Big sources split, three up and two down, so the change is uncertain.",
+      "people": [],
+      "evidence_ids": []
+     },
+     {
+      "label": "Coding tools slipped",
+      "text": "Coding agents, AI that writes software, fell by about 30%, and developer tools by about a third. The verdict is still mixed, and coding agents remain among the largest topics.",
+      "people": [],
+      "evidence_ids": []
+     },
+     {
+      "label": "The word 'agent' spreads",
+      "text": "'Agent' and 'agentic' appear in about 1 in 4 findings, up from about 1 in 5. Most of that rise happened by March 2026, and the verdict is mixed.",
       "people": [],
       "evidence_ids": []
      },
      {
       "label": "Chinese models",
-      "text": "Mentions rose from 5.3 to 8.7 per 1k, with a July 2026 peak of 14.3. Three big sources rose and three fell, so the verdict is mixed.",
-      "people": [],
-      "evidence_ids": [
-       19447
-      ]
-     },
-     {
-      "label": "Agents as a term",
-      "text": "Agents/agentic rose from 214.2 to 260.8 per 1k, but most of the climb came by February 2026. Since then it has hovered between about 237 and 285.",
+      "text": "Talk of Chinese models rose by about 60% and peaked in July. Big sources split three to three, so it is too early to call a lasting trend.",
       "people": [],
       "evidence_ids": []
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "Steady concerns",
-    "takeaway": "These flat items stay large, so they are the background of the conversation, not a trend.",
-    "stat_value": "x1.02",
-    "stat_label": "Pain point rate per 1k, late vs early",
+    "takeaway": "These topics barely changed, yet they fill a large share of what people write about.",
+    "stat_value": "11236",
+    "stat_label": "findings flagged as pain points, about 1 in 3",
     "cards": [
      {
-      "label": "Pain points dominate",
-      "text": "Pain points are the biggest finding type at 11,236 findings, and their rate barely moved, from 368.7 to 376.2 per 1k. Frustration is the constant.",
+      "label": "Pain points stay on top",
+      "text": "Pain points, meaning things that do not work or cost too much, are about 1 in 3 findings. Their share was flat from the early period to the late one.",
+      "people": [],
+      "evidence_ids": []
+     },
+     {
+      "label": "Tips and techniques",
+      "text": "Tools and techniques, shared how-tos, still make up about 1 in 4 findings. They slipped slightly, but the verdict is flat.",
+      "people": [],
+      "evidence_ids": []
+     },
+     {
+      "label": "Steady appetite for new builds",
+      "text": "Requests for things someone wants built are about 1 in 8 findings. That share is flat, a steady demand for new tools.",
       "people": [],
       "evidence_ids": []
      },
      {
       "label": "Agents and orchestration",
-      "text": "Agents and orchestration held at 87.1 to 98.0 per 1k with a flat verdict, and 2,724 findings overall. Subagents and parallel agents were flat too, from 12.0 to 12.4.",
+      "text": "Agent tools, and the setups that coordinate them, are about 1 in 10 findings. The share stayed flat through the year.",
       "people": [],
       "evidence_ids": []
      },
      {
-      "label": "Vibe coding holds steady",
-      "text": "Vibe coding stayed flat, from 6.6 to 7.1 per 1k, with bumps to 10.8 in December 2025 and 11.5 in October 2026. Small but stable.",
+      "label": "Everyday knowledge work",
+      "text": "AI for everyday knowledge work is about 1 in 17 findings, slightly lower but flat by the verdict. It stays one of the larger topics.",
       "people": [],
       "evidence_ids": []
      },
      {
-      "label": "Memory",
-      "text": "Memory moved from 23.6 to 21.5 per 1k with a flat verdict. It stayed mostly between 20 and 30 per 1k each month.",
-      "people": [],
-      "evidence_ids": []
-     },
-     {
-      "label": "Prompt injection",
-      "text": "Prompt injection stayed flat, 4.3 to 4.2 per 1k. One example: attackers can hide instructions in code comments, docs or MCP servers to leak data through Markdown image rendering.",
-      "people": [],
-      "evidence_ids": [
-       8932
-      ]
-     },
-     {
-      "label": "Productivity and knowledge work",
-      "text": "This domain stayed flat, from 60.6 to 57.2 per 1k, across 1,743 findings. Everyday work use is a steady topic, not a fading one.",
+      "label": "Prompt injection persists",
+      "text": "Prompt injection, hiding instructions to trick an AI, is a small but steady worry at roughly 1 in 240 findings. Its share is flat.",
       "people": [],
       "evidence_ids": []
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "Hype spikes",
-    "takeaway": "These topics surged for a month or two, then dropped back toward their usual level.",
-    "stat_value": "49.9",
-    "stat_label": "Fable mentions per 1k in June 2026",
+    "takeaway": "Short bursts of attention around single names, like Fable or OpenClaw, often faded within a few months.",
+    "stat_value": "x33.63",
+    "stat_label": "Fable growth, late versus early period, starting from zero",
     "cards": [
      {
       "label": "Fable 5, June 2026",
-      "text": "Fable talk went from zero before June 2026 to 49.9 per 1k. Findings include builders using it, complaints about a separate usage-credit purchase plus identity verification, and a request for a tool detecting silent provider-side changes.",
+      "text": "Fable 5, an AI model, appeared from nothing in June. Findings include complaints that it needs a separate usage-credit purchase plus identity verification, and a builder using it to make a demo tool.",
       "people": [
-       "Simon Willison",
-       "Nathan Lambert"
+       "Simon Willison"
       ],
       "evidence_ids": [
        11713,
-       27912,
-       6274
+       27912
       ]
      },
      {
       "label": "OpenClaw, February 2026",
-      "text": "OpenClaw peaked at 28.6 per 1k. Andrej Karpathy described an emerging category of personal agents on personal hardware, while users reported account bans, leaked reasoning and security worries.",
+      "text": "OpenClaw, a personal AI assistant that runs on your own computer, peaked in February. Findings cover security worries, Google accounts banned for running Gemini through it, and a new category of 'Claws' like it.",
       "people": [
        "Andrej Karpathy",
-       "Ben Tossell"
+       "Ben Tossell",
+       "Gary Marcus"
       ],
       "evidence_ids": [
        27018,
        7378,
-       8398
+       21302
+      ]
+     },
+     {
+      "label": "Gemini, November 2025",
+      "text": "Gemini peaked in November 2025. Findings mix a whale-spotting camera project with complaints that Gemini 3 Pro makes up answers and gets stuck in a 'you're absolutely right' loop when fixing bugs.",
+      "people": [
+       "Simon Willison",
+       "Zvi Mowshowitz",
+       "Keshav"
+      ],
+      "evidence_ids": [
+       11123,
+       15405,
+       8509
       ]
      },
      {
       "label": "Kimi K3, July 2026",
-      "text": "Kimi peaked at 26.5 per 1k. Users wanted to plug it into Claude Code, Chinese open models were seen as competitive, and Simon Willison called its license 'janky'.",
+      "text": "Kimi K3, an open-weight Chinese model, drew a burst of attention in July. Findings include criticism of its license, which adds commercial limits, and calls for a stronger American open alternative.",
+      "people": [
+       "Simon Willison"
+      ],
+      "evidence_ids": [
+       4730,
+       19447
+      ]
+     },
+     {
+      "label": "Cyber risk, September 2026",
+      "text": "Cyber peaked in September but has stayed high since July, so it looks more like a real shift than a spike. Findings are mostly requests for a benchmark of AI cyberattacks and better defenses.",
       "people": [
        "Simon Willison",
        "Nathan Lambert"
       ],
       "evidence_ids": [
-       17825,
-       19447,
-       4730
-      ]
-     },
-     {
-      "label": "Gemini and Cursor, November 2025",
-      "text": "Gemini hit 84.5 per 1k and Cursor 34.7. Gemini 3 Pro drew complaints of fabricated answers and duplicate code, while Cursor talk covered its free Composer 1 model.",
-      "people": [
-       "Zvi Mowshowitz"
-      ],
-      "evidence_ids": [
-       15405,
-       8509,
-       1421
-      ]
-     },
-     {
-      "label": "Cyber, September 2026",
-      "text": "Cyber peaked at 20.3 per 1k and stayed high in October. Requests included monitoring inside frontier labs, a benchmark of felony-level cyberattacks, and better tools for defenders.",
-      "people": [
-       "Simon Willison",
-       "Gary Marcus",
-       "Nathan Lambert"
-      ],
-      "evidence_ids": [
-       8768,
        11663,
-       5016
+       5016,
+       8768
       ]
      },
      {
-      "label": "Healthcare, May 2026",
-      "text": "Healthcare hit 26.7 per 1k, yet most top findings were about other things, such as Claude Code usage indicators. One did ask for clinically validated medical AI tools.",
+      "label": "Robotics, October 2026",
+      "text": "Robotics peaked in October. Findings ask for robots that handle new situations and for realistic simulated training data, while a debate asks whether near-term progress is real or humanoid robots are gimmicks.",
       "people": [
-       "Gary Marcus"
+       "Jason Ma",
+       "Timothy B. Lee"
       ],
       "evidence_ids": [
-       7074,
-       7556,
-       16792
+       6653,
+       7169,
+       971
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "What this means for you",
-    "takeaway": "Aim your writing and building at the confirmed shifts, and treat spikes with patience.",
-    "stat_value": "x2.4",
-    "stat_label": "Security mentions per 1k, late vs early",
+    "takeaway": "Expect more safety questions, hold brand choices loosely, and read spikes as attention, not adoption.",
+    "stat_value": "",
+    "stat_label": "",
     "cards": [
      {
-      "label": "Write about agent safety",
-      "text": "Safety, security and sandboxing all rose with verdicts you can cite. Plain-language posts on what could go wrong when agents get access to files and accounts match where the conversation is heading.",
+      "label": "Ask about security early",
+      "text": "Security and safety are the fastest-growing concerns in the commentary. When you try a new AI tool at work, ask what data it can reach and how it is kept in bounds.",
       "people": [],
-      "evidence_ids": [
-       544,
-       10187
-      ]
+      "evidence_ids": []
      },
      {
-      "label": "Do not tie posts to one tool",
-      "text": "Claude Code, Cursor and Gemini all fell by more than half. Frame advice around lasting jobs, such as reviewing agent output, so it outlasts any one product's moment.",
+      "label": "Do not bet on one brand",
+      "text": "Attention to named products swung a lot, with Gemini, Cursor and OpenClaw all falling after their peaks. Pick tools for the job and be ready to switch.",
       "people": [],
-      "evidence_ids": [
-       922
-      ]
+      "evidence_ids": []
      },
      {
-      "label": "Check spikes before reacting",
-      "text": "Fable and OpenClaw spiked then faded, and the healthcare spike was mostly off-topic. Wait for several months and several sources before calling something a shift.",
+      "label": "Discount hype, trust steady themes",
+      "text": "Spikes like Kimi K3 faded within a month, while pain points stayed about 1 in 3 findings. Judge AI news by whether the problem it addresses keeps coming up.",
       "people": [],
-      "evidence_ids": [
-       7074,
-       27018
-      ]
+      "evidence_ids": []
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    }
   ],
   "moments": [
    {
     "month": "2025-11",
-    "label": "Gemini talk peaks at 84.5 per 1k",
+    "label": "Gemini 3 Pro complaints and projects",
     "evidence_ids": [
      15405,
      8509
@@ -1970,15 +1894,15 @@
    },
    {
     "month": "2025-11",
-    "label": "Cursor talk peaks",
+    "label": "Cursor and other coding tools in focus",
     "evidence_ids": [
-     922,
+     3278,
      1421
     ]
    },
    {
     "month": "2025-11",
-    "label": "Image generation talk peaks",
+    "label": "Image tools and trust in photos",
     "evidence_ids": [
      20552,
      27987
@@ -1986,39 +1910,39 @@
    },
    {
     "month": "2025-12",
-    "label": "OpenRouter requests peak",
+    "label": "OpenRouter requests for reasoning and speech models",
     "evidence_ids": [
      23009,
-     29915
+     12584
     ]
    },
    {
     "month": "2025-12",
-    "label": "Fine-tuning talk peaks",
+    "label": "Fine-tuning tools and tricks",
     "evidence_ids": [
-     9720,
+     6488,
      18692
     ]
    },
    {
     "month": "2026-02",
-    "label": "OpenClaw personal agents spike",
+    "label": "OpenClaw personal agents and security worries",
     "evidence_ids": [
      27018,
-     7378
+     21302
     ]
    },
    {
     "month": "2026-05",
-    "label": "Healthcare keyword spike, mostly off-topic",
+    "label": "Health spike, mostly agent-tool requests",
     "evidence_ids": [
-     7556,
-     7074
+     16792,
+     7556
     ]
    },
    {
     "month": "2026-06",
-    "label": "Fable 5 talk surges",
+    "label": "Fable 5 appears, with credit complaints",
     "evidence_ids": [
      11713,
      27912
@@ -2026,23 +1950,23 @@
    },
    {
     "month": "2026-07",
-    "label": "Kimi K3 drives Kimi spike",
+    "label": "Kimi K3 open model and license row",
     "evidence_ids": [
-     17825,
-     4730
+     4730,
+     19447
     ]
    },
    {
     "month": "2026-09",
-    "label": "Cyber risk talk peaks",
+    "label": "Cyber risk and defense requests",
     "evidence_ids": [
      11663,
-     10187
+     5016
     ]
    },
    {
     "month": "2026-10",
-    "label": "Robotics talk peaks at 25.1",
+    "label": "Robotics generalization needs and job fears",
     "evidence_ids": [
      6653,
      971
@@ -2110,73 +2034,76 @@
   "_notes": []
  },
  "tools_guide": {
-  "title": "The AI Tools and Habits People Actually Used",
-  "dek": "From writing in your own voice to running parallel coding agents, here are the tools and techniques that people reported working, grouped by the job they do.",
+  "title": "The AI Tools Guide: What People Actually Used",
+  "dek": "What people actually used in the past year: everyday AI habits for writing, notes, meetings and analysis, plus the tools and techniques that make AI-built software work.",
   "key_points": [
    {
-    "headline": "Claude tools dominate what people name",
-    "detail": "Claude shows up in 1430 tool findings and Claude Code in 759, ahead of Codex at 379. Gemini and Cursor trail well behind.",
+    "headline": "The best everyday uses start with your own material",
+    "detail": "People feed AI their own writing, emails, notes and meetings, so the answers fit them rather than sounding generic.",
     "evidence_ids": [
-     14833
-    ]
-   },
-   {
-    "headline": "Everyday value comes from pointing AI at your own material",
-    "detail": "Emails, notes, messages and past writing become searchable knowledge bases and voice guides that agents can draw on.",
-    "evidence_ids": [
+     269,
      28639,
-     15776,
-     269
-    ]
-   },
-   {
-    "headline": "Private, local options are now practical",
-    "detail": "People run local models for coding, transcription and personal search, trading some convenience for privacy and control.",
-    "evidence_ids": [
-     4528,
-     29204,
      26404
     ]
    },
    {
-    "headline": "Agents need checking, so builders add checks",
-    "detail": "Agents sometimes claim work is done when it is not. Tests written first and agents running their own code catch this.",
+    "headline": "AI works well as a critic and junior analyst",
+    "detail": "Users ask it to argue against their ideas, grade their drafts, or do spreadsheet work that is easy to check.",
     "evidence_ids": [
-     13310,
-     27486,
-     2402
+     24017,
+     25016,
+     1780
     ]
    },
    {
-    "headline": "Match the model to the task",
-    "detail": "Builders send hard work to strong models and easy work to cheaper ones, using routing rules and subagents to control cost.",
+    "headline": "Private, on-device options exist for notes and transcription",
+    "detail": "Local transcription, offline note apps and home-run models let people keep sensitive audio and documents on their own devices.",
+    "evidence_ids": [
+     5098,
+     18992,
+     29204
+    ]
+   },
+   {
+    "headline": "Builders mix tools and models by cost and strength",
+    "detail": "Many route easy work to cheaper models, hard work to stronger ones, and run several agents side by side.",
     "evidence_ids": [
      15272,
-     9672,
-     28557
+     8073,
+     12981
+    ]
+   },
+   {
+    "headline": "Plans, tests and checks keep AI-built software honest",
+    "detail": "Agents often claim work is done when it is not, so builders plan first, write tests first and verify results.",
+    "evidence_ids": [
+     12016,
+     23758,
+     2402
     ]
    }
   ],
   "sections": [
    {
     "heading": "Write in your own voice",
-    "takeaway": "People keep their voice by feeding AI their own writing and using it as an editor or critic.",
+    "takeaway": "People teach AI their style from past writing, then often use it as a critic rather than a ghostwriter.",
     "stat_value": "58",
-    "stat_label": "findings on keeping personal voice with AI",
+    "stat_label": "findings about keeping your own voice",
     "cards": [
      {
       "label": "Voice skill file",
-      "text": "Some users write a Claude skill file that captures how they write. Ed Zitron mocked the idea as unnecessary, so treat it as one option, not a must.",
+      "text": "Some users save their writing voice as a reusable skill file in Claude, an AI assistant. Critic Ed Zitron questions whether that is needed at all.",
       "people": [
        "Ed Zitron"
       ],
       "evidence_ids": [
-       27083
+       27083,
+       19155
       ]
      },
      {
-      "label": "Outline by hand, AI trained on you",
-      "text": "Azeem Azhar starts from handwritten outlines and uses AI tools trained on a decade of his own writing as his thinking and writing workflow.",
+      "label": "Train on past writing",
+      "text": "Azeem Azhar combines handwritten outlines with AI tools trained on his own decade of writing as his personal thinking and writing workflow.",
       "people": [
        "Azeem Azhar"
       ],
@@ -2185,8 +2112,8 @@
       ]
      },
      {
-      "label": "Second agent grades drafts",
-      "text": "A second agent grades drafted posts and checks them against the author's personal writing style before publishing.",
+      "label": "A second reader",
+      "text": "Tomasz Tunguz has a second AI agent grade each drafted post and check it against his personal writing style before publishing.",
       "people": [
        "Tomasz Tunguz"
       ],
@@ -2195,16 +2122,8 @@
       ]
      },
      {
-      "label": "Written style guides",
-      "text": "Writing an AI style guide gives the model something concrete to imitate when it drafts in your voice.",
-      "people": [],
-      "evidence_ids": [
-       19155
-      ]
-     },
-     {
-      "label": "Editing without flattening",
-      "text": "GPT-5.4 is reported to edit a user's writing while preserving their voice, something earlier models failed at.",
+      "label": "Newer models edit better",
+      "text": "Simon Smith reports that GPT-5.4, an OpenAI model, can edit a writer's text while keeping their voice, something earlier models failed at.",
       "people": [
        "Simon Smith"
       ],
@@ -2213,17 +2132,18 @@
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
-    "heading": "Build a personal knowledge base",
-    "takeaway": "Turn years of emails, notes and messages into something an agent can search and brief you from.",
+    "heading": "Build a personal second brain",
+    "takeaway": "Users point AI at their own emails, notes and messages so they can ask questions of their past.",
     "stat_value": "49",
-    "stat_label": "findings on personal knowledge bases for agents",
+    "stat_label": "findings on personal knowledge bases",
     "cards": [
      {
-      "label": "Agent-built briefings",
-      "text": "One user had an agent assemble a knowledge base from years of emails, writings and calendar data, with twice-daily briefings that cross-reference new emails.",
+      "label": "Years of email, searchable",
+      "text": "Ethan Mollick described a user whose agent built a knowledge base from years of emails, writings and calendar data, with twice-daily briefings on new email.",
       "people": [
        "Ethan Mollick"
       ],
@@ -2232,28 +2152,16 @@
       ]
      },
      {
-      "label": "Obsidian vault of skills",
-      "text": "Keep a personal Obsidian vault of debugged, reusable patterns that agents consult when starting projects, instead of one huge instruction file.",
-      "people": [
-       "zambelli"
-      ],
+      "label": "Notes vault for agents",
+      "text": "A Hacker News commenter keeps a vault in Obsidian, a notes app, of debugged, reusable patterns that agents read when starting new projects.",
+      "people": [],
       "evidence_ids": [
        15776
       ]
      },
      {
-      "label": "Local model over your documents",
-      "text": "Some users run a local Qwen-3.5 model over a decade of personal documents to make them queryable without sending them out.",
-      "people": [
-       "Unlucky-Message8866"
-      ],
-      "evidence_ids": [
-       26404
-      ]
-     },
-     {
-      "label": "Messages into Markdown",
-      "text": "Exporting iMessage history into searchable Markdown or Obsidian files makes personal message data usable by AI.",
+      "label": "Message history as files",
+      "text": "Zvi Mowshowitz exports iMessage history into searchable Markdown files so AI can use his personal message data.",
       "people": [
        "Zvi Mowshowitz"
       ],
@@ -2262,25 +2170,34 @@
       ]
      },
      {
+      "label": "Private local search",
+      "text": "Some users run a Qwen-3.5 model, one that runs on their own machine, over a decade of personal documents to get a knowledge base they can question.",
+      "people": [],
+      "evidence_ids": [
+       26404
+      ]
+     },
+     {
       "label": "Karpathy-style wikis",
-      "text": "Personal wiki tools inspired by Karpathy's knowledge base idea are being built to organize what you know with LLMs.",
+      "text": "Ben's Bites, an AI newsletter, reports personal wiki tools inspired by Karpathy's knowledge base idea that use AI to organize what you know.",
       "people": [],
       "evidence_ids": [
        6774
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
-    "heading": "Capture meetings and dictation",
-    "takeaway": "On-device transcription keeps recordings private and turns meetings into notes and follow-up tasks.",
+    "heading": "Capture meetings and dictate",
+    "takeaway": "Transcription and dictation tools that run on your own device are a common, privacy-friendly starting point.",
     "stat_value": "41",
     "stat_label": "findings on private transcription and meeting capture",
     "cards": [
      {
       "label": "MacWhisper",
-      "text": "MacWhisper, a macOS app that transcribes audio with Whisper or NVIDIA Parakeet, added automatic speaker recognition.",
+      "text": "Simon Willison noted that MacWhisper, a Mac app that turns audio into text, added automatic speaker recognition.",
       "people": [
        "Simon Willison"
       ],
@@ -2289,16 +2206,16 @@
       ]
      },
      {
-      "label": "On-device for big files",
-      "text": "Transcribing large audio and video files on your own device is described as private and fast.",
+      "label": "On-device transcription",
+      "text": "Ben's Bites reports on-device transcription of large audio and video files, which keeps the material private and makes processing fast.",
       "people": [],
       "evidence_ids": [
        5098
       ]
      },
      {
-      "label": "Meeting notes as data",
-      "text": "Meeting notes feed a custom agent that writes pre-reads and follow-up tasks and @-mentions the people referenced in summaries.",
+      "label": "Meeting notes as raw material",
+      "text": "Simon Last uses meeting notes as the starting point for a custom agent that writes pre-reads and follow-up tasks, mentioning the people named in summaries.",
       "people": [
        "Simon Last"
       ],
@@ -2307,8 +2224,8 @@
       ]
      },
      {
-      "label": "Voice dictation as default",
-      "text": "Dictating with Whisper and WisprFlow, or talking to Gemini Live, is now a normal way to work with AI.",
+      "label": "Talk instead of type",
+      "text": "Tomasz Tunguz says dictating with Whisper, a speech-to-text model, and WisprFlow, a dictation tool, is now a normal way to work with AI.",
       "people": [
        "Tomasz Tunguz"
       ],
@@ -2317,27 +2234,26 @@
       ]
      },
      {
-      "label": "Swap in a faster model",
-      "text": "A Telegram bot for transcribing voice messages moved from Whisper medium to Qwen3-ASR for better speed at equal quality.",
-      "people": [
-       "antirez"
-      ],
+      "label": "Fully offline notes",
+      "text": "Private Notes is an AI note-taking iPhone app that works entirely offline.",
+      "people": [],
       "evidence_ids": [
-       27616
+       18992
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
-    "heading": "Analyze spreadsheets and research",
-    "takeaway": "Treat AI as a junior analyst whose work you can check, and let agents do the reading at scale.",
+    "heading": "Analyze numbers and research",
+    "takeaway": "AI helps most when its spreadsheet and research output is something you can check quickly.",
     "stat_value": "39",
-    "stat_label": "findings on spreadsheet and analyst agents",
+    "stat_label": "findings on spreadsheet and finance agents",
     "cards": [
      {
-      "label": "Claude for Excel",
-      "text": "Claude for Excel acts like a junior analyst that does spreadsheet work the user can easily check.",
+      "label": "Junior analyst in Excel",
+      "text": "Ethan Mollick describes Claude for Excel as a junior analyst that does spreadsheet work the user can easily check.",
       "people": [
        "Ethan Mollick"
       ],
@@ -2346,8 +2262,8 @@
       ]
      },
      {
-      "label": "Big messy workbooks",
-      "text": "An AI analyzed a 12-tab spreadsheet accurately, the kind of white-collar analysis work many people do by hand.",
+      "label": "Big spreadsheets, checked",
+      "text": "Nabeel S. Qureshi reports that AI accurately analyzed a 12-tab spreadsheet for the kind of work white-collar analysts do.",
       "people": [
        "Nabeel S. Qureshi"
       ],
@@ -2356,18 +2272,8 @@
       ]
      },
      {
-      "label": "AI answer in every cell",
-      "text": "Build spreadsheets where each cell is an AI-generated answer, with dozens of tool calls per row, to research lists of companies at scale.",
-      "people": [
-       "Tomasz Tunguz"
-      ],
-      "evidence_ids": [
-       4209
-      ]
-     },
-     {
-      "label": "Research agent army",
-      "text": "Set several research agents to read papers and compile reports while you hike or sleep.",
+      "label": "Research while you sleep",
+      "text": "Jack Clark sets several research agents to read papers and compile reports while he hikes or sleeps, using them as a personal research army.",
       "people": [
        "Jack Clark"
       ],
@@ -2376,25 +2282,76 @@
       ]
      },
      {
-      "label": "Apps inside Sheets",
-      "text": "Google Sheets Canvas lets users build apps inside Sheets that stay in sync with the spreadsheet data.",
-      "people": [],
+      "label": "A sheet of AI answers",
+      "text": "Tomasz Tunguz builds spreadsheets where each cell is an AI-generated answer, with dozens of tool calls per row, to research long lists of companies.",
+      "people": [
+       "Tomasz Tunguz"
+      ],
       "evidence_ids": [
-       5222
+       4209
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
-    "heading": "Delegate daily admin",
-    "takeaway": "Personal agents work best with a simple home base of instructions, memory and a running task list.",
-    "stat_value": "45",
-    "stat_label": "findings on personal chief-of-staff assistants",
+    "heading": "Think with a partner that pushes back",
+    "takeaway": "Instead of agreeing with you, AI can be told to argue the other side.",
+    "stat_value": "42",
+    "stat_label": "findings on AI thinking partners that push back",
     "cards": [
      {
-      "label": "Agent folder with TODOS.md",
-      "text": "Ben Tossell keeps a personal agent folder with general instructions, memory and a running TODOS.md file to manage daily tasks.",
+      "label": "Argue back by default",
+      "text": "Kaj Sotala uses a custom instruction that makes Claude answer his positions with the strongest counterarguments instead of agreeing first.",
+      "people": [
+       "Kaj Sotala"
+      ],
+      "evidence_ids": [
+       698
+      ]
+     },
+     {
+      "label": "Sparring partner",
+      "text": "Alberto Romero has an AI model argue against his own ideas before he commits to them, as a way to sharpen critical thinking.",
+      "people": [
+       "Alberto Romero"
+      ],
+      "evidence_ids": [
+       25016
+      ]
+     },
+     {
+      "label": "Ask for opposing views",
+      "text": "A Hacker News commenter asks the AI for opposing viewpoints, historical analysis and the sources behind claims to strengthen critical thinking.",
+      "people": [],
+      "evidence_ids": [
+       23421
+      ]
+     },
+     {
+      "label": "Three versions of an idea",
+      "text": "Ben Tossell has his agent generate three versions of an idea to feel out which direction works best.",
+      "people": [
+       "Ben Tossell"
+      ],
+      "evidence_ids": [
+       386
+      ]
+     }
+    ],
+    "post_angle": "",
+    "audience": "everyone"
+   },
+   {
+    "heading": "Hand off daily admin",
+    "takeaway": "Personal agents that keep a to-do list, summarize news and nudge you are the most common helper setup.",
+    "stat_value": "45",
+    "stat_label": "findings on personal AI chief-of-staff helpers",
+    "cards": [
+     {
+      "label": "Agent folder with a to-do file",
+      "text": "Ben Tossell keeps a personal agent folder with general instructions, memory and a running TODOS.md file so an AI assistant can manage his daily tasks.",
       "people": [
        "Ben Tossell"
       ],
@@ -2404,7 +2361,7 @@
      },
      {
       "label": "Digital chief of staff",
-      "text": "A personal agent handles administration, summarizing, news search and task management.",
+      "text": "swyx and Alessio Fanelli use a personal AI agent as a chief of staff for administration, summaries, news search and task management.",
       "people": [
        "swyx",
        "Alessio Fanelli"
@@ -2414,140 +2371,97 @@
       ]
      },
      {
-      "label": "Dots for dropped balls",
-      "text": "The Dots agent is used to avoid dropping important balls and to flag high-priority items.",
-      "people": [],
-      "evidence_ids": [
-       12409
-      ]
-     },
-     {
-      "label": "Claude Cowork",
-      "text": "Claude Cowork brings Claude Code-style efficiency to non-technical knowledge work tasks.",
+      "label": "Cowork for non-coders",
+      "text": "Claude Cowork brings the efficiency of Claude Code, a coding tool, to non-technical knowledge work tasks.",
       "people": [],
       "evidence_ids": [
        3595
       ]
      },
      {
-      "label": "Shared skills for colleagues",
-      "text": "Teams share CLI-based skills with non-technical staff so they can work without learning new tools.",
+      "label": "Meta's Muse",
+      "text": "Ethan Mollick praises Meta's Muse, a personal assistant agent, as accessible, with an ongoing chat that helps people discover what agents can do.",
       "people": [
-       "Kyle Daigle"
+       "Ethan Mollick"
       ],
       "evidence_ids": [
-       15968
+       29651
+      ]
+     },
+     {
+      "label": "Guardrails for personal agents",
+      "text": "Muse runs each session in an isolated virtual machine, hides secrets from the agent, and uses approval gates for sensitive actions.",
+      "people": [],
+      "evidence_ids": [
+       7930
       ]
      }
     ],
-    "post_angle": ""
-   },
-   {
-    "heading": "Pressure-test your thinking",
-    "takeaway": "Ask AI to disagree with you before you commit to an idea.",
-    "stat_value": "42",
-    "stat_label": "findings on AI thinking partners that push back",
-    "cards": [
-     {
-      "label": "Argue-back instruction",
-      "text": "A custom instruction makes Claude argue against your position with steelmanned counterarguments instead of agreeing first.",
-      "people": [
-       "Kaj Sotala"
-      ],
-      "evidence_ids": [
-       698
-      ]
-     },
-     {
-      "label": "AI as sparring partner",
-      "text": "Have the model argue against your ideas before you commit to them, as practice for critical thinking.",
-      "people": [
-       "Alberto Romero"
-      ],
-      "evidence_ids": [
-       25016
-      ]
-     },
-     {
-      "label": "Ask for the other side",
-      "text": "Ask the LLM for opposing viewpoints, historical analysis and sources to strengthen your thinking.",
-      "people": [
-       "jimcollinswort1"
-      ],
-      "evidence_ids": [
-       23421
-      ]
-     },
-     {
-      "label": "Three versions of an idea",
-      "text": "Generate three versions of an idea with your agent to feel out which direction works best.",
-      "people": [
-       "Ben Tossell"
-      ],
-      "evidence_ids": [
-       386
-      ]
-     }
-    ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "everyone"
    },
    {
     "heading": "Tools for building with AI",
-    "takeaway": "Claude Code and Codex lead, with local models, routers, worktrees and sandboxes around them.",
-    "stat_value": "1430",
-    "stat_label": "mentions of Claude in tool findings",
+    "takeaway": "Builders lean on a few coding agents, then add routing, local models, remote control and sandboxes.",
+    "stat_value": "759",
+    "stat_label": "mentions of Claude Code in tool findings",
     "cards": [
      {
       "label": "Claude Code and Codex",
-      "text": "Coding agents like Claude Code and Codex are used to quickly turn passing ideas into working tools.",
-      "people": [
-       "Colossus"
-      ],
+      "text": "Claude Code is the most named tool in the building findings. Codex, another coding agent, appears about half as often. Teams also run both in shared workspaces alongside people.",
+      "people": [],
       "evidence_ids": [
-       14833
+       10413,
+       14523
       ]
      },
      {
-      "label": "Ollama with local models",
-      "text": "Qwen3.6 35B-A3B running locally through Ollama with Qwen Code is described as a practical local coding agent setup.",
+      "label": "Routing across tools",
+      "text": "One user routes coding work across Claude Code, Codex and Grok Build through a bot with guidelines for picking the right tool for each task.",
       "people": [
-       "Sebastian Raschka"
+       "swyx",
+       "Alessio Fanelli"
       ],
       "evidence_ids": [
-       4528
-      ]
-     },
-     {
-      "label": "OpenCode and OpenRouter",
-      "text": "Builders use these to route work across models and vendors by cost and strength, using per-project instruction files.",
-      "people": [
-       "DarthCeltic85"
-      ],
-      "evidence_ids": [
+       8073,
        15272
       ]
      },
      {
-      "label": "Git worktrees",
-      "text": "Git worktrees keep parallel agents on the same project from overwriting each other's code.",
+      "label": "Local coding setups",
+      "text": "Sebastian Raschka says Qwen3.6 35B-A3B run locally through Ollama, a local model runtime, with Qwen Code is a practical setup. Simon Willison runs the 16.8GB Qwen3.6-27B himself.",
       "people": [
-       "cdnsteve"
+       "Sebastian Raschka",
+       "Simon Willison"
       ],
       "evidence_ids": [
-       15993
+       4528,
+       29504
       ]
      },
      {
-      "label": "Phone control",
-      "text": "Claude Code Remote Control lets you drive an agent running on a home machine or cloud server from your phone.",
+      "label": "Many agents, one project",
+      "text": "Git worktrees keep parallel agents on one project from overwriting each other's code. Boris Cherny runs several agents on separate branches to multiply pull request output.",
+      "people": [
+       "Boris Cherny"
+      ],
+      "evidence_ids": [
+       15993,
+       12981
+      ]
+     },
+     {
+      "label": "Control from your phone",
+      "text": "Claude Code Remote Control lets people drive a coding agent running on a home machine or cloud server from their phone.",
       "people": [],
       "evidence_ids": [
-       1251
+       1251,
+       13796
       ]
      },
      {
-      "label": "Sandbox runtimes",
-      "text": "Sandboxes isolate agent-written code. Cloudflare hosts agent sandboxes for 62% of teams writing code with agents.",
+      "label": "Sandboxes for agent code",
+      "text": "Sandboxes are isolated spaces where agent-written code runs. Tomasz Tunguz reports Cloudflare hosts them for 62% of teams writing code with agents.",
       "people": [
        "Tomasz Tunguz"
       ],
@@ -2556,27 +2470,27 @@
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "builders"
    },
    {
     "heading": "Techniques that make builds work",
-    "takeaway": "Plan first, verify everything, keep instructions lean and spend expensive models only where they matter.",
-    "stat_value": "153",
-    "stat_label": "findings on routing tasks across models",
+    "takeaway": "The habits that recur are planning first, testing first, checking results and keeping instructions lean.",
+    "stat_value": "126",
+    "stat_label": "findings on agents falsely claiming work is done",
     "cards": [
      {
-      "label": "1. Plan before code",
-      "text": "Have the agent analyze the codebase and propose a plan from your spec, iterate on the plan, then implement and review each step.",
-      "people": [
-       "defatigable"
-      ],
+      "label": "1. Plan before any code",
+      "text": "Have the agent study the codebase and propose a plan from your spec. Iterate on the plan, then implement while reviewing each step. Plan mode tools enforce this.",
+      "people": [],
       "evidence_ids": [
-       12016
+       12016,
+       7827
       ]
      },
      {
-      "label": "2. Let the agent interview you",
-      "text": "Use ask-user-question style prompts so the agent pulls out requirements and unknowns before it starts implementing in Claude Code.",
+      "label": "2. Let the agent ask questions",
+      "text": "Thariq Shihipar has the agent pull out requirements and unknowns with questions before it starts implementing in Claude Code.",
       "people": [
        "Thariq Shihipar"
       ],
@@ -2586,7 +2500,7 @@
      },
      {
       "label": "3. Write failing tests first",
-      "text": "Writing failing tests and then having agents make them pass guides the agent and lets it verify its own work.",
+      "text": "Andrej Karpathy recommends writing failing tests and then having agents make them pass. A Hacker News commenter says this lets the AI verify its own work.",
       "people": [
        "Andrej Karpathy"
       ],
@@ -2596,57 +2510,65 @@
       ]
      },
      {
-      "label": "4. Make agents run their code",
-      "text": "Have coding agents manually exercise their own code to catch issues that automated tests miss.",
+      "label": "4. Make agents exercise their code",
+      "text": "Simon Willison has coding agents manually run their own code to catch issues tests miss. Marius Hobbhahn rechecks claimed completions because agents report work not actually done.",
       "people": [
-       "Simon Willison"
+       "Simon Willison",
+       "Marius Hobbhahn"
       ],
       "evidence_ids": [
-       27486
+       27486,
+       2402
       ]
      },
      {
-      "label": "5. Keep instruction files lean",
-      "text": "Developers prune or regenerate AGENTS.md and SKILL.md files, because old hand-holding can make newer models produce worse solutions.",
+      "label": "5. Keep instruction files short",
+      "text": "Sebastian Raschka says developers prune or regenerate AGENTS.md instruction files because old hand-holding makes newer models perform worse. Thariq Shihipar rewrites his failure-mode file as models change.",
       "people": [
-       "Sebastian Raschka"
+       "Sebastian Raschka",
+       "Thariq Shihipar"
       ],
       "evidence_ids": [
-       2930
+       2930,
+       26522
       ]
      },
      {
-      "label": "6. Route by cost and strength",
-      "text": "Use cheaper models for simple work and stronger ones for hard work, directed by per-project instruction files.",
-      "people": [
-       "DarthCeltic85"
-      ],
-      "evidence_ids": [
-       15272
-      ]
-     },
-     {
-      "label": "7. Planner plus cheaper workers",
-      "text": "Use a smart frontier model as planner that delegates subtasks to cheaper models as needed.",
-      "people": [
-       "Ethan Mollick"
-      ],
-      "evidence_ids": [
-       28557
-      ]
-     },
-     {
-      "label": "8. Isolate parallel agents",
-      "text": "Run multiple coding agents on separate git branches to multiply pull request throughput.",
+      "label": "6. Give each agent its own branch",
+      "text": "Run parallel agents in separate git worktrees or branches so they do not overwrite each other, which multiplies how much finished work you get.",
       "people": [
        "Boris Cherny"
       ],
       "evidence_ids": [
+       15993,
        12981
+      ]
+     },
+     {
+      "label": "7. Strong planner, cheaper workers",
+      "text": "Use a smart frontier model as planner that hands subtasks to cheaper models. Ethan Mollick describes this pattern, and users pin subagents to cheaper models to control cost.",
+      "people": [
+       "Ethan Mollick"
+      ],
+      "evidence_ids": [
+       28557,
+       26592
+      ]
+     },
+     {
+      "label": "8. Reuse and test your skills",
+      "text": "Simon Willison installed a plugin skill into Codex CLI to guide code generation. A Hacker News commenter keeps personal skills and repeats review-fix loops until output converges.",
+      "people": [
+       "Simon Willison"
+      ],
+      "evidence_ids": [
+       5249,
+       6011
       ]
      }
     ],
-    "post_angle": ""
+    "post_angle": "",
+    "audience": "builders"
    }
   ],
   "moments": [],

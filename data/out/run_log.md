@@ -112,3 +112,8 @@
 - 2026-11-22 19:31 UTC: insights:tools_guide: done on claude-sonnet-5-5, $0.1022
 - 2026-11-22 19:31 UTC: insights:voices: done on claude-sonnet-5-5, $0.0872
 - 2026-11-22 19:31 UTC: insights: wrote state_of_ai, debates, trends, tools_guide, voices
+- 2026-11-22 21:05 UTC: insights:state_of_ai: done on claude-sonnet-5-5, $0.2196
+- 2026-11-22 21:06 UTC: insights:debates: done on claude-sonnet-5-5, $0.1347
+- 2026-11-22 21:08 UTC: insights:trends: done on claude-sonnet-5-5, $0.2160
+- 2026-11-22 21:09 UTC: insights:tools_guide: done on claude-sonnet-5-5, $0.1406
+- 2026-11-22 21:09 UTC: insights: wrote state_of_ai, debates, trends, tools_guide
