@@ -3311,7 +3311,7 @@
       "label": "Issue to PR to human",
       "text": "A senior engineer splits epics into bounded sub-issues, runs parallel Claude agents on them, adds adversarial review by other models, and merges by hand. Symphony, an open-source layer connecting issue trackers to Codex agents, automates the same issue-to-PR-to-review loop.",
       "people": [
-       "@OpenAIDevs"
+       "OpenAI Developers"
       ],
       "evidence_ids": [
        18314,
@@ -3447,8 +3447,7 @@
       "label": "Closed harness regressions",
       "text": "Opus scored lower inside Claude Code than inside Cursor, a coding tool, and users suspect unannounced A/B tests change quality. Because the harness is closed they cannot diagnose it, pushing some toward open harnesses and open evals.",
       "people": [
-       "Theo",
-       "@Vtrivedy10"
+       "Theo"
       ],
       "evidence_ids": [
        18633,

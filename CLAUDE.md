@@ -163,3 +163,9 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    measured, where agents break, setups worth copying; all audience builders). site: when replies has "builders", the
    Tools tab drops the guide's own builder sections and shows these under a "For builders" divider (`EXTRA`).
    Run: `write --only builders --model claude-opus-5-5 --yes` (dry run ~$0.32).
+23. 2026-11-22 DONE on the Mac: builders report on Opus cost $0.353 (dry run $0.32). TOTAL SPEND $24.93 of $40.
+   Audit: 57 citations all inside `_allowed`, every number in the evidence, no finding reused, no over-long card; spot-
+   checked claims (60.7% -> 14.8%, 44% / 9x, Revolut ~90%, Opus ~29x Sol, lost repo = HN commenter) all match.
+   Only hand fix: X handles in chips ("@OpenAIDevs" -> "OpenAI Developers", "@Vtrivedy10" removed). 12 validator
+   notes were "a Hacker News commenter" chips dropped (expected; text keeps the role). Opus needed ~1 fix vs Sonnet's
+   6-8 per run: consider Opus for future report writes (2x price, ~$0.35 per report).
