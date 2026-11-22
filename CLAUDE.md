@@ -91,6 +91,12 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    1,231 themes, 24,578/30,139 findings themed, 17 opportunities; reports rewritten; 63 app ideas (11 start-here).
    One wording fix applied by hand in replies.json (state_of_ai: "five of the six biggest sources", not "all five").
    Site republished (v2). Theme-level trends are now usable (chunks span the year).
+15. 2026-11-22: page redesigned for readability (src/site.py, v3): tabs = State of AI, Debates, Trends, Tools, Voices.
+   App ideas and the numbers are OFF the page (owner's request) -> `data/out/insights/app_ideas.md` + `app_ideas.csv`
+   (written by `ideas` / `ideas --render`) and `overview.md` ("The numbers"). Layout comes from text structure:
+   key points -> headline cards; **Label** paragraphs -> cards ("1." labels -> steps); debates -> question, two sides
+   side by side, why it matters, post angle; method/limits folded. Charts from pack: risers vs fallers, trend lines,
+   spike timeline, debate volume, tool mentions, voices. Citations behind "N sources" toggles.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).

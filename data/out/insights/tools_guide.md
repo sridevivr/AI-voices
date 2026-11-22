@@ -2,7 +2,7 @@
 
 *A practical guide grouped by job to be done: first everyday and business use, then vibe coding, with tools and numbered techniques drawn from a year of commentary.*
 
-*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-17 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
+*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
 
 ## Key points
 

@@ -1,6 +1,6 @@
-# Quick look: 2025-11-11 to 2026-11-14
+# The numbers: 2025-11-11 to 2026-11-14
 
-*Generated 2026-11-17 by `python -m src.insights build`; every number is computed from `findings.csv` / `themes.json`. No model wrote this page.*
+*Generated 2026-11-22 by `python -m src.insights build`; every number is computed from `findings.csv` / `themes.json`. No model wrote this page.*
 
 **30,139 findings** from 2,871 articles/threads by 20 sources; 98.0% of quotes verified word-for-word.
 

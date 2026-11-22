@@ -2,7 +2,7 @@
 
 *From Simon Willison's hands-on agent notes to Ed Zitron's compute skepticism, here is who shapes the year's AI commentary, what each person argues, and where a non-engineer can join in.*
 
-*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-17 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
+*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
 
 ## Key points
 

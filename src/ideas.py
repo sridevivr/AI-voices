@@ -15,6 +15,7 @@ the ranking from the scores.
 """
 from __future__ import annotations
 
+import csv
 import json
 import re
 import sys
@@ -226,8 +227,27 @@ def finish(replies, rows, paths) -> list[dict]:
     data = {"observations": cur["observations"], "ideas": ranked}
     paths["json"].write_text(json.dumps(data, indent=1, ensure_ascii=False))
     paths["md"].write_text(markdown(data))
-    print(f"wrote {paths['json']} and {paths['md']} ({len(ranked)} ideas, {len(start)} start-here)")
+    write_csv(ranked, paths["md"].with_suffix(".csv"))
+    print(f"wrote {paths['json']}, {paths['md']} and app_ideas.csv ({len(ranked)} ideas, {len(start)} start-here)")
     return ranked
+
+
+CSV_COLS = ["rank", "start_here", "name", "one_liner", "for_whom", "effort", "fun", "useful", "ease", "shareable", "score",
+            "sparked_by", "why_now", "how_it_works", "build", "demo_moment", "post_hook", "risks", "sources"]
+
+
+def write_csv(ideas, path):
+    """One row per idea, for a spreadsheet (Excel, Numbers, Google Sheets)."""
+    with path.open("w", newline="", encoding="utf-8-sig") as f:  # BOM so Excel reads UTF-8 correctly
+        w = csv.DictWriter(f, fieldnames=CSV_COLS)
+        w.writeheader()
+        for n, i in enumerate(ideas, 1):
+            w.writerow({"rank": n, "start_here": i.get("start_here", ""), "name": i["name"], "one_liner": i["one_liner"],
+                        "for_whom": i["for_whom"], "effort": i["effort"], "fun": i["fun"], "useful": i["useful"],
+                        "ease": i["ease"], "shareable": i["shareable"], "score": i["score"], "sparked_by": SPARK[i["spark"]],
+                        "why_now": i["why_it_works"], "how_it_works": i["how_it_works"], "build": i["build"],
+                        "demo_moment": i["demo_moment"], "post_hook": i["post_hook"], "risks": i["risks"],
+                        "sources": " ; ".join(e["url"] for e in i["evidence"])})
 
 
 SPARK = {"request": "people asked for it", "pain": "a common frustration", "hack": "a hack people use",

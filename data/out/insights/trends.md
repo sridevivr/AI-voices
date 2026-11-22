@@ -2,7 +2,7 @@
 
 *Comparing December 2025 to March 2026 against July to October 2026, a few topics moved clearly. Many others only look like movement because of a spike or a change in which sources are in the mix.*
 
-*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-17 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
+*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
 
 ## Key points
 

@@ -354,7 +354,7 @@ def overview_md(p: dict, rows: list[dict]) -> str:
     o, tr = p["overview"], p["trends"]
     by_fid = {r["fid"]: r for r in rows}
     fid_of = lambda ev: int(ev.split()[0][1:])
-    md = [f"# Quick look: {o['window']}", "",
+    md = [f"# The numbers: {o['window']}", "",
           f"*Generated {now_utc():%Y-%m-%d} by `python -m src.insights build`; every number is computed from "
           "`findings.csv` / `themes.json`. No model wrote this page.*", "",
           f"**{o['findings']:,} findings** from {o['items']:,} articles/threads by {len(o['sources'])} sources; "
