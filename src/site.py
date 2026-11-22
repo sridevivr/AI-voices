@@ -29,8 +29,7 @@ VIEWS = [  # (hash, nav label, report name)
     ("debates", "Debates", "debates"),
     ("trends", "Trends", "trends"),
     ("tools", "Tools", "tools_guide"),
-    ("voices", "Voices", "voices"),
-]
+]  # Voices taken off the page 2026-11-22 (owner); voices.md is still written
 
 CSS = """
 /* Layout: sticky left index of reports beside a wide content column of cards and charts; on phones the index
@@ -687,7 +686,7 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
              f"<div><b>{o['items']:,}</b> articles, threads &amp; posts</div><div>{esc(o['window'])}</div></div>")
     return f"""<title>AI Voices 2026</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="What a year of AI commentary says: the state of AI, debates, trends, tools and voices.">
+<meta name="description" content="What a year of AI commentary says: the state of AI, debates, trends and tools.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>{CSS}{CSS2}</style>
@@ -1114,7 +1113,6 @@ def state_v2(reply, ctx) -> str:
         if "used" in h or "tool" in h:
             out.append(tool_chart(p, 10))
         i += 1
-    out.append(voice_chart(p, 10))
     return "".join(out)
 
 
