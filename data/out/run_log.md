@@ -117,3 +117,5 @@
 - 2026-11-22 21:08 UTC: insights:trends: done on claude-sonnet-5-5, $0.2160
 - 2026-11-22 21:09 UTC: insights:tools_guide: done on claude-sonnet-5-5, $0.1406
 - 2026-11-22 21:09 UTC: insights: wrote state_of_ai, debates, trends, tools_guide
+- 2026-11-22 22:47 UTC: insights:builders: done on claude-opus-5-5, $0.3530
+- 2026-11-22 22:47 UTC: insights: wrote builders
