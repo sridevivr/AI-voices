@@ -14,7 +14,7 @@
    },
    {
     "headline": "Coding agents moved from hype to hard problems",
-    "detail": "Claude Code mentions fell to x0.45, while builders complained about review load, false completion claims and code bloat.",
+    "detail": "Claude Code mentions fell by more than half (x0.45), while builders complained about review load, false completion claims and code bloat.",
     "evidence_ids": [
      6606,
      9547,
@@ -1175,9 +1175,7 @@
      {
       "label": "Gap is closing",
       "text": "Open-weight models rapidly closing in on proprietary ones is cited as a challenge to control-based AI policy, with data showing a gap of months.",
-      "people": [
-       "Nathan Lambert"
-      ],
+      "people": [],
       "evidence_ids": [
        8533,
        3139
@@ -1188,7 +1186,7 @@
       "text": "Others argue ideas, compute, data and talent compound over time, so closed labs pull ahead. Lambert expects American closed labs to lead on capabilities.",
       "people": [
        "Yi Tay",
-       "Dean Ball",
+       "Dean W. Ball",
        "Nathan Lambert"
       ],
       "evidence_ids": [
@@ -1209,21 +1207,21 @@
       ]
      },
      {
-      "label": "Why it matters",
-      "text": "If open models stay close, restrictions on frontier access matter less. If the gap grows, closed labs hold the real leverage.",
-      "people": [],
-      "evidence_ids": [
-       3139,
-       12719
-      ]
-     },
-     {
       "label": "Open source and geopolitics",
       "text": "Restricted frontier access may strengthen open ecosystems, though open models do not stop malicious use.",
       "people": [
        "kimmonismus"
       ],
       "evidence_ids": [
+       12719
+      ]
+     },
+     {
+      "label": "Why it matters",
+      "text": "If open models stay close, restrictions on frontier access matter less. If the gap grows, closed labs hold the real leverage.",
+      "people": [],
+      "evidence_ids": [
+       3139,
        12719
       ]
      }
@@ -1369,7 +1367,7 @@
       "text": "Critics say LLMs lack experience, needs and emotions, and that correlations in outputs do not imply real states. Uncertainty alone does not justify taking consciousness claims seriously.",
       "people": [
        "Gary Marcus",
-       "emilymbender.bsky.social"
+       "Emily M. Bender"
       ],
       "evidence_ids": [
        20006,
@@ -1628,8 +1626,8 @@
   "dek": "Safety, security and open models grew fastest over the year, while talk of named tools like Claude Code, Cursor and Gemini faded.",
   "key_points": [
    {
-    "headline": "Safety and governance talk grew most, in every big source",
-    "detail": "Mentions rose from 73.7 to 127.1 per 1k (x1.72), up in all five big sources and down in none.",
+    "headline": "Safety and governance talk grew most, in five of six big sources",
+    "detail": "Mentions rose from 73.7 to 127.1 per 1k (x1.72), up in five of the six biggest sources and down in none.",
     "evidence_ids": [
      8768
     ]
@@ -2168,7 +2166,7 @@
     "cards": [
      {
       "label": "Voice skill file",
-      "text": "Some users create a Claude skill file that captures how they write. Critics question whether it is necessary at all.",
+      "text": "Some users write a Claude skill file that captures how they write. Ed Zitron mocked the idea as unnecessary, so treat it as one option, not a must.",
       "people": [
        "Ed Zitron"
       ],
@@ -2433,7 +2431,7 @@
      },
      {
       "label": "Shared skills for colleagues",
-      "text": "Teams distributes shared CLI-based skills to non-technical staff so they can work without learning new tools.",
+      "text": "Teams share CLI-based skills with non-technical staff so they can work without learning new tools.",
       "people": [
        "Kyle Daigle"
       ],

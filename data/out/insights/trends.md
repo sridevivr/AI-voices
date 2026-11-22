@@ -6,7 +6,7 @@
 
 ## Key points
 
-- **Safety and governance talk grew most, in every big source** Mentions rose from 73.7 to 127.1 per 1k (x1.72), up in all five big sources and down in none. ([Don't Worry About the Vase, 2026-09-30](https://thezvi.substack.com/p/a-morally-binding-white-house-accord))
+- **Safety and governance talk grew most, in five of six big sources** Mentions rose from 73.7 to 127.1 per 1k (x1.72), up in five of the six biggest sources and down in none. ([Don't Worry About the Vase, 2026-09-30](https://thezvi.substack.com/p/a-morally-binding-white-house-accord))
 - **Security and cyber worries jumped** Security mentions rose x2.4 and cyber x10.03 per 1k, both up in six big sources. Cyber requests focus on monitoring and defenders. ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
 - **Open weights and sandboxing are both rising** Local/open weights rose x1.89 and sandbox x1.99. People want models they can control and agents that stay contained. ([Don't Worry About the Vase, 2026-07-31](https://thezvi.substack.com/p/ai-179-part-2-hearing-the-fire-alarm)) ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))
 - **Named tools lost share of attention** Claude Code fell x0.45, Cursor x0.3, Gemini x0.28 and Perplexity x0.17, all with a falling verdict. ([Ben's Bites, 2025-11-25](https://www.bensbites.com/p/new-opus-is-bananas)) ([Don't Worry About the Vase, 2025-11-24](https://thezvi.substack.com/p/gemini-3-pro-is-a-vast-intelligence))

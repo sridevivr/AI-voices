@@ -102,7 +102,17 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
    `validate()` drops stats not in the input, unknown people/voices, bad months, and reports over-long text (`_notes`).
    `build` adds `theme_growth`. site.py v2 renderers (old replies still render via v1): icons, section headers with big
    numbers, one verified pull quote per section (no repeats), year-in-AI strip, attention heatmap, big-vs-growing bubble
-   chart, debate side chips, voices map. Needs `insights build` + `write --yes` (~$0.74) + `site` on the Mac.
+   chart, debate side chips, voices map.
+   2026-11-22 DONE on the Mac: `write --yes` cost $0.63, no validation notes. Audit (free): all 413 citations inside
+   `_allowed`, every stat traced to its theme/trend line. Hand fixes in replies.json: trends key point 1 headline +
+   detail said "every/all five big sources" -> "five of six" (Sonnet repeats this slip; check it every run);
+   state_of_ai "fell to x0.45" -> "fell by more than half"; tools "Voice skill file" chip implied Ed Zitron endorsed
+   it (he mocked it) -> text rewritten; "Teams distributes" grammar; debates: Lambert chip removed from "Gap is
+   closing" (his finding says the opposite), Bluesky handle -> "Emily M. Bender", "Dean Ball" -> "Dean W. Ball",
+   "Why it matters" moved last in the open-models debate. Reports run 850-1,470 words (target was 500-800; the
+   per-card limits hold). site.py: `.view[hidden]{display:none}` (tabs only worked inside the Artifact wrapper),
+   year strip drops trailing empty months and fits 12 columns on desktop, wider scrolling columns on phones.
+   Artifact republished as v4. TOTAL SPEND $23.87 of $40.
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).

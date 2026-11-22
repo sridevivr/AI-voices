@@ -73,6 +73,7 @@ a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outli
 .facts b { color: var(--fg); font-weight: 600; }
 main { min-width: 0; }
 .view { display: grid; gap: 36px; }
+.view[hidden] { display: none; }
 .view > header { display: grid; gap: 12px; max-width: 76ch; }
 .eyebrow { font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
 .view h2 { font: 700 clamp(28px, 4vw, 40px)/1.1 var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
@@ -716,12 +717,13 @@ figure.pq a { color: inherit; }
 .kp2 h4 { font-size: 18px; }
 .kp2 p { color: var(--muted); font-size: 14.5px; }
 .year { overflow-x: auto; }
-.year-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(78px, 1fr)); min-width: 760px; }
-.year-col { display: grid; align-content: start; gap: 8px; padding: 0 4px; border-left: 1px solid var(--line); min-height: 120px; }
+.year-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(66px, 1fr)); min-width: 760px; }
+@media (max-width: 900px) { .year-grid { min-width: calc(var(--cols) * 84px); } }
+.year-col { display: grid; align-content: start; gap: 6px; padding: 0 1px; min-width: 0; border-left: 1px solid var(--line); min-height: 120px; }
 .year-col:first-child { border-left: 0; }
 .year-col .mo { font: 600 11px/1.2 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; padding: 2px 4px 6px; }
-.moment { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px;
-  padding: 6px 8px; font-size: 12.5px; line-height: 1.35; }
+.moment { background: var(--surface); border: 1px solid var(--line); border-left: 2px solid var(--accent); border-radius: 5px;
+  padding: 4px 2px 4px 4px; font-size: 11.5px; letter-spacing: -0.01em; line-height: 1.3; hyphens: auto; overflow-wrap: break-word; min-width: 0; }
 .heat { overflow-x: auto; }
 .heat-grid { display: grid; grid-template-columns: minmax(140px, 200px) repeat(var(--cols), minmax(26px, 1fr)) 70px; gap: 3px; min-width: 700px; align-items: center; font-size: 13px; }
 .heat-grid .hd { font: 11px/1.1 var(--mono); color: var(--muted); text-align: center; }
@@ -835,12 +837,14 @@ def year_strip(moments, p, ctx) -> str:
     by = {}
     for m in moments:
         by.setdefault(m["month"], []).append(m)
+    while len(months) > 1 and months[-1] not in by:  # e.g. a partial last month: more room for the labels
+        months.pop()
     cols = "".join(
         f"<div class='year-col'><span class='mo'>{MONTHS[int(mo[5:]) - 1]} {mo[2:4]}</span>"
         + "".join(f"<div class='moment'>{inline(m['label'])}</div>" for m in by.get(mo, [])) + "</div>"
         for mo in months)
     return (f"<div class='chart'><h4>{icon('bolt')} The year in AI</h4><p class='note'>Key moments, from the months when a "
-            f"topic spiked far above its usual level.</p><div class='year'><div class='year-grid' style='--cols:{len(months)}'>"
+            f"topic spiked far above its usual level.</p><div class='year' lang='en'><div class='year-grid' style='--cols:{len(months)}'>"
             f"{cols}</div></div></div>")
 
 

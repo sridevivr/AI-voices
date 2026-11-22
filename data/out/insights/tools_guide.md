@@ -18,7 +18,7 @@
 
 **58** findings on keeping personal voice with AI
 
-- **Voice skill file** (Ed Zitron): Some users create a Claude skill file that captures how they write. Critics question whether it is necessary at all. ([Bluesky, 2026-04-21](https://bsky.app/profile/edzitron.com/post/3mjy2n37vi22v))
+- **Voice skill file** (Ed Zitron): Some users write a Claude skill file that captures how they write. Ed Zitron mocked the idea as unnecessary, so treat it as one option, not a must. ([Bluesky, 2026-04-21](https://bsky.app/profile/edzitron.com/post/3mjy2n37vi22v))
 - **Outline by hand, AI trained on you** (Azeem Azhar): Azeem Azhar starts from handwritten outlines and uses AI tools trained on a decade of his own writing as his thinking and writing workflow. ([Exponential View, 2026-03-05](https://www.exponentialview.co/p/how-i-think))
 - **Second agent grades drafts** (Tomasz Tunguz): A second agent grades drafted posts and checks them against the author's personal writing style before publishing. ([Tomasz Tunguz, 2025-12-05](https://tomtunguz.com/agent-asana-inflection/))
 - **Written style guides**: Writing an AI style guide gives the model something concrete to imitate when it drafts in your voice. ([Ben's Bites, 2026-03-24](https://www.bensbites.com/p/agents-should-interview-you))
@@ -70,7 +70,7 @@
 - **Digital chief of staff** (swyx, Alessio Fanelli): A personal agent handles administration, summarizing, news search and task management. ([Latent Space, 2026-09-05](https://latent.space/p/grok-bot/))
 - **Dots for dropped balls**: The Dots agent is used to avoid dropping important balls and to flag high-priority items. ([Don't Worry About the Vase, 2026-10-08](https://thezvi.substack.com/p/ai-189-new-math))
 - **Claude Cowork**: Claude Cowork brings Claude Code-style efficiency to non-technical knowledge work tasks. ([AINews (smol.ai), 2026-01-12](https://news.smol.ai/issues/26-01-12-gemini-apple/))
-- **Shared skills for colleagues** (Kyle Daigle): Teams distributes shared CLI-based skills to non-technical staff so they can work without learning new tools. ([Latent Space, 2026-06-02](https://latent.space/p/github/))
+- **Shared skills for colleagues** (Kyle Daigle): Teams share CLI-based skills with non-technical staff so they can work without learning new tools. ([Latent Space, 2026-06-02](https://latent.space/p/github/))
 
 ## Pressure-test your thinking
 
