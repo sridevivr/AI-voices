@@ -1007,8 +1007,13 @@ def foldable(head_html: str, body_html: str, open_: bool = True) -> str:
 BUILDER = re.compile(r"\bbuilders?\b|building with|coding|builds work|developer", re.I)
 
 
+def commas(v: str) -> str:
+    """Thousands separators for counts in a big stat ('11236' -> '11,236', '1430' -> '1,430'); years stay as they are."""
+    return re.sub(r"(?<![\d.,])(\d{4,})(?![\d.,])", lambda m: m.group(1) if 1900 <= int(m.group(1)) <= 2100 else f"{int(m.group(1)):,}", v)
+
+
 def sec_head(s, builder=False) -> str:
-    stat = (f"<div class='bigstat'><b>{esc(s['stat_value'])}</b><span>{esc(s['stat_label'])}</span></div>"
+    stat = (f"<div class='bigstat'><b>{esc(commas(s['stat_value']))}</b><span>{esc(s['stat_label'])}</span></div>"
             if s.get("stat_value") else "")
     return (f"<div class='sec-head'><div class='sec-title'><h3>{icon(icon_for(s['heading']))}{inline(s['heading'])}{AUD if builder else ''}{CHEV}</h3>"
             f"<p class='takeaway'>{inline(s['takeaway'])}</p></div>{stat}</div>")

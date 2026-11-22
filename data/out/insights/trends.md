@@ -6,7 +6,7 @@
 
 ## Key points
 
-- **Safety and governance talk grew the most** It now fills about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more.
+- **Safety and governance talk grew the most** It now fills about 1 in 8 findings, up from about 1 in 14. Five of the six biggest sources covered it more, and none less.
 - **Cyber and security mentions surged** Cyber threats came up about ten times as often, and security more than doubled. Findings ask for ways to measure AI cyberattacks and protect systems. ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
 - **Open-weight models gained ground** Open-weight models, which anyone can download and run, came up nearly twice as often, and DeepSeek, an AI model maker, rose too.
 - **Agents running on their own got more attention** Sandboxes, locked-off spaces where agents run, nearly doubled in mentions. Browser-controlling agents and background agents also rose. ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))
@@ -33,7 +33,7 @@
 
 **x10.03** Cyber mentions, late period versus early period
 
-- **Safety and governance up**: Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more, and it rose more than any other broad topic.
+- **Safety and governance up**: Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. Five of the six biggest sources covered it more, and it rose more than any other broad topic.
 - **Cyber and security surge** (Simon Willison, Nathan Lambert): Mentions of cyber threats grew about tenfold, and security more than doubled. Findings ask for a benchmark of AI cyberattacks and for tools to harden critical systems. ([Simon Willison's Weblog, 2026-09-27](https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
 - **Open models gain ground**: Talk of open-weight models, which anyone can download and run, nearly doubled, and DeepSeek, an AI model maker, also rose. Five big sources covered open weights more, and none covered them less.
 - **Agents working on their own** (Gary Marcus): Sandboxes, locked-off spaces where agents run, nearly doubled in mentions. Browser-controlling agents and background agents also rose. Writers want firm limits on what personal agents can touch. ([Marcus on AI, 2026-02-01](https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere))

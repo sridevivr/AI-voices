@@ -508,7 +508,7 @@
      }
     ],
     "post_angle": "",
-    "audience": "builders"
+    "audience": "everyone"
    }
   ],
   "moments": [
@@ -1095,10 +1095,9 @@
     "cards": [
      {
       "label": "Open models help defenders",
-      "text": "Nathan Lambert argues open models help balance offense and defense. Gary Marcus notes open-weight systems aided HuggingFace's mitigation, though attackers can also strip their guardrails.",
+      "text": "Nathan Lambert argues open models help balance offense and defense. One account notes open-weight systems aided HuggingFace's mitigation, though attackers can also strip their guardrails.",
       "people": [
-       "Nathan Lambert",
-       "Gary Marcus"
+       "Nathan Lambert"
       ],
       "evidence_ids": [
        21706,
@@ -1144,10 +1143,8 @@
     "cards": [
      {
       "label": "The gap is closing",
-      "text": "Import AI says open-weight models are rapidly closing in on proprietary ones. Nathan Lambert cites data showing a gap of about four to six months.",
-      "people": [
-       "Nathan Lambert"
-      ],
+      "text": "Import AI says open-weight models are rapidly closing in on proprietary ones. Data cited by Nathan Lambert puts the gap at about four to six months.",
+      "people": [],
       "evidence_ids": [
        3139,
        8533
@@ -1155,10 +1152,10 @@
      },
      {
       "label": "The gap will widen",
-      "text": "Yi Tay says ideas compound over time, and Dean Ball points to compute, data and talent compounding. Lambert expects American closed labs to pull ahead.",
+      "text": "Yi Tay says ideas compound over time, and Dean W. Ball points to compute, data and talent compounding. Lambert expects American closed labs to pull ahead.",
       "people": [
        "Yi Tay",
-       "Dean Ball",
+       "Dean W. Ball",
        "Nathan Lambert"
       ],
       "evidence_ids": [
@@ -1310,10 +1307,10 @@
     "cards": [
      {
       "label": "Just patterns, not minds",
-      "text": "Gary Marcus argues current systems lack experience, and that matching outputs do not imply real states. Emily Bender's circle disputes taking consciousness claims seriously just because of uncertainty.",
+      "text": "Gary Marcus argues current systems lack experience, and that matching outputs do not imply real states. Emily M. Bender and others dispute taking consciousness claims seriously just because of uncertainty.",
       "people": [
        "Gary Marcus",
-       "emilymbender.bsky.social"
+       "Emily M. Bender"
       ],
       "evidence_ids": [
        20006,
@@ -1375,7 +1372,7 @@
      },
      {
       "label": "Doom odds are guesses",
-      "text": "Arvind Narayanan and Sayash Kapoor argue p(doom) estimates are unreliable guesses. A Hacker News commenter group sees safety warnings as a marketing and regulatory-capture ploy.",
+      "text": "Arvind Narayanan and Sayash Kapoor argue p(doom) figures, guesses at the chance AI causes catastrophe, are unreliable. Some Hacker News commenters see safety warnings as a marketing and regulatory-capture ploy.",
       "people": [
        "Arvind Narayanan",
        "Sayash Kapoor"
@@ -1579,7 +1576,7 @@
   "key_points": [
    {
     "headline": "Safety and governance talk grew the most",
-    "detail": "It now fills about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more.",
+    "detail": "It now fills about 1 in 8 findings, up from about 1 in 14. Five of the six biggest sources covered it more, and none less.",
     "evidence_ids": []
    },
    {
@@ -1622,7 +1619,7 @@
     "cards": [
      {
       "label": "Safety and governance up",
-      "text": "Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. All five big sources covered it more, and it rose more than any other broad topic.",
+      "text": "Safety and governance, covering AI rules and risk, now makes up about 1 in 8 findings, up from about 1 in 14. Five of the six biggest sources covered it more, and it rose more than any other broad topic.",
       "people": [],
       "evidence_ids": []
      },

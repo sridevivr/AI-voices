@@ -137,3 +137,10 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
 19. 2026-11-22: post angles OFF the page and out of the report .md files; `render` (and so `write`) writes them all to
    `data/out/insights/post_ideas.md`. Pre-rewrite set kept in `post_ideas_2026-11-22.md`. Next: owner runs
    `write --only state_of_ai,debates,trends,tools_guide --yes` (dry run says ~$0.61; last real run of these 4 was $0.54).
+20. 2026-11-22 DONE on the Mac: plain-language rewrite of the 4 page reports cost $0.71 (dry run said $0.61). TOTAL
+   SPEND $24.58 of $40. Audit: 298 citations all inside `_allowed`; word-numbers match the pack (1 in 8 vs 127/1k etc.).
+   Hand fixes again: trends "All five big sources" x2 -> "five of the six biggest" (THIRD run in a row: consider adding
+   the source counts as words to the prompt); debates: Lambert chip off "The gap is closing" (again), Gary Marcus chip off
+   "Open models help defenders", Bluesky handle -> "Emily M. Bender", "Dean Ball" -> "Dean W. Ball", p(doom) explained,
+   "Hacker News commenter group" -> "Some Hacker News commenters"; State "What this means for you" audience -> everyone.
+   site.py: big stats get thousands separators (`commas`).
