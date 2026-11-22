@@ -1628,5 +1628,105 @@
   },
   "service_tier": "standard",
   "speed": "standard"
+ },
+ {
+  "at": "2026-11-22T19:27:55.787423+00:00",
+  "step": "synth:insights:state_of_ai",
+  "dollars": 0.1615,
+  "model": "claude-sonnet-5-5",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 39189,
+  "output_tokens": 8312,
+  "output_tokens_details": {
+   "thinking_tokens": 2940
+  },
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ {
+  "at": "2026-11-22T19:28:56.506499+00:00",
+  "step": "synth:insights:debates",
+  "dollars": 0.112,
+  "model": "claude-sonnet-5-5",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 11423,
+  "output_tokens": 8915,
+  "output_tokens_details": {
+   "thinking_tokens": 3055
+  },
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ {
+  "at": "2026-11-22T19:30:19.331766+00:00",
+  "step": "synth:insights:trends",
+  "dollars": 0.1661,
+  "model": "claude-sonnet-5-5",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 18089,
+  "output_tokens": 12996,
+  "output_tokens_details": {
+   "thinking_tokens": 8608
+  },
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ {
+  "at": "2026-11-22T19:31:03.440432+00:00",
+  "step": "synth:insights:tools_guide",
+  "dollars": 0.1022,
+  "model": "claude-sonnet-5-5",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 15716,
+  "output_tokens": 7081,
+  "output_tokens_details": {
+   "thinking_tokens": 2487
+  },
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ {
+  "at": "2026-11-22T19:31:44.582844+00:00",
+  "step": "synth:insights:voices",
+  "dollars": 0.0872,
+  "model": "claude-sonnet-5-5",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 12803,
+  "output_tokens": 6160,
+  "output_tokens_details": {
+   "thinking_tokens": 1555
+  },
+  "service_tier": "standard",
+  "speed": "standard"
  }
 ]

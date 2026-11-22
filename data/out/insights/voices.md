@@ -1,52 +1,98 @@
-# Who Drives the AI Conversation: A Field Guide to the Voices Worth Following
+# Who to follow in the AI conversation
 
-*From Simon Willison's hands-on agent notes to Ed Zitron's compute skepticism, here is who shapes the year's AI commentary, what each person argues, and where a non-engineer can join in.*
+*Twenty voices shaped this year's AI commentary, from hands-on builders to money watchers, open-model researchers and critics. This guide shows where each one stands and why to follow them.*
 
-*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; prose is Sonnet's; every link is a finding the text cites.*
+*Period: 2025-11-11 to 2026-11-14 · 30,139 findings from 20 sources · generated 2026-11-22 by `python -m src.insights write`. Numbers and tables come from code; text is Sonnet's; every link is a finding the text cites.*
 
 ## Key points
 
-- Start with Simon Willison. He has the most findings (1,829) and writes about coding agents and tooling, which is the vibe-coding territory you work in. ([Simon Willison's Weblog, 2026-11-09](https://simonwillison.net/2026/Nov/9/mysterious-beeps/)) ([Simon Willison's Weblog, 2026-09-10](https://simonwillison.net/2026/Sep/10/shopify-react-native/))
-- Add Ben Tossell for practical agent tools and workflows, and Tomasz Tunguz for the business and cost side (token prices, GPU rental rates, how much agent work is plain code). ([Ben's Bites, 2026-11-10](https://www.bensbites.com/p/how-i-got-seduced)) ([Tomasz Tunguz, 2026-10-06](https://tomtunguz.com/how-to-automate-inbound/)) ([Tomasz Tunguz, 2026-11-04](https://tomtunguz.com/watts-in-store-for-2027-inference/))
-- For a broad LinkedIn audience, Ethan Mollick and Alberto Romero cover work, writing and creativity, topics that readers outside tech can relate to. ([Bluesky, 2026-09-22](https://bsky.app/profile/emollick.bsky.social/post/3mw3cswdlw226)) ([The Algorithmic Bridge, 2026-10-21](https://www.thealgorithmicbridge.com/p/put-some-brain-in-your-thinking))
-- Zvi Mowshowitz, Gary Marcus, Emily Bender and Ed Zitron give you the skeptical and safety-minded side. Their posts are good for replies and counterpoints. ([Don't Worry About the Vase, 2026-10-26](https://thezvi.substack.com/p/gemini-4-argon-the-model-and-safety)) ([Marcus on AI, 2026-10-31](https://garymarcus.substack.com/p/report-from-the-vatican)) ([Bluesky, 2026-10-09](https://bsky.app/profile/emilymbender.bsky.social/post/3mxho5xod3s2k)) ([Bluesky, 2026-11-10](https://bsky.app/profile/edzitron.com/post/3mzy3bn3u5s2i))
-- Counts reflect how much each source publishes and quotes, not how influential a person is. Prolific bloggers will rank high, and people who post mostly on Bluesky may be undercounted.
+- **Start with Simon Willison for practical building** With 1829 findings, mostly on coding agents and testing, he is the most prolific source for what works when you build with AI tools. ([Simon Willison's Weblog, 2026-11-09](https://simonwillison.net/2026/Nov/9/mysterious-beeps/)) ([Simon Willison's Weblog, 2026-09-10](https://simonwillison.net/2026/Sep/10/shopify-react-native/))
+- **Add Tomasz Tunguz for the business and cost view** He ties agents to real numbers: GPU rental prices, token pricing and how much of a production workflow is plain code. ([Tomasz Tunguz, 2026-11-04](https://tomtunguz.com/watts-in-store-for-2027-inference/)) ([Tomasz Tunguz, 2026-10-06](https://tomtunguz.com/how-to-automate-inbound/))
+- **Read Ethan Mollick to explain AI to colleagues** He covers how AI changes research, creative work and knowledge jobs, in terms a broad professional audience can follow and repeat. ([Bluesky, 2026-09-22](https://bsky.app/profile/emollick.bsky.social/post/3mw3cswdlw226)) ([Bluesky, 2026-01-18](https://bsky.app/profile/emollick.bsky.social/post/3mcprjys4ck2a))
+- **Balance the feed with Zvi, Marcus and Zitron** Zvi on safety, Gary Marcus on limits and Ed Zitron on money give the sharpest counterweights to builder optimism. ([Don't Worry About the Vase, 2026-10-26](https://thezvi.substack.com/p/gemini-4-argon-the-model-and-safety)) ([Marcus on AI, 2026-10-24](https://garymarcus.substack.com/p/will-generative-ai-do-more-harm-than)) ([Bluesky, 2026-11-10](https://bsky.app/profile/edzitron.com/post/3mzy3bn3u5s2i))
+- **Follow Nathan Lambert for open models** He tracks how open and Chinese models compete with closed labs, which matters if you care about cost and control. ([Interconnects, 2026-09-21](https://www.interconnects.ai/p/the-current-balance-of-power-in-open)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
 
-## Start here: the builders
+## Builders and agent tinkerers
 
-**Simon Willison** (1,829 findings, via his Weblog and Bluesky) focuses on devtools, coding agents and testing. He mostly reports techniques and pain points from his own experiments. One example: giving a coding agent "hearing" by running microphones on several devices and hot-swapping JavaScript over WebSockets. He also flags debates, such as Shopify moving mobile apps from React Native back to separate Swift and Kotlin codebases because agents lower the cost of maintaining two platforms. Follow him for concrete, reproducible examples that you can try and write about. ([Simon Willison's Weblog, 2026-11-09](https://simonwillison.net/2026/Nov/9/mysterious-beeps/)) ([Simon Willison's Weblog, 2026-09-10](https://simonwillison.net/2026/Sep/10/shopify-react-native/))
+*These people use coding agents daily and report what breaks, what helps and what to copy.*
 
-**Ben Tossell** (713 findings, via Ben's Bites) covers coding agents, orchestration and productivity. His posts recommend specific tools, such as Executor v2 for integrations and UI skills for design work. He also records debates that matter to non-engineers, like whether agent-written "slop" is acceptable if the code works, is secure and performs. This is a good source of tool picks and quotable arguments. ([Ben's Bites, 2026-11-10](https://www.bensbites.com/p/how-i-got-seduced)) ([Ben's Bites, 2026-10-13](https://www.bensbites.com/p/zucks-wonderfull))
+**1829** Findings from Simon Willison, the largest voice in the set
 
-**antirez**, **Gergely Orosz** and **Hamel Husain** are smaller voices (216, 202 and 94 findings) with practical views. antirez argues that developers who refuse AI help risk falling behind, and he discusses local inference trade-offs. Orosz asks whether hand-coding is becoming obsolete and shows how to connect Sentry to a coding agent through MCP. Husain writes about evals and how to choose between precision and recall based on business consequences. Reply to them when you have a hands-on experience to compare. ([Bluesky, 2026-11-09](https://bsky.app/profile/antirez.bsky.social/post/3mzukga6eo22b)) ([Bluesky, 2026-09-24](https://bsky.app/profile/gergely.pragmaticengineer.com/post/3mwb3mufsjk2k)) ([Bluesky, 2026-07-22](https://bsky.app/profile/gergely.pragmaticengineer.com/post/3mrabnxvsf22w)) ([Hamel Husain, 2026-10-20](https://hamel.dev/blog/posts/decision-model-evals/))
+- **Simon Willison** (Simon Willison): Covers coding agents, dev tools and testing, with a practical, curious stance. Follow him for working examples, such as giving an agent hearing through microphones, and for balanced takes on tool choices. ([Simon Willison's Weblog, 2026-11-09](https://simonwillison.net/2026/Nov/9/mysterious-beeps/)) ([Simon Willison's Weblog, 2026-09-10](https://simonwillison.net/2026/Sep/10/shopify-react-native/))
+- **Ben Tossell** (Ben Tossell): Focuses on coding agents and productivity, and is a keen enthusiast. Follow him for a steady stream of tools he actually uses, plus debates on agent slop and agent memory. ([Ben's Bites, 2026-10-13](https://www.bensbites.com/p/zucks-wonderfull)) ([Ben's Bites, 2026-11-10](https://www.bensbites.com/p/how-i-got-seduced))
+- **Hamel Husain** (Hamel Husain): Writes on evals and testing for AI products. His stance is careful and practical. Follow him to learn how to measure whether an AI feature works, including precision versus recall tradeoffs. ([Hamel Husain, 2026-10-20](https://hamel.dev/blog/posts/decision-model-evals/))
+- **swyx** (swyx): Covers agents and orchestration through Latent Space. He is enthusiast but warns about wasted tokens and weak skills. Follow him for the path from single-agent use to multi-agent setups. ([Latent Space, 2026-11-08](https://latent.space/p/cs146s/))
+- **swyx & Alessio Fanelli** (swyx & Alessio Fanelli): The Latent Space duo covers research, agents and evals. Their stance is open and analytical. Follow them for the fragility of browser agents and how harnesses tackle hard math problems. ([Latent Space, 2026-09-05](https://latent.space/p/grok-bot/)) ([Latent Space, 2026-10-23](https://latent.space/p/ai-is-getting-good-at-math/))
+- **Gergely Orosz** (Gergely Orosz): Writes on how AI changes software work. His stance is balanced: real productivity gains, but real social costs. Follow him for engineering-team realities, such as hostility to AI-written emails and the end of hand-coding. ([Bluesky, 2026-09-24](https://bsky.app/profile/gergely.pragmaticengineer.com/post/3mwb3mufsjk2k)) ([Bluesky, 2026-06-15](https://bsky.app/profile/gergely.pragmaticengineer.com/post/3moe27gf7lk2h))
 
-**swyx** (174 findings, plus 106 shared with Alessio Fanelli, via Latent Space) tracks agents and orchestration. His warning is that teams burn tokens on agent experiments without shipping real products. He also asks whether agent skills should be written by hand or taken from community packs. He is useful if you write about how teams adopt agents. ([Latent Space, 2026-11-08](https://latent.space/p/cs146s/))
+## Business and money
 
-## The business and money lens
+*These two follow the costs and revenue behind AI, one as an optimistic investor, the other as a doubter.*
 
-**Tomasz Tunguz** (833 findings) writes about markets, agents and cost. His data points are easy to cite. Short-term GPU rental rates reportedly jumped from about $3 to $12-13 per hour. In 14 production agent workflows, 65% of nodes were pure code. He also notes a UC Berkeley study finding that harness software can cut the cost of resolving the same task by 71% without losing accuracy. He is a strong source for a program-manager audience that cares about unit economics. ([Tomasz Tunguz, 2026-11-04](https://tomtunguz.com/watts-in-store-for-2027-inference/)) ([Tomasz Tunguz, 2026-10-06](https://tomtunguz.com/how-to-automate-inbound/))
+**65%** Share of workflow nodes that are pure code across 14 workflows
 
-**Ed Zitron** (301 findings, mostly Bluesky) is the main skeptic on AI economics. He cites JPMorgan's estimate of under 0.5% cumulative productivity gain over a decade. He questions whether 190GW of planned AI compute has real demand, and he points out that published GPU price indices diverge from what users report paying. He is worth quoting when you want a counterweight to boom narratives, and worth checking carefully before you repeat his claims. ([Bluesky, 2026-11-10](https://bsky.app/profile/edzitron.com/post/3mzy3bn3u5s2i)) ([Bluesky, 2026-07-31](https://bsky.app/profile/edzitron.com/post/3mrxdzj544k2y)) ([Bluesky, 2026-10-13](https://bsky.app/profile/edzitron.com/post/3mxrguttrcy2r))
+- **Tomasz Tunguz** (Tomasz Tunguz): Covers markets, agents and AI costs with a data-first, mostly constructive stance. Follow him for numbers like rising GPU rental rates and how much cost a smarter harness can save. ([Tomasz Tunguz, 2026-11-04](https://tomtunguz.com/watts-in-store-for-2027-inference/)) ([Tomasz Tunguz, 2026-10-06](https://tomtunguz.com/how-to-automate-inbound/))
+- **Ed Zitron** (Ed Zitron): Focuses on AI economics, compute prices and revenue claims, and is a strong skeptic. Follow him to stress-test hype, such as whether 190GW of planned compute has real demand. ([Bluesky, 2026-11-10](https://bsky.app/profile/edzitron.com/post/3mzy3bn3u5s2i)) ([Bluesky, 2026-07-31](https://bsky.app/profile/edzitron.com/post/3mrxdzj544k2y))
 
-## Explainers for a broad professional audience
+## Open models and training
 
-**Ethan Mollick** (686 findings, One Useful Thing and Bluesky) covers capabilities, creative work and knowledge work. He raises questions such as whether AI peer review should change academic science, and whether craft in fields like coding survives automation, given that augmentation lacks a playbook compared to automation. He also shares small demos, like turning video clips into interactive 3D scenes. His posts translate well to LinkedIn. ([Bluesky, 2026-10-23](https://bsky.app/profile/emollick.bsky.social/post/3myjcs6g7zc2q)) ([Bluesky, 2026-09-22](https://bsky.app/profile/emollick.bsky.social/post/3mw3cswdlw226)) ([Bluesky, 2026-11-10](https://bsky.app/profile/emollick.bsky.social/post/3mzxw7q2jgs2r))
+*These voices explain how models are built and run, and why open weights and local use matter.*
 
-**Alberto Romero** (298 findings, The Algorithmic Bridge) focuses on AI writing. Topics include whether undisclosed AI-assisted writing breaks the reader-writer contract, and estimates that about half of published articles are AI-generated. If you publish on AI, his questions about disclosure apply to you directly. ([The Algorithmic Bridge, 2026-03-26](https://www.thealgorithmicbridge.com/p/its-ai-so-i-didnt-read)) ([The Algorithmic Bridge, 2026-10-21](https://www.thealgorithmicbridge.com/p/put-some-brain-in-your-thinking))
+**1-2 months** Estimated gap closed by distillation of American models
 
-**Mike Caulfield** (116 findings) and **Anil Dash** (97) bring education and culture. Caulfield notes that AI grading of essays needs more than a pasted rubric, and that a Cambridge study found AI matched human grades only about half the time. Dash asks whether everyday people will really build their own apps with AI or whether effort keeps it a niche, a question close to your own vibe coding. ([Bluesky, 2026-09-12](https://bsky.app/profile/mikecaulfield.bsky.social/post/3mvciiiczyc2g)) ([Bluesky, 2026-05-15](https://bsky.app/profile/anildash.com/post/3mlvnc2ytkc2v))
+- **Nathan Lambert** (Nathan Lambert): Covers model training and open models through Interconnects. He is moderately enthusiastic and policy-aware. Follow him for how Chinese open models compete and whether open models should be restricted. ([Interconnects, 2026-09-21](https://www.interconnects.ai/p/the-current-balance-of-power-in-open)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers))
+- **Sebastian Raschka** (Sebastian Raschka): Writes on model internals, training and inference in a technical, hands-on way. Follow him to understand why reasoning models are verbose and how to calibrate classifiers. ([Ahead of AI, 2026-07-18](https://magazine.sebastianraschka.com/p/controlling-reasoning-effort-in-llms)) ([Ahead of AI, 2026-09-29](https://magazine.sebastianraschka.com/p/classifier-history-and-jev))
+- **antirez** (antirez): A programmer who backs AI coding and runs local models. Strongly enthusiastic. Follow him for blunt views that refusing AI assistance risks falling behind, plus local inference tradeoffs. ([Bluesky, 2026-11-09](https://bsky.app/profile/antirez.bsky.social/post/3mzukga6eo22b)) ([Bluesky, 2026-09-29](https://bsky.app/profile/antirez.bsky.social/post/3mwnx2i53gc2b))
 
-## Safety, governance and the skeptics
+## Explainers and cultural observers
 
-**Zvi Mowshowitz** (922 findings, Don't Worry About the Vase) is the detailed tracker of safety and evals. He dissects whether a low misalignment rate shows real alignment or just evaluation awareness, and he describes the layered defenses labs use, such as classifiers, probes and monitors. His posts are long, so mine them for single, quotable distinctions. ([Don't Worry About the Vase, 2026-10-26](https://thezvi.substack.com/p/gemini-4-argon-the-model-and-safety))
+*These writers translate AI's effects on work, writing, learning and society for general readers.*
 
-**Gary Marcus** (538 findings) and **Emily M. Bender** (179) are the critics. Marcus questions whether an accord's "independent" oversight is truly independent and argues current LLMs are not conscious. Bender disputes claims that Claude can feel pain, saying the burden of proof lies with those making the claim. Expect pushback when you reply, but their arguments help you test your own claims. ([Marcus on AI, 2026-09-29](https://garymarcus.substack.com/p/hot-take-on-a-weak-white-house-accord)) ([Marcus on AI, 2026-10-31](https://garymarcus.substack.com/p/report-from-the-vatican)) ([Bluesky, 2026-10-09](https://bsky.app/profile/emilymbender.bsky.social/post/3mxho5xod3s2k))
+**0.0041%** Claimed false positive rate of the Pangram AI text detector
 
-**Sayash Kapoor and Arvind Narayanan** (95 findings, AI as Normal Technology) offer a measured view on evaluation and liability. They argue that judging agents means examining entire trajectories, not just final outcomes. They also lay out the open debate over whether AI liability should rely on tort law, strict liability or stronger negligence rules. ([AI as Normal Technology, 2026-10-19](https://www.normaltech.ai/p/new-paper-emerging-trends-in-ai-agent)) ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
+- **Ethan Mollick** (Ethan Mollick): Covers research, creative work and knowledge jobs, mostly optimistic but alert to slop and job loss. Follow him for plain-language examples and for how AI reshapes science. ([Bluesky, 2026-10-23](https://bsky.app/profile/emollick.bsky.social/post/3myjcs6g7zc2q)) ([Bluesky, 2026-01-18](https://bsky.app/profile/emollick.bsky.social/post/3mcprjys4ck2a))
+- **Alberto Romero** (Alberto Romero): Writes on AI-generated content, disclosure and writing tells. His stance is wary and reflective. Follow him if you publish online and wonder how readers react to AI-assisted writing. ([The Algorithmic Bridge, 2026-03-26](https://www.thealgorithmicbridge.com/p/its-ai-so-i-didnt-read)) ([The Algorithmic Bridge, 2026-10-21](https://www.thealgorithmicbridge.com/p/put-some-brain-in-your-thinking))
+- **Mike Caulfield** (Mike Caulfield): Focuses on AI in learning and information-checking, with a measured stance. Follow him for classroom uses, essay grading limits and how often Google AI Overview gets things wrong. ([Bluesky, 2026-09-12](https://bsky.app/profile/mikecaulfield.bsky.social/post/3mvciiiczyc2g)) ([Bluesky, 2026-09-03](https://bsky.app/profile/mikecaulfield.bsky.social/post/3mulplzzvzk2b))
+- **Anil Dash** (Anil Dash): Covers consumer AI, ethics and who builds apps, with a mixed stance. Follow him for questions on sycophancy, collective ownership alternatives and whether everyday people will really build their own apps. ([Bluesky, 2026-05-15](https://bsky.app/profile/anildash.com/post/3mlvnc2ytkc2v)) ([Bluesky, 2026-09-02](https://bsky.app/profile/anildash.com/post/3muk3dpvqcc2c))
+- **hardmaru** (hardmaru): A researcher sharing work on agents and model research, generally optimistic. Follow him for ideas like multi-agent ecosystems and AI co-scientists, plus the problem of evaluating tasks humans cannot judge. ([Bluesky, 2026-06-22](https://bsky.app/profile/hardmaru.bsky.social/post/3motv2lwguk22)) ([Bluesky, 2026-10-15](https://bsky.app/profile/hardmaru.bsky.social/post/3mxwc3sdhkc2t))
 
-## Researchers and the open-model world
+## Skeptics and safety
 
-**Nathan Lambert** (668 findings, Interconnects) covers training and open models. He cites estimates that distillation of American closed models closes only 1-2 months of the gap behind Chinese open models, and he asks whether open models should be restricted after a potential misuse incident. **Sebastian Raschka** (127) is more technical, on verbose reasoning models and calibration. **hardmaru** (71) shares research on multi-agent systems and AI co-scientists. These three are best for staying current on the technical side without reading papers. ([Interconnects, 2026-09-21](https://www.interconnects.ai/p/the-current-balance-of-power-in-open)) ([Interconnects, 2026-09-10](https://www.interconnects.ai/p/one-resignation-turned-the-embers)) ([Ahead of AI, 2026-07-18](https://magazine.sebastianraschka.com/p/controlling-reasoning-effort-in-llms)) ([Bluesky, 2026-06-22](https://bsky.app/profile/hardmaru.bsky.social/post/3motv2lwguk22))
+*These voices press on risk, evidence and hype, which helps you test any bold AI claim.*
+
+**922** Findings from Zvi Mowshowitz, mostly on safety and governance
+
+- **Zvi Mowshowitz** (Zvi Mowshowitz): Covers safety, evals and governance in great depth. His stance is concerned but engaged. Follow him for how labs defend against misuse and whether low misalignment scores can be trusted. ([Don't Worry About the Vase, 2026-10-26](https://thezvi.substack.com/p/gemini-4-argon-the-model-and-safety))
+- **Gary Marcus** (Gary Marcus): Longtime critic of LLM hype, focused on safety, limits and business claims. Follow him for the case that guardrails and oversight are weaker than advertised and that narrow AI is safer. ([Marcus on AI, 2026-09-29](https://garymarcus.substack.com/p/hot-take-on-a-weak-white-house-accord)) ([Marcus on AI, 2026-10-31](https://garymarcus.substack.com/p/report-from-the-vatican))
+- **Emily M. Bender** (Emily M. Bender): Linguist who is strongly critical of AI hype and anthropomorphic language. Follow her for challenges to claims that models feel pain or understand, and for ways to pick apart vague 'AI' claims. ([Bluesky, 2026-10-09](https://bsky.app/profile/emilymbender.bsky.social/post/3mxho5xod3s2k)) ([Bluesky, 2026-07-24](https://bsky.app/profile/emilymbender.bsky.social/post/3mrgkfysfb22s))
+- **Sayash Kapoor, Arvind Narayanan** (Sayash Kapoor, Arvind Narayanan): Authors of AI as Normal Technology, focused on evals and policy, with a measured, skeptical lean. Follow them for how to judge agents by full trajectories and for liability debates. ([AI as Normal Technology, 2026-10-19](https://www.normaltech.ai/p/new-paper-emerging-trends-in-ai-agent)) ([AI as Normal Technology, 2026-09-14](https://www.normaltech.ai/p/the-ai-as-normal-technology-view))
+
+## Where they stand
+
+| Person | Skeptic (-2) to enthusiast (+2) | Builder (-2) to commentator (+2) | In one line |
+|---|---|---|---|
+| Simon Willison | 1 | -2 | Hands-on tinkerer who tests agents and models constantly and reports results plainly. |
+| Zvi Mowshowitz | -1 | 2 | Deep safety and governance analyst who doubts easy reassurance from lab evaluations. |
+| Tomasz Tunguz | 1 | 1 | Investor-analyst who uses data on costs and agent workflows to guide business decisions. |
+| Ben Tossell | 2 | -2 | Daily agent user sharing the tools and workflows he relies on. |
+| Ethan Mollick | 1 | 1 | Optimistic academic explaining AI's effects on work and science, while flagging risks. |
+| Nathan Lambert | 1 | 0 | Open-model researcher who tracks training, competition and policy with a supportive but critical eye. |
+| Gary Marcus | -2 | 2 | Persistent critic arguing LLMs are overhyped, lack real understanding and need stronger oversight. |
+| Ed Zitron | -2 | 2 | Financial skeptic questioning AI revenue, compute demand and productivity claims. |
+| Alberto Romero | -1 | 2 | Writer worried about AI content flooding the internet and eroding reader trust. |
+| antirez | 2 | -2 | Programmer-builder who champions AI coding and runs local models himself. |
+| Gergely Orosz | 0 | 1 | Engineering observer weighing real productivity gains against social and craft costs. |
+| Emily M. Bender | -2 | 2 | Linguist rejecting AI hype and anthropomorphic claims about what models are. |
+| swyx | 2 | -1 | Agent-focused enthusiast who builds with agents and warns about wasted effort. |
+| Sebastian Raschka | 1 | -1 | Technical researcher explaining and testing model training and inference methods. |
+| Mike Caulfield | 0 | 0 | Information-literacy expert testing where AI helps learning and where it misleads. |
+| swyx & Alessio Fanelli | 1 | 0 | Podcast duo exploring agents, research and evals with curious, practical optimism. |
+| Anil Dash | 0 | 1 | Tech veteran weighing AI's promise for solo builders against sycophancy and ownership concerns. |
+| Sayash Kapoor, Arvind Narayanan | -1 | 1 | Researchers treating AI as normal technology and pressing for rigorous evaluation and liability. |
+| Hamel Husain | 0 | -1 | Practitioner teaching how to measure AI products with careful, business-aware evals. |
+| hardmaru | 1 | 0 | Researcher sharing agent and co-scientist work, curious about limits of understanding. |
+
+Positions are Sonnet's reading of the evidence, not the people's own labels.
 
 ## Table: who drives the conversation
 
