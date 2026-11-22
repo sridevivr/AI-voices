@@ -20,6 +20,7 @@ import html
 import json
 import math
 import re
+from pathlib import Path
 
 from .config import now_utc
 
@@ -216,6 +217,69 @@ JS = """
   }
   window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
   show();
+})();
+"""
+
+VENDOR = Path(__file__).parent / "vendor"
+
+
+def grid_js() -> str:
+    """Canvas UI's Grid effect, bundled unmodified with its licence notice (see src/vendor/)."""
+    return (VENDOR / "canvas_ui_grid.js").read_text()
+
+
+# Page effects: big numbers decode once on first view; Grid backdrop behind each report header (desktop + mouse only).
+FX_JS = """
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  function decode(b) {
+    var final = b.textContent, el = document.createElement("span"), sr = document.createElement("span");
+    var t0 = performance.now(), dur = 900, idx = [];
+    for (var i = 0; i < final.length; i++) if (/[0-9]/.test(final[i])) idx.push(i);
+    sr.className = "sr"; sr.textContent = final; el.className = "dc on"; el.setAttribute("aria-hidden", "true");
+    b.textContent = ""; b.appendChild(sr); b.appendChild(el);
+    function tick(now) {
+      var k = Math.min(1, (now - t0) / dur), settled = Math.floor(k * (idx.length + 1)), out = final.split("");
+      for (var j = settled; j < idx.length; j++) out[idx[j]] = String(Math.floor(Math.random() * 10));
+      el.textContent = out.join("");
+      if (k < 1) requestAnimationFrame(tick); else { el.textContent = final; el.classList.remove("on"); }
+    }
+    requestAnimationFrame(tick);
+  }
+  if (!reduce.matches && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); decode(e.target); } });
+    }, { threshold: 0.6 });
+    document.querySelectorAll(".bigstat b").forEach(function (b) { if (/[0-9]/.test(b.textContent)) io.observe(b); });
+  }
+
+  var desk = window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)");
+  function accent() {
+    var c = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim(), m = /^#([0-9a-f]{6})$/i.exec(c);
+    if (!m) return [0.05, 0.42, 0.39];
+    var n = parseInt(m[1], 16);
+    return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255];
+  }
+  var grids = [];
+  function grid() {
+    if (!desk.matches || reduce.matches || !window.CanvasUIGrid) return;
+    var view = document.querySelector(".view:not([hidden])"), hero = view && view.querySelector(".hero");
+    if (!hero || hero.dataset.grid) return;
+    hero.dataset.grid = "1";
+    try {
+      var g = window.CanvasUIGrid.createGrid(
+        { source: hero.querySelector(".grid-src"), content: hero.querySelector("header"), output: hero.querySelector(".grid-fx") },
+        { tileSize: 34, liftHeight: 14, perspective: 900, amplitude: 1.6, waveSpeed: 0.45, frequency: 11, fadeTime: 0.8,
+          shading: 0.5, tint: accent(), tintStrength: 0.45, idleRipples: 4, tilt: 0.6 });
+      if (g) grids.push(g);
+    } catch (e) {}
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+    grids.forEach(function (g) { g.setOptions({ tint: accent() }); });
+  });
+  window.addEventListener("hashchange", grid);
+  desk.addEventListener("change", grid);
+  grid();
 })();
 """
 
@@ -636,10 +700,15 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
       <div>Limits: the sources lean toward builders and AI insiders; mainstream business press, non-English sources, video and
       social platforms{" (apart from a curated list of Bluesky accounts)" if "Bluesky" in o["sources"] else ""} are not included;
       paid Substack posts were skipped. Counts measure attention, not how many people experience something.</div>
+      <div>Header animation: the Grid effect from <a href="https://github.com/DavidHDev/canvas-ui" target="_blank" rel="noopener">Canvas UI</a>,
+      Copyright &copy; 2026 David Haz, used under the MIT + Commons Clause licence (use in a website is allowed; the
+      component itself may not be sold or redistributed). Motion and number styling are inspired by Canvas UI.</div>
     </footer>
   </main>
 </div>
 <script>{JS % json.dumps([v[0] for v in views])}</script>
+<script>{grid_js()}</script>
+<script>{FX_JS}</script>
 """
 
 
@@ -755,6 +824,54 @@ svg.bubbles circle.flat { fill: var(--muted); fill-opacity: .45; }
   .sec-head { grid-template-columns: minmax(0, 1fr); }
   .bigstat { text-align: left; }
   .vmap .cell { min-height: 54px; }
+}
+""" + """
+/* Polish, after Canvas UI's tokens: one easing curve, 120-260ms motion, soft layered shadows, three border strengths. */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-press: 120ms; --dur-fast: 150ms; --dur-base: 200ms; --dur-slide: 260ms;
+  --line-subtle: color-mix(in oklab, var(--fg) 7%, transparent);
+  --line-strong: color-mix(in oklab, var(--fg) 20%, transparent);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 4%), 0 10px 28px -14px rgb(0 0 0 / 12%);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 5%), 0 14px 36px -12px rgb(0 0 0 / 18%);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 35%), 0 10px 28px -14px rgb(0 0 0 / 70%);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 40%), 0 14px 36px -12px rgb(0 0 0 / 80%); } }
+:root[data-theme="dark"] {
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 35%), 0 10px 28px -14px rgb(0 0 0 / 70%);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 40%), 0 14px 36px -12px rgb(0 0 0 / 80%); }
+.card, .chart, .debate, .debate2, .step, details.more { box-shadow: var(--shadow-card); }
+.card, .debate2 { transition: box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out),
+  transform var(--dur-base) var(--ease-out); }
+@media (hover: hover) {
+  .card:hover { box-shadow: var(--shadow-lift); border-color: var(--line-strong); transform: translateY(-1px); }
+  .kp .card:hover, .kp2 .card:hover { border-top-color: var(--accent); }
+}
+.nav a { transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+  transform var(--dur-press) var(--ease-out); }
+.nav a:active { transform: scale(0.98); }
+.cite, details.src summary, details.more > summary { transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.year-col, th, td, .heat-grid .hd { border-color: var(--line-subtle); }
+.facts, footer.f, .sec-head { border-color: var(--line-subtle); }
+.view:not([hidden]) { animation-duration: var(--dur-slide); animation-timing-function: var(--ease-out); }
+
+/* Big numbers "decode" once when they first scroll into view (skipped with reduced motion). */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.bigstat b span { font: inherit; color: inherit; line-height: inherit; }
+.bigstat b .dc { transition: color var(--dur-slide) var(--ease-out); }
+.bigstat b .dc.on { color: var(--muted); }
+
+/* Header backdrop: Canvas UI's Grid effect (desktop with a mouse only). */
+.hero { position: relative; isolation: isolate; }
+.hero .grid-src { display: none; }
+.hero .grid-fx { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --grid-alpha: .4; } }
+:root[data-theme="dark"] { --grid-alpha: .4; }
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero { margin: -40px -16px 0 -32px; padding: 40px 16px 28px 32px; }
+  .hero .grid-fx { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: var(--grid-alpha, .32);
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent); mask-image: linear-gradient(to bottom, #000 55%, transparent); }
 }
 """
 
@@ -941,9 +1058,10 @@ def voices_map(positions) -> str:
 
 def header_v2(eyebrow, reply, p) -> str:
     o = p["overview"]
-    return (f"<header><div class='eyebrow'>{esc(eyebrow)}</div><h2>{inline(reply['title'])}</h2>"
+    return (f"<div class='hero'><canvas class='grid-src'></canvas><canvas class='grid-fx' aria-hidden='true'></canvas>"
+            f"<header><div class='eyebrow'>{esc(eyebrow)}</div><h2>{inline(reply['title'])}</h2>"
             f"<p class='dek'>{inline(reply['dek'])}</p><div class='meta'>{esc(o['window'])} · {o['findings']:,} findings · "
-            f"{len(o['sources'])} sources</div></header>")
+            f"{len(o['sources'])} sources</div></header></div>")
 
 
 def state_v2(reply, ctx) -> str:

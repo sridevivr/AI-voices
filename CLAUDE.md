@@ -116,3 +116,10 @@ pipeline runs as a daily digest. Keep fetch / extract / synthesize as separate s
 
 The cloud environment "ai-voices" allows exactly the source hosts + hn.algolia.com.
 Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`).
+17. 2026-11-22: design polish borrowed from Canvas UI (github.com/DavidHDev/canvas-ui, MIT + Commons Clause): motion
+   tokens (one ease-out curve, 120-260ms), layered card shadows + hover lift, three border strengths; big section numbers
+   "decode" once on first view (own code, off with reduced motion, real value kept for screen readers); Canvas UI's Grid
+   effect bundled UNMODIFIED in `src/vendor/canvas_ui_grid.js` (licence banner + `CANVAS_UI_LICENSE.md`; rebuild with
+   esbuild from the cloned repo) as a faint ripple behind each report header, desktop with a mouse only, canvas opacity
+   .32/.4. Credit line in the page footer. Do not sell/redistribute the component itself. Preview (separate, private):
+   https://claude.ai/artifact/GPSeTQjMoMVX7NYb16dUm2 ; the main artifact is still v4 until the owner approves.
