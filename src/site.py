@@ -674,6 +674,7 @@ def build_site(p: dict, replies: dict, rows_by_fid: dict, from_insights, ideas: 
     views = [v for v in VIEWS if v[2] in replies]
     nav = "".join(f"<a href='#{h}'><span>{icon(TAB_ICONS.get(h, 'chart'))}{esc(label)}</span><span class='n'>{n:02d}</span></a>"
                   for n, (h, label, _) in enumerate(views, 1))
+    PAGE_QUOTES[0] = QuotePicker()
     body = ""
     for h, label, name in views:
         reply = replies[name]
@@ -861,6 +862,26 @@ svg.bubbles circle.flat { fill: var(--muted); fill-opacity: .45; }
 .facts, footer.f, .sec-head { border-color: var(--line-subtle); }
 .view:not([hidden]) { animation-duration: var(--dur-slide); animation-timing-function: var(--ease-out); }
 
+/* Intro, audience tag, post idea */
+.intro { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 12px;
+  padding: 18px 20px; display: grid; gap: 10px; box-shadow: var(--shadow-card); max-width: 80ch; }
+.intro h3 { margin: 0; font: 650 19px/1.3 var(--display); }
+.intro .lead { margin: 0; font-size: 16.5px; }
+.intro ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; color: var(--muted); }
+.intro ul b { color: var(--fg); }
+.intro .start { margin: 0; font-weight: 500; }
+.aud { display: inline-block; font: 600 10.5px/1 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--side);
+  background: var(--side-soft); border-radius: 999px; padding: 4px 8px; margin-left: 4px; vertical-align: middle; white-space: nowrap; }
+details.postidea { font-size: 15px; }
+details.postidea > summary { cursor: pointer; list-style: none; display: inline-flex; gap: 6px; align-items: center;
+  font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--accent); padding: 6px 0; }
+details.postidea > summary::-webkit-details-marker { display: none; }
+details.postidea > summary::before { content: "+"; font-size: 14px; }
+details.postidea[open] > summary::before { content: "−"; }
+details.postidea > p { margin: 4px 0 0; border-left: 3px solid var(--accent); background: var(--bg); border-radius: 0 10px 10px 0; padding: 10px 14px; }
+.mini .top span:first-child { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 900px) { .nav a { padding: 8px 10px; font-size: 14.5px; } .nav .ic { display: none; } }
+
 /* Foldable sections and debates */
 details.fold > summary { list-style: none; cursor: pointer; border-radius: 10px; }
 details.fold > summary::-webkit-details-marker { display: none; }
@@ -938,6 +959,42 @@ def kp_v2(reply, ctx) -> str:
     return f"<section class='s' aria-label='Key points'><div class='kp2'>{cards}</div></section>"
 
 
+PAGE_QUOTES = [None]  # one QuotePicker per page build, shared by all tabs
+
+
+def nice_window(w: str) -> str:
+    """'2025-11-11 to 2026-11-14' -> '11 Nov 2025 to 14 Nov 2026'."""
+    def d(x):
+        y, m, dd = x.split("-")
+        return f"{int(dd)} {MONTHS[int(m) - 1]} {y}"
+    parts = re.findall(r"\d{4}-\d{2}-\d{2}", w)
+    return " to ".join(d(x) for x in parts) if len(parts) == 2 else esc(w)
+
+
+def intro(p) -> str:
+    """What the page is, how it was made, how to read it. Facts come from the pack."""
+    o = p["overview"]
+    return (
+        "<section class='intro' aria-label='About this page'><h3>What this page is</h3>"
+        f"<p class='lead'>A year of public AI commentary ({nice_window(o['window'])}) boiled down into four short reports. "
+        f"It draws on {o['items']:,} articles, newsletter issues, forum threads and posts from {len(o['sources'])} sources, "
+        f"broken into {o['findings']:,} <i>findings</i>: single points someone made, such as a complaint, a tool tip or one "
+        "side of an argument.</p><ul>"
+        "<li><b>How it was made.</b> AI models (Claude) pulled out the findings, grouped them into themes and wrote these "
+        "summaries. Every count and chart is computed by code, every quote is real, and every card links to its sources.</li>"
+        "<li><b>Where it comes from.</b> Tech newsletters and blogs, the Hacker News forum and selected Bluesky accounts. "
+        "They lean toward developers and AI insiders, so this shows what that crowd talked about, not what everyone thinks.</li>"
+        "<li><b>Reading the numbers.</b> <b>x2.4</b> means a topic took up 2.4 times as big a share of the conversation in "
+        "Jul to Oct 2026 as in Dec 2025 to Mar 2026 (a small cushion stops topics that start near zero from showing absurd "
+        "jumps). <b>Rising</b> or <b>falling</b> means most of the six biggest sources agree, not just one.</li>"
+        "<li><b>Two kinds of reader.</b> Sections marked <span class='aud'>For builders</span> are for people who build "
+        "with AI coding tools; they start folded. <b>Post idea</b> toggles hold a one-line take you could post on "
+        "LinkedIn or X.</li></ul>"
+        "<p class='start'>New to this? Start with <a href='#debates'>Debates</a>, then <i>What this means for you</i> below, "
+        "then the first sections of <a href='#tools'>Tools</a>.</p></section>")
+
+
+AUD = "<span class='aud'>For builders</span>"
 CHEV = ('<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" '
         'stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>')
 
@@ -948,10 +1005,13 @@ def foldable(head_html: str, body_html: str, open_: bool = True) -> str:
             f"<div class='fold-body'>{body_html}</div></details></section>")
 
 
-def sec_head(s) -> str:
+BUILDER = re.compile(r"\bbuilders?\b|building with|coding|builds work|developer", re.I)
+
+
+def sec_head(s, builder=False) -> str:
     stat = (f"<div class='bigstat'><b>{esc(s['stat_value'])}</b><span>{esc(s['stat_label'])}</span></div>"
             if s.get("stat_value") else "")
-    return (f"<div class='sec-head'><div class='sec-title'><h3>{icon(icon_for(s['heading']))}{inline(s['heading'])}{CHEV}</h3>"
+    return (f"<div class='sec-head'><div class='sec-title'><h3>{icon(icon_for(s['heading']))}{inline(s['heading'])}{AUD if builder else ''}{CHEV}</h3>"
             f"<p class='takeaway'>{inline(s['takeaway'])}</p></div>{stat}</div>")
 
 
@@ -961,8 +1021,9 @@ def card_v2(c, ctx, with_icon=True) -> str:
             f"<p>{inline(c['text'])}</p>{ctx.src(c['evidence_ids'])}</div>")
 
 
-def section_v2(s, ctx, quotes, fold=False) -> str:
+def section_v2(s, ctx, quotes, fold=False, auto=True) -> str:
     cards = s["cards"]
+    builder = s.get("audience") == "builders" if s.get("audience") else bool(BUILDER.search(s["heading"]))
     numbered = cards and all(re.match(r"^\d+\.", c["label"]) for c in cards)
     if numbered:
         body = "<div class='steps'>" + "".join(
@@ -971,10 +1032,10 @@ def section_v2(s, ctx, quotes, fold=False) -> str:
             f"{ctx.src(c['evidence_ids'])}</div></div>" for c in cards) + "</div>"
     else:
         body = f"<div class='cards'>{''.join(card_v2(c, ctx) for c in cards)}</div>"
-    post = (f"<div class='post'><span class='kicker'>Post angle</span><p>{inline(s['post_angle'])}</p></div>"
+    post = (f"<details class='postidea'><summary title='A one-line take you could post on LinkedIn or X'>Post idea</summary><p>{inline(s['post_angle'])}</p></details>"
             if s.get("post_angle") else "")
     q = quotes.pick([i for c in cards for i in c["evidence_ids"]], ctx)
-    return foldable(sec_head(s), f"{body}{q}{post}", open_=not fold)
+    return foldable(sec_head(s, builder), f"{body}{q}{post}", open_=not (fold or (builder and auto)))
 
 
 def year_strip(moments, p, ctx) -> str:
@@ -1012,8 +1073,9 @@ def heatmap(p) -> str:
                         f"<i style='opacity:{0.06 + 0.94 * (v - lo) / span:.2f}'></i></span>" for m, v in zip(months, vals))
         rows += f"<span>{esc(d['key'])}</span>{cells}<span class='pill {d['verdict']}'>{d['verdict']}</span>"
     return (f"<div class='chart'><h4>{icon('chart')} Where attention went, month by month</h4><p class='note'>Each row is a "
-            "topic area; darker = a bigger share of that month's findings, from the row's own lowest month (pale) to its highest (dark). Sorted from "
-            f"fastest-growing to fastest-shrinking.</p><div class='heat'><div class='heat-grid' style='--cols:{len(months)}'>"
+            "topic area; darker = a bigger share of that month's findings, from the row's own lowest month (pale) to its highest (dark). Sorted by overall change; the label says "
+            "whether most big sources agreed. These are broad topic groups, so a group can stay flat while one keyword "
+            f"inside it (such as 'open weights') rises.</p><div class='heat'><div class='heat-grid' style='--cols:{len(months)}'>"
             f"{head}{rows}</div></div></div>")
 
 
@@ -1098,26 +1160,22 @@ def header_v2(eyebrow, reply, p) -> str:
 
 
 def state_v2(reply, ctx) -> str:
-    p, q = ctx.p, QuotePicker()
-    out = [header_v2("State of AI", reply, p), kp_v2(reply, ctx), year_strip(reply.get("moments"), p, ctx)]
+    p, q = ctx.p, PAGE_QUOTES[0]
+    out = [header_v2("State of AI", reply, p), intro(p), kp_v2(reply, ctx), year_strip(reply.get("moments"), p, ctx)]
     secs, i = reply["sections"], 0
     while i < len(secs):
         s, h = secs[i], secs[i]["heading"].lower()
         if "struggl" in h and i + 1 < len(secs) and "struggl" in secs[i + 1]["heading"].lower():
-            out.append(f"<div class='split'><div>{section_v2(s, ctx, q)}</div><div>{section_v2(secs[i + 1], ctx, q)}</div></div>")
+            out.append(f"<div class='split'><div>{section_v2(s, ctx, q, auto=False)}</div><div>{section_v2(secs[i + 1], ctx, q, auto=False)}</div></div>")
             i += 2
             continue
         out.append(section_v2(s, ctx, q, fold=bool(FOLD.search(h))))
-        if "changed" in h:
-            out.append(change_chart(p))
-        if "used" in h or "tool" in h:
-            out.append(tool_chart(p, 10))
         i += 1
     return "".join(out)
 
 
 def debates_v2(reply, ctx) -> str:
-    p, q = ctx.p, QuotePicker()
+    p, q = ctx.p, PAGE_QUOTES[0]
     out = [header_v2("Debates", reply, p), kp_v2(reply, ctx), debate_chart(p)]
     for n, s in enumerate(reply["sections"], 1):
         cards = s["cards"]
@@ -1138,15 +1196,14 @@ def debates_v2(reply, ctx) -> str:
                 for c in rest) + "</div>"
         html_ += q.pick([i for c in cards for i in c["evidence_ids"]], ctx)
         if s.get("post_angle"):
-            html_ += f"<div class='post'><span class='kicker'>Post angle</span><p>{inline(s['post_angle'])}</p></div>"
+            html_ += f"<details class='postidea'><summary title='A one-line take you could post on LinkedIn or X'>Post idea</summary><p>{inline(s['post_angle'])}</p></details>"
         out.append(html_ + "</div></details>")
     return "".join(out)
 
 
 def trends_v2(reply, ctx) -> str:
-    p, q, tr = ctx.p, QuotePicker(), ctx.p["trends"]
-    out = [header_v2("Trends", reply, p), kp_v2(reply, ctx), change_chart(p, 16), heatmap(p), bubble_chart(p),
-           year_strip(reply.get("moments"), p, ctx)]
+    p, q, tr = ctx.p, PAGE_QUOTES[0], ctx.p["trends"]
+    out = [header_v2("Trends", reply, p), kp_v2(reply, ctx), change_chart(p, 16), heatmap(p), bubble_chart(p)]
     out += [section_v2(s, ctx, q, fold=bool(FOLD.search(s["heading"]))) for s in reply["sections"]]
     out.append(multiples(p))
     out.append("<details class='more'><summary>All the trend data</summary>"
@@ -1159,7 +1216,7 @@ def trends_v2(reply, ctx) -> str:
 
 
 def tools_v2(reply, ctx) -> str:
-    q = QuotePicker()
+    q = PAGE_QUOTES[0]
     out = [header_v2("Tools", reply, ctx.p), kp_v2(reply, ctx), tool_chart(ctx.p)]
     out += [section_v2(s, ctx, q, fold=bool(FOLD.search(s["heading"]))) for s in reply["sections"]]
     return "".join(out)

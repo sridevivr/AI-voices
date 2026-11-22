@@ -40,7 +40,7 @@
 
 *The big fights were about coding's value, AGI paths, a bubble, open weights and government control.*
 
-**92** findings in the AI coding value debate
+**92** findings on the AI coding debate, 76 of them arguments
 
 - **Is agentic coding worth it?** (Benj Edwards, Jeremy Scheff, stavros): One side reports large speedups. The other says agents fail on large codebases without constant supervision. Others ask whether developers stay essential or feel a real loss as agents take over problem-solving. ([Hacker News — Ask HN, 2026-01-20](https://news.ycombinator.com/item?id=46691243)) ([Bluesky, 2026-01-19](https://bsky.app/profile/benjedwards.com/post/3mcrswsei2k2j)) ([Simon Willison's Weblog, 2026-10-19](https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/))
 - **Does scaling reach AGI?** (Gary Marcus, hardmaru): Skeptics say scaling alone is not enough and want world models or neurosymbolic AI. Others argue current models already have real utility. ([Marcus on AI, 2026-03-14](https://garymarcus.substack.com/p/breaking-expensive-new-evidence-that)) ([Bluesky, 2026-09-12](https://bsky.app/profile/hardmaru.bsky.social/post/3mvdg3pillk22)) ([AINews (smol.ai), 2026-01-08](https://news.smol.ai/issues/26-01-08-not-much/))

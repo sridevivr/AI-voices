@@ -125,3 +125,12 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    https://claude.ai/artifact/GPSeTQjMoMVX7NYb16dUm2 ; the main artifact is still v4 until the owner approves.
    Same day: every v2 section is a `details.fold` (heading row = summary with chevron; starts open), every debate
    folds to its question (only debate 1 starts open), "Expand all / Collapse all" buttons in each report header.
+18. 2026-11-22: Voices tab off the page (voices.md still written). Cold-read review by a no-context agent as "Maya"
+   (non-technical ops manager): 4/10 for her, 7/10 technical; no intro, unexplained "per 1k"/"x1.72"/names, mixed
+   audience, too long. Free fixes: intro box at the top of State of AI (what/how made/sources/how to read numbers/two
+   readers/start here); "For builders" tag + folded by default (writer field `audience`, else heading regex); post angle
+   -> folded "Post idea"; one QuotePicker per page (no repeated quotes); change chart only in Trends, tool chart only in
+   Tools, year strip only in State; heat-map note explains groups vs keywords; State "92" label now says 76 are arguments.
+   WRITER now targets both audiences (REPORT_READER) with rules 6-8: plain-language numbers (no "per 1k"/"x1.72" in text),
+   explain names from the input, forum users by role. Needs `write --yes` on the Mac (~$0.54 for the 4 reports on the page;
+   `--only state_of_ai` ~$0.16 as a preview).
