@@ -171,3 +171,9 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    6-8 per run: consider Opus for future report writes (2x price, ~$0.35 per report).
 24. 2026-11-23: owner said "publish it": main artifact https://claude.ai/artifact/LcSyqw1ZZwQFEwWcT7uuuq is now v5 (all of
    items 17-23). The separate preview artifact was deleted; republish `data/out/insights/site/index.html` to the main URL.
+25. 2026-11-23: GitHub Pages version. `insights site` now also writes `docs/index.html` (`site.standalone`: full document,
+   Open Graph/Twitter preview tags, inline SVG icon, the `[hidden]` rule the artifact wrapper used to supply),
+   `docs/.nojekyll` and `docs/og.html` (`site.og_card`); `node scripts/og_image.js` screenshots it to `docs/og.png`
+   (1200x630 preview image; re-run only when the State of AI headlines change). URL: https://sridevivr.github.io/AI-voices/
+   (`site.PAGES_URL`). Owner enables it: Settings -> Pages -> Deploy from a branch -> claude/tender-euler-8h2rjb, /docs.
+   Repo checked 2026-11-23: no API key or other secret in any commit; .env never tracked (.gitignore has .env, .env.*).

@@ -813,8 +813,16 @@ def site():
     out.parent.mkdir(parents=True, exist_ok=True)
     ideas_path = INS_DIR / "app_ideas.json"
     ideas = json.loads(ideas_path.read_text()) if ideas_path.exists() else None
-    out.write_text(site_mod.build_site(p, replies, {r["fid"]: r for r in rows}, _sys.modules[__name__], ideas))
+    html = site_mod.build_site(p, replies, {r["fid"]: r for r in rows}, _sys.modules[__name__], ideas)
+    out.write_text(html)
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
+    # Public copy for GitHub Pages (Settings -> Pages -> deploy from this branch, folder /docs)
+    docs = INS_DIR.parent.parent.parent / "docs"
+    docs.mkdir(exist_ok=True)
+    (docs / "index.html").write_text(site_mod.standalone(html, p))
+    (docs / ".nojekyll").write_text("")
+    (docs / "og.html").write_text(site_mod.og_card(p, replies))
+    print(f"wrote {docs / 'index.html'} (GitHub Pages); preview image: node scripts/og_image.js")
 
 
 # ------------------------------------------------------------------ hand-written notes

@@ -1344,3 +1344,54 @@ def voices_v2(reply, ctx) -> str:
 
 
 RENDERERS_V2 = {"state_of_ai": state_v2, "debates": debates_v2, "trends": trends_v2, "tools_guide": tools_v2, "voices": voices_v2}
+
+
+# ================================================================== standalone page (GitHub Pages)
+PAGES_URL = "https://sridevivr.github.io/AI-voices/"
+FAVICON = ("data:image/svg+xml," + "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' "
+           "rx='7' fill='%230e6b63'/%3E%3Cpath d='M8 24V15M14 24V8M20 24v-7M26 24V12' stroke='white' stroke-width='3' "
+           "stroke-linecap='round'/%3E%3C/svg%3E")
+
+
+def standalone(body: str, p: dict) -> str:
+    """The page as a complete document for GitHub Pages: head, link-preview (Open Graph) tags, icon, and the few
+    base styles the Claude artifact wrapper otherwise supplies."""
+    o = p["overview"]
+    desc = (f"What a year of AI commentary says ({nice_window(o['window'])}): {o['findings']:,} points from "
+            f"{len(o['sources'])} newsletters, blogs, Hacker News and Bluesky, in four short reports with linked sources.")
+    title = "AI Voices 2026: a year of AI commentary"
+    head = (
+        "<!doctype html>\n<html lang='en'><head><meta charset='utf-8'>"
+        "<meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'>"
+        f"<link rel='icon' href=\"{FAVICON}\"><meta name='theme-color' content='#0e6b63'>"
+        f"<meta property='og:type' content='website'><meta property='og:title' content='{esc(title)}'>"
+        f"<meta property='og:description' content='{esc(desc)}'><meta property='og:url' content='{PAGES_URL}'>"
+        f"<meta property='og:image' content='{PAGES_URL}og.png'><meta property='og:image:width' content='1200'>"
+        "<meta property='og:image:height' content='630'><meta name='twitter:card' content='summary_large_image'>"
+        f"<meta name='twitter:title' content='{esc(title)}'><meta name='twitter:description' content='{esc(desc)}'>"
+        f"<meta name='twitter:image' content='{PAGES_URL}og.png'>"
+        "<style>body{margin:0}[hidden]:not([hidden=until-found i]){display:none!important}img{max-width:100%}</style>"
+        "</head><body>\n")
+    body = body.replace("<title>AI Voices 2026</title>", f"<title>{esc(title)}</title>", 1)
+    body = body.replace('<meta name="description" content="', f'<meta name="description" content="{esc(desc)} ', 1)
+    return head + body + "\n</body></html>\n"
+
+
+def og_card(p: dict, replies: dict) -> str:
+    """A 1200x630 preview card (screenshotted to og.png by scripts/og_image.js)."""
+    o = p["overview"]
+    kps = [k["headline"] for k in (replies.get("state_of_ai") or {}).get("key_points", [])][:3]
+    items = "".join(f"<li>{esc(h)}</li>" for h in kps)
+    return ("<!doctype html><html><head><meta charset='utf-8'><link rel='stylesheet' href='https://fonts.googleapis.com/css2?"
+            "family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@600&display=swap'>"
+            "<style>html,body{margin:0}body{width:1200px;height:630px;box-sizing:border-box;padding:64px 72px;background:#0e1215;"
+            "color:#e6eaee;font-family:Inter,sans-serif;display:grid;align-content:space-between;"
+            "background-image:linear-gradient(rgba(82,195,181,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(82,195,181,.07) 1px,transparent 1px);"
+            "background-size:48px 48px}.k{font:600 22px 'JetBrains Mono',monospace;color:#52c3b5;letter-spacing:.08em;text-transform:uppercase}"
+            "h1{font:700 76px/1.02 'Bricolage Grotesque',sans-serif;margin:18px 0 0;letter-spacing:-.02em}"
+            "ul{margin:0;padding:0;list-style:none;display:grid;gap:12px;font-size:27px;color:#c9d1d9}"
+            "li:before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;background:#52c3b5;margin:0 16px 4px 0}"
+            ".f{font:600 21px 'JetBrains Mono',monospace;color:#98a3af}</style></head><body>"
+            f"<div><div class='k'>AI Voices 2026</div><h1>What a year of AI<br>commentary says</h1></div><ul>{items}</ul>"
+            f"<div class='f'>{o['findings']:,} findings · {len(o['sources'])} sources · {esc(nice_window(o['window']))}</div>"
+            "</body></html>")
