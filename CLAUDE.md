@@ -169,3 +169,5 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    Only hand fix: X handles in chips ("@OpenAIDevs" -> "OpenAI Developers", "@Vtrivedy10" removed). 12 validator
    notes were "a Hacker News commenter" chips dropped (expected; text keeps the role). Opus needed ~1 fix vs Sonnet's
    6-8 per run: consider Opus for future report writes (2x price, ~$0.35 per report).
+24. 2026-11-23: owner said "publish it": main artifact https://claude.ai/artifact/LcSyqw1ZZwQFEwWcT7uuuq is now v5 (all of
+   items 17-23). The separate preview artifact was deleted; republish `data/out/insights/site/index.html` to the main URL.
