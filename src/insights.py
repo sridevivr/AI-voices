@@ -652,6 +652,11 @@ def validate(reply: dict, prompt: str, p: dict) -> list[str]:
             notes.append(f"long {kind} ({wc(t)} words > {LIMITS[kind]}): {where[:50]}")
 
     over("dek", reply["dek"], "dek")
+    # A slip Sonnet made in three runs: the trend test uses the SIX biggest sources.
+    alltext = " ".join([reply["dek"]] + [k["headline"] + " " + k["detail"] for k in reply["key_points"]]
+                       + [c["text"] for s in reply["sections"] for c in s["cards"]])
+    for m in re.finditer(r"\b(all|every|each of the) (five |six )?(big|biggest) sources?\b|\ball five (big|biggest|of the)", alltext, re.I):
+        notes.append(f"check source count wording: '{m.group(0)}' (the test uses six; say how many agreed)")
     for k in reply["key_points"]:
         over("headline", k["headline"], k["headline"])
         over("detail", k["detail"], k["headline"])

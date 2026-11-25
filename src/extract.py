@@ -411,8 +411,17 @@ def pilot_units(n: int = 20) -> list[dict]:
     return pick
 
 
-def export_csv():
+def export_csv(force: bool = False):
     rows = [json.loads(l) for l in FINDINGS.open()] if FINDINGS.exists() else []
+    csv_path = OUT_DIR / "findings.csv"
+    if csv_path.exists() and not force:  # monthly runs append findings this machine's batch files don't have
+        with csv_path.open(newline="") as f:
+            have = {r["item_id"] for r in csv.DictReader(f)}
+        lost = have - {r["item_id"] for r in rows}
+        if lost:
+            sys.exit(f"Refusing to overwrite findings.csv: it has findings from {len(lost)} posts that are not in "
+                     f"this machine's data/batches (added by monthly runs). Rewriting would drop them and renumber "
+                     f"every citation. Use `python -m src.monthly` instead, or pass --force if you really mean it.")
     cols = ["type", "summary", "short_quote", "quote_verified", "who", "source", "voice", "date",
             "url", "domain", "title", "item_id", "chunk"]
     with (OUT_DIR / "findings.csv").open("w", newline="") as f:
@@ -427,6 +436,7 @@ def main():
     ap.add_argument("cmd", choices=["estimate", "pilot", "submit", "collect", "export"])
     ap.add_argument("--yes", action="store_true", help="confirm a batch over $2")
     ap.add_argument("--est", type=float, help="estimated $ for this batch (from estimate)")
+    ap.add_argument("--force", action="store_true", help="export: overwrite findings.csv even if it would drop rows")
     a = ap.parse_args()
     if a.cmd == "estimate":
         estimate()
@@ -458,7 +468,7 @@ def main():
     elif a.cmd == "collect":
         collect()
     elif a.cmd == "export":
-        export_csv()
+        export_csv(force=a.force)
 
 
 if __name__ == "__main__":

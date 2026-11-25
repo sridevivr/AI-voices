@@ -177,3 +177,14 @@ Use `.venv/bin/python` (create with `python3 -m venv .venv && .venv/bin/pip inst
    (1200x630 preview image; re-run only when the State of AI headlines change). URL: https://sridevivr.github.io/AI-voices/
    (`site.PAGES_URL`). Owner enables it: Settings -> Pages -> Deploy from a branch -> claude/tender-euler-8h2rjb, /docs.
    Repo checked 2026-11-23: no API key or other secret in any commit; .env never tracked (.gitignore has .env, .env.*).
+26. 2026-11-25: MONTHLY refresh (owner chose monthly; defaults: rolling 12 months, Opus reports, pull request to
+   review, $40 cap kept). `src/monthly.py` (dry run without --yes): fetch last 40 days -> posts whose id is not in
+   findings.csv -> Haiku batch -> new findings APPENDED to findings.csv (fids stable) -> Haiku sorts them into existing
+   themes of their own domain (themes.json finding_ids extended) -> build(since=today-365) -> write 5 page reports
+   with Opus -> render -> site (+docs/) -> data/out/monthly_log.md (PR body; includes validator notes). Guards:
+   MONTHLY_MAX $4 per run, BUDGET_TOTAL. `.github/workflows/monthly.yml`: 07:23 UTC on the 2nd; manual run defaults to
+   a free dry run; opens PR "monthly-refresh" (peter-evans/create-pull-request) with data/out + docs. Owner setup:
+   secret ANTHROPIC_API_KEY; Actions -> Workflow permissions read+write + allow creating PRs.
+   `extract export` now refuses to overwrite findings.csv if it would drop rows added by monthly runs (--force to
+   override). `validate()` flags "all five / every big source" wording. Hand fixes in replies.json do NOT survive a
+   monthly rewrite: check the PR's checker notes.

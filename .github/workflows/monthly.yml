@@ -1,0 +1,72 @@
+# Monthly refresh of the AI Voices page (see src/monthly.py).
+# Runs on GitHub's machines on the 2nd of each month, then opens a pull request with the refreshed page.
+# Nothing goes live until the owner merges that pull request (GitHub Pages serves /docs from this branch).
+#
+# One-time setup by the owner (repo Settings):
+#   1. Secrets and variables -> Actions -> New repository secret: ANTHROPIC_API_KEY
+#   2. Actions -> General -> Workflow permissions: "Read and write permissions" and
+#      "Allow GitHub Actions to create and approve pull requests"
+name: Monthly refresh
+
+on:
+  schedule:
+    - cron: "23 7 2 * *"   # 07:23 UTC on the 2nd of every month
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Free dry run (fetch and estimate only, no paid steps, no pull request)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: monthly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Refresh (fetch, extract, themes, reports, page)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            python -m src.monthly
+          else
+            python -m src.monthly --yes
+          fi
+
+      - name: Link-preview image
+        if: ${{ github.event_name == 'schedule' || inputs.dry_run == false }}
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+          node scripts/og_image.js
+
+      - name: Open a pull request with the refreshed page
+        if: ${{ github.event_name == 'schedule' || inputs.dry_run == false }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: monthly-refresh
+          delete-branch: true
+          commit-message: "Monthly refresh"
+          title: "Monthly refresh of the AI Voices page"
+          body-path: data/out/monthly_log.md
+          add-paths: |
+            data/out
+            docs
